@@ -6,7 +6,8 @@ x86_64, and to be honest; I haven't tested it yet so it might just... Not work.
 Requirements
 ------------
 * `Docker`_
-* `Qemu`_
+* `Make`_
+* `QEMU`_
 
 Installaton
 -----------
@@ -25,4 +26,5 @@ So yeah, contributions are of course *very* welcome, and remember; this is *very
 don't judge my code *too* hard. But most importantly: Enjoy!
 
 .. _`Docker`: https://www.docker.com
-.. _`Qemu`: https://www.qemu.org
+.. _`Make`: https://www.gnu.org/software/make
+.. _`QEMU`: https://www.qemu.org
