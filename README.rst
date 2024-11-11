@@ -9,8 +9,8 @@ Requirements
 * `Make`_
 * `QEMU`_
 
-Installaton
------------
+Installation
+------------
 To be honest, I don't really know how to build on any other operating system except linux, and
 even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, here are the
 *linux* installation instructions:
