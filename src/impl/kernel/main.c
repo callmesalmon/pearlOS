@@ -1,5 +1,7 @@
 #include "../../intf/print.h"
 
+#define VERSION "v1.0.0"
+
 void __main() {
     printClear();
     printSetColor(PRINT_COLOR_YELLOW, PRINT_COLOR_BLACK);
@@ -12,8 +14,10 @@ void __main() {
     "| $$  | $$ /$$  \\ $$| $$_  $$ \n"
     "|  $$$$$$/|  $$$$$$/| $$ \\  $$\n"
     "\\______/  \\______/ |__/  \\__/ \n"
-    "\n"
-    "Hello World! Welcome to the small OSk\n"
-    "kernel! It... Works? Yeah! So enjoy!\n"
+    VERSION "\n\n"
+    "Hello World! You are currently running the\n"
+    "\"OSk\" kernel, an open-source kernel made\n"
+    "and currently maintained by Elis Staaf.\n"
+    "Thank you for using the OSk!!!"
     );
 }
