@@ -1,5 +1,5 @@
 global long_mode_start
-extern Main
+extern __main
 
 section .text
 bits 64
@@ -12,5 +12,5 @@ long_mode_start:
     mov fs, ax
     mov gs, ax
 
-    call Main
+    call __main
     hlt
