@@ -1,3 +1,6 @@
+#ifndef _PRINT
+#define _PRINT
+
 #pragma once
 
 #include <stdint.h>
@@ -26,3 +29,5 @@ void printClear();
 void printChar(char character);
 void printStr(char* string);
 void printSetColor(uint8_t foreground, uint8_t background);
+
+#endif /* _PRINT */
