@@ -1,4 +1,6 @@
 global long_mode_start
+
+; get __main 
 extern __main
 
 section .text
@@ -12,5 +14,6 @@ long_mode_start:
     mov fs, ax
     mov gs, ax
 
+    ; call __main
     call __main
     hlt
