@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# OSk Targets
+targets/x86_64/iso/boot/*.bin
