@@ -21,5 +21,8 @@ even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, he
    make build-x86_64
    qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso
 
+So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
+don't judge my code *too* hard. But most importantly: Enjoy!
+
 .. _`Docker`: https://www.docker.com
 .. _`Qemu`: https://www.qemu.org
