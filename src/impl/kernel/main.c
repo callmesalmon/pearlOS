@@ -1,6 +1,6 @@
 #include "../../intf/print.h"
 
-void kernel_main() {
+void Main() {
     printClear();
     printSetColor(PRINT_COLOR_YELLOW, PRINT_COLOR_BLACK);
     printStr(
