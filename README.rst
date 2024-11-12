@@ -17,9 +17,14 @@ even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, he
 
 .. code:: sh
 
+   # Build env
    docker build buildenv -t osk
    docker run --rm -it -v "$(pwd)":/root/env osk
+
+   # Build the x86_64 build
    make build-x86_64
+
+   # Run QEMU with build
    qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso
 
 So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
