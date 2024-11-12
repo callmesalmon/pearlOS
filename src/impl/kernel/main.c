@@ -2,6 +2,10 @@
 
 #define VERSION "1.0.0"
 
+#define __OSK__
+#define __OSK
+#define _OSK64
+
 void __main() {
     printClear();
     printSetColor(PRINT_COLOR_YELLOW, PRINT_COLOR_BLACK);
