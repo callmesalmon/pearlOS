@@ -1,3 +1,10 @@
+/* **OSk: Operating System kernel**
+ * Main file for OSk. Or, well, this
+ * files "__main()" function is called
+ * at startup by ../x86_64/boot/main.asm,
+ * So this runs on startup! Good to know.
+ */
+
 #include "../../intf/print.h"
 
 #define VERSION "1.0.0"

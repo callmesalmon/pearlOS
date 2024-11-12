@@ -1,3 +1,11 @@
+/* **RULES FOR PRINTING**
+ * This file contains the definitions/prototypes
+ * of printing to the screen in OSk, remade completely
+ * from scratch, infact, there are no printf(...)
+ * statements in this entire kernel! Check ./print.c
+ * for the full definitions.
+ */
+
 #ifndef _PRINT
 #define _PRINT
 
