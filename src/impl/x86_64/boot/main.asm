@@ -1,4 +1,7 @@
 global start
+
+; get long_mode_start
+; for x86_64 from ./main64
 extern long_mode_start
 
 section .text

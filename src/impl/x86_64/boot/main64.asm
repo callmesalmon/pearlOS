@@ -1,6 +1,7 @@
 global long_mode_start
 
-; get __main 
+; get __main from
+; /src/impl/kernel/main.c
 extern __main
 
 section .text
