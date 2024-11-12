@@ -1,29 +1,87 @@
-kernel_source_files := $(shell find src/impl/kernel -name *.c)
-kernel_object_files := $(patsubst src/impl/kernel/%.c, build/kernel/%.o, $(kernel_source_files))
+.DEFAULT_GOAL=dist/os-image.bin
+.PHONY: clean run run-iso all full
 
-x86_64_c_source_files := $(shell find src/impl/x86_64 -name *.c)
-x86_64_c_object_files := $(patsubst src/impl/x86_64/%.c, build/x86_64/%.o, $(x86_64_c_source_files))
+# config
+C_COMPILER ?= gcc
+C_FLAGS ?= -m32 -ffreestanding -fno-pie -Os -c -ggdb
+ASM_COMPILER ?= nasm 
+ASM_FORMAT ?= elf32
+LINKER ?= ld -m elf_i386 -s
+EMULATOR ?= qemu-system-x86_64
+EMULATOR_FLAGS ?= -cdrom
 
-x86_64_asm_source_files := $(shell find src/impl/x86_64 -name *.asm)
-x86_64_asm_object_files := $(patsubst src/impl/x86_64/%.asm, build/x86_64/%.o, $(x86_64_asm_source_files))
+KERNEL_C_SOURCES := $(wildcard kernel/*.c)
+KERNEL_C_OBJECTS := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
+DRIVER_C_SOURCES := $(wildcard drivers/*.c)
+DRIVER_C_OBJECTS := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
+CPU_C_SOURCES := $(wildcard cpu/*.c)
+CPU_C_OBJECTS := $(patsubst cpu/%.c, mk/cpu/%.o, $(CPU_C_SOURCES))
+LIB_C_SOURCES := $(wildcard lib/*.c)
+LIB_C_OBJECTS := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
+FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
+FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
-x86_64_object_files := $(x86_64_c_object_files) $(x86_64_asm_object_files)
+C_HEADERS = $(wildcard */*.h) $(wildcard kernel/advanced_cmds/*.h)
 
-$(kernel_object_files): build/kernel/%.o : src/impl/kernel/%.c
-	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/intf -ffreestanding $(patsubst build/kernel/%.o, src/impl/kernel/%.c, $@) -o $@
+KERNEL_OBJECTS = $(KERNEL_C_OBJECTS) mk/kernel/kernel_entry.o
+DRIVER_OBJECT = $(DRIVER_C_OBJECTS)
+CPU_OBJECTS = $(CPU_C_OBJECTS)
+LIB_OBJECTS = $(LIB_C_OBJECTS)
+FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
-$(x86_64_c_object_files): build/x86_64/%.o : src/impl/x86_64/%.c
-	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/intf -ffreestanding $(patsubst build/x86_64/%.o, src/impl/x86_64/%.c, $@) -o $@
+dist/os-image.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
+	rm -f dist/os-image.bin
+	cat mk/bin/* > $@
+	chmod +x dist/os-image.bin
 
-$(x86_64_asm_object_files): build/x86_64/%.o : src/impl/x86_64/%.asm
-	mkdir -p $(dir $@) && \
-	nasm -f elf64 $(patsubst build/x86_64/%.o, src/impl/x86_64/%.asm, $@) -o $@
+dist/os-image.iso: $(.DEFAULT_GOAL)
+	mkdir -p mk/iso/
+	rm -f dist/os-image.iso
+	truncate $(.DEFAULT_GOAL) -s 1200k
+	cp $(.DEFAULT_GOAL) mk/iso/kernel.bin
+	mkisofs -b kernel.bin -o dist/os-image.iso mk/iso/
 
-.PHONY: build-x86_64
-build-x86_64: $(kernel_object_files) $(x86_64_object_files)
-	mkdir -p dist/x86_64 && \
-	x86_64-elf-ld -n -o dist/x86_64/kernel.bin -T targets/x86_64/linker.ld $(kernel_object_files) $(x86_64_object_files) && \
-	cp dist/x86_64/kernel.bin targets/x86_64/iso/boot/kernel.bin && \
-	grub-mkrescue /usr/lib/grub/i386-pc -o dist/x86_64/kernel.iso targets/x86_64/iso
+# bin
+mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
+	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
+
+mk/bin/bootsect.bin: boot/*
+	$(ASM_COMPILER) -f bin -o $@ boot/bootsect.asm
+	chmod +x $@
+
+# C files
+mk/kernel/%.o: kernel/%.c $(C_HEADERS)
+	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+
+mk/drivers/%.o: drivers/%.c $(C_HEADERS)
+	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+
+mk/cpu/%.o: cpu/%.c $(C_HEADERS)
+	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+
+mk/lib/%.o: lib/%.c $(C_HEADERS)
+	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+
+mk/fs/%.o: fs/%.c $(C_HEADERS)
+	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+
+# specific
+mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
+	$(ASM_COMPILER) -f $(ASM_FORMAT) -o $@ $<
+
+# phony
+run: $(.DEFAULT_GOAL)
+	$(EMULATOR) $^
+
+run-iso: dist/os-image.iso
+	$(EMULATOR) $(EMULATOR_FLAGS) $^
+
+clean:
+	rm -f dist/*
+	rm -f mk/bin/*
+	rm -f mk/kernel/*
+	rm -f mk/drivers/*
+	rm -f mk/cpu/*
+	rm -f mk/lib/*
+	rm -f mk/fs/*
+	rm -f mk/iso/*
