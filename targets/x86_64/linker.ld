@@ -1,3 +1,8 @@
+/* **LINKER.LD**
+ * Low-level linker file for
+ * configuring linking.
+ */
+
 ENTRY(start)
 
 SECTIONS

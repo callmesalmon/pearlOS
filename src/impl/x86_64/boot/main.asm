@@ -1,3 +1,8 @@
+; **MAIN.ASM**
+; Main assembly file (as you can
+; probably tell by the name),
+; calls main.c's __main().
+
 global start
 
 ; get long_mode_start
