@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../lib/type.h"
 #include "../lib/string.h"
 #include "../drivers/display_color.h"
@@ -8,7 +9,7 @@
 #include "../cpu/smbios.h"
 #include "version.h"
 
-char* theme;
+char *theme;
 
 #include "advanced_cmds/neofetch.h"
 #include "advanced_cmds/list_files.h"
@@ -18,8 +19,8 @@ char* theme;
 #include "advanced_cmds/remove_file.h"
 #include "advanced_cmds/echo.h"
 
-#define KSH_OK 0x0
-#define KSH_EXIT 0x1
+#define KSH_OK           0x0
+#define KSH_EXIT         0x1
 #define KSH_INPUT_BUFFER 31
 
 byte ksh_interpret(char* command)
