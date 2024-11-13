@@ -55,7 +55,7 @@ char* smbios_get_bios_name()
   return next_string(result);
 }
 
-void smbios_init ()
+void smbios_init()
 {
   char *mem = (unsigned char *) 0xF0000;
   int length, i;
