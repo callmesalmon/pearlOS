@@ -2,22 +2,22 @@
 import sys
 
 colors = {
-    "BLACK":"0",
-    "BLUE":"1",
-    "GREEN":"2",
-    "CYAN":"3",
-    "RED":"4",
-    "PURPLE":"5",
-    "BROWN":"6",
-    "GRAY":"7",
-    "DARK_GRAY":"8",
-    "LIGHT_BLUE":"9",
-    "LIGHT_GREEN":"a",
-    "LIGHT_CYAN":"b",
-    "LIGHT_RED":"c",
-    "LIGHT_PURPLE":"d",
-    "YELLOW":"e",
-    "WHITE":"f"
+    "BLACK" : "0",
+    "BLUE" : "1",
+    "GREEN" : "2",
+    "CYAN" : "3",
+    "RED" : "4",
+    "PURPLE" : "5",
+    "BROWN" : "6",
+    "GRAY" : "7",
+    "DARK_GRAY" : "8",
+    "LIGHT_BLUE" : "9",
+    "LIGHT_GREEN" : "a",
+    "LIGHT_CYAN" : "b",
+    "LIGHT_RED" : "c",
+    "LIGHT_PURPLE" : "d",
+    "YELLOW" : "e",
+    "WHITE" : "f"
 }
 
 def generate():
