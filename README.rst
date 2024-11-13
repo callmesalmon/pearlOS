@@ -38,6 +38,12 @@ even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, he
 So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
 don't judge my code *too* hard. But most importantly: Enjoy!
 
+TODO
+----
+* Maybe add a text editor (not Vim) (maybe Kilo or Vine? (I made Vine btw))
+* Port curl somehow.
+* Web browser anyone?
+
 .. _`pidiOS`: https://github.com/GandelXIV/pidi-os
 .. _`RezOS`: https://github.com/GandelXIV/RezOS
 .. _`Make`: https://www.gnu.org/software/make
