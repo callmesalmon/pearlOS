@@ -7,10 +7,10 @@
 #define VIDEO_MEMORY_OFFSET (uint*) 0xb8000
 
 // config
-#define DISPLAY_WIDTH 80
+#define DISPLAY_WIDTH  80
 #define DISPLAY_HEIGHT 25
 // dont touch these
-#define DISPLAY_SCROLL_DEBUG 80
+#define DISPLAY_SCROLL_DEBUG           80
 #define DISPLAY_SCROLL_DETECTION_DEBUG -2
 
 // color

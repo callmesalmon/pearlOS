@@ -1,3 +1,9 @@
+/* For some goddamn reason
+ * the creator of pidi-os
+ * refuses to include
+ * the standard library. */
+#include <stdbool.h>
+
 #include "keyboard.h"
 
 //TODO: Fix interrupts pls so I can un-bruh this code

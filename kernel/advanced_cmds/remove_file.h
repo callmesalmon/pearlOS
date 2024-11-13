@@ -1,3 +1,6 @@
+#include "../io.h"
+#include "../../fs/fscore.h"
+
 void ksh_remove_file()
 {
   kprints("Enter file name: ");

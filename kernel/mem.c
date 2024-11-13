@@ -14,7 +14,7 @@ byte* get_memory_index()
 void* kmalloc(uint32_t size)
 {
   uint i = 0;
-  while (true)
+  while (1)
   {
     // search
     while (memory_index[i] != MEMORY_EMPTY) { i += 2; }

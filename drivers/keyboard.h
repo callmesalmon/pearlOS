@@ -5,8 +5,8 @@
 #include "../lib/type.h"
 
 #define REG_KEYBOARD_DATA 0x60
-#define REG_KEYBOARD_CMD 0x64
-#define UNPRINTALBE_CHAR 0x0
+#define REG_KEYBOARD_CMD  0x64
+#define UNPRINTALBE_CHAR  0x0
 
 typedef enum
 {

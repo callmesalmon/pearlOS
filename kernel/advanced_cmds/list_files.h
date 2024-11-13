@@ -1,10 +1,11 @@
 #pragma once
 
+#include "../io.h"
 #include "../../fs/fscore.h"
 
 void ksh_list_files()
 {
-  char* name;
+  char *name;
   for (int i = 0; i < file_count(); ++i)
   {
     name = file_get_name(i);

@@ -1,3 +1,7 @@
+#include "../io.h"
+#include "../mem.h"
+#include "../../fs/fscore.h"
+
 void ksh_read_file()
 {
   // get the filename

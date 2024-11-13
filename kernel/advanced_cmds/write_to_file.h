@@ -1,3 +1,8 @@
+#include "../io.h"
+#include "../mem.h"
+#include "../../fs/fscore.h"
+#include "../../lib/string.h"
+
 void ksh_write_to_file()
 {
   kprints("Enter file name: ");

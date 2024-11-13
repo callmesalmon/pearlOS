@@ -1,3 +1,5 @@
+#include "../io.h"
+
 void ksh_make_file()
 {
   kprints("Enter file name: ");

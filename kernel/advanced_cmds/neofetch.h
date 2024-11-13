@@ -1,5 +1,9 @@
 #pragma once
 #include "../../drivers/display.h"
+#include "../io.h"
+#include "../mem.h"
+#include "../ksh.h"
+#include "../../cpu/smbios.h"
 
 void ksh_neofetch()
 {

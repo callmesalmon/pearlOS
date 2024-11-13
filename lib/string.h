@@ -1,7 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
 #include "type.h"
-
 
 uint strlen(char* string);
 void strcpy(char* dest, char* src);
