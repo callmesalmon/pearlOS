@@ -58,7 +58,7 @@ void kinputs(char* output)
       --i;
       display_deletec();
     }
-    else if (input == '\n') { output[i] = 0; }
+    else if (input == '\n') output[i] = 0;
     else if (input != '\b')
     {
       kprintc(input);
