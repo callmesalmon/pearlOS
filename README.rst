@@ -10,12 +10,14 @@ pearlOS: Operating System
    :alt: Language = C
    :target: https://github.com/ElisStaaf/pearlOS
 .. image:: https://img.shields.io/badge/LOC%20(counted%20by%20cloc)-~2000-e11e5f?style=for-the-badge
-   :alt: LOC = ~200
+   :alt: LOC = ~2000
    :target: https://github.com/ElisStaaf/pearlOS
 
 pearlOS is an awesome operating system based of the `pidiOS`_ project that was
 sadly discontinued, but I *highly* recommend you to check out the new rust-based
-operating system made by the same author: `RezOS`_.
+operating system made by the same author: `RezOS`_. But ofcourse only do that *after*
+you check out this project! pearlOS was made for me to learn operating system things
+and also to become better at C and Assembly.
 
 Requirements
 ------------
