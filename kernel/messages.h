@@ -9,7 +9,7 @@
 #define INCLUDED_MESSAGES
 
 #define KERNEL_INFO_ENTERED "Entered the kernel\n"            // start of main()
-#define KERNEL_INFO_INIT_START "Initialising...\n"            // start of init()
+#define KERNEL_INFO_INIT_START "Initializing...\n"            // start of init()
 #define KERNEL_INFO_INIT_DONE "Done!\n"                       // end of init()
 #define KERNEL_INFO_WELCOME "Welcome to pearlOS!\n"           // end of main() startup
 #define KERNEL_INFO_SHELL_WELCOME "/$$  /$$$$$$   /$$$$$$ \n                                        | $$ /$$__  $$ /$$__  $$\n  /$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$ | $$| $$  \\ $$| $$  \\__/\n /$$__  $$ /$$__  $$ |____  $$ /$$__  $$| $$| $$  | $$|  $$$$$$ \n| $$  \\ $$| $$$$$$$$  /$$$$$$$| $$  \\__/| $$| $$  | $$ \\____  $$\n| $$  | $$| $$_____/ /$$__  $$| $$      | $$| $$  | $$ /$$  \\ $$\n| $$$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$|  $$$$$$/|  $$$$$$/\n| $$____/  \\_______/ \\_______/|__/      |__/ \\______/  \\______/ \n| $$                                                            \n| $$                                                            \n|__/                                                            \n"
