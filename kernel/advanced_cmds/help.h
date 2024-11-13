@@ -1,6 +1,6 @@
 #include "../io.h"
 
-int main(int argc, char **argv) {
+int help_init() {
     kprints("COMMANDS:\n");
     kprints("[GENERAL]\n");
     kprints("help           prints this message\n");

@@ -16,8 +16,10 @@ char *theme;
 #include "advanced_cmds/read_file.h"
 #include "advanced_cmds/write_to_file.h"
 #include "advanced_cmds/make_file.h"
+#include "advanced_cmds/fortune.h"
 #include "advanced_cmds/remove_file.h"
 #include "advanced_cmds/echo.h"
+#include "advanced_cmds/help.h"
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -31,7 +33,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "help"))
   {
-    #include "advanced_cmds/help.h"
+    help_init();
   }
   else if (strcmp(command, "echo"))
   {
@@ -82,6 +84,10 @@ byte ksh_interpret(char* command)
   {
     display_clear();
     return KSH_EXIT;
+  }
+  else if (strcmp(command, "fortune"))
+  {
+    ksh_fortune();
   }
   else if (strcmp(command, "memtest"))
   {
