@@ -7,6 +7,8 @@ int help_init() {
     kprints("echo           prints 'echo' to the display\n");
     kprints("wipe           cleans screen\n");
     kprints("exit           exit kernel shell\n");
+    kprints("[RANDOM]\n");
+    kprints("fortune        digital fortune cookie\n")
     kprints("[SYSTEM INFO]\n");
     kprints("version        get kernel version\n");
     kprints("neofetch       show info about your system\n");
