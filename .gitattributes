@@ -1,9 +1,0 @@
-# overall
-* text=auto
-
-# diff config
-*.c   diff=c
-*.h   diff=c
-*.asm diff=assembly
-*.py  diff=python
-*.sh  diff=shell
