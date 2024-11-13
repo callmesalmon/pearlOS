@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 #include "config.h"
 #include "io.h"
 #include "kmsg.h"
