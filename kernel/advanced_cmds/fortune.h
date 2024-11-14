@@ -41,6 +41,6 @@ void ksh_fortune() {
         "   (3) Mysticism is based on the assumption that you can quit the game.\n"
         
     };
-    int RandIndex = rand() % 3;
+    int RandIndex = rand() % 7;
     kprintc(*fortunes[RandIndex]);
 }
