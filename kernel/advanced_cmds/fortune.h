@@ -38,8 +38,7 @@ int ksh_fortune() {
         "   Theorem. To wit:\n\n"
         "   (1) Capitalism is based on the assumption that you can win.\n"
         "   (2) Socialism is based on the assumption that you can break even.\n"
-        "   (3) Mysticism is based on the assumption that you can quit the game.\n"
-        
+        "   (3) Mysticism is based on the assumption that you can quit the game.\n"  
     };
 
     int RandIndex = rand() % 7;
