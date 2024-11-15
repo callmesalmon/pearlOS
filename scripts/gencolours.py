@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import sys
+
+from sys import argv
 
 colors = {
     "BLACK"        : "0",
@@ -37,8 +38,8 @@ def fwrite(filename, data):
         return f.write(str(data))   # str() to make sure
 
 def main():
-    if len(sys.argv) > 1:
-        fwrite(sys.argv[1], generate())
+    if len(argv) > 1:
+        fwrite(argv[1], generate())
     else:
         print(generate())
 
