@@ -1,7 +1,7 @@
 #include "../io.h"
 #include "../mem.h"
 
-void ksh_echo()
+void ksh_println()
 {
     char* str = (char*) kmalloc(255);
     kprints("Enter string: ");

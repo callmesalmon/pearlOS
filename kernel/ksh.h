@@ -18,7 +18,7 @@ char *theme;
 #include "advanced_cmds/make_file.h"
 #include "advanced_cmds/fortune.h"
 #include "advanced_cmds/remove_file.h"
-#include "advanced_cmds/echo.h"
+#include "advanced_cmds/println.h"
 #include "advanced_cmds/help.h"
 
 #define KSH_OK           0x0
@@ -35,11 +35,11 @@ byte ksh_interpret(char* command)
   {
     help_init();
   }
-  else if (strcmp(command, "echo"))
+  else if (strcmp(command, "println"))
   {
-    ksh_echo();
+    ksh_println();
   }
-  else if (strcmp(command, "wipe"))
+  else if (strcmp(command, "clear"))
   {
     display_clear();
   }
