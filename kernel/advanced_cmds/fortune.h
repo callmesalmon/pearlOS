@@ -4,7 +4,7 @@
 #include "../../lib/rand.h"
 #include "../../drivers/display.h"
 
-void ksh_fortune() {
+int ksh_fortune() {
     const char *fortunes[] = {
         "Pohl's Law: Nothing is so good that somebody, somewhere, will not hate it.\n",
 
@@ -35,12 +35,15 @@ void ksh_fortune() {
         "Freeman's Commentary on Ginsberg's theorem:\n"
         "   Every major philosophy that attempts to make life seem\n"
         "   meaningful is based on the negation of one part of Ginsberg's\n"
-        "   Theorem.  To wit:\n\n"
+        "   Theorem. To wit:\n\n"
         "   (1) Capitalism is based on the assumption that you can win.\n"
         "   (2) Socialism is based on the assumption that you can break even.\n"
         "   (3) Mysticism is based on the assumption that you can quit the game.\n"
         
     };
+
     int RandIndex = rand() % 7;
     kprintc(*fortunes[RandIndex]);
+
+    return 0;
 }
