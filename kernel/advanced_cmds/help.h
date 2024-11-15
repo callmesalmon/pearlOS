@@ -4,7 +4,7 @@ int help_init() {
     kprints("COMMANDS:\n");
     kprints("[GENERAL]\n");
     kprints("help           prints this message\n");
-    kprints("echo           prints 'echo' to the display\n");
+    kprints("println        prints 'println' to the display\n");
     kprints("wipe           cleans screen\n");
     kprints("exit           exit kernel shell\n");
     kprints("[RANDOM]\n");
