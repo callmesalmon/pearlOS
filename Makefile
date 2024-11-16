@@ -2,13 +2,13 @@
 .PHONY: clean run run-iso all full
 
 # config
-C_COMPILER ?= gcc
-C_FLAGS ?= -m32 -ffreestanding -fno-pie -Os -c -ggdb
-ASM_COMPILER ?= nasm 
-ASM_FORMAT ?= elf32
+CC ?= gcc
+CFLAGS ?= -m32 -ffreestanding -fno-pie -Os -c -ggdb
+ASMC ?= nasm 
+ASMF ?= elf32
 LINKER ?= ld -m elf_i386 -s
 EMULATOR ?= qemu-system-x86_64
-EMULATOR_FLAGS ?= -cdrom
+EMUFLAGS ?= -cdrom
 
 KERNEL_C_SOURCES := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
@@ -46,35 +46,35 @@ mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJEC
 	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
 
 mk/bin/bootsect.bin: boot/*
-	$(ASM_COMPILER) -f bin -o $@ boot/bootsect.asm
+	$(ASMC) -f bin -o $@ boot/bootsect.asm
 	chmod +x $@
 
 # C files
 mk/kernel/%.o: kernel/%.c $(C_HEADERS)
-	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/drivers/%.o: drivers/%.c $(C_HEADERS)
-	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/cpu/%.o: cpu/%.c $(C_HEADERS)
-	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/lib/%.o: lib/%.c $(C_HEADERS)
-	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/fs/%.o: fs/%.c $(C_HEADERS)
-	$(C_COMPILER) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # specific
 mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
-	$(ASM_COMPILER) -f $(ASM_FORMAT) -o $@ $<
+	$(ASMC) -f $(ASMF) -o $@ $<
 
 # phony
 run: $(.DEFAULT_GOAL)
 	$(EMULATOR) $^
 
 run-iso: dist/os-image.iso
-	$(EMULATOR) $(EMULATOR_FLAGS) $^
+	$(EMULATOR) $(EMUFLAGS) $^
 
 clean:
 	rm -f dist/*
