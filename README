@@ -9,6 +9,8 @@ for me to learn operating system things and also to become better at C and Assem
 Requirements
 ------------
 * https://www.gnu.org/software/make
+* https://nasm.us
+* https://gcc.gnu.org
 * https://www.qemu.org
 
 Installation
@@ -17,7 +19,7 @@ To be honest, I don't really know how to build on any other operating system exc
 even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, here are the
 *linux* installation instructions:
 
-    make gcc nasm
+    make
     qemu
 
 So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
