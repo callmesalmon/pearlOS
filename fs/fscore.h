@@ -1,7 +1,6 @@
 #pragma once
 
 // includes
-#include <stdbool.h>
 #include "prop.h"
 #include "../lib/type.h"
 #include "../lib/string.h"

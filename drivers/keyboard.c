@@ -2,9 +2,9 @@
  * the creator of pidi-os
  * refuses to include
  * the standard library. */
-#include <stdbool.h>
 
 #include "keyboard.h"
+#include "../lib/type.h"
 
 //TODO: Fix interrupts pls so I can un-bruh this code
 
@@ -53,7 +53,6 @@ char kinputc() {
 
 byte scan_code_set;
 
-//#include <util.c>
 int atoi(char* str) {
     int res = 0;
     for (int i = 0; str[i] != '\0'; ++i) {
