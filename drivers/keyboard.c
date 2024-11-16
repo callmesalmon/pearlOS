@@ -1,8 +1,3 @@
-/* For some goddamn reason
- * the creator of pidi-os
- * refuses to include
- * the standard library. */
-
 #include "keyboard.h"
 #include "../lib/type.h"
 
