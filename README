@@ -1,5 +1,5 @@
 pearlOS: Operating System
-============================
+=========================
 pearlOS is an awesome operating system based of the pidiOS (https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
 operating system made by the same author; RezOS (https://github.com/GandelXIV/RezOS)
