@@ -42,19 +42,19 @@ void kprintc_color(char character, char color)
 	{
 		printnl();
 	}
-  else
-  {
-    if (cursor <= (DISPLAY_WIDTH * DISPLAY_HEIGHT - 2) * 2)
-    {
-      video_memory[cursor] = character;
-      if (color != TRANSPARENT) video_memory[cursor + 1] = color;   // if the color is transparent no will be drawn
-      set_cursor_offset(cursor + 2);
-    }
     else
     {
+      if (cursor <= (DISPLAY_WIDTH * DISPLAY_HEIGHT - 2) * 2)
+      {
+        video_memory[cursor] = character;
+        if (color != TRANSPARENT) video_memory[cursor + 1] = color;   // if the color is transparent no will be drawn
+        set_cursor_offset(cursor + 2);
+      }
+      else
+      {
       printnl();
+      }
     }
-  }
 }
 
 // print char to cursor with default color
