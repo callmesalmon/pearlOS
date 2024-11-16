@@ -25,5 +25,5 @@ void kpanic(char* msg)
 {
   kprints_color("[PANIC] ", RED_ON_BLACK);
   kprints_color(msg, RED_ON_BLACK);
-  while (1) { /* infinite loop */ }
+  while (1) {} /* Infinite loop */
 }
