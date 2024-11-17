@@ -5,5 +5,5 @@
 
 uint32_t get_cursor_position_x(void);
 uint32_t get_cursor_position_y(void);
-uint     get_cursor_offset();
-void     set_cursor_offset(uint offset);
+uint get_cursor_offset();
+void set_cursor_offset(uint offset);
