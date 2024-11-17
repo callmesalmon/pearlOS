@@ -12,7 +12,18 @@
 #define KERNEL_INFO_INIT_START    "Initializing...\n"               // start of init()
 #define KERNEL_INFO_INIT_DONE     "Done!\n"                         // end of init()
 #define KERNEL_INFO_WELCOME       "Welcome to pearlOS!\n"           // end of main() startup
-#define KERNEL_INFO_SHELL_WELCOME "/$$  /$$$$$$   /$$$$$$ \n                                        | $$ /$$__  $$ /$$__  $$\n  /$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$ | $$| $$  \\ $$| $$  \\__/\n /$$__  $$ /$$__  $$ |____  $$ /$$__  $$| $$| $$  | $$|  $$$$$$ \n| $$  \\ $$| $$$$$$$$  /$$$$$$$| $$  \\__/| $$| $$  | $$ \\____  $$\n| $$  | $$| $$_____/ /$$__  $$| $$      | $$| $$  | $$ /$$  \\ $$\n| $$$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$|  $$$$$$/|  $$$$$$/\n| $$____/  \\_______/ \\_______/|__/      |__/ \\______/  \\______/ \n| $$                                                            \n| $$                                                            \n|__/                                                            \n"
+#define KERNEL_INFO_SHELL_WELCOME \
+"                                         /$$  /$$$$$$   /$$$$$$ \n" \
+"                                        | $$ /$$__  $$ /$$__  $$\n" \
+"  /$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$ | $$| $$  \\ $$| $$  \\__/\n" \
+" /$$__  $$ /$$__  $$ |____  $$ /$$__  $$| $$| $$  | $$|  $$$$$$ \n" \
+"| $$  \\ $$| $$$$$$$$  /$$$$$$$| $$  \\__/| $$| $$  | $$ \\____  $$\n" \
+"| $$  | $$| $$_____/ /$$__  $$| $$      | $$| $$  | $$ /$$  \\ $$\n" \
+"| $$$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$|  $$$$$$/|  $$$$$$/\n" \
+"| $$____/  \\_______/ \\_______/|__/      |__/ \\______/  \\______/ \n" \
+"| $$                                                            \n" \
+"| $$                                                            \n" \
+"|__/                                                            \n"
 #define KERNEL_INFO_SHELL_UNKNOWN_COMMAND "Unknown command\n"               // ksh input unkown
 #define KERNEL_PANIC_MEMORY_INDEX_FULL    "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n" // when memory_index is full
 #define KERNEL_PANIC_MEMORY_FULL            "Kernel memory is full!\nCAUSE: The system ran out of RAM..."
