@@ -2,7 +2,7 @@
 
 void ksh_make_file()
 {
-  kprints("Enter file name: ");
+  kprintc('>');
   char* file_to_make = kmalloc(512);
   kinputs(file_to_make);
   int response = file_make(file_to_make);
