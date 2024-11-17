@@ -43,17 +43,23 @@ void ksh_neofetch()
 }
 
 /*14 x 28
-██████████████████  ████████   moth@moth-pc
-██████████████████  ████████   ------------
-██████████████████  ████████   OS: Manjaro Linux x86_64
-██████████████████  ████████   Host: MS-7788 1.0
-████████            ████████   Kernel: 5.10.34-1-MANJARO
-████████  ████████  ████████   Uptime: 6 hours, 10 mins
-████████  ████████  ████████   Packages: 1388 (pacman), 7 (snap)
-████████  ████████  ████████   Shell: bash 5.1.4
-████████  ████████  ████████   Resolution: 1920x1080, 1280x1024
-████████  ████████  ████████   DE: Plasma 5.21.4
-████████  ████████  ████████   WM: KWin
-████████  ████████  ████████   WM Theme: Sweet-Mars-transparent
-████████  ████████  ████████   Theme: Aritim-Dark_DEV [Plasma], Breeze [GTK2/3]
-████████  ████████  ████████ */
+             .',;::::;,'.                eliss@pc
+         .';:cccccccccccc:;,.            ------------
+      .;cccccccccccccccccccccc;.         OS: Fedora Linux 40 x86_64
+    .:cccccccccccccccccccccccccc:.       Kernel: 5.15.167.4.x86_64
+  .;ccccccccccccc;.:dddl:.;ccccccc;.     Uptime: 22 mins
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.    Shell: bash 5.2.26
+.:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.   Theme: Adwaita [GTK3]
+,cccccccccccccc;MMM.;cc;;WW:;cccccccc,   Icons: Adwaita [GTK3]
+:cccccccccccccc;MMM.;cccccccccccccccc:   Terminal: gnome-terminal
+:ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   CPU: Intel Celeron N4500 (2) @ 1.113GHz
+cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;   Memory: 432MiB / 1891MiB
+ccccc;XM0';cccc;MMM.;cccccccccccccccc'
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;
+ccccc;0MNc.ccc.xMMd;ccccccccccccccc;
+cccccc;dNMWXXXWM0:;cccccccccccccc:,
+cccccccc;.:odl:.;cccccccccccccc:,.
+:cccccccccccccccccccccccccccc:'.
+.:cccccccccccccccccccccc:;,..
+  '::cccccccccccccc::;,.
+*/
