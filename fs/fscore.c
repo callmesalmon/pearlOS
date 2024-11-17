@@ -252,6 +252,6 @@ void fsinit()
     "the KSH manual. You can check out the source code at\n"
     "\"github.com/ElisStaaf/pearlOS\", feel free to contribute!\n"
     "And with that, enjoy the OS!\n\n"
-    "- Elis Staaf, Nov 17 2024"
+    "- Elis Staaf, Nov 17 2024\n"
   );
 }

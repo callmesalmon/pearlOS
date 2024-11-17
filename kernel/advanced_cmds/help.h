@@ -5,7 +5,7 @@ int help_init() {
     kprints("[GENERAL]\n");
     kprints("help           prints this message\n");
     kprints("echo           prints {} to the display\n");
-    kprints("wipe           cleans screen\n");
+    kprints("clear          cleans screen\n");
     kprints("exit           exit kernel shell\n");
     kprints("[RANDOM]\n");
     kprints("fortune        digital fortune cookie\n");
@@ -27,4 +27,5 @@ int help_init() {
     kprints("mk             create new file\n");
     kprints("rm             delete file\n");
     kprints("in             read file content\n");
+    kprints("to             write to file\n");
 }

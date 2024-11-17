@@ -21,24 +21,22 @@ void ksh_neofetch()
 "| $$                                                            \n"
 "|__/                                                            \n"
   );
-  set_cursor_position(23, 8);
   kprints("OS: pearlOS ");
   kprints(OS_VERSION);
-  set_cursor_position(23, 9);
+  kprintc('\n');
   kprints("BIOS name: ");
   kprints(smbios_get_bios_name());
-  set_cursor_position(23, 10);
+  kprintc('\n');
   kprints("BIOS version:");
   kprints(smbios_get_bios_version());
-  set_cursor_position(23, 11);
+  kprintc('\n');
   kprints("Memory: ");
   kprintu32(memory_usage());
   kprints("/");
   kprintu32(memory_total());
-  set_cursor_position(23, 12);
+  kprintc('\n');
   kprints("Theme: ");
   kprints(theme);
-  set_cursor_position(0, 24);
   kprintc('\n');
 }
 
