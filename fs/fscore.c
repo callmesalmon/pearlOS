@@ -133,7 +133,7 @@ int file_remove(char* name)
       do {
         last_fs = fs;
         kfree(last_fs);
-        fs = fs->next;
+        fs = (Sector*)fs->next;   
       } while(fs != END_SECTOR);
       kfree(fp);
       findex[i] = 0;
@@ -151,7 +151,7 @@ int file_size(char* name)
   int size = sizeof(fs->data);
   while (fs->next != END_SECTOR)
   {
-    fs = fs->next;   // jump to next sector
+    fs = (Sector *)fs->next;   // jump to next sector
     size += sizeof(fs->data);
   }
   return size;
@@ -169,7 +169,7 @@ int file_read(char* filename, char* output)
       output[i] = fs->data[i];
     }
     output += FS_SECTOR_DATA_SIZE;
-    Sector* next_fs = fs->next;
+    Sector* next_fs = (Sector *)fs->next;
     fs = next_fs;
   } while(fs != 0);
   return OK;
@@ -199,9 +199,7 @@ int file_write(char* filename, char* data, uint32_t depth)
         fs->data[i] = data[i];
       }
       data += FS_SECTOR_DATA_SIZE;
-      Sector* last_fs = fs;
-      last_fs->next = init_sector();
-      fs = last_fs->next;
+      fs = (Sector *)init_sector();
     }
   }
   return OK;
@@ -217,7 +215,7 @@ int file_clean(char* filename)
     {
       fs->data[i] = 0;
     }
-    Sector* next_fs = fs->next;
+    Sector* next_fs = (Sector *)fs->next;
     fs = next_fs;
   } while(fs != 0);
   return OK;

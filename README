@@ -15,12 +15,13 @@ Requirements
 
 Installation
 ------------
-To be honest, I don't really know how to build on any other operating system except linux, and
-even for linux (since I haven't tested it yet) I kinda just guessed? So yeah, here are the
-*linux* installation instructions:
+To install, clone the repo and run some installation scripts, like so:
 
+    git clone https://github.com/ElisStaaf/pearlOS
+    cd pearlOS
+    ./configure
     make
-    qemu
+    qemu-system-i386 dist/os-image.bin
 
 So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
 don't judge my code *too* hard. But most importantly: Enjoy!

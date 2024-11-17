@@ -45,17 +45,17 @@ char* next_string(char* string)
 
 char* smbios_get_bios_version()
 {
-  char* result = SMBIOS_HEADER_BIOS->Length + SMBIOS_HEADER_BIOS;
+  char* result = (char *)(SMBIOS_HEADER_BIOS->Length + SMBIOS_HEADER_BIOS);
   return result;
 }
 
 char* smbios_get_bios_name()
 {
-  char* result = SMBIOS_HEADER_BIOS->Length + SMBIOS_HEADER_BIOS;
+  char* result = (char *)(SMBIOS_HEADER_BIOS->Length + SMBIOS_HEADER_BIOS);
   return next_string(result);
 }
 
-void smbios_init()
+void smbios_init ()
 {
   char *mem = (unsigned char *) 0xF0000;
   int length, i;
@@ -78,6 +78,6 @@ void smbios_init()
   {
     kerror(FIRMWARE_ERROR_SMBIOS_ENRTY_MISSING);
   }
-  SMBIOSEntryPoint* smbios_entry_p = mem;
+  SMBIOSEntryPoint* smbios_entry_p = (SMBIOSEntryPoint*)(mem);
   SMBIOS_HEADER_BIOS = (SMBIOSHeader*) smbios_entry_p->TableAddress;
 }
