@@ -229,6 +229,6 @@ int file_writes(char* filename, char* text)
 
 void fsinit()
 {
-  file_make("README");
-  file_writes("README", "Thank you for using pearlOS!\n");
+  file_make("OS_INFO");
+  file_writes("OS_INFO", "Thank you for using pearlOS!\n");
 }
