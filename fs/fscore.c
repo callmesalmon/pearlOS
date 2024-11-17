@@ -232,11 +232,11 @@ void fsinit()
 {
   file_make("os-release");
   file_writes(
-        "os-release", 
-        "NAME=\"pearlOS\"\n"
-        "VERSION=\"" OS_VERSION "\"\n"
-        "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
-        "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
+    "os-release", 
+    "NAME=\"pearlOS\"\n"
+    "VERSION=\"" OS_VERSION "\"\n"
+    "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
+    "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
   );
   file_make("license");
   file_writes(
