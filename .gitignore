@@ -1,6 +1,6 @@
 *.o
 *.bin
 *.swp
-tree.png
 kernel/debug.h
 dist/
+mk/
