@@ -1,4 +1,5 @@
 #include "fscore.h"
+#include "../kernel/version.h"
 
 #define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
 
@@ -229,6 +230,30 @@ int file_writes(char* filename, char* text)
 
 void fsinit()
 {
-  file_make("OS_INFO");
-  file_writes("OS_INFO", "Thank you for using pearlOS!\n");
+  file_make("os-release");
+  file_writes(
+        "os-release", 
+        "NAME=\"pearlOS\"\n"
+        "VERSION=\"" OS_VERSION "\"\n"
+        "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
+        "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
+  );
+  file_make("license");
+  file_writes(
+    "license",
+    "pearlOS is released under the Apache-2.0 License\n\n"
+    "A permissive license whose main conditions require preservation of copyright and license notices.\n"
+    "Contributors provide an express grant of patent rights. Licensed works, modifications, and larger\n"
+    "works may be distributed under different terms and without source code.\n"
+  );
+  file_make("readme");
+  file_writes(
+    "readme",
+    "Thank you for using pearlOS! Many, many thanks!\n"
+    "If you've got any questions, type \"help\" to open\n"
+    "the KSH manual. You can check out the source code at\n"
+    "\"github.com/ElisStaaf/pearlOS\", feel free to contribute!\n"
+    "And with that, enjoy the OS!\n\n"
+    "- Elis Staaf, Nov 17 2024"
+  );
 }
