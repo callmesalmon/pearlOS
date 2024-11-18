@@ -148,6 +148,7 @@ void ksh_start()
   }
   byte response;
   kprints(KERNEL_INFO_SHELL_WELCOME);
+  kprints(KERNEL_INFO_MANUAL_HELP);
   while (true)
   {
     kprints("$ ");
