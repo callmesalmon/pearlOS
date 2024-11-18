@@ -22,11 +22,11 @@ int ksh_fortune() {
 
         "Famous quotations:\n\n"
         "    \" \"\n"
-		"       -- Charlie Chaplin\n\n"
+		"        -- Charlie Chaplin\n\n"
         "    \" \"\n"
-	    "    	-- Harpo Marx\n\n"
-        "	\" \"\n"
-	    "    	-- Marcel Marceau\n",
+	    "        -- Harpo Marx\n\n"
+        "    \" \"\n"
+	    "        -- Marcel Marceau\n",
 
         "Ginsberg's Theorem:\n"
         "   (1) You can't win.\n"
