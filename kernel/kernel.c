@@ -1,7 +1,6 @@
 #pragma once
 
 #include "config.h"
-#include "io.h"
 #include "kmsg.h"
 #include "mem.h"
 #include "ksh.h"
@@ -13,7 +12,7 @@
 static bool kernel_running;
 
 
-void main()
+int main()
 {
 	// init
 	kinfo(KERNEL_INFO_ENTERED);
@@ -35,4 +34,5 @@ void main()
 	{
 		KERNEL_UPDATE
 	}
+    return 0;
 }
