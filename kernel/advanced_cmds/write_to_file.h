@@ -5,14 +5,14 @@
 
 void ksh_write_to_file()
 {
-  kprintc('>');
+  kprints("> ");
   char* filename = (char*) kmalloc(256);
   strcls(filename);
   kinputs(filename);
 
   char* data = (char*) kmalloc(256);
   strcls(data);
-  kprintc('>');
+  kprints("> ");
   kinputs(data);
   stradd(data, "\n");
 

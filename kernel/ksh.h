@@ -150,7 +150,7 @@ void ksh_start()
   kprints(KERNEL_INFO_SHELL_WELCOME);
   while (true)
   {
-    kprintc('$');
+    kprints("$ ");
     kinputs(c);
     response = ksh_interpret(c);
     if (response == KSH_EXIT)
