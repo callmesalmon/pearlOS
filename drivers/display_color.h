@@ -1,4 +1,5 @@
-#define INCLUDED_COLOR#define BLACK 0x0
+#define INCLUDED_COLOR
+#define BLACK 0x0
 #define BLUE 0x1
 #define GREEN 0x2
 #define CYAN 0x3

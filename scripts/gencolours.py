@@ -22,7 +22,7 @@ colors = {
 }
 
 def generate():
-    result = "#define INCLUDED_COLOR"
+    result = "#define INCLUDED_COLOR\n"
     for color in colors:
         result += "#define " + color + " 0x" + colors[color] + "\n"
     for background_color in colors:
