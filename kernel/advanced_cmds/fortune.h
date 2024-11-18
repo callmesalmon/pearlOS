@@ -5,7 +5,7 @@
 #include "../../drivers/display.h"
 
 int ksh_fortune() {
-    const char *fortunes[] = {
+    char *fortunes[] = {
         "Pohl's Law: Nothing is so good that somebody, somewhere, will not hate it.\n",
 
         "You either die a smart fella, or live long enough to become a fart smella\n",
@@ -41,8 +41,12 @@ int ksh_fortune() {
         "   (3) Mysticism is based on the assumption that you can quit the game.\n"  
     };
 
-    int RandIndex = rand() % 7;
-    kprintc(*fortunes[RandIndex]);
-
+    int rand_index = rand() % 7;
+    int fortune_len = sizeof(fortunes)/sizeof(fortunes[0]);
+    for (int i = 0; i < fortune_len; i++) {
+        if (rand_index == i) {
+            kprints(fortunes[i]);
+        }
+    }
     return 0;
 }
