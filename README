@@ -15,13 +15,18 @@ Requirements
 
 Installation
 ------------
-To install, clone the repo and run some installation scripts, like so:
+To install, firstly clone the repo:
 
     git clone https://github.com/ElisStaaf/pearlOS
-    cd pearlOS
+
+After going into the repo directory, run configure and then make:
+
     ./configure
     make
-    qemu-system-i386 dist/os-image.bin
 
-So yeah, contributions are of course *very* welcome, and remember; this is *very much* a WIP, so
-don't judge my code *too* hard. But most importantly: Enjoy!
+Lastly, run the generated image in dist/pearl.bin:
+
+    qemu-system-i386 dist/pearl.bin
+
+This will start up a QEMU session with the image, and you
+can run the OS.

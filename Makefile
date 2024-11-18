@@ -1,4 +1,4 @@
-.DEFAULT_GOAL=dist/os-image.bin
+.DEFAULT_GOAL=dist/pearl.bin
 .PHONY: clean run run-iso all full
 
 # config
@@ -29,17 +29,17 @@ CPU_OBJECTS = $(CPU_C_OBJECTS)
 LIB_OBJECTS = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
-dist/os-image.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
-	rm -f dist/os-image.bin
+dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
+	rm -f dist/pearl.bin
 	cat mk/bin/* > $@
-	chmod +x dist/os-image.bin
+	chmod +x dist/pearl.bin
 
-dist/os-image.iso: $(.DEFAULT_GOAL)
+dist/pearl.iso: $(.DEFAULT_GOAL)
 	mkdir -p mk/iso/
-	rm -f dist/os-image.iso
+	rm -f dist/pearl.iso
 	truncate $(.DEFAULT_GOAL) -s 1200k
 	cp $(.DEFAULT_GOAL) mk/iso/kernel.bin
-	mkisofs -b kernel.bin -o dist/os-image.iso mk/iso/
+	mkisofs -b kernel.bin -o dist/pearl.iso mk/iso/
 
 # bin
 mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
@@ -73,7 +73,7 @@ mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
 run: $(.DEFAULT_GOAL)
 	$(EMULATOR) $^
 
-run-iso: dist/os-image.iso
+run-iso: dist/pearl.iso
 	$(EMULATOR) $(EMUFLAGS) $^
 
 clean:
