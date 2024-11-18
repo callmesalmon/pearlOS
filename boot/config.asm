@@ -1,4 +1,4 @@
-KERNEL_SIZE db 33 ; ammount of sectors in which the kernel is located
+KERNEL_SIZE db 33 ; amount of sectors in which the kernel is located
 STACK_OFFSET db 9000
 KERNEL_OFFSET equ 0x1000
 MSG_REAL_MODE db "Started in 16-bit Real Mode", 0
