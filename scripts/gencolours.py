@@ -35,13 +35,7 @@ def generate():
 
 def fwrite(filename, data):
     with open(filename, "w") as f:
-        return f.write(str(data))   # str() to make sure
+        return f.write(str(data))
 
-def main():
-    if len(argv) > 1:
-        fwrite(argv[1], generate())
-    else:
-        print(generate())
-
-if __name__ == "__main__":
-    main()
+if len(argv) > 1:
+    fwrite(argv[1], generate())
