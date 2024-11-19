@@ -1,6 +1,11 @@
+# files
 *.o
 *.bin
 *.swp
-kernel/debug.h
+*.tar
+*.zip
+*/debug.h
+
+# folders
 dist/
 mk/
