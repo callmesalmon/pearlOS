@@ -24,7 +24,7 @@ After going into the repo directory, run configure and then make:
     ./configure
     make
 
-Lastly, run the generated image in dist/pearl.bin:
+Lastly, run the generated image at dist/pearl.bin:
 
     qemu-system-i386 dist/pearl.bin
 
