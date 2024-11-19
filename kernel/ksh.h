@@ -11,7 +11,7 @@
 
 char *theme;
 
-#include "advanced_cmds/neofetch.h"
+#include "advanced_cmds/pearlfetch.h"
 #include "advanced_cmds/list_files.h"
 #include "advanced_cmds/read_file.h"
 #include "advanced_cmds/write_to_file.h"
@@ -98,9 +98,9 @@ byte ksh_interpret(char* command)
     display_theme(DISPLAY_THEME);
     theme = "DEFAULT_THEME";
   }
-  else if (strcmp(command, "neofetch"))
+  else if (strcmp(command, "pearlfetch"))
   {
-    ksh_neofetch();
+    ksh_pearlfetch();
   }
   else if (strcmp(command, "ls"))
   {

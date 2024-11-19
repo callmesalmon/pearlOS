@@ -5,7 +5,7 @@
 #include "../ksh.h"
 #include "../../cpu/smbios.h"
 
-void ksh_neofetch()
+void ksh_pearlfetch()
 {
   kprintc('\n');
   kprints(

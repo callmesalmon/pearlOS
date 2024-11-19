@@ -11,7 +11,7 @@ int help_init() {
     kprints("fortune        digital fortune cookie\n");
     kprints("[SYSTEM INFO]\n");
     kprints("version        get kernel version\n");
-    kprints("neofetch       show info about your system\n");
+    kprints("pearlfetch     show info about your system\n");
     kprints("[THEMES]\n");
     kprints("theme-blue     changes the theme to white on blue\n");
     kprints("theme-cyan     changes the theme to white on cyan\n");
