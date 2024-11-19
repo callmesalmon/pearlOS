@@ -59,25 +59,20 @@ byte ksh_interpret(char* command)
     kprintu32(memory_usage_effective());
     kprintc('\n');
   }
-  else if (strcmp(command, "theme-blue"))
+  else if (strcmp(command, "theme-light"))
   {
-    display_theme(WHITE_ON_BLUE);
-    theme = "WHITE_ON_BLUE";
+    display_theme(BLACK_ON_WHITE);
+    theme = "Generic light";
   }
-  else if (strcmp(command, "theme-cyan"))
+  else if (strcmp(command, "theme-dark"))
   {
-    display_theme(WHITE_ON_CYAN);
-    theme = "WHITE_ON_CYAN";
-  }
-  else if (strcmp(command, "theme-gray"))
-  {
-    display_theme(GRAY_ON_BLACK);
-    theme = "GRAY_ON_BLACK";
+    display_theme(WHITE_ON_BLACK);
+    theme = "Generic dark";
   }
   else if (strcmp(command, "hacker"))
   {
     display_theme(GREEN_ON_BLACK);
-    theme = "GREEN_ON_BLACK";
+    theme = "Hacker >:D";
     kprints_color("You are a hacker now! >:D\n", RED_ON_WHITE);
   }
   else if (strcmp(command, "exit"))
@@ -96,7 +91,7 @@ byte ksh_interpret(char* command)
   else if (strcmp(command, "theme-default"))
   {
     display_theme(DISPLAY_THEME);
-    theme = "DEFAULT_THEME";
+    theme = "Generic pascal";
   }
   else if (strcmp(command, "pearlfetch"))
   {
@@ -140,7 +135,7 @@ byte ksh_interpret(char* command)
 
 void ksh_start()
 {
-  theme = "GREEN_ON_BLACK";
+  theme = "Generic pascal";
   char c [KSH_INPUT_BUFFER];
   for (uint i = 0; i < KSH_INPUT_BUFFER; ++i)
   {
