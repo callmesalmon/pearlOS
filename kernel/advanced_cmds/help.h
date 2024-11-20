@@ -25,6 +25,6 @@ int help_init() {
     kprints("ls             list all files\n");
     kprints("mk             create new file\n");
     kprints("rm             delete file\n");
-    kprints("in             read file content\n");
+    kprints("cat            read file content\n");
     kprints("to             write to file\n");
 }

@@ -109,7 +109,7 @@ byte ksh_interpret(char* command)
   {
     ksh_remove_file();
   }
-  else if (strcmp(command, "in"))
+  else if (strcmp(command, "cat"))
   {
     ksh_read_file();
   }
