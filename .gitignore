@@ -4,7 +4,7 @@
 *.swp
 *.tar
 *.zip
-*/debug.h
+kernel/debug.h
 
 # folders
 dist/
