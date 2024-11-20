@@ -5,7 +5,7 @@ int help_init() {
     kprints("[GENERAL]\n");
     kprints("help           prints this message\n");
     kprints("echo           prints {} to the display\n");
-    kprints("clear          cleans screen\n");
+    kprints("wipe           cleans screen\n");
     kprints("exit           exit kernel shell\n");
     kprints("[RANDOM]\n");
     kprints("fortune        digital fortune cookie\n");

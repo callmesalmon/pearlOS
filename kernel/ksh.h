@@ -39,7 +39,7 @@ byte ksh_interpret(char* command)
   {
     ksh_echo();
   }
-  else if (strcmp(command, "clear"))
+  else if (strcmp(command, "wipe"))
   {
     display_clear();
   }
