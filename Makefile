@@ -2,13 +2,13 @@
 .PHONY: clean run run-iso all full
 
 # config
-CC ?= gcc
-CFLAGS ?= -m32 -ffreestanding -fno-pie -Os -c -ggdb
-ASMC ?= nasm 
-ASMF ?= elf32
-LINKER ?= ld -m elf_i386 -s
-EMULATOR ?= qemu-system-x86_64
-EMUFLAGS ?= -cdrom
+CC = gcc
+CFLAGS = -m32 -ffreestanding -fno-pie -Os -c -ggdb
+ASMC = nasm 
+ASMF = elf32
+LINKER = ld -m elf_i386 -s
+EMULATOR = qemu-system-i386
+EMUFLAGS = -cdrom
 
 KERNEL_C_SOURCES := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
