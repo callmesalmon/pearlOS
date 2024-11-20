@@ -4,7 +4,7 @@
 void ksh_remove_file()
 {
   kprints("> ");
-  char file_to_remove [255];
+  char file_to_remove[255];
   kinputs(file_to_remove);
   if (file_remove(file_to_remove) == FILE_NOT_FOUND)
   {
