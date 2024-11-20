@@ -1,5 +1,3 @@
-#pragma once
-
 #include "config.h"
 #include "kmsg.h"
 #include "mem.h"

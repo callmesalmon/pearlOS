@@ -9,7 +9,7 @@ void ksh_list_files()
   for (int i = 0; i < file_count(); ++i)
   {
     name = file_get_name(i);
-    if (name != FILE_NOT_FOUND)
+    if (name != (char *)FILE_NOT_FOUND)
     {
       kprints(name);
       kprintc('\n');
