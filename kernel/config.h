@@ -6,4 +6,4 @@
 // mem.h
 #define KERNEL_MEMORY_OFFSET_START 0xffffff
 #define KERNEL_MEMORY_OFFSET_END   0xffffffff
-#define MEMORY_INDEX_BASE_SIZE     10000    // how many kmalloc calls you can do
+#define MEMORY_INDEX_BASE_SIZE     10000
