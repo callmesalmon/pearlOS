@@ -1,11 +1,10 @@
-# files
 *.o
 *.bin
 *.swp
 *.tar
 *.zip
+*~
+*#
 kernel/debug.h
-
-# folders
 dist/
 mk/
