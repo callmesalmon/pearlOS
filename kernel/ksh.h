@@ -73,7 +73,7 @@ byte ksh_interpret(char* command)
   {
     display_theme(GREEN_ON_BLACK);
     theme = "Hacker >:D";
-    kprints_color("You are a hacker now! >:D\n", RED_ON_WHITE);
+    kprints_color("You are a hacker now! >:D\n", RED_ON_BLACK);
   }
   else if (strcmp(command, "exit"))
   {
