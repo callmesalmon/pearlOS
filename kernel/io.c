@@ -69,4 +69,4 @@ void kinputs(char* output)
   kprintc('\n');
 }
 
-void __stack_chk_fail(){}
+void __stack_chk_fail() {}
