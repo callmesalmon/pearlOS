@@ -88,7 +88,7 @@ byte ksh_interpret(char* command)
   {
       kmalloc(1);
   }
-  else if (strcmp(command, "theme-default"))
+  else if (strcmp(command, "theme-pascal"))
   {
     display_theme(DISPLAY_THEME);
     theme = "Generic pascal";

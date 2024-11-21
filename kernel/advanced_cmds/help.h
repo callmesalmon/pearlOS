@@ -15,7 +15,7 @@ int help_init() {
     kprints("[THEMES]\n");
     kprints("theme-light     changes the theme to a light theme\n");
     kprints("theme-dark      changes the theme to a dark theme\n");
-    kprints("theme-default   changes the theme back to default\n");
+    kprints("theme-pascal    changes the theme back to pascal\n");
     kprints("[SYSTEM]\n");
     kprints("memstat        get allocated memory usage\n");
     kprints("memtest        allocate memory for test\n");
