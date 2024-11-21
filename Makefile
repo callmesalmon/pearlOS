@@ -1,7 +1,6 @@
 .DEFAULT_GOAL=dist/pearl.bin
 .PHONY: clean run run-iso all full
 
-# config
 CC = gcc
 CFLAGS = -m32 -ffreestanding -fno-pie -Os -c -ggdb
 ASMC = nasm 
@@ -41,7 +40,6 @@ dist/pearl.iso: $(.DEFAULT_GOAL)
 	cp $(.DEFAULT_GOAL) mk/iso/kernel.bin
 	mkisofs -b kernel.bin -o dist/pearl.iso mk/iso/
 
-# bin
 mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
 	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
 
@@ -49,7 +47,6 @@ mk/bin/bootsect.bin: boot/*
 	$(ASMC) -f bin -o $@ boot/bootsect.asm
 	chmod +x $@
 
-# C files
 mk/kernel/%.o: kernel/%.c $(C_HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -65,11 +62,9 @@ mk/lib/%.o: lib/%.c $(C_HEADERS)
 mk/fs/%.o: fs/%.c $(C_HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# specific
 mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
 	$(ASMC) -f $(ASMF) -o $@ $<
 
-# phony
 run: $(.DEFAULT_GOAL)
 	$(EMULATOR) $^
 
