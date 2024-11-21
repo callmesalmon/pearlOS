@@ -16,7 +16,7 @@ int main()
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
 	kernel_running = true;
-	display_theme(DISPLAY_THEME);
+	display_theme(DEFAULT_THEME);
 	memory_init();
 	keyboard_init();
 	smbios_init();
