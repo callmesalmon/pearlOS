@@ -132,5 +132,5 @@ void display_deletec()
 
 void display_init()
 {
-  display_theme_current = DISPLAY_THEME;
+  display_theme_current = DEFAULT_THEME;
 }

@@ -90,7 +90,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "theme-pascal"))
   {
-    display_theme(DISPLAY_THEME);
+    display_theme(DEFAULT_THEME);
     theme = "Generic pascal";
   }
   else if (strcmp(command, "pearlfetch"))
