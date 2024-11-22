@@ -2,8 +2,8 @@
 
 int help_init() {
     kprints("help           prints this message\n");
-    kprints("echo           prints {} to the display\n");
-    kprints("wipe           cleans screen\n");
+    kprints("echo           prints input to the display\n");
+    kprints("wipe           clears screen\n");
     kprints("exit           exit kernel shell\n");
     kprints("fortune        digital fortune cookie\n");
     kprints("version        get kernel version\n");
