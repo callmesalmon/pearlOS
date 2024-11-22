@@ -30,6 +30,7 @@ int calc_init()
     else if (strcmp(op, "-")) kprintu(strint(n1) - strint(n2));
     else if (strcmp(op, "*")) kprintu(strint(n1) * strint(n2));
     else if (strcmp(op, "/")) kprintu(strint(n1) / strint(n2));
+    else kprints("Invalid operator.");
     kprintc('\n');
     
     return 0;
