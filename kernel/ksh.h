@@ -21,6 +21,7 @@ char *theme;
 #include "advanced_cmds/echo.h"
 #include "advanced_cmds/help.h"
 #include "advanced_cmds/calc.h"
+#include "advanced_cmds/panic.h"
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -129,7 +130,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "panic"))
   {
-    kpanic("Debug panic");
+    usrpanic();
   }
   else
   {
