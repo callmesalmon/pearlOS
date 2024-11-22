@@ -25,6 +25,7 @@ char *theme;
 
 #define ok           0x0
 #define exit         0x1
+#define prompt       "$ "
 #define input_buf    31
 
 byte ksh_interpret(char* command)
@@ -152,7 +153,7 @@ void ksh_start()
   kprints(KERNEL_INFO_MANUAL_HELP);
   while (true)
   {
-    kprints("$ ");
+    kprints(prompt);
     kinputs(c);
     response = ksh_interpret(c);
     if (response == exit)
