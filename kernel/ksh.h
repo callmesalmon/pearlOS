@@ -20,6 +20,7 @@ char *theme;
 #include "advanced_cmds/remove_file.h"
 #include "advanced_cmds/echo.h"
 #include "advanced_cmds/help.h"
+#include "advanced_cmds/calc.h"
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -83,6 +84,10 @@ byte ksh_interpret(char* command)
   else if (strcmp(command, "fortune"))
   {
     ksh_fortune();
+  }
+  else if (strcmp(command, "calc"))
+  {
+    calc_init();
   }
   else if (strcmp(command, "memtest"))
   {
