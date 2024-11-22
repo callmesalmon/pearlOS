@@ -83,6 +83,7 @@ char uint32_to_char(uint32_t number)
     case 8: return '8';
     case 9: return '9';
   }
+  return '?'; /* Just in case */
 }
 
 char uint_to_char(uint number)
