@@ -18,12 +18,12 @@ int calc_init()
     /* Collect */
     kprints("num> ");
     kinputs(n1);
-    kprintc('\n');
     kprints("num> ");
     kinputs(n2);
-    kprintc('\n');
     kprints("op> ");
     kinputs(op);
+
+    kprints("res> ");
 
     /* Handle */
     if (strcmp(op, "+")) kprintu(strint(n1) + strint(n2));
@@ -31,7 +31,8 @@ int calc_init()
     else if (strcmp(op, "*")) kprintu(strint(n1) * strint(n2));
     else if (strcmp(op, "/")) kprintu(strint(n1) / strint(n2));
     else kprints("Invalid operator.");
+
     kprintc('\n');
-    
+
     return 0;
 }
