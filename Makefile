@@ -1,31 +1,31 @@
 .DEFAULT_GOAL=dist/pearl.bin
 .PHONY: clean run run-iso all full
 
-CC = gcc
-CFLAGS = -m32 -ffreestanding -fno-pie -Os -c -ggdb
-ASMC = nasm 
-ASMF = elf32
-LINKER = ld -m elf_i386 -s
+CC       = gcc
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb
+ASMC     = nasm 
+ASMF     = elf32
+LINKER   = ld -m elf_i386 -s
 EMULATOR = qemu-system-i386
 EMUFLAGS = -cdrom
 
-KERNEL_C_SOURCES := $(wildcard kernel/*.c)
-KERNEL_C_OBJECTS := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
-DRIVER_C_SOURCES := $(wildcard drivers/*.c)
-DRIVER_C_OBJECTS := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
-CPU_C_SOURCES := $(wildcard cpu/*.c)
-CPU_C_OBJECTS := $(patsubst cpu/%.c, mk/cpu/%.o, $(CPU_C_SOURCES))
-LIB_C_SOURCES := $(wildcard lib/*.c)
-LIB_C_OBJECTS := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
+KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
+KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
+DRIVER_C_SOURCES     := $(wildcard drivers/*.c)
+DRIVER_C_OBJECTS     := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
+CPU_C_SOURCES        := $(wildcard cpu/*.c)
+CPU_C_OBJECTS        := $(patsubst cpu/%.c, mk/cpu/%.o, $(CPU_C_SOURCES))
+LIB_C_SOURCES        := $(wildcard lib/*.c)
+LIB_C_OBJECTS        := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
 FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
 FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
 C_HEADERS = $(wildcard */*.h) $(wildcard kernel/advanced_cmds/*.h)
 
-KERNEL_OBJECTS = $(KERNEL_C_OBJECTS) mk/kernel/kernel_entry.o
-DRIVER_OBJECT = $(DRIVER_C_OBJECTS)
-CPU_OBJECTS = $(CPU_C_OBJECTS)
-LIB_OBJECTS = $(LIB_C_OBJECTS)
+KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kernel_entry.o
+DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
+CPU_OBJECTS        = $(CPU_C_OBJECTS)
+LIB_OBJECTS        = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
 dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
