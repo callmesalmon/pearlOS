@@ -35,6 +35,13 @@ Lastly, run the generated image at dist/pearl.bin:
 This will start up a QEMU session with the image, and you
 can run the OS.
 
+Uninstalling
+------------
+
+To uninstall, simply run:
+
+    make clean
+
 Contributing
 ------------
 
