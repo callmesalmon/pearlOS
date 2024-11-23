@@ -4,7 +4,13 @@
 #include "../../lib/conv.h"
 #include "../../lib/math.h"
 
-#define strint(str) (str_to_int(str, (int)(sizeof str / sizeof *str)))
+int str2int(char *str)
+{
+    return str_to_int(
+        (char *)str,
+        (int)sizeof(str) / sizeof(*str)
+    );
+}
 
 int calc_init()
 {
@@ -24,8 +30,8 @@ int calc_init()
     kprints("res> ");
 
     /* Convert */
-    int n1 = strint(s1);
-    int n2 = strint(s2);
+    int n1 = str2int(s1);
+    int n2 = str2int(s2);
 
     /* Handle */
     if (strcmp(op, "+"))      kprintu(n1 + n2);
