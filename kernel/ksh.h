@@ -23,16 +23,16 @@ char *theme;
 #include "advanced_cmds/calc.h"
 #include "advanced_cmds/panic.h"
 
-#define ok           0x0
-#define exit         0x1
-#define prompt       "$ "
-#define input_buf    31
+#define KSH_OK           0x0
+#define KSH_EXIT         0x1
+#define KSH_PROMPT       "$ "
+#define KSH_INPUT_BUFFER 31
 
 byte ksh_interpret(char* command)
 {
   if (!*command)
   {
-    return ok;
+    return KSH_OK;
   }
   else if (strcmp(command, "help"))
   {
@@ -81,7 +81,7 @@ byte ksh_interpret(char* command)
   else if (strcmp(command, "exit"))
   {
     display_clear();
-    return exit;
+    return KSH_EXIT;
   }
   else if (strcmp(command, "fortune"))
   {
@@ -137,14 +137,14 @@ byte ksh_interpret(char* command)
   {
     kprints(KERNEL_INFO_SHELL_UNKNOWN_COMMAND);
   }
-  return ok;
+  return KSH_OK;
 }
 
 void ksh_start()
 {
   theme = "Generic pascal";
-  char c [input_buf];
-  for (uint i = 0; i < input_buf; ++i)
+  char c [KSH_INPUT_BUFFER];
+  for (uint i = 0; i < KSH_INPUT_BUFFER; ++i)
   {
     c[i] = (char) 0;
   }
@@ -153,10 +153,10 @@ void ksh_start()
   kprints(KERNEL_INFO_MANUAL_HELP);
   while (true)
   {
-    kprints(prompt);
+    kprints(KSH_PROMPT);
     kinputs(c);
     response = ksh_interpret(c);
-    if (response == exit)
+    if (response == KSH_EXIT)
     {
       break;
     }
