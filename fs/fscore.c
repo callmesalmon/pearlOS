@@ -22,6 +22,8 @@ typedef struct
 File* findex [sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 
+File* ferror; /* Error var */
+
 File* find_file(char* name)
 {
   for (int i = 0; i <= findex_end; ++i)
@@ -31,6 +33,7 @@ File* find_file(char* name)
       return findex[i];
     }
   }
+  return ferror;
 }
 
 bool file_exists(char* name)
@@ -65,6 +68,7 @@ int file_get_id(char* name)
       return i;
     }
   }
+  return 1;
 }
 
 Sector* init_sector()
