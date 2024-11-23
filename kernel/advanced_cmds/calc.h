@@ -39,7 +39,6 @@ int calc_init()
     else if (strcmp(op, "*")) kprintu(n1 * n2);
     else if (strcmp(op, "/")) kprintu(n1 / n2);
     else if (strcmp(op, "^")) kprintu(pow(n1, n2));
-    else if (strcmp(op, "%")) kprintu(n1 % n2);
     else kprints("Invalid operator.");
 
     kprintc('\n');
