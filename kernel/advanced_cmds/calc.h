@@ -7,9 +7,6 @@
 
 int calc_init()
 {
-    /* Msg */
-    kprints("PearlCalc -- Simple calculator\n\n");
-
     /* Define */
     char* n1 = (char*) kmalloc(255);
     char* n2 = (char*) kmalloc(255);
