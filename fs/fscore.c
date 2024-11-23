@@ -240,9 +240,10 @@ void fsinit()
   file_writes(
     "license",
     "pearlOS is released under the Apache-2.0 License\n\n"
-    "A permissive license whose main conditions require preservation of copyright and license notices.\n"
-    "Contributors provide an express grant of patent rights. Licensed works, modifications, and larger\n"
-    "works may be distributed under different terms and without source code.\n"
+    "A permissive license whose main conditions require preservation of\n"
+    "copyright and license notices.Contributors provide an express grant\n"
+    "of patent rights. Licensed works, modifications, and larger works \n"
+    "may be distributed under different terms and without source code.\n"
   );
   file_make("readme");
   file_writes(
