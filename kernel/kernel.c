@@ -12,7 +12,7 @@ static bool kernel_running;
 
 int main()
 {
-	// init
+	/* init */
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
 	kernel_running = true;
@@ -25,9 +25,10 @@ int main()
 	rand_init();
 	kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
-	// main
-	#include "debug.h" // this file is created by ./configure
-	KERNEL_STARTUP
+
+	/* main */
+	#include "debug.h" /* this file is created by "./configure" */
+	KERNEL_STARTUP;
 	while (kernel_running)
 	{
 		KERNEL_UPDATE
