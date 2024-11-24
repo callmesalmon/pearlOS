@@ -20,16 +20,16 @@ Installation
 PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
 It's very easy to install, firstly clone the repo:
 ```sh
-    git clone https://github.com/ElisStaaf/pearlOS
+git clone https://github.com/ElisStaaf/pearlOS
 ```
 After going into the repo directory, run configure and then make:
 ```sh
-    ./configure
-    make
+./configure
+make
 ```
 Lastly, run the generated image at dist/pearl.bin:
 ```sh
-    qemu-system-i386 dist/pearl.bin
+qemu-system-i386 dist/pearl.bin
 ```
 This will start up a QEMU session with the image, and you
 can run the OS.
@@ -38,7 +38,7 @@ Uninstalling
 ------------
 To uninstall, simply run:
 ```sh
-    make clean
+make clean
 ```
 
 Contributing
