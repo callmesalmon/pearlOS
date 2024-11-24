@@ -9,32 +9,37 @@ void ksh_pearlfetch()
 {
   kprintc('\n');
   kprints(
-"                                         /$$  /$$$$$$   /$$$$$$ \n"
-"                                        | $$ /$$__  $$ /$$__  $$\n"
-"  /$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$ | $$| $$  \\ $$| $$  \\__/\n"
-" /$$__  $$ /$$__  $$ |____  $$ /$$__  $$| $$| $$  | $$|  $$$$$$ \n"
-"| $$  \\ $$| $$$$$$$$  /$$$$$$$| $$  \\__/| $$| $$  | $$ \\____  $$\n"
-"| $$  | $$| $$_____/ /$$__  $$| $$      | $$| $$  | $$ /$$  \\ $$\n"
-"| $$$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$|  $$$$$$/|  $$$$$$/\n"
-"| $$____/  \\_______/ \\_______/|__/      |__/ \\______/   \\______/ \n"
-"| $$                                                            \n"
-"| $$                                                            \n"
-"|__/                                                            \n"
+  "           _.-''|''-._\n"
+  "        .-'     |     `-.\n"
+  "      .'\\       |       /`.\n"
+  "    .'   \\      |      /   `.\n"
+  "    \\     \\     |     /     /\n"
+  "     `\\    \\    |    /    /'\n"
+  "       `\\   \\   |   /   /'\n"
+  "         `\\  \\  |  /  /'\n"
+  "        _.-`\\ \\ | / /'-._\n"
+  "       {_____`\\\\|//'_____}\n"
+  "               `-'\n"
   );
+
   kprints("OS: pearlOS ");
   kprints(OS_VERSION);
   kprintc('\n');
+
   kprints("BIOS name: ");
   kprints(smbios_get_bios_name());
   kprintc('\n');
+
   kprints("BIOS version:");
   kprints(smbios_get_bios_version());
   kprintc('\n');
+
   kprints("Memory: ");
   kprintu32(memory_usage());
   kprints("/");
   kprintu32(memory_total());
   kprintc('\n');
+
   kprints("Theme: ");
   kprints(theme);
   kprintc('\n');
