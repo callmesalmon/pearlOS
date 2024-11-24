@@ -30,7 +30,8 @@ int calc_init()
     kprints("res> ");
 
     /* Convert */
-    if (str2int(s1) == -1 || str2int(s2) == -1) {
+    if (str2int(s1) == -1 || str2int(s2) == -1)
+    {
         kprints("Invalid number.");
         return -1;
     }
