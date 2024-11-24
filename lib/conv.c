@@ -1,5 +1,6 @@
 #include "conv.h"
 #include "stdint.h"
+#include "stddef.h"
 
 void uint32_to_str(char* output, uint32_t number)
 {
@@ -93,7 +94,7 @@ char uint_to_char(uint number)
 }
 
 /* convert character array to integer */
-int str_to_int(char *array, int n)
+int str_to_int(char *array, size_t n)
 {    
     int number = 0;
     int mult = 1;

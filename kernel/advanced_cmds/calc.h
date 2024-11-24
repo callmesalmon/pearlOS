@@ -8,8 +8,8 @@
 int str2int(char *str)
 {
     return str_to_int(
-        (char *)str,
-        (int)sizeof(str) / sizeof(*str)
+        str,
+        sizeof(str) / sizeof(*str)
     );
 }
 
