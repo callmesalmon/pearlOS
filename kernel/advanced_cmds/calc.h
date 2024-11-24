@@ -27,12 +27,11 @@ int calc_init()
     kprints("op> ");
     kinputs(op);
 
-    kprints("res> ");
-
     /* Convert */
     if (str2int(s1) == -1 || str2int(s2) == -1)
     {
         kprints("Invalid number.");
+        kprintc('\n');
         return -1;
     }
     int n1 = str2int(s1);

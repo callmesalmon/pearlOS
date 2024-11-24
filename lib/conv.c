@@ -102,6 +102,12 @@ int str_to_int(char *array, int n)
     /* for each character in array */
     while (n--)
     {
+        /* If array[n] = char then exit */
+        if ((array[n] >= 'a' && array[n] <= 'z') || (array[n] >= 'A' && array[n] <= 'Z'))
+        {
+            return -1;
+        }
+
         /* if not digit or '-', check if number > 0, break or continue */
         if ((array[n] < '0' || array[n] > '9') && array[n] != '-') {
             if (number)
@@ -120,11 +126,6 @@ int str_to_int(char *array, int n)
             number += (array[n] - '0') * mult;
             mult *= 10;
         }
-    }
-
-    if (sizeof(number) != sizeof(int))
-    {
-        return -1;
     }
 
     return number;
