@@ -13,7 +13,7 @@ int str2int(char *str)
     );
 }
 
-int calc_init()
+int ksh_calc()
 {
     /* Define */
     char* s1 = (char*) kmalloc(255);

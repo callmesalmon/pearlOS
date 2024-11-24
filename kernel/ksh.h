@@ -91,7 +91,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "calc"))
   {
-    calc_init();
+    ksh_calc();
   }
   else if (strcmp(command, "memalloc"))
   {
