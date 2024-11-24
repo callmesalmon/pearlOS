@@ -3,7 +3,7 @@
 // index structure:
 // even index -> page start
 // odd index -> page end
-byte* memory_index [MEMORY_INDEX_BASE_SIZE];
+byte* memory_index[MEMORY_INDEX_BASE_SIZE];
 
 byte* get_memory_index()
 {
@@ -91,7 +91,7 @@ void memory_init()
 {
   memory_index[0] = (byte*) KERNEL_MEMORY_OFFSET_START;
   memory_index[1] = (byte*) KERNEL_MEMORY_OFFSET_START;
-  for (uint i = 2; i < (uint)sizeof(memory_index); ++i)
+  for (int i = 2; i < sizeof(memory_index) / sizeof(*memory_index); ++i)
   {
     memory_index[i] = MEMORY_EMPTY;
   }
