@@ -25,12 +25,12 @@ def generate():
     result = "#define INCLUDED_COLOR\n"
     for color in colors:
         result += "#define " + color + " 0x" + colors[color] + "\n"
-    for background_color in colors:
-        for text_color in colors:
-            if background_color != text_color:
-                background_code = colors[background_color]
-                text_code = colors[text_color]
-                result += "#define " + text_color + "_ON_" + background_color + " 0x" + background_code + text_code + "\n"
+    for bgcolor in colors:
+        for fgcolor in colors:
+            if bgcolor != fgcolor:
+                bgcode = colors[bgcolor]
+                fgcode = colors[text_color]
+                result += f"#define {fgcolor}_ON_{backround_color} 0x{bgcode}{fgcode}\n"
     return result
 
 def fwrite(filename, data):
