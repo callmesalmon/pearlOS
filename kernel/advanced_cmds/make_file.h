@@ -1,4 +1,4 @@
-#include "../io.h"
+#include <io.h>
 
 void ksh_make_file()
 {

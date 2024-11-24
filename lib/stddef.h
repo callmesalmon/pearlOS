@@ -7,7 +7,6 @@ typedef unsigned char bool;
 
 #define true (bool) 1
 #define false (bool) 0
-
 #define NULL ((void*)0)
 
 #define low_16(address) (word)((address) & 0xFFFF)

@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../io.h"
+#include <io.h>
+
 #include "../../lib/rand.h"
 #include "../../drivers/display.h"
 

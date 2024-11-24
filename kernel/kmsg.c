@@ -1,5 +1,5 @@
+#include <io.h>
 #include "kmsg.h"
-#include "io.h"
 #include "../drivers/display_color.h"
 
 

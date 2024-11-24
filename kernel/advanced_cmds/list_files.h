@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../io.h"
+#include <io.h>
 #include "../../fs/fscore.h"
 
 void ksh_list_files()

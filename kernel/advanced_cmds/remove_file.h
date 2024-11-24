@@ -1,4 +1,5 @@
-#include "../io.h"
+#include <io.h>
+
 #include "../../fs/fscore.h"
 
 void ksh_remove_file()

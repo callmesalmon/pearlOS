@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../lib/stddef.h"
+#include <stddef.h>
 
 byte port_byte_in(word port);
 void port_byte_out(word port, byte data);

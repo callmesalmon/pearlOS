@@ -1,7 +1,8 @@
 #pragma once
 
+#include <stddef.h>
+
 #include "../cpu/port.h"
-#include "../lib/stddef.h"
 #include "../kernel/config.h"
 
 #define VIDEO_MEMORY_OFFSET (uint*) 0xb8000

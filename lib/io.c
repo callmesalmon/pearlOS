@@ -1,6 +1,5 @@
 #include "io.h"
-
-#include "../lib/conv.h"
+#include "conv.h"
 
 // print string to cursor with color
 void kprints_color(char* text, char color)

@@ -1,11 +1,12 @@
+#include <stddef.h>
+#include <rand.h>
+
 #include "config.h"
 #include "kmsg.h"
 #include "mem.h"
 #include "ksh.h"
 #include "../cpu/smbios.h"
 #include "../fs/fscore.h"
-#include "../lib/stddef.h"
-#include "../lib/rand.h"
 
 static bool kernel_running;
 

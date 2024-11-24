@@ -1,4 +1,5 @@
-#include "../io.h"
+#include <io.h>
+
 #include "../mem.h"
 
 void ksh_echo()

@@ -1,8 +1,9 @@
-#include "../io.h"
+#include <io.h>
+#include <math.h>
+#include <string.h>
+#include <conv.h>
+
 #include "../mem.h"
-#include "../../lib/string.h"
-#include "../../lib/conv.h"
-#include "../../lib/math.h"
 
 int str2int(char *str)
 {

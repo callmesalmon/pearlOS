@@ -1,6 +1,8 @@
 #pragma once
+
+#include <io.h>
+
 #include "../../drivers/display.h"
-#include "../io.h"
 #include "../mem.h"
 #include "../ksh.h"
 #include "../../cpu/smbios.h"

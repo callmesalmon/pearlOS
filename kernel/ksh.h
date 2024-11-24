@@ -1,13 +1,14 @@
 #pragma once
 
-#include "../lib/stddef.h"
-#include "../lib/string.h"
-#include "../drivers/display_color.h"
+#include <stddef.h>
+#include <io.h>
+#include <string.h>
+
 #include "mem.h"
 #include "kmsg.h"
-#include "io.h"
-#include "../cpu/smbios.h"
 #include "version.h"
+#include "../cpu/smbios.h"
+#include "../drivers/display_color.h"
 
 char *theme;
 

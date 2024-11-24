@@ -1,4 +1,4 @@
-#include "../io.h"
+#include <io.h>
 
 int help_init() {
     kprints("help           prints this message\n");

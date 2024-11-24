@@ -2,7 +2,7 @@
 .PHONY: clean run run-iso all full
 
 CC       = gcc
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib
 ASMC     = nasm 
 ASMF     = elf32
 LINKER   = ld -m elf_i386 -s
