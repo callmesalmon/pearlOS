@@ -1,4 +1,4 @@
-#include "type.h"
+#include "stddef.h"
 
 #define LCG_A 1103515245
 #define LCG_C 12345

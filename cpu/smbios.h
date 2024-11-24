@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 #include "../kernel/kmsg.h"
 
 char* smbios_get_bios_version();

@@ -1,5 +1,5 @@
 #include "keyboard.h"
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 
 //TODO: Fix interrupts pls so I can un-bruh this code
 

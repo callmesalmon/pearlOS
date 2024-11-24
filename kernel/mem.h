@@ -1,5 +1,5 @@
 #pragma once
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 #include "kmsg.h"
 #include "config.h"
 

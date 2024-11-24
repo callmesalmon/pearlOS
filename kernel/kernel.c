@@ -4,7 +4,7 @@
 #include "ksh.h"
 #include "../cpu/smbios.h"
 #include "../fs/fscore.h"
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 #include "../lib/rand.h"
 
 static bool kernel_running;

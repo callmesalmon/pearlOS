@@ -1,5 +1,5 @@
-#include "def.h"
-#include "type.h"
+#include "stdint.h"
+#include "stddef.h"
 
 bool chint(char ch)
 {

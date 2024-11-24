@@ -2,7 +2,7 @@
 
 // includes
 #include "prop.h"
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 #include "../lib/string.h"
 #include "../kernel/config.h"
 #include "../kernel/mem.h"

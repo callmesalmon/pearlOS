@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 #include "../lib/string.h"
 #include "../drivers/display_color.h"
 #include "mem.h"

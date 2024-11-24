@@ -1,5 +1,5 @@
 #include "conv.h"
-#include "def.h"
+#include "stdint.h"
 
 void uint32_to_str(char* output, uint32_t number)
 {

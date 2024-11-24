@@ -1,6 +1,6 @@
 #pragma once
 
-#include "type.h"
+#include "stddef.h"
 #include "math.h"
 #include "string.h"
 

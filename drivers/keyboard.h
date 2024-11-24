@@ -2,7 +2,7 @@
 
 #include "display.h"
 #include "../cpu/port.h"
-#include "../lib/type.h"
+#include "../lib/stddef.h"
 
 #define REG_KEYBOARD_DATA 0x60
 #define REG_KEYBOARD_CMD  0x64
