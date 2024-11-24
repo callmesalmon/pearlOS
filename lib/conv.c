@@ -1,4 +1,5 @@
 #include "conv.h"
+#include "def.h"
 
 void uint32_to_str(char* output, uint32_t number)
 {
@@ -103,7 +104,7 @@ int str_to_int(char *array, int n)
     while (n--)
     {
         /* If array[n] = char then exit */
-        if ((array[n] >= 'a' && array[n] <= 'z') || (array[n] >= 'A' && array[n] <= 'Z'))
+        if (!chint(array[n]))
         {
             return -1;
         }
