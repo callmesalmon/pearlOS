@@ -11,6 +11,7 @@ void ksh_read_file()
 
   char* content = (char*) kmalloc(file_size(filename));
   int response = file_read(filename, content);
+
   if (response == FILE_NOT_FOUND)
   {
     puts("File not found\n");

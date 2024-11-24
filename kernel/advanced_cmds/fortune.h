@@ -1,6 +1,7 @@
 #pragma once
 
 #include <io.h>
+#include <magic.h>
 
 #include "../../lib/rand.h"
 #include "../../drivers/display.h"
@@ -43,7 +44,7 @@ int ksh_fortune() {
     };
 
     int rand_index = rand() % 7;
-    int fortune_len = sizeof(fortunes)/sizeof(fortunes[0]);
+    int fortune_len = len(fortunes);
     for (int i = 0; i < fortune_len; i++) {
         if (rand_index == i) {
             puts(fortunes[i]);

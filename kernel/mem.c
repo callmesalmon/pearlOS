@@ -1,3 +1,5 @@
+#include <magic.h>
+
 #include "mem.h"
 
 // index structure:
@@ -91,7 +93,7 @@ void memory_init()
 {
   memory_index[0] = (byte*) KERNEL_MEMORY_OFFSET_START;
   memory_index[1] = (byte*) KERNEL_MEMORY_OFFSET_START;
-  for (int i = 2; i < sizeof(memory_index) / sizeof(*memory_index); ++i)
+  for (int i = 2; i < len(memory_index); ++i)
   {
     memory_index[i] = MEMORY_EMPTY;
   }

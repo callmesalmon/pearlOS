@@ -1,5 +1,7 @@
 #include <io.h>
 
+#include "../../fs/fscore.h"
+
 void ksh_make_file()
 {
   puts("> ");
@@ -7,6 +9,7 @@ void ksh_make_file()
   scan(file_to_make);
 
   int response = file_make(file_to_make);
+
   if (response == FILE_ALREADY_EXISTS)
   {
     puts("File already exists!\n");
