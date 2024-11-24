@@ -2,16 +2,9 @@
 #include <math.h>
 #include <string.h>
 #include <conv.h>
+#include <magic.h>
 
 #include "../mem.h"
-
-int str2int(char *str)
-{
-    return str_to_int(
-        str,
-        sizeof(str) / sizeof(*str)
-    );
-}
 
 int ksh_calc()
 {
@@ -29,14 +22,14 @@ int ksh_calc()
     scan(op);
 
     /* Convert */
-    if (str2int(s1) == -1 || str2int(s2) == -1)
+    if (str_to_int(s1, len(s1)) == -1 || str_to_int(s2, len(s2)) == -1)
     {
         puts("Invalid number.");
         putc('\n');
         return -1;
     }
-    int n1 = str2int(s1);
-    int n2 = str2int(s2);
+    int n1 = str_to_int(s1, len(s1));
+    int n2 = str_to_int(s2, len(s2));
 
     /* Handle */
     if (strcmp(op, "+"))      putu(n1 + n2);
