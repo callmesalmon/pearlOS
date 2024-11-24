@@ -4,6 +4,8 @@
 #include "math.h"
 #include "string.h"
 
+#define INVALID_BYTE (byte)0x1099
+
 void uint32_to_str(char* output, uint32_t number);
 void uint32_to_hex(char* output, uint32_t number);
 void uint_to_str(char* output, uint number);

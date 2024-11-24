@@ -15,7 +15,7 @@ int rand_lcg(int x)
   // use the same parameters as glibc https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
   int a = 1103515245;
   int c = 12345;
-  int m = 2147483648;
+  int m = -2147483648;
   int result = (a * x + c) % m;
   if (result < 0) result = -result;
   return result;

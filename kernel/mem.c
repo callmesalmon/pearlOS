@@ -28,7 +28,7 @@ void* kmalloc(uint32_t size)
       {
         kpanic(KERNEL_PANIC_MEMORY_INDEX_FULL);
       }
-      if (size + last_page_end + 1 >= KERNEL_MEMORY_OFFSET_END)
+      if (size + last_page_end + 1 >= (byte *)KERNEL_MEMORY_OFFSET_END)
       {
         kpanic(KERNEL_PANIC_MEMORY_FULL);
       }
@@ -91,7 +91,7 @@ void memory_init()
 {
   memory_index[0] = (byte*) KERNEL_MEMORY_OFFSET_START;
   memory_index[1] = (byte*) KERNEL_MEMORY_OFFSET_START;
-  for (uint i = 2 /* we dont want to overwrite KERNEL_MEMORY_OFFSET_START*/; i < sizeof(memory_index); ++i)
+  for (uint i = 2; i < (uint)sizeof(memory_index); ++i)
   {
     memory_index[i] = MEMORY_EMPTY;
   }

@@ -157,4 +157,5 @@ byte char_to_hex(char character)
     case 'f': return 0xF;
     case 'F': return 0xF;
   }
+  return INVALID_BYTE;
 }
