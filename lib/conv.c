@@ -122,6 +122,11 @@ int str_to_int(char *array, int n)
         }
     }
 
+    if (sizeof(number) != sizeof(int))
+    {
+        return -1;
+    }
+
     return number;
 }
 
