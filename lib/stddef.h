@@ -3,8 +3,13 @@ typedef unsigned char byte;
 typedef unsigned char* bytes;
 typedef unsigned int uint;
 typedef unsigned short word;
-typedef __SIZE_TYPE__ size_t;
 typedef unsigned char bool;
+
+#ifdef __SIZE_TYPE__
+    typedef __SIZE_TYPE__ size_t;
+#else
+    #error "[ERROR]: __SIZE_TYPE__ is not defined. Can't compile."
+#endif
 
 #define true (bool) 1
 #define false (bool) 0
