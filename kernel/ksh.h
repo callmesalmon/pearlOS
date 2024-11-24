@@ -145,7 +145,7 @@ byte ksh_interpret(char* command)
 void ksh_start()
 {
   theme = "Hacker >:D";
-  char c [KSH_INPUT_BUFFER];
+  char c[KSH_INPUT_BUFFER];
   for (uint i = 0; i < KSH_INPUT_BUFFER; ++i)
   {
     c[i] = (char) 0;

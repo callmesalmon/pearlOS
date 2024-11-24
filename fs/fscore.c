@@ -14,12 +14,12 @@ typedef struct SectorStruct Sector;
 
 typedef struct
 {
-  char name [FS_FILE_NAME_BUFFER];
-  char tags [FS_FILE_TAGS_BUFFER];
+  char name[FS_FILE_NAME_BUFFER];
+  char tags[FS_FILE_TAGS_BUFFER];
   Sector* first_sector;
 } File;
 
-File* findex [sizeof(File*) * FS_MAX_FILE_COUNT];
+File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 
 File* ferror; /* Error var */
