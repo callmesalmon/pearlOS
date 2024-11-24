@@ -6,7 +6,7 @@ operating system made by the same author; [RezOS](https://github.com/GandelXIV/R
 But ofcourse only do that *after* you check out this project! pearlOS was made
 for me to learn operating system things and also to become better at C and Assembly.
 
-[![pearlOS](https://raw.githubusercontent.com/ElisStaaf/pearlOS/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
+[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
 
 Requirements
 ------------
