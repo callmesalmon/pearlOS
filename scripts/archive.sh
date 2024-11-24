@@ -3,7 +3,7 @@
 case $1 in 
     "--zip" | "-z")
         echo "Making zip image..."
-        zip dist/pearlOS.zip dist/pearl.bin
+        zip dist/pearl.zip dist/pearl.bin
         ;;
 
     "--tar" | "-t")
