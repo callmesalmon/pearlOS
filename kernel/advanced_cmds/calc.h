@@ -21,32 +21,32 @@ int ksh_calc()
     char* op = (char*) kmalloc(255);
 
     /* Collect */
-    kprints("num> ");
-    kinputs(s1);
-    kprints("num> ");
-    kinputs(s2);
-    kprints("op> ");
-    kinputs(op);
+    puts("num> ");
+    scan(s1);
+    puts("num> ");
+    scan(s2);
+    puts("op> ");
+    scan(op);
 
     /* Convert */
     if (str2int(s1) == -1 || str2int(s2) == -1)
     {
-        kprints("Invalid number.");
-        kprintc('\n');
+        puts("Invalid number.");
+        putc('\n');
         return -1;
     }
     int n1 = str2int(s1);
     int n2 = str2int(s2);
 
     /* Handle */
-    if (strcmp(op, "+"))      kprintu(n1 + n2);
-    else if (strcmp(op, "-")) kprintu(n1 - n2);
-    else if (strcmp(op, "*")) kprintu(n1 * n2);
-    else if (strcmp(op, "/")) kprintu(n1 / n2);
-    else if (strcmp(op, "^")) kprintu(pow(n1, n2));
-    else kprints("Invalid operator.");
+    if (strcmp(op, "+"))      putu(n1 + n2);
+    else if (strcmp(op, "-")) putu(n1 - n2);
+    else if (strcmp(op, "*")) putu(n1 * n2);
+    else if (strcmp(op, "/")) putu(n1 / n2);
+    else if (strcmp(op, "^")) putu(pow(n1, n2));
+    else puts("Invalid operator.");
 
-    kprintc('\n');
+    putc('\n');
 
     return 0;
 }

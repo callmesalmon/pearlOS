@@ -9,14 +9,14 @@ int ksh_alloc()
     char* str = (char*) kmalloc(255);
 
     /* Collect */
-    kprints("> ");
-    kinputs(str);
+    puts("> ");
+    scan(str);
 
     /* Convert */
     if (str_to_int(str, sizeof(str) / sizeof(*str)) == -1)
     {
-        kprints("Invalid number.");
-        kprintc('\n');
+        puts("Invalid number.");
+        putc('\n');
         return -1;
     }
     int num = str_to_int(str, sizeof(str) / sizeof(*str));

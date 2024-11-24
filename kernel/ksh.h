@@ -50,19 +50,19 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "version"))
   {
-    kprints("pearlOS\n");
-    kprints("Version: ");
-    kprints(OS_VERSION);
-    kprintc('\n');
+    puts("pearlOS\n");
+    puts("Version: ");
+    puts(OS_VERSION);
+    putc('\n');
   }
   else if (strcmp(command, "memstat"))
   {
-    kprints("Memory usage:");
-    kprints("\ntotal: ");
-    kprintu32(memory_usage());
-    kprints("\neffective: ");
-    kprintu32(memory_usage_effective());
-    kprintc('\n');
+    puts("Memory usage:");
+    puts("\ntotal: ");
+    putu32(memory_usage());
+    puts("\neffective: ");
+    putu32(memory_usage_effective());
+    putc('\n');
   }
   else if (strcmp(command, "theme-light"))
   {
@@ -78,7 +78,7 @@ byte ksh_interpret(char* command)
   {
     display_theme(GREEN_ON_BLACK);
     theme = "Hacker >:D";
-    kprints_color("You are a hacker now! >:D\n", RED_ON_BLACK);
+    cputs("You are a hacker now! >:D\n", RED_ON_BLACK);
   }
   else if (strcmp(command, "exit"))
   {
@@ -128,8 +128,8 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "random"))
   {
-    kprintu(rand() % 100);  // random number between 0-100
-    kprintc('\n');
+    putu(rand() % 100);  // random number between 0-100
+    putc('\n');
   }
   else if (strcmp(command, "panic"))
   {
@@ -137,7 +137,7 @@ byte ksh_interpret(char* command)
   }
   else
   {
-    kprints(KERNEL_INFO_SHELL_UNKNOWN_COMMAND);
+    puts(KERNEL_INFO_SHELL_UNKNOWN_COMMAND);
   }
   return KSH_OK;
 }
@@ -151,12 +151,12 @@ void ksh_start()
     c[i] = (char) 0;
   }
   byte response;
-  kprints(KERNEL_INFO_SHELL_WELCOME);
-  kprints(KERNEL_INFO_MANUAL_HELP);
+  puts(KERNEL_INFO_SHELL_WELCOME);
+  puts(KERNEL_INFO_MANUAL_HELP);
   while (true)
   {
-    kprints(KSH_PROMPT);
-    kinputs(c);
+    puts(KSH_PROMPT);
+    scan(c);
     response = ksh_interpret(c);
     if (response == KSH_EXIT)
     {

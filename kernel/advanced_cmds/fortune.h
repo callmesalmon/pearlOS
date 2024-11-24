@@ -46,7 +46,7 @@ int ksh_fortune() {
     int fortune_len = sizeof(fortunes)/sizeof(fortunes[0]);
     for (int i = 0; i < fortune_len; i++) {
         if (rand_index == i) {
-            kprints(fortunes[i]);
+            puts(fortunes[i]);
         }
     }
     return 0;

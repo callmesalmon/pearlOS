@@ -2,56 +2,56 @@
 #include "conv.h"
 
 // print string to cursor with color
-void kprints_color(char* text, char color)
+void cputs(char* text, char color)
 {
 	while (*text)
 	{
-		kprintc_color(*text, color);
+		cputc(*text, color);
 		++text;
 	}
 }
 
 // print string to cursor with default color
-void kprints(char* text)
+void puts(char* text)
 {
-  kprints_color(text, TRANSPARENT);
+  cputs(text, TRANSPARENT);
 }
 
-void kprinti(int number)
+void puti(int number)
 {
-  char output [12];
+  char output[12];
   int_to_str(output, number);
-  kprints(output);
+  puts(output);
 }
 
-void kprintu(uint number)
+void putu(uint number)
 {
-  char output [12];
+  char output[12];
   uint_to_str(output, number);
-  kprints(output);
+  puts(output);
 }
 
-void kprintu32(uint32_t number)
+void putu32(uint32_t number)
 {
-  char output [12];
+  char output[12];
   uint32_to_str(output, number);
-  kprints(output);
+  puts(output);
 }
 
-void kprinthex(uint32_t number)
+void puthex(uint32_t number)
 {
   char* output;
   uint32_to_hex(output, number);
-  kprints(output);
+  puts(output);
 }
 
-void kinputs(char* output)
+void scan(char* output)
 {
   uint32_t i = 0;
   char input = 0;
   while (input != '\n')
   {
-    input = kinputc();
+    input = scanc();
     if (input == '\b' && i > 0)
     {
       --i;
@@ -60,12 +60,12 @@ void kinputs(char* output)
     else if (input == '\n') output[i] = 0;
     else if (input != '\b')
     {
-      kprintc(input);
+      putc(input);
       output[i] = input;
       ++i;
     }
   }
-  kprintc('\n');
+  putc('\n');
 }
 
 void __stack_chk_fail() {}

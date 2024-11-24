@@ -9,8 +9,8 @@
 
 void ksh_pearlfetch()
 {
-  kprintc('\n');
-  kprints(
+  putc('\n');
+  puts(
   "           _.-''|''-._\n"
   "        .-'     |     `-.\n"
   "      .'\\       |       /`.\n"
@@ -24,27 +24,27 @@ void ksh_pearlfetch()
   "               `-'\n"
   );
 
-  kprints("OS: pearlOS ");
-  kprints(OS_VERSION);
-  kprintc('\n');
+  puts("OS: pearlOS ");
+  puts(OS_VERSION);
+  putc('\n');
 
-  kprints("BIOS name: ");
-  kprints(smbios_get_bios_name());
-  kprintc('\n');
+  puts("BIOS name: ");
+  puts(smbios_get_bios_name());
+  putc('\n');
 
-  kprints("BIOS version:");
-  kprints(smbios_get_bios_version());
-  kprintc('\n');
+  puts("BIOS version:");
+  puts(smbios_get_bios_version());
+  putc('\n');
 
-  kprints("Memory: ");
-  kprintu32(memory_usage());
-  kprints("/");
-  kprintu32(memory_total());
-  kprintc('\n');
+  puts("Memory: ");
+  putu32(memory_usage());
+  puts("/");
+  putu32(memory_total());
+  putc('\n');
 
-  kprints("Theme: ");
-  kprints(theme);
-  kprintc('\n');
+  puts("Theme: ");
+  puts(theme);
+  putc('\n');
 }
 
 /*14 x 28

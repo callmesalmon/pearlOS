@@ -11,8 +11,8 @@ void ksh_list_files()
     name = file_get_name(i);
     if (name != (char *)FILE_NOT_FOUND)
     {
-      kprints(name);
-      kprintc('\n');
+      puts(name);
+      putc('\n');
     }
   }
 }

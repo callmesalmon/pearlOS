@@ -22,10 +22,10 @@
 #define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;
 
 // kernel API
-void kprintc(char character);
-void kprintc_color(char character, char color);
-void kprint(char* text, uint32_t depth);
-void kprint_color(char* text, uint32_t depth, byte color);
+void putc(char character);
+void cputc(char character, char color);
+void put(char* text, uint32_t depth);
+void cput(char* text, uint32_t depth, byte color);
 void display_clear();
 void display_scroll();
 void display_theme(char color);

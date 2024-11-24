@@ -38,7 +38,7 @@ void kbh();
 
 static unsigned char ch = 0;
 
-char kinputc() {
+char scanc() {
     do {
         if (kbin >= 128 || kbin == 0xE0) ch = 0;
         kbh();

@@ -5,25 +5,25 @@
 
 void kinfo(char* msg)
 {
-  kprints("[INFO] ");
-  kprints(msg);
+  puts("[INFO] ");
+  puts(msg);
 }
 
 void kwarning(char* msg)
 {
-  kprints("[WARNING] ");
-  kprints(msg);
+  puts("[WARNING] ");
+  puts(msg);
 }
 
 void kerror(char* msg)
 {
-  kprints("[ERROR] ");
-  kprints(msg);
+  puts("[ERROR] ");
+  puts(msg);
 }
 
 void kpanic(char* msg)
 {
-  kprints_color("[PANIC] ", RED_ON_BLACK);
-  kprints_color(msg, RED_ON_BLACK);
+  cputs("[PANIC] ", RED_ON_BLACK);
+  cputs(msg, RED_ON_BLACK);
   while (1) {} /* Infinite loop */
 }

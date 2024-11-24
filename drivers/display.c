@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 #include "display.h"
 #include "display_cursor.h"
 
@@ -34,7 +36,7 @@ void printnl()
 }
 
 // print char to cursor with color
-void kprintc_color(char character, char color)
+void cputc(char character, char color)
 {
   INIT_VIDEO
 	uint cursor = get_cursor_offset();
@@ -58,22 +60,22 @@ void kprintc_color(char character, char color)
 }
 
 // print char to cursor with default color
-void kprintc(char character)
+void putc(char character)
 {
-	kprintc_color(character, TRANSPARENT);
+	cputc(character, TRANSPARENT);
 }
 
-void kprint_color(char* text, uint32_t depth, byte color)
+void cput(char* text, uint32_t depth, byte color)
 {
   for (uint32_t i = 0; i < depth; ++i)
   {
-    kprintc_color(text[i], color);
+    cputc(text[i], color);
   }
 }
 
-void kprint(char* text, uint32_t depth)
+void put(char* text, uint32_t depth)
 {
-  kprint_color(text, depth, TRANSPARENT);
+  cput(text, depth, TRANSPARENT);
 }
 
 void display_theme(char color)   // draw a specific color on whole display
@@ -126,7 +128,7 @@ void display_clear()
 void display_deletec()
 {
   set_cursor_offset(get_cursor_offset()-1);
-  kprintc(0);
+  putc(0);
   set_cursor_offset(get_cursor_offset()-1);
 }
 

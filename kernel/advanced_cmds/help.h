@@ -1,25 +1,25 @@
 #include <io.h>
 
 int help_init() {
-    kprints("help           prints this message\n");
-    kprints("echo           prints input to the display\n");
-    kprints("wipe           clears screen\n");
-    kprints("exit           exit kernel shell\n");
-    kprints("fortune        digital fortune cookie\n");
-    kprints("version        get kernel version\n");
-    kprints("pearlfetch     show info about your system\n");
-    kprints("calc           simple calculator\n");
-    kprints("theme-light    changes the theme to a light theme\n");
-    kprints("theme-dark     changes the theme to a dark theme\n");
-    kprints("theme-pascal   changes the theme to pascal\n");
-    kprints("hacker         changes the theme back to hacker >:D\n");
-    kprints("memstat        get allocated memory usage\n");
-    kprints("memalloc       allocate memory for test\n");
-    kprints("random         get random number between 0-100\n");
-    kprints("panic          invoke debug kernel panic\n");  
-    kprints("ls             list all files\n");
-    kprints("mk             create new file\n");
-    kprints("rm             delete file\n");
-    kprints("cat            read file content\n");
-    kprints("to             write to file\n");
+    puts("help           prints this message\n");
+    puts("echo           prints input to the display\n");
+    puts("wipe           clears screen\n");
+    puts("exit           exit kernel shell\n");
+    puts("fortune        digital fortune cookie\n");
+    puts("version        get kernel version\n");
+    puts("pearlfetch     show info about your system\n");
+    puts("calc           simple calculator\n");
+    puts("theme-light    changes the theme to a light theme\n");
+    puts("theme-dark     changes the theme to a dark theme\n");
+    puts("theme-pascal   changes the theme to pascal\n");
+    puts("hacker         changes the theme back to hacker >:D\n");
+    puts("memstat        get allocated memory usage\n");
+    puts("memalloc       allocate memory for test\n");
+    puts("random         get random number between 0-100\n");
+    puts("panic          invoke debug kernel panic\n");  
+    puts("ls             list all files\n");
+    puts("mk             create new file\n");
+    puts("rm             delete file\n");
+    puts("cat            read file content\n");
+    puts("to             write to file\n");
 }

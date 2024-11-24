@@ -5,8 +5,8 @@
 void ksh_echo()
 {
     char* str = (char*) kmalloc(255);
-    kprints("> ");
-    kinputs(str);
-    kprints(str);
-    kprintc('\n');
+    puts("> ");
+    scan(str);
+    puts(str);
+    putc('\n');
 }

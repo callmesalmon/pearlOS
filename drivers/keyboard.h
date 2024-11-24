@@ -77,6 +77,6 @@ typedef enum
   // more keys
 } KeyEvent;
 
-char kinputc();
+char scanc();
 void keyboard_init();
 //KeyEvent keyboard_get();

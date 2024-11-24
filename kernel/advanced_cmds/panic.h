@@ -6,8 +6,8 @@
 int usrpanic() {
     char *msg = (char *) kmalloc(255);
 
-    kprints("> ");
-    kinputs(msg);
+    puts("> ");
+    scan(msg);
     kpanic(msg);
 
     return 0;

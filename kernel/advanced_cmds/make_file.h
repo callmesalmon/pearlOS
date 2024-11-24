@@ -2,23 +2,25 @@
 
 void ksh_make_file()
 {
-  kprints("> ");
+  puts("> ");
   char* file_to_make = kmalloc(512);
-  kinputs(file_to_make);
+  scan(file_to_make);
+
   int response = file_make(file_to_make);
   if (response == FILE_ALREADY_EXISTS)
   {
-    kprints("File already exists!\n");
+    puts("File already exists!\n");
   }
   else if (response == FILE_NAME_INVALID)
   {
-    kprints("File name can only contain the following characters:\n");
-    kprints(FS_FILE_NAME_VALID_CHARS);
-    kprintc('\n');
+    puts("File name can only contain the following characters:\n");
+    puts(FS_FILE_NAME_VALID_CHARS);
+    putc('\n');
   }
   else if (response == FILE_COUNT_MAX_EXCEEDED)
   {
-    kprints("There are too many files!\n");
+    puts("There are too many files!\n");
   }
+
   kfree(file_to_make);
 }
