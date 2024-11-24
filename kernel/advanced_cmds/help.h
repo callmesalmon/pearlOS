@@ -14,7 +14,7 @@ int help_init() {
     kprints("theme-pascal   changes the theme to pascal\n");
     kprints("hacker         changes the theme back to hacker >:D\n");
     kprints("memstat        get allocated memory usage\n");
-    kprints("memtest        allocate memory for test\n");
+    kprints("memalloc       allocate memory for test\n");
     kprints("random         get random number between 0-100\n");
     kprints("panic          invoke debug kernel panic\n");  
     kprints("ls             list all files\n");
