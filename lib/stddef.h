@@ -3,10 +3,12 @@ typedef unsigned char byte;
 typedef unsigned char* bytes;
 typedef unsigned int uint;
 typedef unsigned short word;
+typedef __SIZE_TYPE__ size_t;
 typedef unsigned char bool;
 
 #define true (bool) 1
 #define false (bool) 0
+
 #define NULL ((void*)0)
 
 #define low_16(address) (word)((address) & 0xFFFF)
