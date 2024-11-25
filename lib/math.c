@@ -17,8 +17,10 @@ double abs(double number)
   return number;
 }
 
-double fac(double number) {
-    if (number == 0) {
+double fac(double number)
+{
+    if (number == 0)
+    {
         return 1;
     }
     return number * fac(number-1);
