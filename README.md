@@ -19,7 +19,7 @@ Installation
 ------------
 > [!NOTE]
 > Compilation is only guaranteed on linux with GCC,
-> but it is also possible in windows with virtualization
+> but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
 PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
