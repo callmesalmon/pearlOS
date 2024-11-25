@@ -11,3 +11,4 @@ mkdir -p mk/drivers/
 mkdir -p mk/cpu/
 mkdir -p mk/lib/
 mkdir -p mk/fs/
+mkdir -p mk/iso/
