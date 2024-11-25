@@ -1,5 +1,5 @@
-pearlOS: Operating system
-=========================
+# pearlOS: Operating system
+
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
 operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS)
@@ -8,15 +8,15 @@ for me to learn operating system things and also to become better at C and Assem
 
 [![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
 
-Requirements
-------------
+## Requirements
+
 * [Make](https://www.gnu.org/software/make)
 * [NASM](https://nasm.us)
 * [GCC](https://gcc.gnu.org)
 * [QEMU](https://www.qemu.org)
 
-Installation
-------------
+## Installation
+
 > [!NOTE]
 > Compilation is only guaranteed on linux with GCC,
 > but it is also possible in Windows with virtualization
@@ -39,14 +39,14 @@ qemu-system-i386 dist/pearl.bin
 This will start up a QEMU session with the image, and you
 can run the OS.
 
-Uninstalling
-------------
+## Uninstalling
+
 To uninstall, simply run:
 ```sh
 make clean
 ```
 
-Contributing
-------------
+## Contributing
+
 If you want to contribute, you can. And if the contribution helps the OS in any way,
 then I'll accept it. That's the policy at pearlOS.
