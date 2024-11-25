@@ -26,7 +26,7 @@ void do_scroll()
   display_scroll();
 }
 
-// prints a newline, equivalent to kprintc('\n')
+// prints a newline, equivalent to putc('\n')
 void printnl()
 {
   uint cursor_offset = get_cursor_offset();
