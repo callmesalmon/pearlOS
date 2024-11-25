@@ -6,7 +6,8 @@
 #include "../../lib/rand.h"
 #include "../../drivers/display.h"
 
-int ksh_fortune() {
+int ksh_fortune()
+{
     char *fortunes[] = {
         "Pohl's Law: Nothing is so good that somebody, somewhere, will not hate it.\n",
 
@@ -45,8 +46,10 @@ int ksh_fortune() {
 
     int rand_index = rand() % 7;
     int fortune_len = len(fortunes);
-    for (int i = 0; i < fortune_len; i++) {
-        if (rand_index == i) {
+    for (int i = 0; i < fortune_len; i++) 
+    {
+        if (rand_index == i)
+        {
             puts(fortunes[i]);
         }
     }
