@@ -84,7 +84,7 @@ Sector* init_sector()
 
 bool file_valid(char* filename)
 {
-  char valid [] = FS_FILE_NAME_VALID_CHARS;
+  char valid[] = FS_FILE_NAME_VALID_CHARS;
   for (int i = 0; i < strlen(filename); ++i)
   {
     bool is_any = false;
