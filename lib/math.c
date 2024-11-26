@@ -1,6 +1,7 @@
 #include "math.h"
 
-double pow(double base, double exponent)  // only positive numbers
+/* do (1 *= base) * exponent */
+double pow(double base, double exponent)
 {
   double result = 1;
   while (exponent > 0)
@@ -17,6 +18,7 @@ double abs(double number)
   return number;
 }
 
+/* do while(--number != 1) (number * (number - 1)) */
 double fac(double number)
 {
     if (number == 0)
