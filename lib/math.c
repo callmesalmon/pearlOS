@@ -21,9 +21,9 @@ double abs(double number)
 /* do while(--number != 1) (number * (number - 1)) */
 double fac(double number)
 {
-    if (number == 0)
+    if (number == 1)
     {
         return 1;
     }
-    return number * fac(number-1);
+    return number * fac(number - 1);
 }
