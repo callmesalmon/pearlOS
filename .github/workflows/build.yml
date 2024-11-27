@@ -1,4 +1,4 @@
-name: build CI
+name: Build CI
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install build dependencies
-      run: sudo apt install -y nasm  # install dependencies
+      run: sudo apt install -y nasm
     - name: configure
       run: ./configure
     - name: make
