@@ -14,11 +14,11 @@ int ksh_alloc()
     scan(str);
 
     /* Convert */
-    if (str_to_int(str, len(str)) == -1)
+    if (str_to_int(str, len(str)) == 1)
     {
         puts("Invalid number.");
         putc('\n');
-        return -1;
+        return 1;
     }
     int num = str_to_int(str, len(str));
 
