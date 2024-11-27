@@ -1,5 +1,5 @@
 # pearlOS: Operating system
-[![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/build.yml?logo=github&labelColor=17181B&label=Build)](/)
+[![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/build.yml?logo=Github&labelColor=17181B&label=Build)](/)
 [![Version](https://img.shields.io/badge/Version-NET%2f2-FF0062?labelColor=17181B)](/)
 [![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
