@@ -11,10 +11,16 @@ typedef unsigned char bool;
     #error "[ERROR]: __SIZE_TYPE__ is not defined. Can't compile."
 #endif
 
-#define true (bool) 1
-#define false (bool) 0
+#if !defined(true) && !defined(false)
+#    define true (bool) 1
+#    define false (bool) 0
+#endif
 
-#define NULL ((void*)0)
+#ifndef NULL
+#    define NULL ((void*)0)
+#endif
 
-#define low_16(address) (word)((address) & 0xFFFF)
-#define high_16(address) (word)(((address) >> 16) & 0xFFFF)
+#if !defined(low_16) && !defined(high_16)
+#    define low_16(address) (word)((address) & 0xFFFF)
+#    define high_16(address) (word)(((address) >> 16) & 0xFFFF)
+#endif
