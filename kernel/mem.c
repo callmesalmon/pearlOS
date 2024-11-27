@@ -16,13 +16,23 @@ byte* get_memory_index()
 void* kmalloc(uint32_t size)
 {
   uint i = 0;
+
   while (1)
   {
     // search
-    while (memory_index[i] != MEMORY_EMPTY) { i += 2; }
+    while (memory_index[i] != MEMORY_EMPTY)
+    {
+        i += 2;
+    }
+
     byte* last_page_end = memory_index[i - 1];
     uint next_page_start_id = i;
-    while (memory_index[next_page_start_id] == MEMORY_EMPTY) { ++next_page_start_id; }
+
+    while (memory_index[next_page_start_id] == MEMORY_EMPTY)
+    {
+        ++next_page_start_id;
+    }
+
     // verify
     if (memory_index[next_page_start_id] - last_page_end > size)
     {
@@ -34,6 +44,7 @@ void* kmalloc(uint32_t size)
       {
         kpanic(KERNEL_PANIC_MEMORY_FULL);
       }
+
       // allocate
       memory_index[i] = last_page_end + 1;
       memory_index[i + 1] = memory_index[i] + size;
