@@ -106,7 +106,7 @@ int str_to_int(char *array, size_t n)
         /* If array[n] = char then exit */
         if (!chint(array[n]))
         {
-            return 1;
+            return INVALID_INT;
         }
 
         /* if not digit or '-', check if number > 0, break or continue */

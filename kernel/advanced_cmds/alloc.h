@@ -14,7 +14,7 @@ int ksh_alloc()
     scan(str);
 
     /* Convert */
-    if (str_to_int(str, len(str)) == 1)
+    if (str_to_int(str, len(str)) == INVALID_INT)
     {
         puts("Invalid number.");
         putc('\n');

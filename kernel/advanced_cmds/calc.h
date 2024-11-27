@@ -22,7 +22,7 @@ int ksh_calc()
     scan(op);
 
     /* Convert */
-    if (str_to_int(s1, len(s1)) == 1 || str_to_int(s2, len(s2)) == 1)
+    if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT)
     {
         puts("Invalid number.");
         putc('\n');
