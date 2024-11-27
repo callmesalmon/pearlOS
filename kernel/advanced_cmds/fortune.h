@@ -44,8 +44,9 @@ int ksh_fortune()
         "   (3) Mysticism is based on the assumption that you can quit the game.\n"  
     };
 
-    int rand_index = rand() % 7;
     int fortune_len = len(fortunes);
+    int rand_index = rand() % fortune_len;
+
     for (int i = 0; i < fortune_len; i++) 
     {
         if (rand_index == i)
@@ -53,5 +54,6 @@ int ksh_fortune()
             puts(fortunes[i]);
         }
     }
+
     return 0;
 }
