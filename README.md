@@ -1,5 +1,7 @@
 # pearlOS: Operating system
-
+[![Build](https://img.shields.io/badge/Build-Passing-42BD5A?logo=github)](/)
+[![Version](https://img.shields.io/badge/Version-NET%2f2-FF0062?labelColor=17181B)](/)
+[![C17](/)
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
 operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS)
@@ -18,7 +20,7 @@ for me to learn operating system things and also to become better at C and Assem
 ## Installation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with GCC,
+> Compilation is only guaranteed on linux with *GCC ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
