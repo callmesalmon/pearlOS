@@ -17,7 +17,7 @@ typedef unsigned char bool;
 #endif
 
 #ifndef NULL
-#    define NULL ((void*)0)
+#    define NULL (void*) 0
 #endif
 
 #if !defined(low_16) && !defined(high_16)
