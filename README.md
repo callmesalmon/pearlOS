@@ -51,5 +51,4 @@ make clean
 
 ## Contributing
 
-If you want to contribute, you can. And if the contribution helps the OS in any way,
-then I'll accept it. Yeah, nothing special, no "assignment contibutions".
+See [CONTRIBUTING.md](/CONTRIBUTING.md).
