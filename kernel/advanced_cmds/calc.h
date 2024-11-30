@@ -32,12 +32,17 @@ int ksh_calc()
     int n2 = str_to_int(s2, len(s2));
 
     /* Handle */
-    if (strcmp(op, "+"))      putu(n1 + n2);
+    if (strcmp(op, "+")) putu(n1 + n2);
     else if (strcmp(op, "-")) putu(n1 - n2);
     else if (strcmp(op, "*")) putu(n1 * n2);
     else if (strcmp(op, "/")) putu(n1 / n2);
     else if (strcmp(op, "^")) putu(pow(n1, n2));
-    else puts("Invalid operator.");
+    else
+    {
+        puts("Invalid operator.");
+        putc('\n');
+        return -1;
+    }
 
     putc('\n');
 
