@@ -148,23 +148,29 @@ byte ksh_interpret(char* command)
 void ksh_start()
 {
   theme = "Hacker >:D";
+
   char c[KSH_INPUT_BUFFER];
   for (uint i = 0; i < KSH_INPUT_BUFFER; ++i)
   {
     c[i] = (char) 0;
   }
+
   byte response;
+
   puts(KERNEL_INFO_SHELL_WELCOME);
   puts(KERNEL_INFO_MANUAL_HELP);
+
   while (true)
   {
     puts(KSH_PROMPT(">"));
     scan(c);
     response = ksh_interpret(c);
+
     if (response == KSH_EXIT)
     {
       break;
     }
+
     strcls(c);
   }
 }
