@@ -29,9 +29,7 @@ char *theme;
 #define KSH_EXIT         0x1
 #define KSH_INPUT_BUFFER 31
 
-#define KSH_PROMPT(ch) ( \
-    "pearl [/] " ch " " \
-)
+#define KSH_PROMPT "pearl [/] > "
 
 byte ksh_interpret(char* command)
 {
@@ -162,7 +160,7 @@ void ksh_start()
 
   while (true)
   {
-    puts(KSH_PROMPT(">"));
+    puts(KSH_PROMPT);
     scan(c);
     response = ksh_interpret(c);
 
