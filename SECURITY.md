@@ -16,9 +16,9 @@ version security policy, e.g only two versions will be supported at a time.
 
 ## Reporting a Vulnerability
 
-To report a vulnerability, please open an issue (which you can do on the "issues"
-tab of the github repo) and label it as a security issue (by maybe starting the
-commit header with *[SECURITY]* or something).
+To report a vulnerability, do *not*, under any circumstances; open an issue.
+Instead, email <elis.staaf@proton.me>, as we do not want any sketchy people
+to know about any security vulnerabilities. I repeat, do *not* open an issue.
 
 Please keep in mind that it might take a while as pearlOS is a one-man project as
 I'm writing this, so it might take up to a week or so, but if it's an actual
