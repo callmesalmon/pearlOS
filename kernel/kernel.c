@@ -7,9 +7,9 @@
 #include "ksh.h"
 #include "../cpu/smbios.h"
 #include "../fs/fscore.h"
+#include "../drivers/keyboard.h"
 
 static bool kernel_running;
-
 
 int main()
 {
