@@ -37,6 +37,10 @@ byte ksh_interpret(char* command)
   {
     return KSH_OK;
   }
+  else if (command[0] == '#')
+  {
+    return KSH_OK;
+  }
   else if (strcmp(command, "help"))
   {
     help_init();
