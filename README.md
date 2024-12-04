@@ -52,3 +52,9 @@ make clean
 ## Contributing
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
+
+## License
+Unless expicitly stated, every single *modified* file in this project is licensed
+under the *Apache 2.0 License*, while the *unmodified* files are licensed under *MIT*.
+The "SPDX-License-Identifier" rule obvioudly overrides this option, and is how you
+explicitly state a different license. See [LICENSE](/LICENSE) for the 2 main licenses.
