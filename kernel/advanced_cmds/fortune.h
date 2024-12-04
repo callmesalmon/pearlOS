@@ -47,13 +47,15 @@ int ksh_fortune()
     int fortune_len = len(fortunes);
     int rand_index = rand() % fortune_len;
 
-    for (int i = 0; i < fortune_len; i++) 
+    int i = 0;
+
+    do
     {
         if (rand_index == i)
         {
             puts(fortunes[i]);
         }
-    }
+    } while (++i <= fortune_len);
 
     return 0;
 }
