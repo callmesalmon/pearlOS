@@ -2,8 +2,9 @@
 
 int help_init() {
     puts("help           prints this message\n");
-    puts("echo           prints input to the display\n");
+    puts("echo           prints \"X\" to the display\n");
     puts("wipe           clears screen\n");
+    puts("loop           loop command \"X\" times\n");
     puts("exit           exit kernel shell\n");
     puts("fortune        digital fortune cookie\n");
     puts("version        get kernel version\n");
