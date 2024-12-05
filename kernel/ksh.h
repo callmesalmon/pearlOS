@@ -53,12 +53,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "loop"))
   {
-    char** commands = ksh_loop();
-    int i = 0;
-    do
-    {
-        ksh_interpret((char*)commands[i]);
-    } while (i++ < len(commands));
+    ksh_loop();
   }
   else if (strcmp(command, "wipe"))
   {
