@@ -7,8 +7,11 @@
 
 char* commands[] = {};
 
+/* Necessary prototype function,
+ * since circle importing isn't allowed */
 byte ksh_interpret(char* command);
 
+/* Reader */
 char** ksh_loop_read(char* stimes)
 {
     int itimes = str_to_int(stimes, len(stimes));
