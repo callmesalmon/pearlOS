@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <io.h>
 #include <string.h>
+#include <magic.h>
 
 #include "mem.h"
 #include "kmsg.h"
@@ -24,6 +25,7 @@ char *theme;
 #include "advanced_cmds/calc.h"
 #include "advanced_cmds/panic.h"
 #include "advanced_cmds/alloc.h"
+#include "advanced_cmds/loop.h"
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -48,6 +50,15 @@ byte ksh_interpret(char* command)
   else if (strcmp(command, "echo"))
   {
     ksh_echo();
+  }
+  else if (strcmp(command, "loop"))
+  {
+    char** commands = ksh_loop();
+    int i = 0;
+    do
+    {
+        ksh_interpret((char*)commands[i]);
+    } while (i++ < len(commands));
   }
   else if (strcmp(command, "wipe"))
   {
