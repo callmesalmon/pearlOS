@@ -26,6 +26,7 @@ char *theme;
 #include "advanced_cmds/panic.h"
 #include "advanced_cmds/alloc.h"
 #include "advanced_cmds/loop.h"
+#include "advanced_cmds/memstat.h"
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -68,12 +69,7 @@ byte ksh_interpret(char* command)
   }
   else if (strcmp(command, "memstat"))
   {
-    puts("Memory usage:");
-    puts("\ntotal: ");
-    putu32(memory_usage());
-    puts("\neffective: ");
-    putu32(memory_usage_effective());
-    putc('\n');
+    ksh_memstat();
   }
   else if (strcmp(command, "theme-light"))
   {
