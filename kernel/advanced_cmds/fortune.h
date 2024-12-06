@@ -2,8 +2,8 @@
 
 #include <io.h>
 #include <magic.h>
+#include <rand.h>
 
-#include "../../lib/rand.h"
 #include "../../drivers/display.h"
 
 int ksh_fortune()
