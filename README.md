@@ -1,8 +1,10 @@
 # pearlOS: Operating system
+
 [![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/build.yml?logo=Github&labelColor=17181B&label=Build)](/)
 [![Version](https://img.shields.io/badge/Version-NET%2f2-FF0062?labelColor=17181B)](/)
 [![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
+
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
 operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS)
@@ -53,7 +55,14 @@ make clean
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
 
+## Activity
+
+I'm a bit inconsistent on when I actually, y'know, maintain and update this,
+but I can assure you, even if you see a 1-month pause, THE PROJECT IS NOT DEAD.
+If the project dies, you can expect archival or at least a message.
+
 ## License
+
 Unless expicitly stated, every single *modified* file in this project is licensed
 under the *Apache 2.0 License*, while the *unmodified* files are licensed under *MIT*.
 The "SPDX-License-Identifier" rule obviously overrides this option, and is how you
