@@ -20,9 +20,9 @@ boot_start:
     call enter_kernel
     jmp $ ; Just for safety lol
 
+%include "boot/boot_sect_disk.asm"
 %include "boot/print/boot_sect_print.asm"
 %include "boot/print/boot_sect_print_hex.asm"
-%include "boot/boot_sect_disk.asm"
 %include "boot/b32/32bit-gdt.asm"
 %include "boot/b32/32bit-print.asm"
 %include "boot/b32/32bit-switch.asm"
