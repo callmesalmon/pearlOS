@@ -68,7 +68,7 @@ mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
 run: $(.DEFAULT_GOAL)
 	$(EMULATOR) $^
 
-run-iso: dist/pearl.iso
+qemu: dist/pearl.iso
 	$(EMULATOR) $(EMUFLAGS) $^
 
 clean:
