@@ -1,3 +1,5 @@
+#pragma once
+
 #include "stddef.h"
 
 #define LCG_A 1103515245

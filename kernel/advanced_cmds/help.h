@@ -1,3 +1,5 @@
+#pragma once
+
 #include <io.h>
 
 int help_init() {

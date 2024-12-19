@@ -1,3 +1,5 @@
+#pragma once
+
 /* kernel.c */
 #define DEFAULT_THEME  GREEN_ON_BLACK
 #define KERNEL_STARTUP ksh_start();

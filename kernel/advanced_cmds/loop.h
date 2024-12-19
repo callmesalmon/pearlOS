@@ -1,3 +1,5 @@
+#pragma once
+
 #include <io.h>
 #include <conv.h>
 #include <magic.h>

@@ -1,3 +1,4 @@
+#pragma once
 #define INCLUDED_COLOR
 #define BLACK 0x0
 #define BLUE 0x1

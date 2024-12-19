@@ -1,3 +1,5 @@
+#pragma once
+
 // message syntax:
 // LABEL_TYPE_MESSAGE
 // LABELS: KERNEL, BOOT, DRIVER_DISPLAY, DRIVER_PORT...
