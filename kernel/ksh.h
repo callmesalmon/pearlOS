@@ -32,7 +32,7 @@ char *theme;
 #define KSH_EXIT         0x1
 #define KSH_INPUT_BUFFER 31
 
-#define KSH_PROMPT "pearl [/] > "
+#define KSH_PROMPT "* "
 
 byte ksh_interpret(char* command)
 {
