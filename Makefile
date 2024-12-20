@@ -7,7 +7,6 @@ ASMC     = nasm
 ASMF     = elf32
 LINKER   = ld -m elf_i386 -s
 EMULATOR = qemu-system-i386
-EMUFLAGS = -cdrom
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
@@ -32,13 +31,6 @@ dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
 	rm -f dist/pearl.bin
 	cat mk/bin/* > $@
 	chmod +x dist/pearl.bin
-
-dist/pearl.iso: $(.DEFAULT_GOAL)
-	mkdir -p mk/iso/
-	rm -f dist/pearl.iso
-	truncate $(.DEFAULT_GOAL) -s 1200k
-	cp $(.DEFAULT_GOAL) mk/iso/kernel.bin
-	mkisofs -b kernel.bin -o dist/pearl.iso mk/iso/
 
 mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
 	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
@@ -65,11 +57,8 @@ mk/fs/%.o: fs/%.c $(C_HEADERS)
 mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
 	$(ASMC) -f $(ASMF) -o $@ $<
 
-run: $(.DEFAULT_GOAL)
+qemu: $(.DEFAULT_GOAL)
 	$(EMULATOR) $^
-
-qemu: dist/pearl.iso
-	$(EMULATOR) $(EMUFLAGS) $^
 
 clean:
 	rm -f dist/*
