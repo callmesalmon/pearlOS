@@ -9,8 +9,9 @@ version security policy, e.g only two versions will be supported at a time.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| NET/3   | :white_check_mark: |
 | NET/2   | :white_check_mark: |
-| NET/1   | :white_check_mark: |
+| NET/1   | :x:                |
 | 386     | :x:                |
 | 1.0.0   | :x:                |
 
