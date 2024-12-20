@@ -17,7 +17,7 @@ Many more extra commands for the userland, such as:
 * [calc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/calc.h)
 
 Additions for already existing commands, such as:
-* [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/pearlfetch.h)\*
+* [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/pearlfetch.h)\*  
 \*: Has been renamed.
 
 Other things have been added to the userland, such as:
@@ -33,7 +33,7 @@ The [scripts](https://github.com/ElisStaaf/pearlOS/blob/main/scripts) folder has
 modifications include:
 * remove useless timing script 
 * minimalize [gencolours.py](https://github.com/ElisStaaf/pearlOS/blob/main/scripts/gencolours.py)\*
-* update [archive.sh](https://github.com/ElisStaaf/pearlOS/blob/main/scripts/archive.sh)
+* update [archive.sh](https://github.com/ElisStaaf/pearlOS/blob/main/scripts/archive.sh)  
 \*: Has been renamed (color -> colour)
 
 The [stdlib](https://github.com/ElisStaaf/pearlOS/blob/main/lib) of the project has been greatly
