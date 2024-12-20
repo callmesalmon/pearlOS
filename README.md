@@ -7,7 +7,7 @@
 
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
-operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS)
+operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS).
 But ofcourse only do that *after* you check out this project! pearlOS was made
 for me to learn operating system things and also to become better at C and Assembly.
 
@@ -50,6 +50,11 @@ To uninstall, simply run:
 ```sh
 make clean
 ```
+
+## Differences
+
+If you want to see the differences between pearlOS and [pidi-os](https://github.com/GandelXIV/pidi-os),
+see [PIDI-DIFF.md](/PIDI-DIFF.md).
 
 ## Contributing
 
