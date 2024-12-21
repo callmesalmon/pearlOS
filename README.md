@@ -37,9 +37,10 @@ After going into the repo directory, run configure and then make:
 ./configure
 make
 ```
-Lastly, run the generated image at dist/pearl.bin:
+Lastly, run the generated image at dist/pearl.bin
+by making the rule `qemu`:
 ```sh
-qemu-system-i386 dist/pearl.bin
+make qemu
 ```
 This will start up a QEMU session with the image, and you
 can run the OS.
