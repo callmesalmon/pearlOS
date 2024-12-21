@@ -8,3 +8,4 @@
 kernel/debug.h
 dist/
 mk/
+trash/

@@ -9,8 +9,16 @@ fi
 
 for rc in $PROFILE/*; do
     if [ -f $rc ]; then
-        rm kernel/$(basename $rc)
-        cp $rc kernel/$(basename $rc)
+        case $rc in 
+            "$PROFILE/config.h" | "$PROFILE/kentry.asm")
+                DESTDIR=kernel
+                ;;
+            "$PROFILE/config.asm")
+                DESTDIR=boot
+                ;;
+        esac
+        rm $DESTDIR/$(basename $rc)
+        cp $rc $DESTDIR/$(basename $rc)
     fi
 done
 
