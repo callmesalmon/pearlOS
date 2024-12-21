@@ -32,11 +32,12 @@ It's very easy to install, firstly clone the repo:
 ```console
 git clone https://github.com/ElisStaaf/pearlOS
 ```
-After going into the repo directory, run configure and then make:
+After going into the repo directory, configure and then make:
 ```console
-./configure
+./config.sh
 make
 ```
+You can add your own config, just read [this](/config/README.md)!
 Lastly, run the generated image at dist/pearl.bin
 by making the rule `qemu`:
 ```console
