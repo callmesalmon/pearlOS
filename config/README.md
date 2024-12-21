@@ -40,7 +40,7 @@ So, a good configuration might be:
 ```c
 #pragma once
 
-#define DEFAULT_THEME WHITE_ON_BLUE
+#define DEFAULT_THEME  WHITE_ON_BLUE
 #define KERNEL_STARTUP ksh_start();
 #define KERNEL_UPDATE
 
