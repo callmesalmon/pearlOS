@@ -64,6 +64,46 @@ call main
 jmp $
 ```
 But if you're good at assembly, you can customize this!
+After that, create a file called "config.asm", like this:
+```console
+touch config.asm
+```
+This is the config file for the boot sector, refer to this
+table for all of the rules required in this file:
+```
+KERNEL_SIZE<db>      : Size of the kernel, preferably 33,
+                       because if not, it barely compiles.
+
+STACK_OFFSET<db>     : Simply the offset of the
+                       "stack" datastructure.
+
+KERNEL_OFFSET<equ>   : Simply the offset of the
+                       kernel part of the OS.
+
+MSG_REAL_MODE<db>    : Message that prints when
+                       kernel has entered real mode.
+
+MSG_PROT_MODE<db>    : Message that prints when
+                       kernel has entered protected
+                       mode.
+
+MSG_LOAD_KERNEL<db>  : Message that prints when
+                       kernel is loading.
+
+MSG_CRASH_KERNEL<db> : Message that prints if 
+                       kernel crashes.
+```
+A good config.asm might be:
+```asm
+KERNEL_SIZE   db  33
+STACK_OFFSET  db  9000
+KERNEL_OFFSET equ 0x1000
+
+MSG_REAL_MODE    db "16-bit real mode entered.",     0
+MSG_PROT_MODE    db "32-bit protected mode entered.", 0
+MSG_LOAD_KERNEL  db "Kernel is loading...",   0
+MSG_CRASH_KERNEL db "[KERNEL PANIC] Something has gone wrong!!!", 0
+```
 Finally, navigate into the root of this repository
 and run:
 ```console
