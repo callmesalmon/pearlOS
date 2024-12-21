@@ -51,7 +51,20 @@ So, a good configuration might be:
 #define KERNEL_MEMORY_OFFSET_END   0xffffffff
 #define MEMORY_INDEX_BASE_SIZE     100
 ```
-Then, navigate into the root of this repository
+Now, create a file called "kentry.asm", like this:
+```console
+touch kentry.asm
+```
+This is the script that enters the kernel and runs
+it. You can just use the default here:
+```asm
+[bits 32]
+[extern main]
+call main
+jmp $
+```
+But if you're good at assembly, you can customize this!
+Finally, navigate into the root of this repository
 and run:
 ```console
 ./config.sh <profile-name>
