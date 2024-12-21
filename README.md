@@ -38,7 +38,7 @@ After going into the repo directory, configure and then make:
 make
 ```
 You can add your own config, just read [this!](/config/README.md)  
-Lastly, run the generated image at dist/pearl.bin
+Lastly, run the generated image at dist/pearl.bin  
 by making the rule `qemu`:
 ```console
 make qemu
