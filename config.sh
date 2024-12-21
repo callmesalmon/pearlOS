@@ -7,11 +7,9 @@ if [ $# -gt 0 ]; then
     PROFILE=$PROFILE_DIR/$1
 fi
 
-rm kernel/config.h
-rm kernel/kentry.asm
-
 for rc in $PROFILE/*; do
     if [ -f $rc ]; then
+        rm kernel/$(basename $rc)
         cp $rc kernel/$(basename $rc)
     fi
 done
