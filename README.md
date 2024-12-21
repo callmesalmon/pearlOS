@@ -37,7 +37,7 @@ After going into the repo directory, configure and then make:
 ./config.sh
 make
 ```
-You can add your own config, just read [this](/config/README.md)!
+You can add your own config, just read [this!](/config/README.md)  
 Lastly, run the generated image at dist/pearl.bin
 by making the rule `qemu`:
 ```console
