@@ -21,7 +21,7 @@ FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
 C_HEADERS = $(wildcard */*.h) $(wildcard kernel/advanced_cmds/*.h)
 
-KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kernel_entry.o
+KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
 CPU_OBJECTS        = $(CPU_C_OBJECTS)
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
@@ -54,7 +54,7 @@ mk/lib/%.o: lib/%.c $(C_HEADERS)
 mk/fs/%.o: fs/%.c $(C_HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/kernel/kernel_entry.o: kernel/kernel_entry.asm
+mk/kernel/kentry.o: kernel/kentry.asm
 	$(ASMC) -f $(ASMF) -o $@ $<
 
 qemu: $(.DEFAULT_GOAL)

@@ -8,9 +8,13 @@ if [ $# -gt 0 ]; then
 fi
 
 rm kernel/config.h
-cp \
-    $PROFILE/config.h \
-    kernel/config.h
+rm kernel/kentry.asm
+
+for rc in $PROFILE/*; do
+    if [ -f $rc ]; then
+        cp $rc kernel/$(basename $rc)
+    fi
+done
 
 set -x
 
