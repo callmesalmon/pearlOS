@@ -48,7 +48,7 @@ can run the OS.
 ## Uninstalling
 
 To uninstall, simply run:
-```sh
+```console
 make clean
 ```
 
