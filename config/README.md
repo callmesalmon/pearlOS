@@ -41,7 +41,7 @@ So, a good configuration might be:
 #pragma once
 
 #define DEFAULT_THEME WHITE_ON_BLUE
-#define KERNEL_STARUP ksh_start();
+#define KERNEL_STARTUP ksh_start();
 #define KERNEL_UPDATE
 
 #define KSH_PROMPT  "pearl>"
