@@ -23,6 +23,12 @@ KERNEL_STARTUP<function>         : Entry point for kernel, pick one or
 KERNEL_UPDATE<null>              : Infinity macro, the main kernel part
                                    (kernel/kernel.c) needs this one.
 
+KSH_PROMPT<char*>                : The prompt that shows up when writing
+                                   commands in the Kernel SHell.
+
+KSH_COMMENT<char>                : The character that is required to
+                                   start a comment line.
+
 KERNEL_MEMORY_OFFSET_{START,
                       END}<byte> : Kernel memory offsets,
                                    defaults are "0x{f*x}".

@@ -8,6 +8,7 @@
 #include "mem.h"
 #include "kmsg.h"
 #include "version.h"
+#include "config.h"
 #include "../cpu/smbios.h"
 #include "../drivers/display_color.h"
 
@@ -32,15 +33,13 @@ char *theme;
 #define KSH_EXIT         0x1
 #define KSH_INPUT_BUFFER 31
 
-#define KSH_PROMPT "* "
-
 byte ksh_interpret(char* command)
 {
   if (!*command)
   {
     return KSH_OK;
   }
-  else if (command[0] == '#')
+  else if (command[0] == KSH_COMMENT)
   {
     return KSH_OK;
   }
@@ -166,7 +165,7 @@ void ksh_start()
 
   while (true)
   {
-    puts(KSH_PROMPT);
+    puts(KSH_PROMPT " ");
     scan(c);
     response = ksh_interpret(c);
 
