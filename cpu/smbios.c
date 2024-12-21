@@ -76,7 +76,7 @@ void smbios_init ()
   }
   if ((unsigned int) mem == 0x100000)
   {
-    kerror(FIRMWARE_ERROR_SMBIOS_ENRTY_MISSING);
+    kerror(FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING);
   }
   SMBIOSEntryPoint* smbios_entry_p = (SMBIOSEntryPoint*)(mem);
   SMBIOS_HEADER_BIOS = (SMBIOSHeader*) smbios_entry_p->TableAddress;
