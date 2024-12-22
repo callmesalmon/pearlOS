@@ -1,5 +1,5 @@
-#include "fscore.h"
-#include "../kernel/version.h"
+#include <fs/fscore.h>
+#include <kernel/version.h>
 
 #define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
 

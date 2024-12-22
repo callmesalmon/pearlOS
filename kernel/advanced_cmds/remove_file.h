@@ -2,7 +2,7 @@
 
 #include <io.h>
 
-#include "../../fs/fscore.h"
+#include <fs/fscore.h>
 
 void ksh_remove_file()
 {

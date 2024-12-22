@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../cpu/port.h"
+#include <cpu/port.h>
 
 #define REG_DISPLAY_CTRL 0x3d4
 #define REG_DISPLAY_DATA 0x3d5

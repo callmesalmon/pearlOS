@@ -1,6 +1,6 @@
 #pragma once
 
-#include "messages.h"
+#include <kernel/messages.h>
 
 void kinfo(char* msg);
 void kwarning(char* msg);

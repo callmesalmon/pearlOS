@@ -1,8 +1,8 @@
 #pragma once
 
 #include <stddef.h>
-#include "kmsg.h"
-#include "config.h"
+#include <kernel/kmsg.h>
+#include <kernel/config.h>
 
 #define MEMORY_EMPTY 0x0
 

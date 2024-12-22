@@ -1,13 +1,14 @@
 #include <stddef.h>
 #include <rand.h>
+#include <mem.h>
 
-#include "config.h"
-#include "kmsg.h"
-#include "mem.h"
-#include "ksh.h"
-#include "../cpu/smbios.h"
-#include "../fs/fscore.h"
-#include "../drivers/keyboard.h"
+#include <kernel/config.h>
+#include <kernel/kmsg.h>
+#include <kernel/ksh.h>
+
+#include <cpu/smbios.h>
+#include <fs/fscore.h>
+#include <drivers/keyboard.h>
 
 static bool kernel_running;
 

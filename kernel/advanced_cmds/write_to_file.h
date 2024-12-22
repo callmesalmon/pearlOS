@@ -2,9 +2,9 @@
 
 #include <io.h>
 #include <string.h>
+#include <mem.h>
 
-#include "../mem.h"
-#include "../../fs/fscore.h"
+#include <fs/fscore.h>
 
 void ksh_write_to_file()
 {

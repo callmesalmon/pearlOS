@@ -3,8 +3,7 @@
 #include <io.h>
 #include <conv.h>
 #include <magic.h>
-
-#include "../mem.h" 
+#include <mem.h> 
 
 int ksh_alloc()
 {

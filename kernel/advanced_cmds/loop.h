@@ -4,8 +4,7 @@
 #include <conv.h>
 #include <magic.h>
 #include <stddef.h>
-
-#include "../mem.h"
+#include <mem.h>
 
 char* commands[] = {};
 

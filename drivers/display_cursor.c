@@ -1,5 +1,5 @@
-#include "display_cursor.h"
-#include "display.h"
+#include <drivers/display_cursor.h>
+#include <drivers/display.h>
 
 uint32_t get_cursor_position_x(void)
 {

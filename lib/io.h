@@ -2,9 +2,9 @@
 
 #include "stddef.h"
 
-#include "../drivers/display.h"
-#include "../drivers/keyboard.h"
-#include "../drivers/display_color.h"
+#include <drivers/display.h>
+#include <drivers/keyboard.h>
+#include <drivers/display_color.h>
 
 void puti(int number);
 void putu(uint number);

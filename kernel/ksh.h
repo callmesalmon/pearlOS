@@ -4,30 +4,31 @@
 #include <io.h>
 #include <string.h>
 #include <magic.h>
+#include <mem.h>
 
-#include "mem.h"
-#include "kmsg.h"
-#include "version.h"
-#include "config.h"
-#include "../cpu/smbios.h"
-#include "../drivers/display_color.h"
+#include <kernel/kmsg.h>
+#include <kernel/version.h>
+#include <kernel/config.h>
+
+#include <cpu/smbios.h>
+#include <drivers/display_color.h>
 
 char *theme;
 
-#include "advanced_cmds/pearlfetch.h"
-#include "advanced_cmds/list_files.h"
-#include "advanced_cmds/read_file.h"
-#include "advanced_cmds/write_to_file.h"
-#include "advanced_cmds/make_file.h"
-#include "advanced_cmds/fortune.h"
-#include "advanced_cmds/remove_file.h"
-#include "advanced_cmds/echo.h"
-#include "advanced_cmds/help.h"
-#include "advanced_cmds/calc.h"
-#include "advanced_cmds/panic.h"
-#include "advanced_cmds/alloc.h"
-#include "advanced_cmds/loop.h"
-#include "advanced_cmds/memstat.h"
+#include <kernel/advanced_cmds/pearlfetch.h>
+#include <kernel/advanced_cmds/list_files.h>
+#include <kernel/advanced_cmds/read_file.h>
+#include <kernel/advanced_cmds/write_to_file.h>
+#include <kernel/advanced_cmds/make_file.h>
+#include <kernel/advanced_cmds/fortune.h>
+#include <kernel/advanced_cmds/remove_file.h>
+#include <kernel/advanced_cmds/echo.h>
+#include <kernel/advanced_cmds/help.h>
+#include <kernel/advanced_cmds/calc.h>
+#include <kernel/advanced_cmds/panic.h>
+#include <kernel/advanced_cmds/alloc.h>
+#include <kernel/advanced_cmds/loop.h>
+#include <kernel/advanced_cmds/memstat.h>
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1

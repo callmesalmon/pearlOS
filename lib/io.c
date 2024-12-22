@@ -1,5 +1,5 @@
-#include "io.h"
-#include "conv.h"
+#include <io.h>
+#include <conv.h>
 
 // print string to cursor with color
 void cputs(char* text, char color)

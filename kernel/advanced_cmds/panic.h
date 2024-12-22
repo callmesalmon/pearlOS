@@ -1,9 +1,9 @@
 #pragma once
 
 #include <io.h>
+#include <mem.h>
 
-#include "../kmsg.h"
-#include "../mem.h"
+#include <kernel/kmsg.h>
 
 int usrpanic() {
     char *msg = (char *) kmalloc(255);

@@ -1,7 +1,7 @@
 #include <stddef.h>
 
-#include "display.h"
-#include "display_cursor.h"
+#include <drivers/display.h>
+#include <drivers/display_cursor.h>
 
 static byte display_theme_current;
 

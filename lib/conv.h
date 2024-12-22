@@ -1,8 +1,8 @@
 #pragma once
 
-#include "stddef.h"
-#include "math.h"
-#include "string.h"
+#include <stddef.h>
+#include <math.h>
+#include <string.h>
 
 #define INVALID_BYTE (byte)0x1099
 #define INVALID_INT (int)INF

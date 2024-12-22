@@ -4,7 +4,7 @@
 #include <magic.h>
 #include <rand.h>
 
-#include "../../drivers/display.h"
+#include <drivers/display.h>
 
 int ksh_fortune()
 {

@@ -1,4 +1,4 @@
-#include "smbios.h"
+#include <cpu/smbios.h>
 
 typedef struct
 {

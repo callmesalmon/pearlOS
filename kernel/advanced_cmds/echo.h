@@ -1,8 +1,7 @@
 #pragma once
 
 #include <io.h>
-
-#include "../mem.h"
+#include <mem.h>
 
 void ksh_echo()
 {

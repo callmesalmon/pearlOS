@@ -1,6 +1,5 @@
 #include <magic.h>
-
-#include "mem.h"
+#include <mem.h>
 
 // index structure:
 // even index -> page start

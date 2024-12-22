@@ -1,6 +1,6 @@
 #include <io.h>
-#include "kmsg.h"
-#include "../drivers/display_color.h"
+#include <kernel/kmsg.h>
+#include <drivers/display_color.h>
 
 
 void kinfo(char* msg)

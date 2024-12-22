@@ -1,4 +1,4 @@
-#include "math.h"
+#include <math.h>
 
 /* do (1 *= base) * exponent */
 double pow(double base, double exponent)

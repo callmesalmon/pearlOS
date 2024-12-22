@@ -2,8 +2,8 @@
 
 #include <stddef.h>
 
-#include "../cpu/port.h"
-#include "../kernel/config.h"
+#include <cpu/port.h>
+#include <kernel/config.h>
 
 #define VIDEO_MEMORY_OFFSET (uint*) 0xb8000
 
@@ -16,7 +16,7 @@
 
 // color
 #define TRANSPARENT 0x00
-#include "display_color.h"
+#include <drivers/display_color.h>
 
 // code
 #define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;

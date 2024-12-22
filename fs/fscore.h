@@ -3,11 +3,11 @@
 // includes
 #include <string.h>
 #include <stddef.h>
+#include <mem.h>
 
-#include "prop.h"
-#include "../kernel/config.h"
-#include "../kernel/mem.h"
-#include "../kernel/kmsg.h"
+#include <fs/prop.h>
+#include <kernel/config.h>
+#include <kernel/kmsg.h>
 
 // defines
 #define OK                      0

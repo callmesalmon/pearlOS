@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stddef.h"
+#include <stddef.h>
 
 uint strlen(char* string);
 void strcpy(char* dest, char* src);

@@ -1,11 +1,11 @@
 #pragma once
 
 #include <io.h>
+#include <mem.h>
 
-#include "../../drivers/display.h"
-#include "../mem.h"
-#include "../ksh.h"
-#include "../../cpu/smbios.h"
+#include <kernel/ksh.h>
+#include <drivers/display.h>
+#include <cpu/smbios.h>
 
 void ksh_pearlfetch()
 {

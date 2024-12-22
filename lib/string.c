@@ -1,4 +1,5 @@
-#include "string.h"
+#include <string.h>
+#include <stddef.h>
 
 // get string length
 uint strlen(char* string)
