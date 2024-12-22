@@ -16,6 +16,8 @@ for rc in $PROFILE/*; do
             "$PROFILE/config.asm")
                 DESTDIR=boot
                 ;;
+            "$PROFILE/defs.mk")
+                DESTDIR=.
         esac
         rm $DESTDIR/$(basename $rc)
         cp $rc $DESTDIR/$(basename $rc)

@@ -1,12 +1,9 @@
-.DEFAULT_GOAL=dist/pearl.bin
 .PHONY: clean run run-iso all full
 
-CC       = gcc
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -std=c17
+include defs.mk
+
 ASMC     = nasm 
 ASMF     = elf32
-LINKER   = ld -m elf_i386 -s
-EMULATOR = qemu-system-i386
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))

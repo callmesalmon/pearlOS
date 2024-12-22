@@ -1,18 +1,32 @@
 # Configuration Guide
+
 PearlOS prides itself in its configuration. It is incredibly easy to use and create
 new configurations with! Follow this quick tutorial to learn how to make your own!
 
 ## Tutorial
+
 To start, create a new folder in the "profiles" directory, like this:
 ```console
 mkdir ./profiles/<dir>
 ```
-Enter the directory. Now create a new file called "config.h", like this:
+Enter the directory. PearlOS uses four different config files, these are:
+
+- `config.h`   : Main kernel config.
+- `config.asm` : Boot sector config.
+- `kentry.asm` : Kernel entry config.
+- `defs.mk`    : Build config.
+
+Let's begin! Create a new file called "config.h", like this:
+
+
 ```console
 touch config.h
 ```
+
 Open it using your favourite editor, and let's get configuring! This configuration
 operates using macros, refer to this table when defining them:
+
+
 ```
 DEFAULT_THEME<macro>             : Refer to your favourite colourscheme
                                    defined in drivers/display_color.h.
@@ -36,7 +50,9 @@ KERNEL_MEMORY_OFFSET_{START,
 MEMORY_INDEX_BASE_SIZE           : Basically how many calls of the
                                    allocator (kmalloc) you can do.
 ```
+
 So, a good configuration might be:
+
 ```c
 #pragma once
 
@@ -51,25 +67,33 @@ So, a good configuration might be:
 #define KERNEL_MEMORY_OFFSET_END   0xffffffff
 #define MEMORY_INDEX_BASE_SIZE     100
 ```
+
 Now, create a file called "kentry.asm", like this:
+
 ```console
 touch kentry.asm
 ```
+
 This is the script that enters the kernel and runs
 it. You can just use the default here:
+
 ```asm
 [bits 32]
 [extern main]
 call main
 jmp $
 ```
+
 But if you're good at assembly, you can customize this!
 After that, create a file called "config.asm", like this:
+
 ```console
 touch config.asm
 ```
+
 This is the config file for the boot sector, refer to this
 table for all of the rules required in this file:
+
 ```
 KERNEL_SIZE<db>      : Size of the kernel, preferably 33,
                        because if not, it barely compiles.
@@ -93,7 +117,9 @@ MSG_LOAD_KERNEL<db>  : Message that prints when
 MSG_CRASH_KERNEL<db> : Message that prints if 
                        kernel crashes.
 ```
+
 A good config.asm might be:
+
 ```asm
 KERNEL_SIZE   db  33
 STACK_OFFSET  db  9000
@@ -104,8 +130,50 @@ MSG_PROT_MODE    db "32-bit protected mode entered.", 0
 MSG_LOAD_KERNEL  db "Kernel is loading...",   0
 MSG_CRASH_KERNEL db "[KERNEL PANIC] Something has gone wrong!!!", 0
 ```
+
+Now, it's time for the last file! Create a new file called "defs.mk", like so:
+
+
+```console
+touch defs.mk
+```
+
+This configuration operates using simple rules and variables. Please refer to
+this table while configuring:
+
+```
+.DEFAULT_GOAL<path> : Default target for the compilation,
+                      e.g if .DEFAULT_GOAL is set to "hello.bin",
+                      then the image will be set with that name.
+
+EMULATOR<prg>       : What emulator the OS should use, preferably
+                      qemu-system-{x86_64,i386}.
+
+LINKER<prg>         : Linker for the OS, build your own or
+                      use the default `ld`.
+
+CC<prg>             : C compiler for the OS, preferably GCC,
+                      but it can be changed.
+
+CFLAGS<flags>       : Flags for the C compiler.
+```
+
+That means that a preferable config might be:
+
+```mk
+.DEFAULT_GOAL=os.bin
+
+EMULATOR = qemu-system-x86_64
+LINKER   = ld -m elf-i386 -s
+CC       = cc
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os \
+           -c -ggdb -I./lib -std=c17 -Wextra \
+           -Werror -Pedantic -S
+```
+
 Finally, navigate into the root of this repository
 and run:
+
 ```console
 ./config.sh <profile-name>
 ```
