@@ -51,47 +51,6 @@ So, a good configuration might be:
 #define KERNEL_MEMORY_OFFSET_END   0xffffffff
 #define MEMORY_INDEX_BASE_SIZE     100
 ```
-After you've done that, create a new file called "messages.h", like this:
-```console
-touch messages.h
-```
-This is where most of the messages are stored, please refer to this table
-while configuring for the best experience:
-```
-KERNEL_INFO_{ENTERED,INIT_START,
-             INIT_DONE,WELCOME,
-             SHELL_WELCOME,
-             MANUAL_HELP,
-             SHELL_UNKNOWN_COMMAND.
-             } : Different messages
-                 just about the kernel.
-
-KERNEL_PANIC_{MEMORY_INDEX_FULL,
-              MEMORY_FULL} : Different messages
-                             about kernel panics.
-
-FIRMWARE_ERROR_{ISR_EXCEPTION,
-                SMBIOS_ENTRY_MISSING} : Firmware
-                                        error messages.
-```
-A good one might be:
-```c
-#pragma once
-
-#define INCLUDED_MESSAGES
-
-#define KERNEL_INFO_ENTERED       "Entering...\n"
-#define KERNEL_INFO_INIT_START    "Initializing...\n"
-#define KERNEL_INFO_INIT_DONE     "Completed!\n"
-#define KERNEL_INFO_WELCOME       "Hello World!\n"
-#define KERNEL_INFO_SHELL_WELCOME "<PEARL-OS : The OS of the... Past.>"
-#define KERNEL_INFO_MANUAL_HELP "Use \"help\" for help!\n"
-#define KERNEL_INFO_SHELL_UNKNOWN_COMMAND "Command unknown\n"
-#define KERNEL_PANIC_MEMORY_INDEX_FULL    "Memory index is full! No!\n"
-#define KERNEL_PANIC_MEMORY_FULL            "The system ran out of ram!"
-#define FIRMWARE_ERROR_ISR_EXCEPTION        "ISR exception: "
-#define FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING "Couldn't entry in SMBIOS\n"
-```
 Now, create a file called "kentry.asm", like this:
 ```console
 touch kentry.asm

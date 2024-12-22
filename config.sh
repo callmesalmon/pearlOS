@@ -10,8 +10,7 @@ fi
 for rc in $PROFILE/*; do
     if [ -f $rc ]; then
         case $rc in 
-            "$PROFILE/config.h" | "$PROFILE/kentry.asm" | \
-            "$PROFILE/messages.h")
+            "$PROFILE/config.h" | "$PROFILE/kentry.asm")
                 DESTDIR=kernel
                 ;;
             "$PROFILE/config.asm")
