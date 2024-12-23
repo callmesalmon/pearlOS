@@ -1,5 +1,8 @@
 #include <magic.h>
 #include <mem.h>
+#include <stddef.h>
+#include <kernel/kmsg.h>
+#include <kernel/config.h>
 
 // index structure:
 // even index -> page start
