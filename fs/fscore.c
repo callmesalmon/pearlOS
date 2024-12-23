@@ -5,15 +5,13 @@
 
 #define END_SECTOR 0
 
-struct SectorStruct
-{
+struct SectorStruct {
   struct Sector* next;
   byte data[FS_SECTOR_DATA_SIZE];
 };
 typedef struct SectorStruct Sector;
 
-typedef struct
-{
+typedef struct {
   char name[FS_FILE_NAME_BUFFER];
   char tags[FS_FILE_TAGS_BUFFER];
   Sector* first_sector;
@@ -22,72 +20,56 @@ typedef struct
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 
-File* find_file(char* name)
-{
-  for (int i = 0; i <= findex_end; ++i)
-  {
-    if (strcmp(findex[i]->name, name))
-    {
+File* find_file(char* name) {
+  for (int i = 0; i <= findex_end; ++i) {
+    if (strcmp(findex[i]->name, name)) {
       return findex[i];
     }
   }
   return (File*)FILE_NOT_FOUND;
 }
 
-bool file_exists(char* name)
-{
-  for (int i = 0; i <= findex_end; ++i)
-  {
-    if (strcmp(findex[i]->name, name))
-    {
+bool file_exists(char* name) {
+  for (int i = 0; i <= findex_end; ++i) {
+    if (strcmp(findex[i]->name, name)) {
       return true;
     }
   }
   return false;
 }
 
-int file_count()
-{
+int file_count() {
   return findex_end;
 }
 
-char* file_get_name(int id)
-{
+char* file_get_name(int id) {
   if (findex[id] != 0) return findex[id]->name;
   return (char*) FILE_NOT_FOUND;
 }
 
-int file_get_id(char* name)
-{
-  for (int i = 0; i < findex_end; ++i)
-  {
-    if (strcmp(findex[i]->name, name))
-    {
+int file_get_id(char* name) {
+  for (int i = 0; i < findex_end; ++i) {
+    if (strcmp(findex[i]->name, name)) {
       return i;
     }
   }
   return 1;
 }
 
-Sector* init_sector()
-{
+Sector* init_sector() {
   Sector* fs = kmalloc(sizeof(Sector));
   fs->next = END_SECTOR;
-  for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i)  // delete potentional data in the sector
-  {
+  for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {  // delete potentional data in the sector
     fs->data[i] = 0;
   }
   return fs;
 }
 
-bool file_valid(char* filename)
-{
+bool file_valid(char* filename) {
   char valid[] = FS_FILE_NAME_VALID_CHARS;
-  for (int i = 0; i < strlen(filename); ++i)
-  {
+  for (int i = 0; i < strlen(filename); ++i) {
     bool is_any = false;
-    for (int j = 0; j < strlen(valid); ++j)
-    {
+    for (int j = 0; j < strlen(valid); ++j) {
       if (filename[i] == valid[j]) is_any = true;
     }
     if (!is_any) return false;
@@ -96,18 +78,14 @@ bool file_valid(char* filename)
 }
 
 // create new file
-int file_make(char* name)
-{
-  if (findex_end > FS_MAX_FILE_COUNT)
-  {
+int file_make(char* name) {
+  if (findex_end > FS_MAX_FILE_COUNT) {
     return FILE_COUNT_MAX_EXCEEDED;
   }
-  if (file_exists(name))
-  {
+  if (file_exists(name)) {
     return FILE_ALREADY_EXISTS;
   }
-  if (!file_valid(name))
-  {
+  if (!file_valid(name)) {
     return FILE_NAME_INVALID;
   }
   // allocate the file
@@ -122,12 +100,9 @@ int file_make(char* name)
 }
 
 // delete file
-int file_remove(char* name)
-{
-  for (int i = 0; i < findex_end; ++i)
-  {
-    if (strcmp(findex[i]->name, name))
-    {
+int file_remove(char* name) {
+  for (int i = 0; i < findex_end; ++i) {
+    if (strcmp(findex[i]->name, name)) {
       File* fp = findex[i];
       Sector* fs = fp->first_sector;
       Sector* last_fs;
@@ -145,14 +120,12 @@ int file_remove(char* name)
   return FILE_NOT_FOUND;
 }
 
-int file_size(char* name)
-{
+int file_size(char* name) {
   File* fp = find_file(name);
   Sector* fs = fp->first_sector;
   // find the size
   int size = sizeof(fs->data);
-  while (fs->next != END_SECTOR)
-  {
+  while (fs->next != END_SECTOR) {
     fs = (Sector *)fs->next;   // jump to next sector
     size += sizeof(fs->data);
   }
@@ -160,14 +133,12 @@ int file_size(char* name)
 }
 
 // write content of file to $output
-int file_read(char* filename, char* output)
-{
+int file_read(char* filename, char* output) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
   do {
-    for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i)
-    {
+    for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
       output[i] = fs->data[i];
     }
     output += FS_SECTOR_DATA_SIZE;
@@ -177,27 +148,21 @@ int file_read(char* filename, char* output)
   return OK;
 }
 
-int file_write(char* filename, char* data, uint32_t depth)
-{
+int file_write(char* filename, char* data, uint32_t depth) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
 
   char* end = depth + data;
-  while (data < end)
-  {
-    if (end - data <= FS_SECTOR_DATA_SIZE)
-    {
-      for (int i = 0; i < end - data; ++i)
-      {
+  while (data < end) {
+    if (end - data <= FS_SECTOR_DATA_SIZE) {
+      for (int i = 0; i < end - data; ++i) {
         fs->data[i] = data[i];
       }
       data = end;
     }
-    else
-    {
-      for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i)
-      {
+    else {
+      for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
         fs->data[i] = data[i];
       }
       data += FS_SECTOR_DATA_SIZE;
@@ -213,8 +178,7 @@ int file_clean(char* filename)
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
   do {
-    for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i)
-    {
+    for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
       fs->data[i] = 0;
     }
     Sector* next_fs = (Sector *)fs->next;

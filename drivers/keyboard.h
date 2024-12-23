@@ -9,8 +9,7 @@
 #define REG_KEYBOARD_CMD  0x64
 #define UNPRINTALBE_CHAR  0x0
 
-typedef enum
-{
+typedef enum {
   KEY_VOID,
   KEY_DOWN_BACKTICK,
   KEY_DOWN_DASH,

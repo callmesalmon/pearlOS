@@ -2,11 +2,9 @@
 #include <stddef.h>
 
 // get string length
-uint strlen(char* string)
-{
+uint strlen(char* string) {
   uint length = 0;
-  while (*string != 0)
-  {
+  while (*string != 0) {
     ++length;
     ++string;
   }
@@ -15,11 +13,9 @@ uint strlen(char* string)
 
 // copy string
 // NOTE: Does NOT check for string size -> string overflow!!!
-void strcpy(char* dest, char* src)
-{
+void strcpy(char* dest, char* src) {
   uint size = strlen(src) + 1;
-  for (uint i = 0; i < size; ++i)
-  {
+  for (uint i = 0; i < size; ++i) {
     dest[i] = src[i];
   }
 }
@@ -28,14 +24,11 @@ void strcpy(char* dest, char* src)
 bool strcmp(char* a, char* b)
 {
   uint32_t i = 0;
-  while (1)
-  {
-    if (a[i] != b[i])
-    {
+  while (1) {
+    if (a[i] != b[i]) {
       return false;
     }
-    else if (a[i] == 0 && b[i] == 0)
-    {
+    else if (a[i] == 0 && b[i] == 0) {
       return true;
     }
     ++i;
@@ -44,36 +37,29 @@ bool strcmp(char* a, char* b)
 
 // add the extenstion to the base string
 // NOTE: Does NOT check for string size! -> string overflow!!!
-void stradd(char* base, char* extension)
-{
+void stradd(char* base, char* extension) {
   strcpy(base + strlen(base), extension);
 }
 
 // fill string with zero
-void strcls(char* string)
-{
-  while (*string != 0)
-  {
+void strcls(char* string) {
+  while (*string != 0) {
     *string = 0;
     ++string;
   }
 }
 
 // convert char to upper case
-char char_to_upper(char character)
-{
+char char_to_upper(char character) {
   char offset = 'A' - 'a';
-  if (character >= 'a' && character <= 'z')
-  {
+  if (character >= 'a' && character <= 'z') {
     return character + offset;
   }
   return character;
 }
 
-void strupp(char* string)
-{
-  while (*string != 0)
-  {
+void strupp(char* string) {
+  while (*string != 0) {
     *string = char_to_upper(*string);
     ++string;
   }

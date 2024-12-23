@@ -1,8 +1,7 @@
 #include <drivers/display_cursor.h>
 #include <drivers/display.h>
 
-uint32_t get_cursor_position_x(void)
-{
+uint32_t get_cursor_position_x(void) {
   uint32_t pos = 0;
   port_byte_out(0x3D4, 0x0F);
   pos |= port_byte_in(0x3D5);
@@ -11,8 +10,7 @@ uint32_t get_cursor_position_x(void)
   return pos % DISPLAY_WIDTH;
 }
 
-uint32_t get_cursor_position_y(void)
-{
+uint32_t get_cursor_position_y(void) {
   uint32_t pos = 0;
   port_byte_out(0x3D4, 0x0F);
   pos |= port_byte_in(0x3D5);
@@ -21,8 +19,7 @@ uint32_t get_cursor_position_y(void)
   return pos / DISPLAY_WIDTH;
 }
 
-uint get_cursor_offset()
-{
+uint get_cursor_offset() {
     port_byte_out(REG_DISPLAY_CTRL, 14);
     uint offset = port_byte_in(REG_DISPLAY_DATA) << 8;
     port_byte_out(REG_DISPLAY_CTRL, 15);
@@ -30,8 +27,7 @@ uint get_cursor_offset()
     return offset * 2;
 }
 
-void set_cursor_offset(uint offset)
-{
+void set_cursor_offset(uint offset) {
     offset /= 2;
     port_byte_out(REG_DISPLAY_CTRL, 14);
     port_byte_out(REG_DISPLAY_DATA, (byte) (offset >> 8));

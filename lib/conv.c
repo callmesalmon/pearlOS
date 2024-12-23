@@ -2,24 +2,21 @@
 #include <stdint.h>
 #include <stddef.h>
 
-void uint32_to_str(char* output, uint32_t number)
-{
+void uint32_to_str(char* output, uint32_t number) {
     const char digits[] = "0123456789";
     int i = 0;
     int j;
     unsigned remains;
     char c;
 
-    do
-    {
+    do {
       remains = number % 10;
       output[i++] = digits[remains];
       number = number / 10;
     } while (number != 0);
     output[i] = '\0';
 
-    for (j = 0, i--; j < i; j++, i--)
-    {
+    for (j = 0, i--; j < i; j++, i--) {
       c = output[j];
       output[j] = output[i];
       output[i] = c;
@@ -34,31 +31,26 @@ void uint32_to_hex(char* output, uint32_t number)
     unsigned remains;
     char c;
 
-    do
-    {
+    do {
       remains = number % 16;
       output[i++] = digits[remains];
       number = number / 16;
     } while (number != 0);
     output[i] = '\0';
 
-    for (j = 0, i--; j < i; j++, i--)
-    {
+    for (j = 0, i--; j < i; j++, i--) {
       c = output[j];
       output[j] = output[i];
       output[i] = c;
     }
 }
 
-void uint_to_str(char* output, uint number)
-{
+void uint_to_str(char* output, uint number) {
   uint32_to_str(output, (uint32_t) number);
 }
 
-void int_to_str(char* output, int number)
-{
-  if (number < 0)
-  {
+void int_to_str(char* output, int number) {
+  if (number < 0) {
     output[0] = '-';  // set the first byte to '-', indicating its a negative
     ++output;         // we dont want to overwrite the '-'
     number = -number; // negate the negative number, making it positive
@@ -66,13 +58,11 @@ void int_to_str(char* output, int number)
   uint_to_str(output, number);
 }
 
-void short_to_str(char* output, short number)
-{
+void short_to_str(char* output, short number) {
   int_to_str(output, (int) number);
 }
 
-char uint32_to_char(uint32_t number)
-{
+char uint32_to_char(uint32_t number) {
   switch (number) {
     case 0: return '0';
     case 1: return '1';
@@ -88,50 +78,41 @@ char uint32_to_char(uint32_t number)
   return '?'; /* Just in case */
 }
 
-char uint_to_char(uint number)
-{
+char uint_to_char(uint number) {
   return uint32_to_char((uint32_t) number);
 }
 
-int str_to_int(char *array, size_t n)
-{    
+int str_to_int(char *array, size_t n) {    
     int number = 0;
     int mult = 1;
 
     n = (int)n < 0 ? -n : n; /* quick absolute value check  */
 
     /* for each character in array */
-    while (n--)
-    {
+    while (n--) {
         /* If array[n] = char then exit */
-        if (!chint(array[n]))
-        {
+        if (!chint(array[n])) {
             return INVALID_INT;
         }
 
         /* if not digit or '-', check if number > 0, break or continue */
-        if ((array[n] < '0' || array[n] > '9') && array[n] != '-')
-        {
-            if (number)
-            {
+        if ((array[n] < '0' || array[n] > '9') && array[n] != '-') {
+            if (number) {
                 break;
             }
-            else
-            {
+            else {
                 continue;
             }
         }
 
-        if (array[n] == '-') /* if '-' if number, negate, break */
-        {
-            if (number)
-            {
+        if (array[n] == '-') { /* if '-' if number, negate, break */
+            if (number) {
                 number = -number;
                 break;
             }
         }
-        else  /* convert digit to numeric value   */
-        {
+        else { /* convert digit to numeric value   */
+        
             number += (array[n] - '0') * mult;
             mult *= 10;
         }
@@ -140,10 +121,8 @@ int str_to_int(char *array, size_t n)
     return number;
 }
 
-byte char_to_hex(char character)
-{
-  switch (character)
-  {
+byte char_to_hex(char character) {
+  switch (character) {
     case '0': return 0x0;
     case '1': return 0x1;
     case '2': return 0x2;

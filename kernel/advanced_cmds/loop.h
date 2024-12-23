@@ -13,12 +13,10 @@ char* commands[] = {};
 byte ksh_interpret(char* command);
 
 /* Reader */
-char** ksh_loop_read(char* stimes)
-{
+char** ksh_loop_read(char* stimes) {
     int itimes = str_to_int(stimes, len(stimes));
 
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         char* cmd = (char*) kmalloc(255);
         
         puts("c> ");
@@ -30,8 +28,7 @@ char** ksh_loop_read(char* stimes)
     return commands;
 }
 
-int ksh_loop()
-{
+int ksh_loop() {
     char* stimes = (char*) kmalloc(255);
     puts("t> ");
     scan(stimes);
@@ -40,12 +37,10 @@ int ksh_loop()
     char** commands = ksh_loop_read(stimes);
     int i = 0;
 
-    do
-    {
+    do {
         int j = 0;
         puts((char*)commands[i]);
-        do
-        {
+        do {
             ksh_interpret((char*)commands[i]);
         } while (j++ < itimes);
     } while (i++ < len(commands));

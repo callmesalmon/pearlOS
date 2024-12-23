@@ -6,8 +6,7 @@
 
 #include <fs/fscore.h>
 
-void ksh_write_to_file()
-{
+void ksh_write_to_file() {
   puts("> ");
   char* filename = (char*) kmalloc(256);
   strcls(filename);
@@ -21,8 +20,7 @@ void ksh_write_to_file()
 
   file_clean(filename);
   int response = file_writes(filename, data);
-  if (response == FILE_NOT_FOUND)
-  {
+  if (response == FILE_NOT_FOUND) {
     puts("File not found!\n");
   }
 

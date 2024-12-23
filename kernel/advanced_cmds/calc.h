@@ -7,8 +7,7 @@
 #include <magic.h>
 #include <mem.h>
 
-int ksh_calc()
-{
+int ksh_calc() {
     /* Define */
     char* s1 = (char*) kmalloc(255);
     char* s2 = (char*) kmalloc(255);
@@ -23,8 +22,7 @@ int ksh_calc()
     scan(op);
 
     /* Convert */
-    if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT)
-    {
+    if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT) {
         puts("Invalid number.");
         putc('\n');
         return -1;
@@ -38,8 +36,7 @@ int ksh_calc()
     else if (strcmp(op, "*")) putu(n1 * n2);
     else if (strcmp(op, "/")) putu(n1 / n2);
     else if (strcmp(op, "^")) putu(pow(n1, n2));
-    else
-    {
+    else {
         puts("Invalid operator.");
         putc('\n');
         return -1;

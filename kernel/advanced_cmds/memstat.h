@@ -2,8 +2,7 @@
 
 #include <io.h>
 
-int ksh_memstat()
-{
+int ksh_memstat() {
     puts("Memory usage:");
     puts("\ntotal: ");
     putu32(memory_usage());

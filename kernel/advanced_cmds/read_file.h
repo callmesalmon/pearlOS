@@ -5,8 +5,7 @@
 
 #include <fs/fscore.h>
 
-void ksh_read_file()
-{
+void ksh_read_file() {
   char* filename = (char*) kmalloc(256);
   puts("> ");
   scan(filename);
@@ -14,8 +13,7 @@ void ksh_read_file()
   char* content = (char*) kmalloc(file_size(filename));
   int response = file_read(filename, content);
 
-  if (response == FILE_NOT_FOUND)
-  {
+  if (response == FILE_NOT_FOUND) {
     puts("File not found\n");
   }
   puts(content);

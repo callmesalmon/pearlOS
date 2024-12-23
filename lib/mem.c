@@ -9,41 +9,33 @@
 // odd index -> page end
 byte* memory_index[MEMORY_INDEX_BASE_SIZE];
 
-byte* get_memory_index()
-{
+byte* get_memory_index() {
   return (byte*) memory_index;
 }
 
 // allocate memory
-void* kmalloc(uint32_t size)
-{
+void* kmalloc(uint32_t size) {
   uint i = 0;
 
-  while (1)
-  {
+  while (1) {
     // search
-    while (memory_index[i] != MEMORY_EMPTY)
-    {
+    while (memory_index[i] != MEMORY_EMPTY) {
         i += 2;
     }
 
     byte* last_page_end = memory_index[i - 1];
     uint next_page_start_id = i;
 
-    while (memory_index[next_page_start_id] == MEMORY_EMPTY)
-    {
+    while (memory_index[next_page_start_id] == MEMORY_EMPTY) {
         ++next_page_start_id;
     }
 
     // verify
-    if (memory_index[next_page_start_id] - last_page_end > size)
-    {
-      if (i >= MEMORY_INDEX_BASE_SIZE)
-      {
+    if (memory_index[next_page_start_id] - last_page_end > size) {
+      if (i >= MEMORY_INDEX_BASE_SIZE) {
         kpanic(KERNEL_PANIC_MEMORY_INDEX_FULL);
       }
-      if (size + last_page_end + 1 >= (byte *)KERNEL_MEMORY_OFFSET_END)
-      {
+      if (size + last_page_end + 1 >= (byte *)KERNEL_MEMORY_OFFSET_END) {
         kpanic(KERNEL_PANIC_MEMORY_FULL);
       }
 
@@ -56,8 +48,7 @@ void* kmalloc(uint32_t size)
 }
 
 // free allocated memory
-void kfree(void* memory)
-{
+void kfree(void* memory) {
   uint id = 0;
   while (memory_index[id] != memory) { id += 2; }
   memory_index[id] = MEMORY_EMPTY;
@@ -65,14 +56,11 @@ void kfree(void* memory)
 }
 
 // gets size of all used kmalloc pages
-uint32_t memory_usage()
-{
+uint32_t memory_usage() {
   uint i = 2;  // remember, the first two bytes meta-data
   uint32_t usage = 0;
-  while (i < MEMORY_INDEX_BASE_SIZE)
-  {
-    if (memory_index[i] != MEMORY_EMPTY)
-    {
+  while (i < MEMORY_INDEX_BASE_SIZE) {
+    if (memory_index[i] != MEMORY_EMPTY) {
       usage += (uint32_t) memory_index[i + 1] - (uint32_t) memory_index[i];
     }
     i += 2;
@@ -80,20 +68,16 @@ uint32_t memory_usage()
   return usage;
 }
 
-uint32_t memory_total()
-{
+uint32_t memory_total() {
   return KERNEL_MEMORY_OFFSET_END - KERNEL_MEMORY_OFFSET_START;
 }
 
 // gets the total size of allocated memory, counting freed pages
-uint32_t memory_usage_effective()
-{
+uint32_t memory_usage_effective() {
   uint i = 2;  // remember, the first two bytes meta-data
   uint32_t usage = 0;
-  while (i < MEMORY_INDEX_BASE_SIZE)
-  {
-    if ((uint32_t) memory_index[i + 1] > usage)
-    {
+  while (i < MEMORY_INDEX_BASE_SIZE) {
+    if ((uint32_t) memory_index[i + 1] > usage) {
       usage = (uint32_t) memory_index[i + 1];
     }
     i += 2;
@@ -102,21 +86,17 @@ uint32_t memory_usage_effective()
 }
 
 // initializes kernel memory pointer -> allows for kmalloc() calls
-void memory_init()
-{
+void memory_init() {
   memory_index[0] = (byte*) KERNEL_MEMORY_OFFSET_START;
   memory_index[1] = (byte*) KERNEL_MEMORY_OFFSET_START;
-  for (int i = 2; i < len(memory_index); ++i)
-  {
+  for (int i = 2; i < len(memory_index); ++i) {
     memory_index[i] = MEMORY_EMPTY;
   }
 }
 
 // copy memory
-void memcpy(byte* dest, byte* src, uint32_t size)
-{
-  for (uint32_t i = 0; i < size; ++i)
-  {
+void memcpy(byte* dest, byte* src, uint32_t size) {
+  for (uint32_t i = 0; i < size; ++i) {
     dest[i] = src[i];
   }
 }

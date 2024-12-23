@@ -7,8 +7,7 @@
 #include <drivers/display.h>
 #include <cpu/smbios.h>
 
-void ksh_pearlfetch()
-{
+void ksh_pearlfetch() {
   putc('\n');
   puts(
   "           _.-''|''-._\n"

@@ -6,8 +6,7 @@
 
 #include <drivers/display.h>
 
-int ksh_fortune()
-{
+int ksh_fortune() {
     char *fortunes[] = {
         "Pohl's Law: Nothing is so good that somebody, somewhere, will not hate it.\n",
 
@@ -49,10 +48,8 @@ int ksh_fortune()
 
     int i = 0;
 
-    do
-    {
-        if (rand_index == i)
-        {
+    do {
+        if (rand_index == i) {
             puts(fortunes[i]);
         }
     } while (++i <= fortune_len);

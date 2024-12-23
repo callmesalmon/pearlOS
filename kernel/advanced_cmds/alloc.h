@@ -5,8 +5,7 @@
 #include <magic.h>
 #include <mem.h> 
 
-int ksh_alloc()
-{
+int ksh_alloc() {
     /* Define */
     char* str = (char*) kmalloc(255);
 
@@ -15,8 +14,7 @@ int ksh_alloc()
     scan(str);
 
     /* Convert */
-    if (str_to_int(str, len(str)) == INVALID_INT)
-    {
+    if (str_to_int(str, len(str)) == INVALID_INT) {
         puts("Invalid number.");
         putc('\n');
         return 1;

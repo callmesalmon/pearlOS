@@ -4,14 +4,11 @@
 
 #include <fs/fscore.h>
 
-void ksh_list_files()
-{
+void ksh_list_files() {
   char *name;
-  for (int i = 0; i < file_count(); ++i)
-  {
+  for (int i = 0; i < file_count(); ++i) {
     name = file_get_name(i);
-    if (name != (char *)FILE_NOT_FOUND)
-    {
+    if (name != (char *)FILE_NOT_FOUND) {
       puts(name);
       putc('\n');
     }

@@ -12,23 +12,20 @@ uint get_offset_column(uint offset) { return (offset - (get_offset_row(offset)*2
 void set_cursor_position(uint column, uint row) { set_cursor_offset(get_offset(column, row)); }
 
 // draws character at specific offset
-void display_char(char character, uint offset, byte color)
-{
+void display_char(char character, uint offset, byte color) {
 	INIT_VIDEO
 	video_memory[offset*2] = character;
   if (color != TRANSPARENT) { video_memory[offset*2 + 1] = color; }
 }
 
 // called when display should scroll
-void do_scroll()
-{
+void do_scroll() {
   // kdisplay_clear();
   display_scroll();
 }
 
 // prints a newline, equivalent to putc('\n')
-void printnl()
-{
+void printnl() {
   uint cursor_offset = get_cursor_offset();
   uint cursor_offset_row = get_offset_row(cursor_offset);
   set_cursor_position( 0, cursor_offset_row + 1);
@@ -36,77 +33,62 @@ void printnl()
 }
 
 // print char to cursor with color
-void cputc(char character, char color)
-{
+void cputc(char character, char color) {
   INIT_VIDEO
 	uint cursor = get_cursor_offset();
-	if (character == '\n')
-	{
+	if (character == '\n') {
 		printnl();
 	}
-    else
-    {
-      if (cursor <= (DISPLAY_WIDTH * DISPLAY_HEIGHT - 2) * 2)
-      {
+    else {
+      if (cursor <= (DISPLAY_WIDTH * DISPLAY_HEIGHT - 2) * 2) {
         video_memory[cursor] = character;
         if (color != TRANSPARENT) video_memory[cursor + 1] = color;   // if the color is transparent no will be drawn
         set_cursor_offset(cursor + 2);
       }
-      else
-      {
-      printnl();
+      else {
+        printnl();
       }
     }
 }
 
 // print char to cursor with default color
-void putc(char character)
-{
+void putc(char character) {
 	cputc(character, TRANSPARENT);
 }
 
-void cput(char* text, uint32_t depth, byte color)
-{
-  for (uint32_t i = 0; i < depth; ++i)
-  {
+void cput(char* text, uint32_t depth, byte color) {
+  for (uint32_t i = 0; i < depth; ++i) {
     cputc(text[i], color);
   }
 }
 
-void put(char* text, uint32_t depth)
-{
+void put(char* text, uint32_t depth) {
   cput(text, depth, TRANSPARENT);
 }
 
-void display_theme(char color)   // draw a specific color on whole display
-{
+void display_theme(char color) { // draw a specific color on whole display
   INIT_VIDEO
   display_theme_current = color;
-  for (uint i = 1; i < DISPLAY_WIDTH * DISPLAY_WIDTH; i += 2)
-  {
+  for (uint i = 1; i < DISPLAY_WIDTH * DISPLAY_WIDTH; i += 2) {
     video_memory[i] = color;
   }
 }
 
 // copy a display row over another
-void rowcpy(uint dest, uint src)
-{
+void rowcpy(uint dest, uint src) {
   INIT_VIDEO;
   // get row offset
   char* dest_offset = get_offset(0, dest) + video_memory;
   char* src_offset = get_offset(0, src) + video_memory;
   // use the offset in memcpy
-  for (uint32_t i = 0; i < DISPLAY_WIDTH + DISPLAY_SCROLL_DEBUG; ++i)
-  {
+  for (uint32_t i = 0; i < DISPLAY_WIDTH + DISPLAY_SCROLL_DEBUG; ++i) {
     dest_offset[i] = src_offset[i];         // scroll text
   }
 }
 
 // scrol display by 1 row up
-void display_scroll()
-{
-  for (uint row = 1; row <= DISPLAY_HEIGHT; ++row)
-  {
+void display_scroll() {
+  for (uint row = 1; row <= DISPLAY_HEIGHT; ++row) {
     rowcpy(row - 1, row); // copy the current row to the last (row - 1)
   }
   uint cursor_offset = get_cursor_offset();
@@ -115,24 +97,20 @@ void display_scroll()
 }
 
 // clear display
-void display_clear()
-{
-	for (uint i = 0; i < DISPLAY_WIDTH * DISPLAY_HEIGHT; ++i)
-	{
+void display_clear() {
+	for (uint i = 0; i < DISPLAY_WIDTH * DISPLAY_HEIGHT; ++i) {
 		display_char(0, i, 0x00);
 	}
 	set_cursor_offset(0);
   display_theme(display_theme_current);
 }
 
-void display_deletec()
-{
+void display_deletec() {
   set_cursor_offset(get_cursor_offset()-1);
   putc(0);
   set_cursor_offset(get_cursor_offset()-1);
 }
 
-void display_init()
-{
+void display_init() {
   display_theme_current = DEFAULT_THEME;
 }

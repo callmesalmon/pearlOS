@@ -2,16 +2,14 @@
 
 int rand_seed;
 
-void rand_init()
-{
+void rand_init() {
   int random_data;
   rand_seed = random_data + 2;
 }
 
 // Linear congruential generator function
 // more info: https://en.wikipedia.org/wiki/Linear_congruential_generator
-int rand_lcg(int x)
-{
+int rand_lcg(int x) {
   // use the same parameters as glibc https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
   int a = 1103515245;
   int c = 12345;
@@ -21,8 +19,7 @@ int rand_lcg(int x)
   return result;
 }
 
-int rand()
-{
+int rand() {
   rand_seed = rand_lcg(rand_seed);  // randomize the seed
   return rand_seed;
 }
