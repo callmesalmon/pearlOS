@@ -37,7 +37,7 @@ After going into the repo directory, configure and then make:
 ./config.sh
 make
 ```
-You can add your own config, just read [this!](/config/README.md)  
+You can add your own config, just read [this](/config/README.md)!  
 Lastly, run the generated image at dist/pearl.bin  
 by making the rule `qemu`:
 ```console
@@ -60,7 +60,8 @@ see [PIDI-DIFF.md](/PIDI-DIFF.md).
 
 ## Contributing
 
-See [CONTRIBUTING.md](/CONTRIBUTING.md).
+I accept all meaningful contibutions! As long as it doesn't break the
+project, I'll probably accept your contibution.
 
 ## Activity
 
