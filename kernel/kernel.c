@@ -28,7 +28,7 @@ int main() {
 	kinfo(KERNEL_INFO_WELCOME);
 
 	/* main */
-	#include "debug.h" /* this file is created by "./configure" */
+	#include "debug.h" /* this file is created by "./config.sh" */
 	KERNEL_STARTUP;
 	while (kernel_running) {
 		KERNEL_UPDATE
