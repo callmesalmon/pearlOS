@@ -5,7 +5,6 @@
 *.zip
 *~
 *#
-kernel/debug.h
 dist/
 mk/
 trash/
