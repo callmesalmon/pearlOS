@@ -222,4 +222,14 @@ void fsinit()
     "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
     "PIDIOS: Filip Chovanec <\?\?\?>, Mar 2021.\n"
   );
+  file_make("roadmap");
+  file_writes(
+    "roadmap",
+    "---- ROADMAP ----\n\n"
+    "[x]. Get pearlOS to run.\n"
+    "[x]. Add some extra programs.\n"
+    "[x]. Create a warningless C build.\n"
+    "[ ]. Create a proper syscall interface.\n"
+    "[ ]. Create a desktop enviroment.\n"
+  );
 }
