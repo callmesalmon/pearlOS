@@ -86,7 +86,7 @@ void rowcpy(uint dest, uint src) {
   }
 }
 
-// scrol display by 1 row up
+// scroll display by 1 row up
 void display_scroll() {
   for (uint row = 1; row <= DISPLAY_HEIGHT; ++row) {
     rowcpy(row - 1, row); // copy the current row to the last (row - 1)
