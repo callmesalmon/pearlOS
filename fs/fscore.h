@@ -17,7 +17,7 @@
 #define FILE_NOT_FOUND          1
 
 // declarations
-void  fsinit();
+void fsinit();
 int file_remove(char* name);
 int file_make(char* name);
 char* file_get_name(int id);
