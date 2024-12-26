@@ -20,22 +20,6 @@ under the License.
 #include <fs/fscore.h>
 #include <kernel/version.h>
 
-#define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
-
-#define END_SECTOR 0
-
-struct SectorStruct {
-  struct Sector* next;
-  byte data[FS_SECTOR_DATA_SIZE];
-};
-typedef struct SectorStruct Sector;
-
-typedef struct {
-  char name[FS_FILE_NAME_BUFFER];
-  char tags[FS_FILE_TAGS_BUFFER];
-  Sector* first_sector;
-} File;
-
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 
@@ -191,8 +175,7 @@ int file_write(char* filename, char* data, uint32_t depth) {
   return OK;
 }
 
-int file_clean(char* filename)
-{
+int file_clean(char* filename) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
@@ -206,13 +189,11 @@ int file_clean(char* filename)
   return OK;
 }
 
-int file_writes(char* filename, char* text)
-{
+int file_writes(char* filename, char* text) {
   return file_write(filename, text, strlen(text));
 }
 
-void fsinit()
-{
+void fsinit() {
   file_make("os-release");
   file_writes(
     "os-release", 
@@ -239,7 +220,7 @@ void fsinit()
     "\"github.com/ElisStaaf/pearlOS\", feel free to contribute!\n"
     "And with that, enjoy the OS!\n\n"
     "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
-    "PIDIOS: Filip Chovanec <\?\?\?>, Mar 2021.\n"
+    "PIDI-OS: Filip Chovanec <???>, Mar 2021.\n"
   );
   file_make("roadmap");
   file_writes(

@@ -35,6 +35,21 @@ under the License.
 #define FILE_NAME_INVALID       3
 #define FILE_NOT_FOUND          1
 
+#define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
+#define END_SECTOR 0
+
+struct SectorStruct {
+  struct Sector* next;
+  byte data[FS_SECTOR_DATA_SIZE];
+};
+typedef struct SectorStruct Sector;
+
+typedef struct {
+  char name[FS_FILE_NAME_BUFFER];
+  char tags[FS_FILE_TAGS_BUFFER];
+  Sector* first_sector;
+} File;
+
 // declarations
 void fsinit();
 int file_remove(char* name);
