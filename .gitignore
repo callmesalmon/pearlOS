@@ -1,10 +1,23 @@
+# Object/Binary files
 *.o
 *.bin
-*.swp
+
+# Archives 
 *.tar
 *.zip
+
+# SWP/TMP files
+*.swp
 *~
 *#
+
+# Debug files
+debug.h
+
+# Compilation results
 dist/
 mk/
-trash/
+
+# Profiles
+config/profiles/*
+!config/profiles/default*
