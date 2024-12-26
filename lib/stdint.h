@@ -19,6 +19,12 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 
+/* Typedefs */
+typedef uint32_t u32;
+typedef uint u8;
+
+/* Functions */
 bool chint(char ch);
