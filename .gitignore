@@ -20,4 +20,4 @@ mk/
 
 # Profiles
 config/profiles/*
-!config/profiles/default*
+!config/profiles/default
