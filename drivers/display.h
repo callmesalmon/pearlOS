@@ -26,21 +26,22 @@ under the License.
 
 #define VIDEO_MEMORY_OFFSET (uint*) 0xb8000
 
-// config
+/* Config */
 #define DISPLAY_WIDTH  80
 #define DISPLAY_HEIGHT 25
-// dont touch these
+
+/* Don't touch these */
 #define DISPLAY_SCROLL_DEBUG           80
 #define DISPLAY_SCROLL_DETECTION_DEBUG -2
 
-// color
+/* Colour */
 #define TRANSPARENT 0x00
 #include <drivers/display_color.h>
 
-// code
+/* Code */
 #define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;
 
-// kernel API
+/* Kernel API */
 void printc(char character);
 void cprintc(char character, char color);
 void print(char* text, uint32_t depth);
