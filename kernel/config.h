@@ -21,7 +21,7 @@ under the License.
 
 /* kernel.c */
 #define DEFAULT_THEME  GREEN_ON_BLACK
-#define KERNEL_STARTUP ksh_start();
+#define KERNEL_STARTUP ksh_start()
 #define KERNEL_UPDATE
 
 /* ksh.h */
