@@ -9,15 +9,15 @@ these are listed below in the form of:
 ## Additions
 
 Many more extra commands for the userland, such as:
-* [loop.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/loop.h)
-* [fortune.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/fortune.h)
-* [panic.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/panic.h)
-* [alloc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/alloc.h)
-* [memstat.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/memstat.h)
-* [calc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/calc.h)
+* [loop.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/loop.h)
+* [fortune.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/fortune.h)
+* [panic.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/panic.h)
+* [alloc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/alloc.h)
+* [memstat.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/memstat.h)
+* [calc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/calc.h)
 
 Additions for already existing commands, such as:
-* [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/advanced_cmds/pearlfetch.h)\*  
+* [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/pearlfetch.h)\*  
 \*: Has been renamed.
 
 Other things have been added to the userland, such as:
