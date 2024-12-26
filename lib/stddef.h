@@ -29,7 +29,7 @@ typedef unsigned char bool;
 #ifdef __SIZE_TYPE__
      typedef __SIZE_TYPE__ size_t;
 #else
-#    error "[ERROR]: __SIZE_TYPE__ is not defined. Can't compile."
+#    error "[ERROR] \"__SIZE_TYPE__\" is not defined. Can't compile."
 #endif
 
 #if !defined(true) && !defined(false)
