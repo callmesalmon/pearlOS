@@ -29,10 +29,10 @@ under the License.
 // PANIC    fatal problem
 #define INCLUDED_MESSAGES
 
-#define KERNEL_INFO_ENTERED       "Booting...\n"                    // start of main()
-#define KERNEL_INFO_INIT_START    "Initializing...\n"               // start of init()
-#define KERNEL_INFO_INIT_DONE     "Done!\n"                         // end of init()
-#define KERNEL_INFO_WELCOME       "Welcome to pearlOS!\n"           // end of main() startup
+#define KERNEL_INFO_ENTERED       "Booting..."                    // start of main()
+#define KERNEL_INFO_INIT_START    "Initializing..."               // start of init()
+#define KERNEL_INFO_INIT_DONE     "Done!"                         // end of init()
+#define KERNEL_INFO_WELCOME       "Welcome to pearlOS!"           // end of main() startup
 #define KERNEL_INFO_SHELL_WELCOME \
 "                                         /$$  /$$$$$$   /$$$$$$ \n" \
 "                                        | $$ /$$__  $$ /$$__  $$\n" \
