@@ -15,12 +15,15 @@
 # specific language governing permissions and limitations
 # under the License.
 
+.DEFAULT_GOAL=dist/pearl.bin
 .PHONY: clean run run-iso all full
 
-include defs.mk
-
-ASMC = nasm 
-ASMF = elf32
+EMULATOR = qemu-system-i386
+LINKER   = ld -m elf_i386 -s
+CC       = gcc
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. -std=c17
+ASMC     = nasm 
+ASMF     = elf32
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))

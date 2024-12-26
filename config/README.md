@@ -131,46 +131,6 @@ MSG_LOAD_KERNEL  db "Kernel is loading...",   0
 MSG_CRASH_KERNEL db "[KERNEL PANIC] Something has gone wrong!!!", 0
 ```
 
-Now, it's time for the last file! Create a new file called "defs.mk", like so:
-
-
-```console
-touch defs.mk
-```
-
-This configuration operates using simple rules and variables. Please refer to
-this table while configuring:
-
-```
-.DEFAULT_GOAL<path> : Default target for the compilation,
-                      e.g if .DEFAULT_GOAL is set to "hello.bin",
-                      then the image will be set with that name.
-
-EMULATOR<prg>       : What emulator the OS should use, preferably
-                      qemu-system-{x86_64,i386}.
-
-LINKER<prg>         : Linker for the OS, build your own or
-                      use the default `ld`.
-
-CC<prg>             : C compiler for the OS, preferably GCC,
-                      but it can be changed.
-
-CFLAGS<flags>       : Flags for the C compiler.
-```
-
-That means that a preferable config might be:
-
-```mk
-.DEFAULT_GOAL=os.bin
-
-EMULATOR = qemu-system-x86_64
-LINKER   = ld -m elf-i386 -s
-CC       = cc
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os \
-           -c -ggdb -I./lib -std=c17 -Wextra \
-           -Werror -Pedantic -S
-```
-
 Finally, navigate into the root of this repository
 and run:
 
