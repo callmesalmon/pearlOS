@@ -19,8 +19,8 @@
 
 include defs.mk
 
-ASMC     = nasm 
-ASMF     = elf32
+ASMC = nasm 
+ASMF = elf32
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
