@@ -20,16 +20,23 @@ under the License.
 #pragma once
 
 #include <io.h>
+#include <mem.h>
 
 #include <fs/fscore.h>
 
-void ksh_list_files() {
-  char *name;
-  for (int i = 0; i < file_count(); ++i) {
-    name = file_get_name(i);
-    if (name != (char *)FILE_NOT_FOUND) {
-      puts(name);
-      putc('\n');
-    }
+void ksh_read_file() {
+  char* filename = (char*) kmalloc(256);
+  printk("> ");
+  scan(filename);
+
+  char* content = (char*) kmalloc(file_size(filename));
+  int response = file_read(filename, content);
+
+  if (response == FILE_NOT_FOUND) {
+    printk("File not found\n");
   }
+  printk(content);
+
+  kfree(filename);
+  kfree(content);
 }

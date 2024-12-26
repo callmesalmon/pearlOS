@@ -20,25 +20,29 @@ under the License.
 #include <io.h>
 #include <kernel/kmsg.h>
 #include <drivers/display_color.h>
-
+#include <drivers/display.h>
 
 void kinfo(char* msg) {
-  puts("[INFO] ");
-  puts(msg);
+  printk("[INFO] ");
+  printk(msg);
+  printnl();
 }
 
 void kwarning(char* msg) {
-  puts("[WARNING] ");
-  puts(msg);
+  printk("[WARNING] ");
+  printk(msg);
+  printnl();
 }
 
 void kerror(char* msg) {
-  puts("[ERROR] ");
-  puts(msg);
+  printk("[ERROR] ");
+  printk(msg);
+  printnl();
 }
 
 void kpanic(char* msg) {
-  cputs("[PANIC] ", RED_ON_BLACK);
-  cputs(msg, RED_ON_BLACK);
+  cprintk("[PANIC] ", RED_ON_BLACK);
+  cprintk(msg, RED_ON_BLACK);
+  printnl();
   while (1) {} /* Infinite loop */
 }

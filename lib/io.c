@@ -25,59 +25,69 @@ under the License.
 #include <drivers/display_color.h>
 
 // print string to cursor with color
-void cputs(char* text, char color) {
+void cprintk(char* text, char color) {
 	while (*text) {
-		cputc(*text, color);
+		cprintc(*text, color);
 		++text;
 	}
 }
 
 // print string to cursor with default color
-void puts(char* text) {
-  cputs(text, TRANSPARENT);
+void printk(char* text) {
+  cprintk(text, TRANSPARENT);
 }
 
-void puti(int number) {
+void printi(int number) {
   char output[12];
   int_to_str(output, number);
-  puts(output);
+  printk(output);
 }
 
-void putu(uint number) {
+void printu(uint number) {
   char output[12];
   uint_to_str(output, number);
-  puts(output);
+  printk(output);
 }
 
-void putu32(uint32_t number) {
+void printu32(uint32_t number) {
   char output[12];
   uint32_to_str(output, number);
-  puts(output);
+  printk(output);
 }
 
-void puthex(uint32_t number) {
+void printhex(uint32_t number) {
   char* output;
   uint32_to_hex(output, number);
-  puts(output);
+  printk(output);
+}
+
+void println(char* text) {
+    printk(text);
+    printnl();
+}
+
+void cprintln(char* text, char color) {
+    cprintk(text, color);
+    printnl();
 }
 
 void scan(char* output) {
   uint32_t i = 0;
-  char input = 0;
-  while (input != '\n') {
-    input = scanc();
-    if (input == '\b' && i > 0) {
+  char inprint = 0;
+  while (inprint != '\n') {
+    inprint = scanc();
+    if (inprint == '\b' && i > 0) {
       --i;
       display_deletec();
     }
-    else if (input == '\n') output[i] = 0;
-    else if (input != '\b') {
-      putc(input);
-      output[i] = input;
+    else if (inprint == '\n') output[i] = 0;
+    else if (inprint != '\b') {
+      printc(inprint);
+      output[i] = inprint;
       ++i;
     }
   }
-  putc('\n');
+  printc('\n');
 }
 
 void __stack_chk_fail() {}

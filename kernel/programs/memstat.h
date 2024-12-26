@@ -20,23 +20,15 @@ under the License.
 #pragma once
 
 #include <io.h>
-#include <mem.h>
+#include <drivers/display.h>
 
-#include <fs/fscore.h>
-
-void ksh_read_file() {
-  char* filename = (char*) kmalloc(256);
-  puts("> ");
-  scan(filename);
-
-  char* content = (char*) kmalloc(file_size(filename));
-  int response = file_read(filename, content);
-
-  if (response == FILE_NOT_FOUND) {
-    puts("File not found\n");
-  }
-  puts(content);
-
-  kfree(filename);
-  kfree(content);
+int ksh_memstat() {
+    printk("Memory usage:");
+    printk("\ntotal: ");
+    printu32(memory_usage());
+    printk("\neffective: ");
+    printu32(memory_usage_effective());
+    printnl();
+    
+    return 0;
 }

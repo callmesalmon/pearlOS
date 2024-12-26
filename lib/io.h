@@ -24,10 +24,12 @@ under the License.
 #include <drivers/keyboard.h>
 #include <drivers/display_color.h>
 
-void puti(int number);
-void putu(uint number);
-void putu32(uint32_t number);
-void puts(char* text);
-void puthex(uint32_t number);
-void cputs(char* text, char color);
-void scan(char* output);
+void printi(int number);
+void printu(uint number);
+void printu32(uint32_t number);
+void printk(char* text);
+void printhex(uint32_t number);
+void cprintk(char* text, char color);
+void println(char* text);
+void cprintln(char* text, char color);
+void scan(char* outprint);

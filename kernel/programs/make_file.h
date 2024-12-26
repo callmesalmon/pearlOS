@@ -20,16 +20,27 @@ under the License.
 #pragma once
 
 #include <io.h>
-
+#include <drivers/display.h>
 #include <fs/fscore.h>
 
-void ksh_remove_file() {
-  puts("> ");
-  char file_to_remove[255];
-  scan(file_to_remove);
+void ksh_make_file() {
+  printk("> ");
+  char* file_to_make = kmalloc(512);
+  scan(file_to_make);
 
-  if (file_remove(file_to_remove) == FILE_NOT_FOUND) {
-    puts("File not found!");
-    putc('\n');
+  int response = file_make(file_to_make);
+
+  if (response == FILE_ALREADY_EXISTS) {
+    printk("File already exists!\n");
   }
+  else if (response == FILE_NAME_INVALID) {
+    printk("File name can only contain the following characters:\n");
+    printk(FS_FILE_NAME_VALID_CHARS);
+    printnl();
+  }
+  else if (response == FILE_COUNT_MAX_EXCEEDED) {
+    printk("There are too many files!\n");
+  }
+
+  kfree(file_to_make);
 }

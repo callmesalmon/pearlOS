@@ -228,8 +228,8 @@ void kbh() {
         }
     }
     kbend:
-    //kputchar(c);
-    //kputchar('\n');
+    //kprintchar(c);
+    //kprintchar('\n');
     //if ((lctl_d || rctl_d) && (lalt_d || ralt_d) && c == 127) reboot();
     //if (xE0 && kbin == 0x5E) reboot();
     key = true;

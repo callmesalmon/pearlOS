@@ -25,6 +25,7 @@ under the License.
 #include <conv.h>
 #include <magic.h>
 #include <mem.h>
+#include <drivers/display.h>
 
 int ksh_calc() {
     /* Define */
@@ -33,35 +34,35 @@ int ksh_calc() {
     char* op = (char*) kmalloc(255);
 
     /* Collect */
-    puts("num> ");
+    printk("num> ");
     scan(s1);
-    puts("num> ");
+    printk("num> ");
     scan(s2);
-    puts("op> ");
+    printk("op> ");
     scan(op);
 
     /* Convert */
     if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT) {
-        puts("Invalid number.");
-        putc('\n');
+        printk("Invalid number.");
+        printnl();
         return -1;
     }
     int n1 = str_to_int(s1, len(s1));
     int n2 = str_to_int(s2, len(s2));
 
     /* Handle */
-    if (strcmp(op, "+")) putu(n1 + n2);
-    else if (strcmp(op, "-")) putu(n1 - n2);
-    else if (strcmp(op, "*")) putu(n1 * n2);
-    else if (strcmp(op, "/")) putu(n1 / n2);
-    else if (strcmp(op, "^")) putu(pow(n1, n2));
+    if (strcmp(op, "+")) printu(n1 + n2);
+    else if (strcmp(op, "-")) printu(n1 - n2);
+    else if (strcmp(op, "*")) printu(n1 * n2);
+    else if (strcmp(op, "/")) printu(n1 / n2);
+    else if (strcmp(op, "^")) printu(pow(n1, n2));
     else {
-        puts("Invalid operator.");
-        putc('\n');
+        printk("Invalid operator.");
+        printnl();
         return -1;
     }
 
-    putc('\n');
+    printnl();
 
     return 0;
 }

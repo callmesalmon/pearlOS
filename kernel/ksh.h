@@ -31,23 +31,24 @@ under the License.
 
 #include <cpu/smbios.h>
 #include <drivers/display_color.h>
+#include <drivers/display.h>
 
 char *theme;
 
-#include <kernel/advanced_cmds/pearlfetch.h>
-#include <kernel/advanced_cmds/list_files.h>
-#include <kernel/advanced_cmds/read_file.h>
-#include <kernel/advanced_cmds/write_to_file.h>
-#include <kernel/advanced_cmds/make_file.h>
-#include <kernel/advanced_cmds/fortune.h>
-#include <kernel/advanced_cmds/remove_file.h>
-#include <kernel/advanced_cmds/echo.h>
-#include <kernel/advanced_cmds/help.h>
-#include <kernel/advanced_cmds/calc.h>
-#include <kernel/advanced_cmds/panic.h>
-#include <kernel/advanced_cmds/alloc.h>
-#include <kernel/advanced_cmds/loop.h>
-#include <kernel/advanced_cmds/memstat.h>
+#include <kernel/programs/pearlfetch.h>
+#include <kernel/programs/list_files.h>
+#include <kernel/programs/read_file.h>
+#include <kernel/programs/write_to_file.h>
+#include <kernel/programs/make_file.h>
+#include <kernel/programs/fortune.h>
+#include <kernel/programs/remove_file.h>
+#include <kernel/programs/echo.h>
+#include <kernel/programs/help.h>
+#include <kernel/programs/calc.h>
+#include <kernel/programs/panic.h>
+#include <kernel/programs/alloc.h>
+#include <kernel/programs/loop.h>
+#include <kernel/programs/memstat.h>
 
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
@@ -73,10 +74,10 @@ byte ksh_interpret(char* command) {
     display_clear();
   }
   else if (strcmp(command, "version")) {
-    puts("pearlOS\n");
-    puts("Version: ");
-    puts(OS_VERSION);
-    putc('\n');
+    println("pearlOS");
+    printk("Version: ");
+    printk(OS_VERSION);
+    printnl();
   } else if (strcmp(command, "memstat")) {
     ksh_memstat();
   }
@@ -91,7 +92,7 @@ byte ksh_interpret(char* command) {
   else if (strcmp(command, "hacker")) {
     display_theme(GREEN_ON_BLACK);
     theme = "Hacker >:D";
-    cputs("You are a hacker now! >:D\n", RED_ON_BLACK);
+    cprintln("You are a hacker now! >:D", RED_ON_BLACK);
   }
   else if (strcmp(command, "exit")) {
     display_clear();
@@ -129,14 +130,14 @@ byte ksh_interpret(char* command) {
     ksh_write_to_file();
   }
   else if (strcmp(command, "random")) {
-    putu(rand() % 100);  // random number between 0-100
-    putc('\n');
+    printu(rand() % 100);  // random number between 0-100
+    printnl();
   }
   else if (strcmp(command, "panic")) {
     usrpanic();
   }
   else {
-    puts(KERNEL_INFO_SHELL_UNKNOWN_COMMAND);
+    printk(KERNEL_INFO_SHELL_UNKNOWN_COMMAND);
   }
   return KSH_OK;
 }
@@ -151,11 +152,11 @@ void ksh_start() {
 
   byte response;
 
-  puts(KERNEL_INFO_SHELL_WELCOME);
-  puts(KERNEL_INFO_MANUAL_HELP);
+  printk(KERNEL_INFO_SHELL_WELCOME);
+  printk(KERNEL_INFO_MANUAL_HELP);
 
   while (true) {
-    puts(KSH_PROMPT " ");
+    printk(KSH_PROMPT " ");
     scan(c);
     response = ksh_interpret(c);
 

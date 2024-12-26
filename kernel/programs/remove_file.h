@@ -22,25 +22,15 @@ under the License.
 #include <io.h>
 
 #include <fs/fscore.h>
+#include <drivers/display.h>
 
-void ksh_make_file() {
-  puts("> ");
-  char* file_to_make = kmalloc(512);
-  scan(file_to_make);
+void ksh_remove_file() {
+  printk("> ");
+  char file_to_remove[255];
+  scan(file_to_remove);
 
-  int response = file_make(file_to_make);
-
-  if (response == FILE_ALREADY_EXISTS) {
-    puts("File already exists!\n");
+  if (file_remove(file_to_remove) == FILE_NOT_FOUND) {
+    printk("File not found!");
+    printnl();
   }
-  else if (response == FILE_NAME_INVALID) {
-    puts("File name can only contain the following characters:\n");
-    puts(FS_FILE_NAME_VALID_CHARS);
-    putc('\n');
-  }
-  else if (response == FILE_COUNT_MAX_EXCEEDED) {
-    puts("There are too many files!\n");
-  }
-
-  kfree(file_to_make);
 }

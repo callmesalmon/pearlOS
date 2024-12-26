@@ -27,8 +27,8 @@ under the License.
 #include <cpu/smbios.h>
 
 void ksh_pearlfetch() {
-  putc('\n');
-  puts(
+  printc('\n');
+  printk(
   "           _.-''|''-._\n"
   "        .-'     |     `-.\n"
   "      .'\\       |       /`.\n"
@@ -42,27 +42,27 @@ void ksh_pearlfetch() {
   "               `-'\n"
   );
 
-  puts("OS: pearlOS ");
-  puts(OS_VERSION);
-  putc('\n');
+  printk("OS: pearlOS ");
+  printk(OS_VERSION);
+  printnl();
 
-  puts("BIOS name: ");
-  puts(smbios_get_bios_name());
-  putc('\n');
+  printk("BIOS name: ");
+  printk(smbios_get_bios_name());
+  printnl();
 
-  puts("BIOS version:");
-  puts(smbios_get_bios_version());
-  putc('\n');
+  printk("BIOS version:");
+  printk(smbios_get_bios_version());
+  printnl();
 
-  puts("Memory: ");
-  putu32(memory_usage());
-  puts("/");
-  putu32(memory_total());
-  putc('\n');
+  printk("Memory: ");
+  printu32(memory_usage());
+  printk("/");
+  printu32(memory_total());
+  printnl();
 
-  puts("Theme: ");
-  puts(theme);
-  putc('\n');
+  printk("Theme: ");
+  printk(theme);
+  printnl();
 }
 
 /*14 x 28

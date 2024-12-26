@@ -20,28 +20,16 @@ under the License.
 #pragma once
 
 #include <io.h>
-#include <conv.h>
-#include <magic.h>
-#include <mem.h> 
+#include <drivers/display.h>
+#include <fs/fscore.h>
 
-int ksh_alloc() {
-    /* Define */
-    char* str = (char*) kmalloc(255);
-
-    /* Collect */
-    puts("> ");
-    scan(str);
-
-    /* Convert */
-    if (str_to_int(str, len(str)) == INVALID_INT) {
-        puts("Invalid number.");
-        putc('\n');
-        return 1;
+void ksh_list_files() {
+  char *name;
+  for (int i = 0; i < file_count(); ++i) {
+    name = file_get_name(i);
+    if (name != (char *)FILE_NOT_FOUND) {
+      printk(name);
+      printnl();
     }
-    int num = str_to_int(str, len(str));
-
-    /* Handle */
-    kmalloc(num);
-
-    return 0;
+  }
 }

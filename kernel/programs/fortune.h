@@ -22,7 +22,6 @@ under the License.
 #include <io.h>
 #include <magic.h>
 #include <rand.h>
-
 #include <drivers/display.h>
 
 int ksh_fortune() {
@@ -33,7 +32,7 @@ int ksh_fortune() {
 
         "Everyone asked you about your favorite dinosaur as a kid, now, nobody cares\n",
 
-        "3rd Law of Computing:\n"
+        "3rd Law of Comprinting:\n"
         "    Anything that can go wr\n"
         "fortune: Segmentation violation -- Core dumped\n",
         
@@ -69,7 +68,7 @@ int ksh_fortune() {
 
     do {
         if (rand_index == i) {
-            puts(fortunes[i]);
+            printk(fortunes[i]);
         }
     } while (++i <= fortune_len);
 

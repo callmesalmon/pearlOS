@@ -41,10 +41,11 @@ under the License.
 #define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;
 
 // kernel API
-void putc(char character);
-void cputc(char character, char color);
-void put(char* text, uint32_t depth);
-void cput(char* text, uint32_t depth, byte color);
+void printc(char character);
+void cprintc(char character, char color);
+void print(char* text, uint32_t depth);
+void cprint(char* text, uint32_t depth, byte color);
+void printnl();
 void display_clear();
 void display_scroll();
 void display_theme(char color);

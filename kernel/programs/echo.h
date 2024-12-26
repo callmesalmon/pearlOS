@@ -21,15 +21,12 @@ under the License.
 
 #include <io.h>
 #include <mem.h>
+#include <drivers/display.h>
 
-#include <kernel/kmsg.h>
-
-int usrpanic() {
-    char *msg = (char *) kmalloc(255);
-
-    puts("> ");
-    scan(msg);
-    kpanic(msg);
-
-    return 0;
+void ksh_echo() {
+    char* str = (char*) kmalloc(255);
+    printk("> ");
+    scan(str);
+    printk(str);
+    printnl();
 }

@@ -43,7 +43,7 @@ void do_scroll() {
   display_scroll();
 }
 
-// prints a newline, equivalent to putc('\n')
+// prints a newline, equivalent to printc('\n')
 void printnl() {
   uint cursor_offset = get_cursor_offset();
   uint cursor_offset_row = get_offset_row(cursor_offset);
@@ -52,7 +52,7 @@ void printnl() {
 }
 
 // print char to cursor with color
-void cputc(char character, char color) {
+void cprintc(char character, char color) {
   INIT_VIDEO
 	uint cursor = get_cursor_offset();
 	if (character == '\n') {
@@ -71,18 +71,18 @@ void cputc(char character, char color) {
 }
 
 // print char to cursor with default color
-void putc(char character) {
-	cputc(character, TRANSPARENT);
+void printc(char character) {
+	cprintc(character, TRANSPARENT);
 }
 
-void cput(char* text, uint32_t depth, byte color) {
+void cprint(char* text, uint32_t depth, byte color) {
   for (uint32_t i = 0; i < depth; ++i) {
-    cputc(text[i], color);
+    cprintc(text[i], color);
   }
 }
 
-void put(char* text, uint32_t depth) {
-  cput(text, depth, TRANSPARENT);
+void print(char* text, uint32_t depth) {
+  cprint(text, depth, TRANSPARENT);
 }
 
 void display_theme(char color) { // draw a specific color on whole display
@@ -126,7 +126,7 @@ void display_clear() {
 
 void display_deletec() {
   set_cursor_offset(get_cursor_offset()-1);
-  putc(0);
+  printc(0);
   set_cursor_offset(get_cursor_offset()-1);
 }
 

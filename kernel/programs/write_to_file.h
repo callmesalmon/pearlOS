@@ -20,12 +20,29 @@ under the License.
 #pragma once
 
 #include <io.h>
+#include <string.h>
 #include <mem.h>
 
-void ksh_echo() {
-    char* str = (char*) kmalloc(255);
-    puts("> ");
-    scan(str);
-    puts(str);
-    putc('\n');
+#include <fs/fscore.h>
+
+void ksh_write_to_file() {
+  printk("> ");
+  char* filename = (char*) kmalloc(256);
+  strcls(filename);
+  scan(filename);
+
+  char* data = (char*) kmalloc(256);
+  strcls(data);
+  printk("> ");
+  scan(data);
+  stradd(data, "\n");
+
+  file_clean(filename);
+  int response = file_writes(filename, data);
+  if (response == FILE_NOT_FOUND) {
+    printk("File not found!\n");
+  }
+
+  kfree(filename);
+  kfree(data);
 }

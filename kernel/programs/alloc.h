@@ -20,14 +20,29 @@ under the License.
 #pragma once
 
 #include <io.h>
+#include <conv.h>
+#include <magic.h>
+#include <mem.h> 
+#include <drivers/display.h>
 
-int ksh_memstat() {
-    puts("Memory usage:");
-    puts("\ntotal: ");
-    putu32(memory_usage());
-    puts("\neffective: ");
-    putu32(memory_usage_effective());
-    putc('\n');
-    
+int ksh_alloc() {
+    /* Define */
+    char* str = (char*) kmalloc(255);
+
+    /* Collect */
+    printk("> ");
+    scan(str);
+
+    /* Convert */
+    if (str_to_int(str, len(str)) == INVALID_INT) {
+        printk("Invalid number.");
+        printnl();
+        return 1;
+    }
+    int num = str_to_int(str, len(str));
+
+    /* Handle */
+    kmalloc(num);
+
     return 0;
 }
