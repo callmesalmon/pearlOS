@@ -24,7 +24,7 @@ under the License.
 #include <drivers/keyboard.h>
 #include <drivers/display_color.h>
 
-// print string to cursor with color
+/* Print string to cursor with color */
 void cprintk(char* text, char color) {
 	while (*text) {
 		cprintc(*text, color);
@@ -32,7 +32,7 @@ void cprintk(char* text, char color) {
 	}
 }
 
-// print string to cursor with default color
+/* Print string to cursor with default color */
 void printk(char* text) {
   cprintk(text, TRANSPARENT);
 }

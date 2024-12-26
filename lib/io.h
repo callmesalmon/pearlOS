@@ -19,11 +19,13 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 #include <drivers/display.h>
 #include <drivers/keyboard.h>
 #include <drivers/display_color.h>
 
+/* Defines */
 void printi(int number);
 void printu(uint number);
 void printu32(uint32_t number);
