@@ -26,7 +26,7 @@ under the License.
 #include <kernel/ksh.h>
 
 #include <cpu/smbios.h>
-#include <fs/fscore.h>
+#include <fs/core.h>
 #include <drivers/keyboard.h>
 
 static bool kernel_running;

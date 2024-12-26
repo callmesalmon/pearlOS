@@ -21,7 +21,7 @@ under the License.
 
 #include <io.h>
 
-#include <fs/fscore.h>
+#include <fs/core.h>
 #include <drivers/display.h>
 
 void ksh_remove_file() {

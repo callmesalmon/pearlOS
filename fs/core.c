@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 */
 
-#include <fs/fscore.h>
+#include <fs/core.h>
 #include <kernel/version.h>
 
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];

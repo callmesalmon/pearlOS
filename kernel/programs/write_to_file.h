@@ -23,7 +23,7 @@ under the License.
 #include <string.h>
 #include <mem.h>
 
-#include <fs/fscore.h>
+#include <fs/core.h>
 
 void ksh_write_to_file() {
   printk("> ");

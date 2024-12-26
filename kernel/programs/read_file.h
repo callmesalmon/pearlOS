@@ -22,7 +22,7 @@ under the License.
 #include <io.h>
 #include <mem.h>
 
-#include <fs/fscore.h>
+#include <fs/core.h>
 
 void ksh_read_file() {
   char* filename = (char*) kmalloc(256);

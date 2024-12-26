@@ -21,7 +21,7 @@ under the License.
 
 #include <io.h>
 #include <drivers/display.h>
-#include <fs/fscore.h>
+#include <fs/core.h>
 
 void ksh_list_files() {
   char *name;
