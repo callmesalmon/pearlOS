@@ -35,8 +35,7 @@ int ksh_alloc() {
 
     /* Convert */
     if (str_to_int(str, len(str)) == INVALID_INT) {
-        printk("Invalid number.");
-        printnl();
+        println("Invalid number.");
         return 1;
     }
     int num = str_to_int(str, len(str));

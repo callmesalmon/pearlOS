@@ -23,10 +23,11 @@ under the License.
 #include <drivers/display.h>
 
 int ksh_memstat() {
-    printk("Memory usage:");
-    printk("\ntotal: ");
+    println("Memory usage:");
+    printk("total: ");
     printu32(memory_usage());
-    printk("\neffective: ");
+    printnl();
+    printk("effective: ");
     printu32(memory_usage_effective());
     printnl();
     

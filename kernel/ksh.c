@@ -44,7 +44,7 @@ byte ksh_interpret(char* command) {
     return KSH_OK;
   }
   else if (strcmp(command, "help")) {
-    help_init();
+    ksh_help();
   }
   else if (strcmp(command, "echo")) {
     ksh_echo();
@@ -112,7 +112,7 @@ byte ksh_interpret(char* command) {
     ksh_write_to_file();
   }
   else if (strcmp(command, "random")) {
-    printu(rand() % 100);  // random number between 0-100
+    printu(rand() % 100);
     printnl();
   }
   else if (strcmp(command, "panic")) {

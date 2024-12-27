@@ -47,6 +47,7 @@ char** ksh_loop_read(char* stimes) {
     return commands;
 }
 
+/* Init */
 int ksh_loop() {
     char* stimes = (char*) kmalloc(255);
     printk("t> ");

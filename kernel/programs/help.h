@@ -21,7 +21,7 @@ under the License.
 
 #include <io.h>
 
-int help_init() {
+int ksh_help() {
     println("help           prints this message");
     println("echo           prints \"X\" to the display");
     println("wipe           clears screen");

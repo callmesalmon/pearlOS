@@ -26,21 +26,23 @@ under the License.
 #include <drivers/display.h>
 #include <cpu/smbios.h>
 
+#define PEARLFETCH_ART \
+  "           _.-''|''-._         \n" \
+  "        .-'     |     `-.      \n" \
+  "      .'\\       |       /`.   \n" \
+  "    .'   \\      |      /   `. \n" \
+  "    \\     \\     |     /     /\n" \
+  "     `\\    \\    |    /    /' \n" \
+  "       `\\   \\   |   /   /'   \n" \
+  "         `\\  \\  |  /  /'     \n" \
+  "        _.-`\\ \\ | / /'-._    \n" \
+  "       {_____`\\\\|//'_____}   \n" \
+  "               `-'             \n"
+
+
 void ksh_pearlfetch() {
-  printc('\n');
-  printk(
-  "           _.-''|''-._\n"
-  "        .-'     |     `-.\n"
-  "      .'\\       |       /`.\n"
-  "    .'   \\      |      /   `.\n"
-  "    \\     \\     |     /     /\n"
-  "     `\\    \\    |    /    /'\n"
-  "       `\\   \\   |   /   /'\n"
-  "         `\\  \\  |  /  /'\n"
-  "        _.-`\\ \\ | / /'-._\n"
-  "       {_____`\\\\|//'_____}\n"
-  "               `-'\n"
-  );
+  printnl();
+  printk(PEARLFETCH_ART);
 
   printk("OS: pearlOS ");
   printk(OS_VERSION);

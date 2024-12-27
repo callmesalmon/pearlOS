@@ -50,7 +50,6 @@ under the License.
 "| $$                                                            \n" \
 "| $$                                                            \n" \
 "|__/                                                            \n"
-
 #define KERNEL_INFO_MANUAL_HELP "Type \"help\" to open ksh manual.\n"
 #define KERNEL_INFO_SHELL_UNKNOWN_COMMAND   "Unknown command\n"
 #define KERNEL_PANIC_MEMORY_INDEX_FULL      "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n"

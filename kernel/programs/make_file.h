@@ -29,8 +29,6 @@ void ksh_make_file() {
   char* file_to_make = (char*) kmalloc(512);
   scan(file_to_make);
 
-  println(file_to_make);
-
   int response = file_make(file_to_make);
 
   if (response == FILE_ALREADY_EXISTS) {
