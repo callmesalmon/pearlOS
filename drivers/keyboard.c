@@ -81,7 +81,7 @@ void kbport_byte_out(unsigned char byte) {
         port_byte_out(0x60, byte);
         do {
             tmp = port_byte_in(0x60);
-            //kprintf("0x%_x (0x%_x): 0x%_x\n", port, 4, byte, 2, tmp, 2);
+            /* kprintf("0x%_x (0x%_x): 0x%_x\n", port, 4, byte, 2, tmp, 2); */
         } while (tmp == 0);
         tries++;
     } while (tmp == 0xFE && tries < 3);
