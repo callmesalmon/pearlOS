@@ -19,12 +19,17 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <cpu/idt.h>
 #include <drivers/display.h>
 #include <kernel/kmsg.h>
 #include <stddef.h>
 #include <cpu/port.h>
 
+/* Extern functions
+ * taken from interrupt.asm,
+ * probably a macro for this
+ * but who the fuck cares? */
 extern void isr0();
 extern void isr1();
 extern void isr2();
@@ -75,6 +80,9 @@ extern void irq13();
 extern void irq14();
 extern void irq15();
 
+/* Defines. Again, 
+ * probably a macro for
+ * this but who cares? */
 #define IRQ0 32
 #define IRQ1 33
 #define IRQ2 34
@@ -100,8 +108,10 @@ typedef struct {
    uint32_t eip, cs, eflags, useresp, ss;
 } registers_t;
 
+/* Installation */
 void isr_install();
 void isr_handler(registers_t r);
 
+/* Registration */
 typedef void (*isr_t)(registers_t);
 void register_interrupt_handler(byte n, isr_t handler);

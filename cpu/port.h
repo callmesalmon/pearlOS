@@ -19,8 +19,10 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 
+/* Functions */
 byte port_byte_in(word port);
 void port_byte_out(word port, byte data);
 word port_word_in(word port);
