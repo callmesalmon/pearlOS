@@ -19,8 +19,10 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 
+/* Defines */
 uint strlen(char* string);
 void strcpy(char* dest, char* src);
 bool strcmp(char* a, char* b);

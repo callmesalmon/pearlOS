@@ -70,9 +70,9 @@ void uint_to_str(char* output, uint number) {
 
 void int_to_str(char* output, int number) {
   if (number < 0) {
-    output[0] = '-';  // set the first byte to '-', indicating its a negative
-    ++output;         // we dont want to overwrite the '-'
-    number = -number; // negate the negative number, making it positive
+    output[0] = '-';  /* set the first byte to '-', indicating its a negative */
+    ++output;         /* we dont want to overwrite the '-' */
+    number = -number; /* negate the negative number, making it positive */
   }
   uint_to_str(output, number);
 }

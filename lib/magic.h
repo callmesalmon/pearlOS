@@ -21,4 +21,5 @@ under the License.
 
 #include <stdint.h>
 
-#define len(arr) sizeof(arr) / sizeof(*arr)
+#define len(arr)  sizeof(arr) / sizeof(*arr)
+#define wlen(arr) sizeof(arr) / sizeof(arr[0])

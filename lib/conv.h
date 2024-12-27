@@ -19,13 +19,16 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 #include <math.h>
 #include <string.h>
 
+/* Defines */
 #define INVALID_BYTE (byte)0x1099
 #define INVALID_INT (int)INF
 
+/* Functions */
 void uint32_to_str(char* output, uint32_t number);
 void uint32_to_hex(char* output, uint32_t number);
 void uint_to_str(char* output, uint number);
