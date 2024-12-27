@@ -23,21 +23,24 @@ under the License.
 #include <kernel/kmsg.h>
 #include <kernel/config.h>
 
-// index structure:
-// even index -> page start
-// odd index -> page end
+/* 
+ * [INDEX STRUCTURE]
+ * Even index -> Page start
+ * Odd index -> Page end
+ */
 byte* memory_index[MEMORY_INDEX_BASE_SIZE];
 
 byte* get_memory_index() {
   return (byte*) memory_index;
 }
 
-// allocate memory
+/* Allocate memory, think
+ * malloc() but worse. */
 void* kmalloc(uint32_t size) {
   uint i = 0;
 
   while (1) {
-    // search
+    /* Search */
     while (memory_index[i] != MEMORY_EMPTY) {
         i += 2;
     }
@@ -49,7 +52,7 @@ void* kmalloc(uint32_t size) {
         ++next_page_start_id;
     }
 
-    // verify
+    /* Verify */
     if (memory_index[next_page_start_id] - last_page_end > size) {
       if (i >= MEMORY_INDEX_BASE_SIZE) {
         kpanic(KERNEL_PANIC_MEMORY_INDEX_FULL);
@@ -58,7 +61,7 @@ void* kmalloc(uint32_t size) {
         kpanic(KERNEL_PANIC_MEMORY_FULL);
       }
 
-      // allocate
+      /* Allocate */
       memory_index[i] = last_page_end + 1;
       memory_index[i + 1] = memory_index[i] + size;
       return (void*) memory_index[i];
@@ -66,7 +69,7 @@ void* kmalloc(uint32_t size) {
   }
 }
 
-// free allocated memory
+/* Free allocated memory */
 void kfree(void* memory) {
   uint id = 0;
   while (memory_index[id] != memory) { id += 2; }
@@ -74,9 +77,9 @@ void kfree(void* memory) {
   memory_index[id + 1] = MEMORY_EMPTY;
 }
 
-// gets size of all used kmalloc pages
+/* Gets size of all used kmalloc pages */
 uint32_t memory_usage() {
-  uint i = 2;  // remember, the first two bytes meta-data
+  uint i = 2;  /* Remember the first two bytes meta-data. */
   uint32_t usage = 0;
   while (i < MEMORY_INDEX_BASE_SIZE) {
     if (memory_index[i] != MEMORY_EMPTY) {
@@ -91,9 +94,10 @@ uint32_t memory_total() {
   return KERNEL_MEMORY_OFFSET_END - KERNEL_MEMORY_OFFSET_START;
 }
 
-// gets the total size of allocated memory, counting freed pages
+/* Gets the total size of allocated
+ * memory, counting freed pages. */
 uint32_t memory_usage_effective() {
-  uint i = 2;  // remember, the first two bytes meta-data
+  uint i = 2;  /* Remember the first two bytes meta-data. */
   uint32_t usage = 0;
   while (i < MEMORY_INDEX_BASE_SIZE) {
     if ((uint32_t) memory_index[i + 1] > usage) {
@@ -104,7 +108,9 @@ uint32_t memory_usage_effective() {
   return usage - (KERNEL_MEMORY_OFFSET_START + 1);
 }
 
-// initializes kernel memory pointer -> allows for kmalloc() calls
+/* [INITIALIZER]
+ * Initializes kernel memory pointer ->
+ * allows for kmalloc() calls. */
 void memory_init() {
   memory_index[0] = (byte*) KERNEL_MEMORY_OFFSET_START;
   memory_index[1] = (byte*) KERNEL_MEMORY_OFFSET_START;
@@ -113,7 +119,7 @@ void memory_init() {
   }
 }
 
-// copy memory
+/* Copy memory */
 void memcpy(byte* dest, byte* src, uint32_t size) {
   for (uint32_t i = 0; i < size; ++i) {
     dest[i] = src[i];

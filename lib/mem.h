@@ -19,12 +19,15 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 #include <kernel/kmsg.h>
 #include <kernel/config.h>
 
+/* Defines */
 #define MEMORY_EMPTY 0x0
 
+/* Functions */
 void* kmalloc(uint32_t size);
 void kfree(void* memory);
 void memory_init();
