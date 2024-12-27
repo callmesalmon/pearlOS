@@ -34,7 +34,8 @@ double abs(double number) {
   return number;
 }
 
-/* do while(--number != 1) (number * (number - 1)) */
+/* do while(--number != 1) 
+ *     (number * (number - 1)) */
 double fac(double number) {
     if (number == 1) {
         return 1;

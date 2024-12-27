@@ -109,7 +109,7 @@ int str_to_int(char *array, size_t n) {
 
     /* for each character in array */
     while (n--) {
-        /* If array[n] = char then exit */
+        /* array[n] = char -> exit */
         if (!chint(array[n])) {
             return INVALID_INT;
         }
