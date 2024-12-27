@@ -88,9 +88,10 @@ int file_make(char* name) {
   if (file_exists(name)) {
     return FILE_ALREADY_EXISTS;
   }
-  if (!file_valid(name)) {
-    return FILE_NAME_INVALID;
-  }
+  /*  if (!file_valid(name)) {
+   *   return FILE_NAME_INVALID;
+   * } 
+   */
   // allocate the file
   File* fp = kmalloc(sizeof(File));
   strcpy(fp->name, name);
