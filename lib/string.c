@@ -17,10 +17,12 @@ specific language governing permissions and limitations
 under the License.
 */
 
+
 #include <string.h>
 #include <stddef.h>
+#include <kernel/kmsg.h>
 
-// get string length
+/* Get string length */
 uint strlen(char* string) {
   uint length = 0;
   while (*string != 0) {
@@ -30,18 +32,20 @@ uint strlen(char* string) {
   return length;
 }
 
-// copy string
-// NOTE: Does NOT check for string size -> string overflow!!!
+/* Copy string.
+ * [NOTE] Does NOT check for string size! -> 
+ *        string overflow!!! */
 void strcpy(char* dest, char* src) {
-  uint size = strlen(src) + 1;
-  for (uint i = 0; i < size; ++i) {
+  uint size  = strlen(src) + 1;
+  uint i = 0;
+
+  do {
     dest[i] = src[i];
-  }
+  } while (++i < size);
 }
 
-// compare 2 strings (checks if they are equal)
-bool strcmp(char* a, char* b)
-{
+/* Compare 2 strings (checks if they are equal) */
+bool strcmp(char* a, char* b) {
   uint32_t i = 0;
   while (1) {
     if (a[i] != b[i]) {
@@ -54,13 +58,14 @@ bool strcmp(char* a, char* b)
   }
 }
 
-// add the extenstion to the base string
-// NOTE: Does NOT check for string size! -> string overflow!!!
+/* Add extension to base string.
+ * [NOTE] As stradd() uses strcpy, this
+ *        can also cause a string overflow!!!*/
 void stradd(char* base, char* extension) {
   strcpy(base + strlen(base), extension);
 }
 
-// fill string with zero
+/* Fill string with zero */
 void strcls(char* string) {
   while (*string != 0) {
     *string = 0;
@@ -68,7 +73,7 @@ void strcls(char* string) {
   }
 }
 
-// convert char to upper case
+/* Convert char to uppercase */
 char char_to_upper(char character) {
   char offset = 'A' - 'a';
   if (character >= 'a' && character <= 'z') {
@@ -77,6 +82,8 @@ char char_to_upper(char character) {
   return character;
 }
 
+/* Do char_to_upper() on 
+ * each character in a string. */
 void strupp(char* string) {
   while (*string != 0) {
     *string = char_to_upper(*string);
