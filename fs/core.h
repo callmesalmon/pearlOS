@@ -20,7 +20,6 @@ under the License.
 #pragma once
 
 /* Includes */
-
 #include <string.h>
 #include <stddef.h>
 #include <mem.h>
@@ -30,7 +29,6 @@ under the License.
 #include <kernel/kmsg.h>
 
 /* Defines */
-
 #define OK                      0
 #define FILE_COUNT_MAX_EXCEEDED 1
 #define FILE_ALREADY_EXISTS     2
@@ -41,7 +39,6 @@ under the License.
 #define END_SECTOR 0
 
 /* Structs */
-
 struct SectorStruct {
   struct Sector* next;
   byte data[FS_SECTOR_DATA_SIZE];
@@ -55,7 +52,6 @@ typedef struct {
 } File;
 
 /* Functions */
-
 void fsinit();
 int file_remove(char* name);
 int file_make(char* name);

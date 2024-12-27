@@ -62,9 +62,12 @@ int file_get_id(char* name) {
 Sector* init_sector() {
   Sector* fs = kmalloc(sizeof(Sector));
   fs->next = END_SECTOR;
-  for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {  // delete potentional data in the sector
+  
+  /* Delete potentional data in the sector */
+  for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
     fs->data[i] = 0;
   }
+
   return fs;
 }
 
@@ -80,7 +83,6 @@ bool file_valid(char* filename) {
   return true;
 }
 
-// create new file
 int file_make(char* name) {
   if (findex_end > FS_MAX_FILE_COUNT) {
     return FILE_COUNT_MAX_EXCEEDED;
@@ -92,25 +94,25 @@ int file_make(char* name) {
    *   return FILE_NAME_INVALID;
    * } 
    */
-  // allocate the file
+  /* Allocate the file */
   File* fp = kmalloc(sizeof(File));
   strcpy(fp->name, name);
-  // prepare the sector
+  /* Prepare the sector */
   fp->first_sector = init_sector();
-  // asign the file
+  /* Assign the file */
   findex[findex_end] = fp;
   findex_end += 1;
   return OK;
 }
 
-// delete file
 int file_remove(char* name) {
   for (int i = 0; i < findex_end; ++i) {
     if (strcmp(findex[i]->name, name)) {
       File* fp = findex[i];
       Sector* fs = fp->first_sector;
       Sector* last_fs;
-      // free the data sectors
+
+      /* Free the data sectors */
       do {
         last_fs = fs;
         kfree(last_fs);
@@ -127,16 +129,16 @@ int file_remove(char* name) {
 int file_size(char* name) {
   File* fp = find_file(name);
   Sector* fs = fp->first_sector;
-  // find the size
+  /* Find the size */
   int size = sizeof(fs->data);
   while (fs->next != END_SECTOR) {
-    fs = (Sector *)fs->next;   // jump to next sector
+    fs = (Sector *)fs->next;   /* Jump to next sector */
     size += sizeof(fs->data);
   }
   return size;
 }
 
-// write content of file to $output
+/* Write content of file to $output */
 int file_read(char* filename, char* output) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
