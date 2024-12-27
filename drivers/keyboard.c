@@ -21,8 +21,6 @@ under the License.
 
 #include <drivers/keyboard.h>
 
-//TODO: Fix interrupts pls so I can un-bruh this code
-
 bool keydown[384];
 
 static unsigned char keymap_lower[128] =
@@ -96,7 +94,6 @@ void kbupdateleds() {
 
 void kbh() {
     kbin = port_byte_in(0x60);
-    //kprintf("Keyboard: 0x%_x [%d][%d|%d|%d][%d|%d|%d][%d|%d|%d] ", kbin, 2, xE0, c_lock, n_lock, s_lock, lsft_d, lctl_d, lalt_d, rsft_d, rctl_d, ralt_d);
     kb_alt_char = false;
     c = 0;
     if (kbin == 0xE0) {
@@ -147,9 +144,11 @@ void kbh() {
                     break;
                 default:
                     if (lalt_d || ralt_d) {
-                        if (keymap_lower[kbin - 1] >= '0' && keymap_lower[kbin - 1] <= '9' && tmpptr < 3 && kbin >= 0x47 && kbin <= 0x52) {
-                            tmpbuf[tmpptr] = keymap_lower[kbin - 1];
-                            tmpptr++;
+                        if (keymap_lower[kbin - 1] >= '0' &&
+                            keymap_lower[kbin - 1] <= '9' &&
+                            tmpptr < 3 && kbin >= 0x47 && kbin <= 0x52) {
+                                tmpbuf[tmpptr] = keymap_lower[kbin - 1];
+                                tmpptr++;
                         }
                     } else {
                         if (lctl_d || rctl_d) {
@@ -217,9 +216,7 @@ void kbh() {
             kbin += 128;
         }
         if (!(lalt_d || ralt_d) && tmpptr > 0) {
-            //kprintf("[%d] {", tmpptr);
             c = atoi(tmpbuf) % 256;
-            //kprintf("%s} (%d) [%d] ", tmpbuf, c, tmpptr);
             for (tmpptr = 0; tmpptr < 3; tmpptr++) {
                 tmpbuf[tmpptr] = 0;
             }
@@ -228,10 +225,10 @@ void kbh() {
         }
     }
     kbend:
-    //kprintchar(c);
-    //kprintchar('\n');
-    //if ((lctl_d || rctl_d) && (lalt_d || ralt_d) && c == 127) reboot();
-    //if (xE0 && kbin == 0x5E) reboot();
+    /* kprintchar(c);
+     * kprintchar('\n');
+     * if ((lctl_d || rctl_d) && (lalt_d || ralt_d) && c == 127) reboot();
+     * if (xE0 && kbin == 0x5E) reboot(); */
     key = true;
 }
 

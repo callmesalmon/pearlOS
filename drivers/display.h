@@ -19,8 +19,8 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
-
 #include <cpu/port.h>
 #include <kernel/config.h>
 
@@ -39,7 +39,7 @@ under the License.
 #include <drivers/display_color.h>
 
 /* Code */
-#define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;
+#define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET
 
 /* Kernel API */
 void printc(char character);
