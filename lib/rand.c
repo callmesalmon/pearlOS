@@ -38,6 +38,10 @@ int rand_lcg(int x) {
   return result;
 }
 
+/* [USAGE] 
+ * rand(), or
+ * rand() % (int)
+ */
 int rand() {
   rand_seed = rand_lcg(rand_seed);  // randomize the seed
   return rand_seed;
