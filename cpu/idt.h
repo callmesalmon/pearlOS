@@ -17,47 +17,31 @@ specific language governing permissions and limitations
 under the License.
 */
 
+#pragma once
+
 #include <stddef.h>
-#include <rand.h>
-#include <mem.h>
 
-#include <kernel/config.h>
-#include <kernel/kmsg.h>
-#include <kernel/ksh.h>
 
-#include <cpu/smbios.h>
-#include <cpu/isr.h>
-#include <fs/core.h>
-#include <drivers/keyboard.h>
+/* Segment selectors */
+#define KERNEL_CS 0x08
+#define IDT_ENTRIES 256
 
-static bool kernel_running;
+typedef struct {
+    word low_offset; /* Lower 16 bits of handler address */
+    word selector; /* kernel seg selector */
+    byte always0;
+    byte flags;
+    word high_offset;
+} __attribute__((packed)) idt_gate_t;
 
-int kmain() {
-	/* Init */
-	kinfo(KERNEL_INFO_ENTERED);
-	kinfo(KERNEL_INFO_INIT_START);
-	
-    kernel_running = true;
-	
-    display_theme(DEFAULT_THEME);
-	memory_init();
-    isr_install();
-	keyboard_init();
-	smbios_init();
-	display_init();
-	fsinit();
-	rand_init();
+/* Pointer to interrupt handler array */
+typedef struct {
+    word limit;
+    uint32_t base;
+} __attribute__((packed)) idt_register_t;
 
-	kinfo(KERNEL_INFO_INIT_DONE);
-	kinfo(KERNEL_INFO_WELCOME);
+static idt_gate_t idt[IDT_ENTRIES];
+static idt_register_t idt_reg;
 
-	/* Main */
-    #include "debug.h" /* this file is created by "./config.sh" */
-	
-    KERNEL_STARTUP;
-	
-    while (kernel_running) {
-        KERNEL_UPDATE;
-	}
-    return 0;
-}
+void set_idt_gate(int n, uint32_t handler);
+void apply_idt();
