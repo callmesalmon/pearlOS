@@ -18,7 +18,7 @@
 print:
     pusha
 
-; keep this in mind:
+; Keep this in mind:
 ; while (string[i] != 0) { print string[i]; i++ }
 
 ; the comparison for string end (null byte)
@@ -39,15 +39,13 @@ done:
     popa
     ret
 
-
-
 print_nl:
     pusha
     
     mov ah, 0x0e
-    mov al, 0x0a ; newline char
+    mov al, 0x0a ; newline char (\n)
     int 0x10
-    mov al, 0x0d ; carriage return
+    mov al, 0x0d ; carriage return (\r)
     int 0x10
     
     popa
