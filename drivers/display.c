@@ -62,7 +62,7 @@ void printnl() {
   }
 }
 
-/* Print char to cursor with color, the
+/* Print char to cursor with colour, the
  * lowest level of printing, basically. */
 void cprintc(char character, char color) {
     INIT_VIDEO;

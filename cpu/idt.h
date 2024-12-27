@@ -29,7 +29,7 @@ under the License.
 /* Structs */
 typedef struct {
     word low_offset; /* Lower 16 bits of handler address */
-    word selector; /* Kernel seg selector */
+    word selector;   /* Kernel seg selector */
     byte always0;
     byte flags;
     word high_offset;

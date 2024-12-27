@@ -33,12 +33,12 @@ void port_byte_out(word port, byte data) {
 
 /* Get from port */
 word port_word_in(word port) {
-    unsigned short result;
+    ushort result;
     __asm__("in %%dx, %%ax" : "=a" (result) : "d" (port));
     return result;
 }
 
 /* Send to port */
-void port_word_out(unsigned short port, word data) {
+void port_word_out(ushort port, word data) {
     __asm__("out %%ax, %%dx" : : "a" (data), "d" (port));
 }

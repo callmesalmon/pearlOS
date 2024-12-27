@@ -23,16 +23,16 @@ under the License.
 isr_t interrupt_handlers[256];
 
 void isr_install() {
-    set_idt_gate(0, (uint32_t)isr0);
-    set_idt_gate(1, (uint32_t)isr1);
-    set_idt_gate(2, (uint32_t)isr2);
-    set_idt_gate(3, (uint32_t)isr3);
-    set_idt_gate(4, (uint32_t)isr4);
-    set_idt_gate(5, (uint32_t)isr5);
-    set_idt_gate(6, (uint32_t)isr6);
-    set_idt_gate(7, (uint32_t)isr7);
-    set_idt_gate(8, (uint32_t)isr8);
-    set_idt_gate(9, (uint32_t)isr9);
+    set_idt_gate(0,  (uint32_t)isr0);
+    set_idt_gate(1,  (uint32_t)isr1);
+    set_idt_gate(2,  (uint32_t)isr2);
+    set_idt_gate(3,  (uint32_t)isr3);
+    set_idt_gate(4,  (uint32_t)isr4);
+    set_idt_gate(5,  (uint32_t)isr5);
+    set_idt_gate(6,  (uint32_t)isr6);
+    set_idt_gate(7,  (uint32_t)isr7);
+    set_idt_gate(8,  (uint32_t)isr8);
+    set_idt_gate(9,  (uint32_t)isr9);
     set_idt_gate(10, (uint32_t)isr10);
     set_idt_gate(11, (uint32_t)isr11);
     set_idt_gate(12, (uint32_t)isr12);
@@ -87,7 +87,7 @@ void isr_install() {
     apply_idt();
 }
 
-char *exception_messages[] = {
+char* exception_messages[] = {
     "Division By Zero",
     "Debug",
     "Non Maskable Interrupt",
