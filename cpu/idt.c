@@ -17,47 +17,18 @@ specific language governing permissions and limitations
 under the License.
 */
 
-#include <stddef.h>
-#include <rand.h>
-#include <mem.h>
+#include <cpu/idt.h>
 
-#include <kernel/config.h>
-#include <kernel/kmsg.h>
-#include <kernel/ksh.h>
+void set_idt_gate(int n, uint32_t handler) {
+    idt[n].low_offset = low_16(handler);
+    idt[n].selector = KERNEL_CS;
+    idt[n].always0 = 0;
+    idt[n].flags = 0x8E;
+    idt[n].high_offset = high_16(handler);
+}
 
-#include <cpu/smbios.h>
-#include <cpu/isr.h>
-#include <fs/core.h>
-#include <drivers/keyboard.h>
-
-static bool kernel_running;
-
-int kmain() {
-	/* Init */
-	kinfo(KERNEL_INFO_ENTERED);
-	kinfo(KERNEL_INFO_INIT_START);
-	
-    kernel_running = true;
-	
-    display_theme(DEFAULT_THEME);
-	memory_init();
-    isr_install();
-	keyboard_init();
-	smbios_init();
-	display_init();
-	fsinit();
-	rand_init();
-
-	kinfo(KERNEL_INFO_INIT_DONE);
-	kinfo(KERNEL_INFO_WELCOME);
-
-	/* Main */
-    #include "debug.h" /* this file is created by "./config.sh" */
-	
-    KERNEL_STARTUP;
-	
-    while (kernel_running) {
-        KERNEL_UPDATE;
-	}
-    return 0;
+void apply_idt() {
+    idt_reg.base = (uint32_t) &idt;
+    idt_reg.limit = IDT_ENTRIES * sizeof(idt_gate_t) - 1;
+    __asm__ __volatile__("lidtl (%0)" : : "r" (&idt_reg));
 }

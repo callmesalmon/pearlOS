@@ -40,7 +40,7 @@ C_HEADERS = $(wildcard */*.h) $(wildcard kernel/advanced_cmds/*.h)
 
 KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
-CPU_OBJECTS        = $(CPU_C_OBJECTS)
+CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
@@ -72,6 +72,9 @@ mk/fs/%.o: fs/%.c $(C_HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/kernel/kentry.o: kernel/kentry.asm
+	$(ASMC) -f $(ASMF) -o $@ $<
+
+mk/cpu/interrupt.o: cpu/interrupt.asm
 	$(ASMC) -f $(ASMF) -o $@ $<
 
 qemu: $(.DEFAULT_GOAL)
