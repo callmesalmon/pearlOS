@@ -34,4 +34,4 @@ void printhex(uint32_t number);
 void cprintk(char* text, char color);
 void println(char* text);
 void cprintln(char* text, char color);
-void scan(char* outprint);
+void scan(char* output);
