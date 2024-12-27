@@ -19,20 +19,25 @@ under the License.
 
 #pragma once
 
-// message syntax:
-// LABEL_TYPE_MESSAGE
-// LABELS: KERNEL, BOOT, DRIVER_DISPLAY, DRIVER_PORT...
-// TYPES:
-// INFO     regular information
-// WARNING  possible problem
-// ERROR    non-fatal problem
-// PANIC    fatal problem
-#define INCLUDED_MESSAGES
+/* [MESSAGE SYNTAX]
+ * LABEL_TYPE_MESSAGE
+ * LABELS: 
+ *     KERNEL
+ *     BOOT
+ *     DRIVER_DISPLAY
+ *     DRIVER_PORT
+ *     ...
+ * TYPES:
+ *     INFO    -> regular information
+ *     WARNING -> possible problem
+ *     ERROR   -> non-fatal problem
+ *     PANIC   -> fatal problem
+ */
 
-#define KERNEL_INFO_ENTERED       "Booting..."                    // start of main()
-#define KERNEL_INFO_INIT_START    "Initializing..."               // start of init()
-#define KERNEL_INFO_INIT_DONE     "Done!"                         // end of init()
-#define KERNEL_INFO_WELCOME       "Welcome to pearlOS!"           // end of main() startup
+#define KERNEL_INFO_ENTERED       "Booting..."
+#define KERNEL_INFO_INIT_START    "Initializing..."
+#define KERNEL_INFO_INIT_DONE     "Done!"
+#define KERNEL_INFO_WELCOME       "Welcome to pearlOS!"
 #define KERNEL_INFO_SHELL_WELCOME \
 "                                         /$$  /$$$$$$   /$$$$$$ \n" \
 "                                        | $$ /$$__  $$ /$$__  $$\n" \
@@ -45,10 +50,10 @@ under the License.
 "| $$                                                            \n" \
 "| $$                                                            \n" \
 "|__/                                                            \n"
+
 #define KERNEL_INFO_MANUAL_HELP "Type \"help\" to open ksh manual.\n"
-    // man prompt
-#define KERNEL_INFO_SHELL_UNKNOWN_COMMAND "Unknown command\n"               // ksh input unkown
-#define KERNEL_PANIC_MEMORY_INDEX_FULL    "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n" // when memory_index is full
+#define KERNEL_INFO_SHELL_UNKNOWN_COMMAND   "Unknown command\n"
+#define KERNEL_PANIC_MEMORY_INDEX_FULL      "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n"
 #define KERNEL_PANIC_MEMORY_FULL            "Kernel memory is full!\nCAUSE: The system ran out of RAM..."
 #define FIRMWARE_ERROR_ISR_EXCEPTION        "[ISR exception] "
 #define FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING "Couldn't find an SMBIOS entry...\n"
