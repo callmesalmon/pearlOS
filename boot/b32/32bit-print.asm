@@ -32,7 +32,7 @@ print_string_pm_loop:
     je print_string_pm_done
 
     mov [edx], ax ; store character + attribute in video memory
-    add ebx, 1 ; next char, ebx[i + 1]
+    add ebx, 1 ; next char, [ebx][i + 1]
     add edx, 2 ; next video memory position
 
     jmp print_string_pm_loop

@@ -58,5 +58,5 @@ sectors_error:
 disk_loop:
     jmp $
 
-DISK_ERROR: db "Disk read error", 0
-SECTORS_ERROR: db "Incorrect number of sectors read", 0
+DISK_ERROR:    db "[PANIC] Disk read error!!!", 0
+SECTORS_ERROR: db "[PANIC] Incorrect number of sectors read!!!", 0
