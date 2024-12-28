@@ -56,9 +56,16 @@ byte ksh_interpret(char* command) {
         display_clear();
     }
     else if (strcmp(command, "version")) {
-        println("pearlOS");
-        printk("Version: ");
+        printk("OS version: ");
         printk(OS_VERSION);
+        printnl();
+    
+        printk("OS version (generic): ");
+        printk(OS_GENERIC);
+        printnl();
+
+        printk("KSH version: ");
+        printk(KSH_VERSION);
         printnl();
     }
     else if (strcmp(command, "memstat")) {

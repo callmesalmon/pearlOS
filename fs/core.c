@@ -18,7 +18,6 @@ under the License.
 */
 
 #include <fs/core.h>
-#include <kernel/version.h>
 
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
@@ -201,9 +200,7 @@ void fsinit() {
   file_writes(
     "os-release", 
     "NAME=\"pearlOS\"\n"
-    "VERSION=\"" OS_VERSION "\"\n"
     "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
-    "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
   );
   file_make("license");
   file_writes(
