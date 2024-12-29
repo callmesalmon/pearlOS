@@ -19,7 +19,7 @@
 
 from sys import argv
 
-colors = {
+colors: dict[str] = {
     "BLACK"        : "0",
     "BLUE"         : "1",
     "GREEN"        : "2",
@@ -39,19 +39,19 @@ colors = {
 }
 
 def generate():
-    result = "#pragma once\n" + \
+    result: str = "#pragma once\n" + \
         "#define INCLUDED_COLOR\n"
     for color in colors:
         result += "#define " + color + " 0x" + colors[color] + "\n"
     for bgcolor in colors:
         for fgcolor in colors:
             if bgcolor != fgcolor:
-                bgcode = colors[bgcolor]
-                fgcode = colors[text_color]
+                bgcode: str = colors[bgcolor]
+                fgcode: str = colors[text_color]
                 result += f"#define {fgcolor}_ON_{backround_color} 0x{bgcode}{fgcode}\n"
     return result
 
-def fwrite(filename, data):
+def fwrite(filename: str, data: str):
     with open(filename, "w") as f:
         return f.write(str(data))
 
