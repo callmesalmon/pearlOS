@@ -38,7 +38,7 @@ under the License.
 #define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
 #define END_SECTOR 0
 
-/* Structs */
+/* Structs and Types */
 struct SectorStruct {
   struct Sector* next;
   byte data[FS_SECTOR_DATA_SIZE];

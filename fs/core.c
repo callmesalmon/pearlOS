@@ -72,32 +72,42 @@ Sector* init_sector() {
 
 bool file_valid(char* filename) {
   char valid[] = FS_FILE_NAME_VALID_CHARS;
+
   for (int i = 0; i < strlen(filename); ++i) {
     bool is_any = false;
+    
     for (int j = 0; j < strlen(valid); ++j) {
       if (filename[i] == valid[j]) is_any = true;
     }
+    
     if (!is_any) return false;
   }
+  
   return true;
 }
 
 int file_make(char* name) {
+
+  /* Quick checks */
   if (findex_end > FS_MAX_FILE_COUNT) {
     return FILE_COUNT_MAX_EXCEEDED;
   }
   if (file_exists(name)) {
     return FILE_ALREADY_EXISTS;
   }
+
   /*  if (!file_valid(name)) {
    *   return FILE_NAME_INVALID;
    * } 
    */
+
   /* Allocate the file */
   File* fp = kmalloc(sizeof(File));
   strcpy(fp->name, name);
+  
   /* Prepare the sector */
   fp->first_sector = init_sector();
+
   /* Assign the file */
   findex[findex_end] = fp;
   findex_end += 1;
@@ -128,12 +138,15 @@ int file_remove(char* name) {
 int file_size(char* name) {
   File* fp = find_file(name);
   Sector* fs = fp->first_sector;
+
   /* Find the size */
   int size = sizeof(fs->data);
+  
   while (fs->next != END_SECTOR) {
     fs = (Sector *)fs->next;   /* Jump to next sector */
     size += sizeof(fs->data);
   }
+  
   return size;
 }
 
@@ -142,14 +155,17 @@ int file_read(char* filename, char* output) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
+
   do {
     for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
       output[i] = fs->data[i];
     }
+
     output += FS_SECTOR_DATA_SIZE;
     Sector* next_fs = (Sector *)fs->next;
     fs = next_fs;
   } while(fs != 0);
+  
   return OK;
 }
 
@@ -164,16 +180,19 @@ int file_write(char* filename, char* data, uint32_t depth) {
       for (int i = 0; i < end - data; ++i) {
         fs->data[i] = data[i];
       }
+      
       data = end;
     }
     else {
       for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
         fs->data[i] = data[i];
       }
+      
       data += FS_SECTOR_DATA_SIZE;
       fs = (Sector *)init_sector();
     }
   }
+  
   return OK;
 }
 
@@ -181,13 +200,16 @@ int file_clean(char* filename) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
   File* fp = find_file(filename);
   Sector* fs = fp->first_sector;
+
   do {
     for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
       fs->data[i] = 0;
     }
+    
     Sector* next_fs = (Sector *)fs->next;
     fs = next_fs;
   } while(fs != 0);
+  
   return OK;
 }
 
@@ -202,6 +224,7 @@ void fsinit() {
     "NAME=\"pearlOS\"\n"
     "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
   );
+
   file_make("license");
   file_writes(
     "license",
@@ -211,6 +234,7 @@ void fsinit() {
     "of patent rights. Licensed works, modifications, and larger works \n"
     "may be distributed under different terms and without source code.\n"
   );
+
   file_make("readme");
   file_writes(
     "readme",
@@ -222,6 +246,7 @@ void fsinit() {
     "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
     "PIDI-OS: Filip Chovanec <???>, Mar 2021.\n"
   );
+
   file_make("roadmap");
   file_writes(
     "roadmap",
@@ -232,5 +257,4 @@ void fsinit() {
     "[ ]. Create a proper syscall interface.\n"
     "[ ]. Create a desktop enviroment.\n"
   );
-
 }
