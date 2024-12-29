@@ -51,6 +51,9 @@ int kmain() {
 
 	/* Main */
     #include "debug.h" /* this file is created by "./config.sh" */
+    #ifdef DBG_MAIN
+        DBG_MAIN;
+    #endif
 	
     KERNEL_STARTUP;
 	
