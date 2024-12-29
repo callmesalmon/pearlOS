@@ -37,8 +37,6 @@ int kmain() {
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
 	
-    kernel_running = true;
-	
     display_theme(DEFAULT_THEME);
 	memory_init();
     isr_install();
@@ -56,7 +54,7 @@ int kmain() {
 	
     KERNEL_STARTUP;
 	
-    while (kernel_running) {
+    while (true) {
         KERNEL_UPDATE;
 	}
     return 0;
