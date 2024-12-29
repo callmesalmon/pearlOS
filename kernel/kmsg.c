@@ -22,24 +22,28 @@ under the License.
 #include <drivers/display_color.h>
 #include <drivers/display.h>
 
+/* Info from system and programs */
 void kinfo(char* msg) {
   printk("[INFO] ");
   printk(msg);
   printnl();
 }
 
+/* Posibility of problem */
 void kwarning(char* msg) {
   printk("[WARNING] ");
   printk(msg);
   printnl();
 }
 
+/* There is a problem */
 void kerror(char* msg) {
   printk("[ERROR] ");
   printk(msg);
   printnl();
 }
 
+/* FATAL problem */
 void kpanic(char* msg) {
   cprintk("[PANIC] ", RED_ON_BLACK);
   cprintk(msg, RED_ON_BLACK);
