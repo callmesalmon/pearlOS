@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 case $1 in 
     "--zip" | "-z")
