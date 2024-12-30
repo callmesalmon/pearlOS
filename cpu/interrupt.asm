@@ -15,8 +15,8 @@
 ; specific language governing permissions and limitations
 ; under the License.
 
-[extern isr_handler]
-[extern irq_handler]
+[extern isr_handler] ; ISR handler
+[extern irq_handler] ; IRQ handler
 
 isr_common:
     ; save state
