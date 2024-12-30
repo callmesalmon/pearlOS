@@ -100,3 +100,5 @@ typedef enum {
 /* Functions */
 char scanc();
 void keyboard_init();
+void kbh();
+int atoi(char* str);
