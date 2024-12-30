@@ -221,10 +221,11 @@ void fsinit() {
   file_make("os-release");
   file_writes(
     "os-release", 
-    "NAME=\"pearlOS\"\n"
+    "NAME=\"pearlOS " OS_GENERIC " \"\n"
+    "PRETTY_NAME=\"pearlOS " OS_VERSION " \"\n"
+    "VERSION=\" " OS_VERSION " (" OS_GENERIC ")\"\n"
     "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
   );
-
   file_make("license");
   file_writes(
     "license",
@@ -234,7 +235,6 @@ void fsinit() {
     "of patent rights. Licensed works, modifications, and larger works \n"
     "may be distributed under different terms and without source code.\n"
   );
-
   file_make("readme");
   file_writes(
     "readme",
@@ -246,7 +246,6 @@ void fsinit() {
     "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
     "PIDI-OS: Filip Chovanec <???>, Mar 2021.\n"
   );
-
   file_make("roadmap");
   file_writes(
     "roadmap",

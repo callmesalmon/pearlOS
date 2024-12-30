@@ -27,6 +27,7 @@ under the License.
 #include <fs/prop.h>
 #include <kernel/config.h>
 #include <kernel/kmsg.h>
+#include <kernel/version.h>
 
 /* Defines */
 #define OK                      0
