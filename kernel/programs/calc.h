@@ -57,8 +57,7 @@ int ksh_calc() {
     else if (strcmp(op, "/")) printu(n1 / n2);
     else if (strcmp(op, "^")) printu(pow(n1, n2));
     else {
-        printk("Invalid operator.");
-        printnl();
+        println("Invalid operator.");
         return -1;
     }
 
