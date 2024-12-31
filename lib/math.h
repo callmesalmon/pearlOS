@@ -30,4 +30,4 @@ under the License.
 /* Functions */
 double pow(double base, double exponent);
 double abs(double number);
-double fac(double number);
+double factorial(double number);
