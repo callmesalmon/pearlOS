@@ -37,6 +37,7 @@ char *theme;
 #include <kernel/programs/alloc.h>
 #include <kernel/programs/loop.h>
 #include <kernel/programs/memstat.h>
+#include <kernel/programs/filesz.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -114,6 +115,9 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "rm")) {
         ksh_remove_file();
+    }
+    else if (strcmp(command, "sz")) {
+        ksh_filesz();
     }
     else if (strcmp(command, "cat")) {
         ksh_read_file();
