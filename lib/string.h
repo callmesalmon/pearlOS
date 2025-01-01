@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,8 +21,10 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 
+/* Defines */
 uint strlen(char* string);
 void strcpy(char* dest, char* src);
 bool strcmp(char* a, char* b);

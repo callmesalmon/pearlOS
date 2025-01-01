@@ -21,14 +21,43 @@ under the License.
 
 #pragma once
 
-#include <io.h>
-#include <mem.h>
-#include <drivers/display.h>
+/* Base exit code */
+#ifndef EXIT_OLD
+    typedef struct {
+        int code;
+    } excode;
+#endif
 
-void ksh_echo() {
-    char* str = (char*) kmalloc(255);
-    printk("> ");
-    scan(str);
-    printk(str);
-    printnl();
-}
+/* Regular 'ol exit success */
+#ifdef EXIT_OLD
+#   define __EXIT_SUCCESS 0
+#else
+    excode __EXIT_SUCCESS = {
+        .code = 0
+    };
+#endif
+
+/* Old and new standard error */
+#ifdef EXIT_OLD
+#   define __STD_ERROR 1
+#else
+    excode __STD_ERROR = {
+        .code = 1
+    };
+#endif
+
+/* Another one for good measure */
+#ifdef EXIT_OLD
+#   define __STD_ERROR2 256
+#else
+    excode __STD_ERROR_256 = {
+        .code = 256
+    };
+#endif
+
+/* Exit macro */
+#ifdef EXIT_OLD
+#   define END return
+#else
+#   define END(c) return c;
+#endif

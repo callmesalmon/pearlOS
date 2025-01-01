@@ -1,3 +1,5 @@
+# Copyright 2025 Elis Staaf
+# 
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the LICENSE file
 # distributed with this work for additional information
@@ -36,7 +38,7 @@ LIB_C_OBJECTS        := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
 FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
 FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
-C_HEADERS = $(wildcard */*.h) $(wildcard kernel/advanced_cmds/*.h)
+C_HEADERS = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
 
 KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)

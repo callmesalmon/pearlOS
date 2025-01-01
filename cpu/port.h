@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,8 +21,10 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
 
+/* Functions */
 byte port_byte_in(word port);
 void port_byte_out(word port, byte data);
 word port_word_in(word port);

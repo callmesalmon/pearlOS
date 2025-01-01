@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -36,9 +38,9 @@ double abs(double number) {
 
 /* do while(--number != 1) 
  *     (number * (number - 1)) */
-double fac(double number) {
+double factorial(double number) {
     if (number == 1) {
         return 1;
     }
-    return number * fac(number - 1);
+    return number * factorial(number - 1);
 }

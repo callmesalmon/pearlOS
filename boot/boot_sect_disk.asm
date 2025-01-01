@@ -1,3 +1,5 @@
+; Copyright 2025 Elis Staaf
+;
 ; Licensed to the Apache Software Foundation (ASF) under one
 ; or more contributor license agreements.  See the LICENSE file
 ; distributed with this work for additional information
@@ -58,5 +60,5 @@ sectors_error:
 disk_loop:
     jmp $
 
-DISK_ERROR: db "Disk read error", 0
-SECTORS_ERROR: db "Incorrect number of sectors read", 0
+DISK_ERROR: db "[PANIC] Disk read error!!!", 0
+SECTORS_ERROR: db "[PANIC] Incorrect number of sectors read!!!", 0

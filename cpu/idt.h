@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,16 +21,17 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
-
 
 /* Segment selectors */
 #define KERNEL_CS 0x08
 #define IDT_ENTRIES 256
 
+/* Structs */
 typedef struct {
     word low_offset; /* Lower 16 bits of handler address */
-    word selector; /* kernel seg selector */
+    word selector;   /* Kernel seg selector */
     byte always0;
     byte flags;
     word high_offset;
@@ -40,8 +43,10 @@ typedef struct {
     uint32_t base;
 } __attribute__((packed)) idt_register_t;
 
+/* Defines */
 static idt_gate_t idt[IDT_ENTRIES];
 static idt_register_t idt_reg;
 
+/* Functions */
 void set_idt_gate(int n, uint32_t handler);
 void apply_idt();

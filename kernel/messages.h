@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -50,10 +52,9 @@ under the License.
 "| $$                                                            \n" \
 "| $$                                                            \n" \
 "|__/                                                            \n"
-
 #define KERNEL_INFO_MANUAL_HELP "Type \"help\" to open ksh manual.\n"
 #define KERNEL_INFO_SHELL_UNKNOWN_COMMAND   "Unknown command\n"
 #define KERNEL_PANIC_MEMORY_INDEX_FULL      "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n"
 #define KERNEL_PANIC_MEMORY_FULL            "Kernel memory is full!\nCAUSE: The system ran out of RAM..."
-#define FIRMWARE_ERROR_ISR_EXCEPTION        "[ISR exception] "
+#define FIRMWARE_ERROR_ISR_EXCEPTION        "ISR Exception: "
 #define FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING "Couldn't find an SMBIOS entry...\n"

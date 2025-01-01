@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -20,7 +22,6 @@ under the License.
 #pragma once
 
 /* Includes */
-
 #include <string.h>
 #include <stddef.h>
 #include <mem.h>
@@ -28,9 +29,9 @@ under the License.
 #include <fs/prop.h>
 #include <kernel/config.h>
 #include <kernel/kmsg.h>
+#include <kernel/version.h>
 
 /* Defines */
-
 #define OK                      0
 #define FILE_COUNT_MAX_EXCEEDED 1
 #define FILE_ALREADY_EXISTS     2
@@ -40,8 +41,7 @@ under the License.
 #define FS_SECTOR_DATA_SIZE FS_SECTOR_SIZE - sizeof(struct Sector*)
 #define END_SECTOR 0
 
-/* Structs */
-
+/* Structs and Types */
 struct SectorStruct {
   struct Sector* next;
   byte data[FS_SECTOR_DATA_SIZE];
@@ -55,7 +55,6 @@ typedef struct {
 } File;
 
 /* Functions */
-
 void fsinit();
 int file_remove(char* name);
 int file_make(char* name);

@@ -1,3 +1,5 @@
+; Copyright 2025 Elis Staaf
+;
 ; Licensed to the Apache Software Foundation (ASF) under one
 ; or more contributor license agreements.  See the LICENSE file
 ; distributed with this work for additional information
@@ -35,7 +37,7 @@ boot_start:
     call print_string_pm
 
     call enter_kernel
-    jmp $ ; Just for safety lol
+    jmp $ ; safety lol
 
 %include "boot/boot_sect_disk.asm"
 %include "boot/print/boot_sect_print.asm"

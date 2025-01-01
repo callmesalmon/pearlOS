@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -73,21 +75,21 @@ void cprintln(char* text, char color) {
 
 void scan(char* output) {
   uint32_t i = 0;
-  char inprint = 0;
-  while (inprint != '\n') {
-    inprint = scanc();
-    if (inprint == '\b' && i > 0) {
+  char input = 0;
+  while (input != '\n') {
+    input = scanc();
+    if (input == '\b' && i > 0) {
       --i;
       display_deletec();
     }
-    else if (inprint == '\n') output[i] = 0;
-    else if (inprint != '\b') {
-      printc(inprint);
-      output[i] = inprint;
+    else if (input == '\n') output[i] = 0;
+    else if (input != '\b') {
+      printc(input);
+      output[i] = input;
       ++i;
     }
   }
-  printc('\n');
+  printnl();
 }
 
 void __stack_chk_fail() {}

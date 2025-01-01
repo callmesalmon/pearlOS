@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,8 +21,8 @@ under the License.
 
 #pragma once
 
-#define FS_SECTOR_SIZE           1024
-#define FS_MAX_FILE_COUNT        5000
-#define FS_FILE_NAME_BUFFER      1024
-#define FS_FILE_TAGS_BUFFER      1024
+#define FS_SECTOR_SIZE           512
+#define FS_MAX_FILE_COUNT        1000
+#define FS_FILE_NAME_BUFFER      512
+#define FS_FILE_TAGS_BUFFER      512
 #define FS_FILE_NAME_VALID_CHARS "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM.-_"

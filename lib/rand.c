@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -26,10 +28,13 @@ void rand_init() {
   rand_seed = random_data + 2;
 }
 
-// Linear congruential generator function
-// more info: https://en.wikipedia.org/wiki/Linear_congruential_generator
+/* Linear congruential generator function
+ * More info: https://en.wikipedia.org/wiki/Linear_congruential_generator
+ */
 int rand_lcg(int x) {
-  // use the same parameters as glibc https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
+  /* Use the same parameters as glibc:
+   * https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
+   */
   int a = 1103515245;
   int c = 12345;
   int m = -2147483648;
@@ -39,10 +44,10 @@ int rand_lcg(int x) {
 }
 
 /* [USAGE] 
- * rand(), or
+ * rand() or
  * rand() % (int)
  */
 int rand() {
-  rand_seed = rand_lcg(rand_seed);  // randomize the seed
+  rand_seed = rand_lcg(rand_seed);  /* I have no idea how this is valid C. */
   return rand_seed;
 }

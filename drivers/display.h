@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,8 +21,8 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
-
 #include <cpu/port.h>
 #include <kernel/config.h>
 
@@ -39,7 +41,7 @@ under the License.
 #include <drivers/display_color.h>
 
 /* Code */
-#define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET;
+#define INIT_VIDEO char* video_memory = (char*) VIDEO_MEMORY_OFFSET
 
 /* Kernel API */
 void printc(char character);
@@ -52,4 +54,5 @@ void display_scroll();
 void display_theme(char color);
 void display_deletec();
 void display_init();
+void rowcpy(uint dest, uint src);
 void set_cursor_position(uint column, uint row);

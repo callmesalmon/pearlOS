@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -21,7 +23,7 @@ under the License.
 
 #include <io.h>
 
-int help_init() {
+int ksh_help() {
     println("help           prints this message");
     println("echo           prints \"X\" to the display");
     println("wipe           clears screen");

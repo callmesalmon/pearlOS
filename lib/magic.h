@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -21,4 +23,5 @@ under the License.
 
 #include <stdint.h>
 
-#define len(arr) sizeof(arr) / sizeof(*arr)
+#define len(arr)  sizeof(arr) / sizeof(*arr)
+#define wlen(arr) sizeof(arr) / sizeof(arr[0])

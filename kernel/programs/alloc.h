@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -35,8 +37,7 @@ int ksh_alloc() {
 
     /* Convert */
     if (str_to_int(str, len(str)) == INVALID_INT) {
-        printk("Invalid number.");
-        printnl();
+        println("Invalid number.");
         return 1;
     }
     int num = str_to_int(str, len(str));

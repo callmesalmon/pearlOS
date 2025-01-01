@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -47,6 +49,7 @@ char** ksh_loop_read(char* stimes) {
     return commands;
 }
 
+/* Init */
 int ksh_loop() {
     char* stimes = (char*) kmalloc(255);
     printk("t> ");

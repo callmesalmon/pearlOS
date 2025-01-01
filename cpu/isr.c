@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -23,16 +25,16 @@ under the License.
 isr_t interrupt_handlers[256];
 
 void isr_install() {
-    set_idt_gate(0, (uint32_t)isr0);
-    set_idt_gate(1, (uint32_t)isr1);
-    set_idt_gate(2, (uint32_t)isr2);
-    set_idt_gate(3, (uint32_t)isr3);
-    set_idt_gate(4, (uint32_t)isr4);
-    set_idt_gate(5, (uint32_t)isr5);
-    set_idt_gate(6, (uint32_t)isr6);
-    set_idt_gate(7, (uint32_t)isr7);
-    set_idt_gate(8, (uint32_t)isr8);
-    set_idt_gate(9, (uint32_t)isr9);
+    set_idt_gate(0,  (uint32_t)isr0);
+    set_idt_gate(1,  (uint32_t)isr1);
+    set_idt_gate(2,  (uint32_t)isr2);
+    set_idt_gate(3,  (uint32_t)isr3);
+    set_idt_gate(4,  (uint32_t)isr4);
+    set_idt_gate(5,  (uint32_t)isr5);
+    set_idt_gate(6,  (uint32_t)isr6);
+    set_idt_gate(7,  (uint32_t)isr7);
+    set_idt_gate(8,  (uint32_t)isr8);
+    set_idt_gate(9,  (uint32_t)isr9);
     set_idt_gate(10, (uint32_t)isr10);
     set_idt_gate(11, (uint32_t)isr11);
     set_idt_gate(12, (uint32_t)isr12);
@@ -56,7 +58,6 @@ void isr_install() {
     set_idt_gate(30, (uint32_t)isr30);
     set_idt_gate(31, (uint32_t)isr31);
 
-
     port_byte_out(0x20, 0x11);
     port_byte_out(0xA0, 0x11);
     port_byte_out(0x21, 0x20);
@@ -67,7 +68,6 @@ void isr_install() {
     port_byte_out(0xA1, 0x01);
     port_byte_out(0x21, 0x0);
     port_byte_out(0xA1, 0x0);
-
 
     set_idt_gate(32, (uint32_t)irq0);
     set_idt_gate(33, (uint32_t)irq1);
@@ -89,8 +89,7 @@ void isr_install() {
     apply_idt();
 }
 
-
-char *exception_messages[] = {
+char* exception_messages[] = {
     "Division By Zero",
     "Debug",
     "Non Maskable Interrupt",
@@ -138,8 +137,8 @@ void register_interrupt_handler(byte n, isr_t handler) {
 void irq_handler(registers_t r) {
     /* After every interrupt we need to send an EOI to the PICs
      * or they will not send another interrupt again */
-    if (r.int_no >= 40) port_byte_out(0xA0, 0x20); /* slave */
-    port_byte_out(0x20, 0x20); /* master */
+    if (r.int_no >= 40) port_byte_out(0xA0, 0x20); /* Slave */
+    port_byte_out(0x20, 0x20); /* Master */
 
     /* Handle the interrupt in a more modular way */
     if (interrupt_handlers[r.int_no] != 0) {

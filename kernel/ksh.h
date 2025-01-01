@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -34,7 +36,7 @@ under the License.
 #include <drivers/display_color.h>
 #include <drivers/display.h>
 
-/* Macros */
+/* Defines */
 #define KSH_OK           0x0
 #define KSH_EXIT         0x1
 #define KSH_INPUT_BUFFER 31

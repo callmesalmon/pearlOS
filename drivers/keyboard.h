@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -19,15 +21,17 @@ under the License.
 
 #pragma once
 
+/* Includes */
 #include <stddef.h>
-
 #include <drivers/display.h>
 #include <cpu/port.h>
 
+/* Defines */
 #define REG_KEYBOARD_DATA 0x60
 #define REG_KEYBOARD_CMD  0x64
 #define UNPRINTALBE_CHAR  0x0
 
+/* Enumerations */
 typedef enum {
   KEY_VOID,
   KEY_DOWN_BACKTICK,
@@ -92,9 +96,11 @@ typedef enum {
   KEY_DOWN_RIGHT_SUPER,
   KEY_DOWN_FN,
   KEY_DOWN_RIGHT_CTRL,
-  // more keys
+  /* ... */
 } KeyEvent;
 
+/* Functions */
 char scanc();
 void keyboard_init();
-//KeyEvent keyboard_get();
+void kbh();
+int atoi(char* str);

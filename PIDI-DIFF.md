@@ -9,12 +9,12 @@ these are listed below in the form of:
 ## Additions
 
 Many more extra commands for the userland, such as:
-* [loop.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/loop.h)
-* [fortune.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/fortune.h)
-* [panic.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/panic.h)
-* [alloc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/alloc.h)
-* [memstat.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/memstat.h)
-* [calc.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/calc.h)
+* [loop](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/loop.h)
+* [fortune](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/fortune.h)
+* [panic](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/panic.h)
+* [alloc](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/alloc.h)
+* [memstat](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/memstat.h)
+* [calc](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/calc.h)
 
 Additions for already existing commands, such as:
 * [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/pearlfetch.h)\*  
@@ -38,29 +38,47 @@ modifications include:
 
 The [stdlib](https://github.com/ElisStaaf/pearlOS/blob/main/lib) of the project has been greatly
 improved, changes include:
-* [math.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/math.h)
+* [math](https://github.com/ElisStaaf/pearlOS/blob/main/lib/math.h)
   * Add more mathematical constants, like `e` and `π`
   * Add infinity, being `~(1<<31)`
   * Add a factorial function
-* [stddef.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/stddef.h)
+* [stddef](https://github.com/ElisStaaf/pearlOS/blob/main/lib/stddef.h)
   * Add a `NULL` value (`(void*)0`)
   * Add `size_t` type (`__SIZE_TYPE__`)
   * Add checks for if a alue has been defined (`#ifdef` and others).
-* [conv.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/conv.h)
+* [conv](https://github.com/ElisStaaf/pearlOS/blob/main/lib/conv.h)
   * Add a `str_to_int` function (for userland programs like `calc.elf`)
   * Add more (and better) macros
-* [io.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/io.h)
+* [io](https://github.com/ElisStaaf/pearlOS/blob/main/lib/io.h)
   * Move to stdlib directory
   * Rename functions (`kprints` -> `puts`)
-* [magic.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/magic.h)
+* [magic](https://github.com/ElisStaaf/pearlOS/blob/main/lib/magic.h)
   * Add magic.h
   * Add `len` macro (`sizeof(x) / sizeof(*x)`)
-* [stdint.lib](https://github.com/ElisStaaf/pearlOS/blob/main/lib/stdint.h)
+* [stdint](https://github.com/ElisStaaf/pearlOS/blob/main/lib/stdint.h)
   * Add stdint.h
   * Add `chint` function (is `char` also valid `int`?)
+* [mem](https://github.com/ElisStaaf/pearlOS/blob/main/lib/mem.h)
+  * Move to stdlib directory
+  * Fix some comments
+  * Format
+  * Debug
 
 Also added other, more insignificant things to for example
 [boot](https://github.com/ElisStaaf/pearlOS/blob/main/boot).
+
+A better [configuration](https://github.com/ElisStaaf/pearlOS/blob/main/config)
+was added. It operates using "profiles" and these "profiles" include different
+configuration files. These are:
+* [config.h](https://github.com/ElisStaaf/pearlOS/blob/main/config/config.h)
+  * Includes the kernel config.
+  * The only C file of the group.
+* [config.asm](https://github.com/ElisStaaf/pearlOS/blob/main/config/config.asm)
+  * Configs the boot sector.
+  * Error messages.
+* [kentry.asm](https://github.com/ElisStaaf/pearlOS/blob/main/config/kentry.asm)
+  * Configs the entry.
+  * Maybe don't... Touch this one..?
 
 ## Bug Fixes
 

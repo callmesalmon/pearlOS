@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -20,7 +22,7 @@ under the License.
 #include <drivers/display_cursor.h>
 #include <drivers/display.h>
 
-uint32_t get_cursor_position_x(void) {
+uint32_t get_cursor_position_x() {
   uint32_t pos = 0;
   port_byte_out(0x3D4, 0x0F);
   pos |= port_byte_in(0x3D5);
@@ -29,7 +31,7 @@ uint32_t get_cursor_position_x(void) {
   return pos % DISPLAY_WIDTH;
 }
 
-uint32_t get_cursor_position_y(void) {
+uint32_t get_cursor_position_y() {
   uint32_t pos = 0;
   port_byte_out(0x3D4, 0x0F);
   pos |= port_byte_in(0x3D5);

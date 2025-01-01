@@ -1,3 +1,5 @@
+; Copyright 2025 Elis Staaf
+;
 ; Licensed to the Apache Software Foundation (ASF) under one
 ; or more contributor license agreements.  See the LICENSE file
 ; distributed with this work for additional information
@@ -32,7 +34,7 @@ print_string_pm_loop:
     je print_string_pm_done
 
     mov [edx], ax ; store character + attribute in video memory
-    add ebx, 1 ; next char
+    add ebx, 1 ; next char, [ebx][i + 1]
     add edx, 2 ; next video memory position
 
     jmp print_string_pm_loop

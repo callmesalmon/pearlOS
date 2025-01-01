@@ -1,4 +1,6 @@
 /*
+Copyright 2025 Elis Staaf
+
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the LICENSE file
 distributed with this work for additional information
@@ -37,8 +39,6 @@ int kmain() {
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
 	
-    kernel_running = true;
-	
     display_theme(DEFAULT_THEME);
 	memory_init();
     isr_install();
@@ -53,10 +53,13 @@ int kmain() {
 
 	/* Main */
     #include "debug.h" /* this file is created by "./config.sh" */
+    #ifdef DBG_MAIN
+        DBG_MAIN;
+    #endif
 	
     KERNEL_STARTUP;
 	
-    while (kernel_running) {
+    while (true) {
         KERNEL_UPDATE;
 	}
     return 0;
