@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# Copyright 2025 Elis Staaf
+#
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the LICENSE file
 # distributed with this work for additional information
