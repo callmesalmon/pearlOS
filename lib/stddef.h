@@ -29,7 +29,6 @@ typedef unsigned int uint;
 typedef unsigned short word;
 typedef unsigned char uchar;
 typedef unsigned short ushort;
-typedef unsigned char bool;
 
 /* size_t */
 #ifdef __SIZE_TYPE__

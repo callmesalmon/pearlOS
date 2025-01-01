@@ -23,7 +23,7 @@ for me to learn operating system things and also to become better at C and Assem
 ## Installation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with *GCC ISO C17*,
+> Compilation is only guaranteed on linux with *GCC ISO C23*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
