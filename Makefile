@@ -23,7 +23,7 @@
 EMULATOR = qemu-system-i386
 LINKER   = ld -m elf_i386 -s
 CC       = gcc
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. -std=c23
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. -std=c2x
 ASMC     = nasm 
 ASMF     = elf32
 
