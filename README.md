@@ -2,7 +2,7 @@
 
 [![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/ci.yml?logo=Github&labelColor=17181B&label=Build)](/)
 [![Version](https://img.shields.io/badge/Version-NET%2f3-FF0062?labelColor=17181B)](/)
-[![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
+[![C2x](https://img.shields.io/badge/Standard-C2x-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
 
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
