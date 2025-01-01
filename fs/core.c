@@ -64,7 +64,7 @@ Sector* init_sector() {
   Sector* fs = kmalloc(sizeof(Sector));
   fs->next = END_SECTOR;
   
-  /* Delete potentional data in the sector */
+  /* Delete potential data in the sector */
   for (int i = 0; i < FS_SECTOR_DATA_SIZE; ++i) {
     fs->data[i] = 0;
   }
