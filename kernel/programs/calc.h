@@ -21,13 +21,14 @@ under the License.
 
 #include <io.h>
 #include <math.h>
+#include <exit.h>
 #include <string.h>
 #include <conv.h>
 #include <magic.h>
 #include <mem.h>
 #include <drivers/display.h>
 
-int ksh_calc() {
+excode ksh_calc() {
     /* Define */
     char* s1 = (char*) kmalloc(255);
     char* s2 = (char*) kmalloc(255);
@@ -45,7 +46,7 @@ int ksh_calc() {
     if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT) {
         printk("Invalid number.");
         printnl();
-        return -1;
+        return __STD_ERROR;
     }
     int n1 = str_to_int(s1, len(s1));
     int n2 = str_to_int(s2, len(s2));
@@ -58,10 +59,10 @@ int ksh_calc() {
     else if (strcmp(op, "^")) printu(pow(n1, n2));
     else {
         println("Invalid operator.");
-        return -1;
+        return __STD_ERROR_256;
     }
 
     printnl();
 
-    return 0;
+    return __EXIT_SUCCESS;
 }
