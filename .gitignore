@@ -11,7 +11,7 @@
 # SWP/TMP files
 *.swp
 *~
-*#
+*\#
 
 # Debug files
 debug.h
