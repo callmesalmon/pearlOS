@@ -19,6 +19,18 @@ specific language governing permissions and limitations
 under the License.
 */
 
+/* [OLD/NEW]
+ * Old exit codes are just like
+ * every other thing, but the
+ * *new* exit codes have a 
+ * special type, and you
+ * can access the function exit
+ * code by using "func.code",
+ * e.g: myfunc().code. Define
+ * EXIT_OLD if you want the old
+ * experience, though it is gone.
+ */
+
 #pragma once
 
 /* Base exit code */
