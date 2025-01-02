@@ -19,6 +19,10 @@ specific language governing permissions and limitations
 under the License.
 */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stddef.h>
 #include <rand.h>
 #include <mem.h>
@@ -64,3 +68,7 @@ int kmain() {
 	}
     return 0;
 }
+
+#ifdef __cplusplus
+}
+#endif
