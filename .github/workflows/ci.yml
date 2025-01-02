@@ -18,4 +18,4 @@ jobs:
     - name: Configure
       run: ./config.sh
     - name: Make
-      run: make qemu
+      run: make
