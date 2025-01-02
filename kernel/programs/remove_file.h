@@ -27,12 +27,11 @@ under the License.
 #include <drivers/display.h>
 
 void ksh_remove_file() {
-  printk("> ");
+  printf("> ");
   char file_to_remove[255];
   scan(file_to_remove);
 
   if (file_remove(file_to_remove) == FILE_NOT_FOUND) {
-    printk("File not found!");
-    printnl();
+    printf("File not found!\n");
   }
 }

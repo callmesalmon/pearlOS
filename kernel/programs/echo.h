@@ -29,6 +29,5 @@ void ksh_echo() {
     char* str = (char*) kmalloc(255);
     printk("> ");
     scan(str);
-    printk(str);
-    printnl();
+    printf("%s\n", str);
 }

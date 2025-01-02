@@ -59,17 +59,9 @@ byte ksh_interpret(char* command) {
         display_clear();
     }
     else if (strcmp(command, "version")) {
-        printk("OS version: ");
-        printk(OS_VERSION);
-        printnl();
-    
-        printk("OS version (generic): ");
-        printk(OS_GENERIC);
-        printnl();
-
-        printk("KSH version: ");
-        printk(KSH_VERSION);
-        printnl();
+        printf("OS version: %s\n", OS_VERSION);
+        printf("OS version (generic): %s\n", OS_GENERIC);
+        printf("KSH version: %s\n", KSH_VERSION);
     }
     else if (strcmp(command, "memstat")) {
         ksh_memstat();
@@ -152,7 +144,7 @@ void ksh_start() {
     printk(KERNEL_INFO_MANUAL_HELP);
 
     while (true) {
-        printk(KSH_PROMPT " ");
+        printf("%s ", KSH_PROMPT);
         scan(c);
         response = ksh_interpret(c);
 

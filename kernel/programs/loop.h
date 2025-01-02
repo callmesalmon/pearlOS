@@ -61,7 +61,6 @@ int ksh_loop() {
 
     do {
         int j = 0;
-        printk((char*)commands[i]);
         do {
             ksh_interpret((char*)commands[i]);
         } while (j++ < itimes);

@@ -46,8 +46,7 @@ excode ksh_calc() {
 
     /* Convert */
     if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT) {
-        printk("Invalid number.");
-        printnl();
+        println("Invalid number.");
         return __STD_ERROR;
     }
     int n1 = str_to_int(s1, len(s1));
@@ -63,8 +62,6 @@ excode ksh_calc() {
         println("Invalid operator.");
         return __STD_ERROR_256;
     }
-
-    printnl();
 
     return __EXIT_SUCCESS;
 }

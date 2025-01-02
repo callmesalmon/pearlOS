@@ -35,8 +35,7 @@ excode ksh_filesz() {
     /* Handle */
     char *file_sz;
     int_to_str(file_sz, file_size(file));
-    printk(file_sz);
-    printnl();
+    printf("%s\n", file_sz);
 
     return __EXIT_SUCCESS;
 }

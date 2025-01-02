@@ -26,23 +26,17 @@ under the License.
 
 /* Info from system and programs */
 void kinfo(char* msg) {
-  printk("[INFO] ");
-  printk(msg);
-  printnl();
+  printf("[INFO] %s\n", msg);
 }
 
 /* Posibility of problem */
 void kwarning(char* msg) {
-  printk("[WARNING] ");
-  printk(msg);
-  printnl();
+  printf("[WARNING] %s\n", msg);
 }
 
 /* There is a problem */
 void kerror(char* msg) {
-  printk("[ERROR] ");
-  printk(msg);
-  printnl();
+  printf("[ERROR] %s\n", msg);
 }
 
 /* FATAL problem */

@@ -35,9 +35,9 @@ void ksh_read_file() {
   int response = file_read(filename, content);
 
   if (response == FILE_NOT_FOUND) {
-    printk("File not found\n");
+    printf("File not found\n");
   }
-  printk(content);
+  printf(content);
 
   kfree(filename);
   kfree(content);
