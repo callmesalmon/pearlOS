@@ -26,7 +26,12 @@ under the License.
 
 /* Defines */
 #ifndef putchar
-#   define putchar(c) (printc(c))
+#   define putchar(c) printc(c)
+#endif
+
+#ifdef PRINTF_IMPL
+#define printf  printf_
+#define sprintf sprintf_
 #endif
 
 /* Functions */
