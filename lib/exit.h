@@ -48,7 +48,7 @@ under the License.
 
 /* Another one for good measure */
 #ifdef EXIT_OLD
-#   define __STD_ERROR2 256
+#   define __STD_ERROR_256 256
 #else
     excode __STD_ERROR_256 = {
         .code = 256
