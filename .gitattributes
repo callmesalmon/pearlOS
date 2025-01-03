@@ -3,3 +3,4 @@
 *.asm   linguist-language=assembly
 *.py    linguist-language=Python
 *.mk    linguist-language=Makefile
+*.pl    linguist-language=Perl
