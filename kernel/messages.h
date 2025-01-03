@@ -21,20 +21,30 @@ under the License.
 
 #pragma once
 
-/* [MESSAGE SYNTAX]
- * LABEL_TYPE_MESSAGE
- * LABELS: 
- *     KERNEL
- *     BOOT
- *     DRIVER_DISPLAY
- *     DRIVER_PORT
- *     ...
- * TYPES:
- *     INFO    -> regular information
- *     WARNING -> possible problem
- *     ERROR   -> non-fatal problem
- *     PANIC   -> fatal problem
- */
+/* * * * * * * * * * * * * * * * * * *
+ *     The second commandment.       *
+ * * * * * * * * * * * * * * * * * * *
+ * When defining a new message       *
+ * macro, follow the following       *
+ * rules:                            *
+ *                                   *
+ * - Thou shall follow the syntax    *
+ *   of this template:               *
+ *   "LABEL_TYPE_MESSAGE"            *
+ * - Thou shall try to only use      *
+ *   the following labels:           *
+ *   KERNEL,                         *
+ *   BOOT,                           *
+ *   DRIVER_DISPLAY,                 *
+ *   DRIVER_PORT,                    *
+ *   FIRMWARE,                       *
+ * - Thou shall *only* use the       *
+ *   following types:                *
+ *   INFO    -> regular information  *
+ *   WARNING -> possible problem     *
+ *   ERROR   -> non-fatal problem    *
+ *   PANIC   -> fatal problem        * 
+ * * * * * * * * * * * * * * * * * * */
 
 #define KERNEL_INFO_ENTERED       "Booting..."
 #define KERNEL_INFO_INIT_START    "Initializing..."

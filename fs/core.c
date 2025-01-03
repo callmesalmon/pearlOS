@@ -21,6 +21,26 @@ under the License.
 
 #include <fs/core.h>
 
+/* * * * * * * * * * * * * * * * * * *
+ *     The third commandment.        *
+ * * * * * * * * * * * * * * * * * * *
+ * In order not to be sent to thou   *
+ * unholy javascript repl, thou      *
+ * shall not excessively comment     *
+ * things out, e.g:                  *
+ *                                   *
+ *     // int func() {               *
+ *     //     return 256;            *
+ *     // }                          *
+ *                                   *
+ * Seriously Martha, it's not cool   *
+ * to leave your ~1000 LOC function  *
+ * commented out in here when it     *
+ * stopped being in use 1972.        *
+ * I'm definetely sending you to     *
+ * the javascript repl...            *
+ * * * * * * * * * * * * * * * * * * */
+
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 

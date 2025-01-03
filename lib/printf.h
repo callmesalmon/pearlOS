@@ -29,6 +29,21 @@ under the License.
 #   define putchar(c) printc(c)
 #endif
 
+/* * * * * * * * * * * * * * * * * * *
+ *     The first commandment.        *
+ * * * * * * * * * * * * * * * * * * *
+ * When you just need                *
+ * printf, not the whole IO          *
+ * library, do:                      *
+ *                                   *
+ *     #define PRINTF_IMPL           *
+ *     #include <printf.h>           *
+ *                                   *
+ * If not, you have sinned,          *
+ * and will be sent to programmer    *
+ * hell forever (it's a              *
+ * javascript repl).                 *
+ * * * * * * * * * * * * * * * * * * */
 #ifdef PRINTF_IMPL
 #define printf  printf_
 #define sprintf sprintf_
