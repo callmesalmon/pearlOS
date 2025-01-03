@@ -24,6 +24,31 @@ under the License.
 #include <drivers/display.h>
 #include <drivers/display_cursor.h>
 
+/* * * * * * * * * * * * * * * * * * *
+ *     The fourth commandment.       *
+ * * * * * * * * * * * * * * * * * * *
+ * When in need of a video based     *
+ * function, thou shall not send     *
+ * a prayer to above (gotten         *
+ * that *way* too many times),       *
+ * thou shall instead initialize     *
+ * the memory with a macro the       *
+ * gods graciously provided to you.  *
+ * It's very easy, like this:        *
+ *                                   *
+ *     int video_based_function() {  *
+ *         INIT_VIDEO;               *
+ *         ...                       *
+ *     }                             *
+ *                                   *
+ * Finally those nerds will stop     *
+ * asking me to give them video.     *
+ * Also, I have already done that!   *
+ * "First, there was nothing."       *
+ * "Then, there was video."          *
+ * * * * * * * * * * * * * * * * * * */
+
+
 static byte display_theme_current;
 
 uint get_offset(uint column, uint row) { 

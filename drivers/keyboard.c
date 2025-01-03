@@ -83,7 +83,6 @@ void kbport_byte_out(uchar byte) {
         port_byte_out(0x60, byte);
         do {
             tmp = port_byte_in(0x60);
-            /* kprintf("0x%_x (0x%_x): 0x%_x\n", port, 4, byte, 2, tmp, 2); */
         } while (tmp == 0);
         tries++;
     } while (tmp == 0xFE && tries < 3);
@@ -227,10 +226,6 @@ void kbh() {
         }
     }
     kbend:
-    /* kprintchar(c);
-     * kprintchar('\n');
-     * if ((lctl_d || rctl_d) && (lalt_d || ralt_d) && c == 127) reboot();
-     * if (xE0 && kbin == 0x5E) reboot(); */
     key = true;
 }
 
