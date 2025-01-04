@@ -44,6 +44,7 @@ done
 set -x
 
 touch kernel/debug.h
+touch boot/debug.asm
 mkdir -p dist/
 mkdir -p mk/
 mkdir -p mk/bin/

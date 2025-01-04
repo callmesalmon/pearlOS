@@ -15,6 +15,7 @@
 
 # Debug files
 debug.h
+debug.asm
 
 # Compilation results
 dist/
