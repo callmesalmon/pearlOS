@@ -14,6 +14,6 @@ jobs:
     - name: Install build dependencies
       run: sudo apt install -y nasm
     - name: Configure
-      run: ./config.sh
+      run: ./configure
     - name: Make
       run: make
