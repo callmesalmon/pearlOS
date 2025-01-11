@@ -60,8 +60,8 @@ see [PIDI-DIFF.md](/PIDI-DIFF.md).
 
 ## Contributing
 
-I accept all meaningful contibutions! As long as it doesn't break the
-project, I'll probably accept your contibution.
+I accept all meaningful contributions! As long as it doesn't break the
+project, I'll probably accept your contribution.
 
 ## Activity
 
@@ -71,7 +71,7 @@ If the project dies, you can expect archival or at least a message.
 
 ## License
 
-Unless expicitly stated, every single *modified* file in this project is licensed
+Unless explicitly stated, every single *modified* file in this project is licensed
 under the *Apache 2.0 License*, while the *unmodified* files are licensed under *MIT*.
 The "SPDX-License-Identifier" rule obviously overrides this option, and is how you
 explicitly state a different license. See [LICENSE](/LICENSE) for the 2 main licenses.
