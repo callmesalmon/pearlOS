@@ -46,6 +46,8 @@ CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
+all: dist/pearl.bin
+
 dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
 	rm -f dist/pearl.bin
 	cat mk/bin/* > $@
