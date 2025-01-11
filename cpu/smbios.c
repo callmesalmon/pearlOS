@@ -39,9 +39,9 @@ typedef struct {
 } SMBIOSEntryPoint;
 
 typedef struct {
- 	byte Type;
- 	byte Length;
- 	word Handle;
+    byte Type;
+    byte Length;
+    word Handle;
  } SMBIOSHeader;
 
 SMBIOSHeader* SMBIOS_HEADER_BIOS;
@@ -49,7 +49,7 @@ SMBIOSHeader* SMBIOS_HEADER_BIOS;
 uint32_t smbios_table_len(SMBIOSHeader* hd) {
    uint32_t i;
    const char* strtab = (char*)hd + hd->Length;
-   
+
    /* Scan until we find a double zero byte (\0\0). */
    for (i = 1; strtab[i - 1] != '\0' || strtab[i] != '\0'; i++);
    return hd->Length + i + 1;
@@ -74,8 +74,8 @@ char* smbios_get_bios_name() {
 void smbios_init() {
   char* mem = (uchar*)(0xF0000);
   int length, i;
-  unsigned char checksum;
-  while ((unsigned int) mem < 0x100000) {
+  uchar checksum;
+  while ((uint) mem < 0x100000) {
       if (mem[0] == '_' && mem[1] == 'S' && mem[2] == 'M' && mem[3] == '_') {
           length = mem[5];
           checksum = 0;
@@ -86,7 +86,7 @@ void smbios_init() {
       }
       mem += 16;
   }
-  if ((unsigned int) mem == 0x100000) {
+  if ((uint) mem == 0x100000) {
     kerror(FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING);
   }
   SMBIOSEntryPoint* smbios_entry_p = (SMBIOSEntryPoint*)(mem);

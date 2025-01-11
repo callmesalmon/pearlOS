@@ -232,7 +232,9 @@ void kbh() {
 
 void keyboard_init() {
     key = false;
-    for (int i = 0; i < 384; i++) {keydown[i] = false;}
+    for (int i = 0; i < 384; i++) {
+        keydown[i] = false;
+    }
     n_lock = true;
     kbupdateleds();
 }

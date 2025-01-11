@@ -48,7 +48,6 @@ under the License.
  * "Then, there was video."          *
  * * * * * * * * * * * * * * * * * * */
 
-
 static byte display_theme_current;
 
 uint get_offset(uint column, uint row) { 
@@ -83,7 +82,7 @@ void printnl() {
   uint cursor_offset_row = get_offset_row(cursor_offset);
 
   set_cursor_position(0, cursor_offset_row + 1);
-  
+
   if (cursor_offset_row > DISPLAY_HEIGHT + DISPLAY_SCROLL_DETECTION_DEBUG) {
     do_scroll();
   }
