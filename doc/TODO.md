@@ -1,0 +1,35 @@
+- [ ] Kernel
+  - [x] Config 
+  - [ ] More programs
+  - [ ] Better shell
+  - [ ] Syscall interface
+- [x] Boot
+  - [x] Config
+- [ ] CPU
+  - [x] Stabilize
+  - [ ] Format the code
+- [ ] Drivers
+  - [ ] Improve upon KAPI (Kernel API)
+  - [ ] Syscall interface (See Kernel and KAPI)
+- [ ] File System
+  - [ ] Folders
+  - [ ] Stabilize
+  - [ ] Fix filename problem
+- [x] Config
+  - [x] Add config
+  - [x] Stabilize
+- [ ] Library
+  - [x] Add ``printf``
+  - [ ] Stabilize
+  - [ ] Add more
+- [x] Scripts
+  - [x] Add useful scripts
+  - [x] Stabilize
+- [ ] Documentation
+  - [x] Add documentation
+  - [x] Add style guides
+  - [ ] Improve further
+- [x] Build
+  - [x] Add ``Makefile``
+  - [x] Add configuration system
+  - [x] Stabilize
