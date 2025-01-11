@@ -96,7 +96,7 @@ Sector* fs = init_sector();
 ```
 What. The. Fuck. Basically what gcc was saying was that I couldn't assign
 object of type `Sector*` A.K.A `SectorStruct*` to object of type `Sector*`.
-Basically, gcc:s thought process was:
+Basically, gcc's thought process was:
 ```c
 
 Sector* fs = init_sector();
