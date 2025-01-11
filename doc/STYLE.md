@@ -7,12 +7,12 @@ covered here, it's important to keep in mind that not *all* of peoples code edit
 support .editorconfigs. Some psychos also disable .editorconfigs on their code
 editors. And with that, let's begin!
 
-* [C Style](/#c)
-* [ASM Style](/#asm)
-* [Python Style](/#python)
-* [Make Style](/#make)
-* [Bash Style](/#bash)
-* [Perl Style](/#perl)
+* [C Style](#c)
+* [ASM Style](#asm)
+* [Python Style](#python)
+* [Make Style](#make)
+* [Bash Style](#bash)
+* [Perl Style](#perl)
 
 # C
 * Indent size: `4`
