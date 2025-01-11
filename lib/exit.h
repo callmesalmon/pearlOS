@@ -69,7 +69,7 @@ under the License.
 
 /* Exit macro */
 #ifdef EXIT_OLD
-#   define END return
+#   define fetch return
 #else
-#   define END(c) return c;
+#   define fetch(c) return c;
 #endif
