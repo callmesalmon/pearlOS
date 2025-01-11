@@ -56,7 +56,7 @@ make clean
 ## Differences
 
 If you want to see the differences between pearlOS and [pidi-os](https://github.com/GandelXIV/pidi-os),
-see [PIDI-DIFF.md](/PIDI-DIFF.md).
+see [PIDI-DIFF.md](/doc/PIDI-DIFF.md).
 
 ## Contributing
 
@@ -68,6 +68,13 @@ project, I'll probably accept your contribution.
 I'm a bit inconsistent on when I actually, y'know, maintain and update this,
 but I can assure you, even if you see a 1-month pause, THE PROJECT IS NOT DEAD.
 If the project dies, you can expect archival or at least a message.
+
+## Documentation
+
+The official pearlOS documentation can be viewed [here](/doc), but keep
+in mind that I'm not that consistent on updating the documentation,
+though it becomes pretty clear on what you have to do if you just...
+rtfc (read the fucking code).
 
 ## License
 
