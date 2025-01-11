@@ -1,5 +1,5 @@
 # Copyright 2025 Elis Staaf
-# 
+#
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the LICENSE file
 # distributed with this work for additional information
@@ -21,6 +21,7 @@
 .PHONY: clean run run-iso all full
 
 EMULATOR = qemu-system-i386
+EMUFLAGS = -display gtk
 LINKER   = ld -m elf_i386 -s
 CC       = gcc
 CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. -std=c2x
@@ -82,7 +83,7 @@ mk/cpu/interrupt.o: cpu/interrupt.asm
 	$(ASMC) -f $(ASMF) -o $@ $<
 
 qemu: $(.DEFAULT_GOAL)
-	$(EMULATOR) $^
+	$(EMULATOR) $(EMUFLAGS) $^
 
 clean:
 	rm -f dist/*
