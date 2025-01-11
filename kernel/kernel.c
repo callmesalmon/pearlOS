@@ -56,7 +56,7 @@ int kmain() {
 	kinfo(KERNEL_INFO_WELCOME);
 
 	/* Main */
-    #include "debug.h" /* this file is created by "./config.sh" */
+    #include "debug.h" /* this file is created by "./configure" */
     #ifdef DBG_MAIN
         DBG_MAIN;
     #endif

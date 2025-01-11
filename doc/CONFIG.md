@@ -135,5 +135,5 @@ Finally, navigate into the root of this repository
 and run:
 
 ```console
-./config.sh <profile-name>
+./configure <profile-name>
 ```
