@@ -22,5 +22,5 @@ dist/
 mk/
 
 # Profiles
-config/profiles/*
+config/profiles/*/
 !config/profiles/default
