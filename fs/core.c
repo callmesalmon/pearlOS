@@ -239,7 +239,7 @@ int file_writes(char* filename, char* text) {
   return file_write(filename, text, strlen(text));
 }
 
-void fsinit() {
+void mkfs() {
   file_make("os-release");
   file_writes(
     "os-release", 

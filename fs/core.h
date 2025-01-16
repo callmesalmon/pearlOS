@@ -55,7 +55,7 @@ typedef struct {
 } File;
 
 /* Functions */
-void fsinit();
+void mkfs();
 int file_remove(char* name);
 int file_make(char* name);
 char* file_get_name(int id);

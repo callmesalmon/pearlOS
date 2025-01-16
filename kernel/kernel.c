@@ -49,7 +49,7 @@ int kmain() {
 	keyboard_init();
 	smbios_init();
 	display_init();
-	fsinit();
+	mkfs();
 	rand_init();
 
 	kinfo(KERNEL_INFO_INIT_DONE);
