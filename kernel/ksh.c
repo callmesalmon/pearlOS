@@ -118,8 +118,7 @@ byte ksh_interpret(char* command) {
         ksh_write_to_file();
     }
     else if (strcmp(command, "random")) {
-        printu(rand() % 100);
-        printnl();
+        printf("%d\n", rand() % 100);
     }
     else if (strcmp(command, "panic")) {
         usrpanic();
