@@ -5,7 +5,7 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = false
 
-[{c,h,asm,perl,sh}]
+[*.{c,h,asm,perl,sh}]
 indent_style = space
 indent_size = 4
 
