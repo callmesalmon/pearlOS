@@ -23,7 +23,7 @@ for me to learn operating system things and also to become better at C and Assem
 ## Installation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with *GCC ISO C17*,
+> Compilation is only guaranteed on linux with *Clang ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
@@ -75,11 +75,6 @@ The official pearlOS documentation can be viewed [here](/doc), but keep
 in mind that I'm not that consistent on updating the documentation,
 though it becomes pretty clear on what you have to do if you just...
 rtfc (read the fucking code).
-
-## Clang
-
-There is an ongoing effort to switch the compiler of this project
-to Clang, as it is now preferred. It is not done yet.
 
 ## License
 
