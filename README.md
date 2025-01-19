@@ -17,7 +17,7 @@ for me to learn operating system things and also to become better at C and Assem
 
 * [Make](https://www.gnu.org/software/make)
 * [NASM](https://nasm.us)
-* [GCC](https://gcc.gnu.org)
+* [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
 
 ## Installation
