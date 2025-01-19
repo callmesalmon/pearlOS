@@ -19,6 +19,18 @@ specific language governing permissions and limitations
 under the License.
 */
 
+/* [OLD/NEW]
+ * Old exit codes are just like
+ * every other thing, but the
+ * *new* exit codes have a 
+ * special type, and you
+ * can access the function exit
+ * code by using "func.code",
+ * e.g: myfunc().code. Define
+ * EXIT_OLD if you want the old
+ * experience, though it is gone.
+ */
+
 #pragma once
 
 /* Base exit code */
@@ -48,7 +60,7 @@ under the License.
 
 /* Another one for good measure */
 #ifdef EXIT_OLD
-#   define __STD_ERROR2 256
+#   define __STD_ERROR_256 256
 #else
     excode __STD_ERROR_256 = {
         .code = 256
@@ -57,7 +69,7 @@ under the License.
 
 /* Exit macro */
 #ifdef EXIT_OLD
-#   define END return
+#   define fetch return
 #else
-#   define END(c) return c;
+#   define fetch(c) return c;
 #endif

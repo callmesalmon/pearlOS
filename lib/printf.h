@@ -22,23 +22,33 @@ under the License.
 #pragma once
 
 /* Includes */
-#include <stddef.h>
-#include <printf.h>
-#include <drivers/display.h>
-#include <drivers/keyboard.h>
-#include <drivers/display_color.h>
+#include <io.h>
 
 /* Defines */
+#ifndef putchar
+#   define putchar(c) printc(c)
+#endif
+
+/* * * * * * * * * * * * * * * * * * *
+ *     The first commandment.        *
+ * * * * * * * * * * * * * * * * * * *
+ * When you just need                *
+ * printf, not the whole IO          *
+ * library, do:                      *
+ *                                   *
+ *     #define PRINTF_IMPL           *
+ *     #include <printf.h>           *
+ *                                   *
+ * If not, you have sinned,          *
+ * and will be sent to programmer    *
+ * hell forever (it's a              *
+ * javascript repl).                 *
+ * * * * * * * * * * * * * * * * * * */
+#ifdef PRINTF_IMPL
 #define printf  printf_
 #define sprintf sprintf_
+#endif
 
 /* Functions */
-void printi(int number);
-void printu(uint number);
-void printu32(uint32_t number);
-void printk(char* text);
-void printhex(uint32_t number);
-void cprintk(char* text, char color);
-void println(char* text);
-void cprintln(char* text, char color);
-void scan(char* output);
+int printf_(const char *format, ...);
+int sprintf_(char *out, const char *format, ...);

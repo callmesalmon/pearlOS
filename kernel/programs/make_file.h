@@ -37,9 +37,8 @@ void ksh_make_file() {
     println("File already exists!");
   }
   else if (response == FILE_NAME_INVALID) {
-    println("File name can only contain the following characters:");
-    printk(FS_FILE_NAME_VALID_CHARS);
-    printnl();
+    printf("File name can only contain the following characters:\n%s\n",
+           FS_FILE_NAME_VALID_CHARS);
   }
   else if (response == FILE_COUNT_MAX_EXCEEDED) {
     println("There are too many files!");

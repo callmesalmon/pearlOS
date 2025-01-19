@@ -37,6 +37,7 @@ char *theme;
 #include <kernel/programs/alloc.h>
 #include <kernel/programs/loop.h>
 #include <kernel/programs/memstat.h>
+#include <kernel/programs/filesz.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -58,17 +59,9 @@ byte ksh_interpret(char* command) {
         display_clear();
     }
     else if (strcmp(command, "version")) {
-        printk("OS version: ");
-        printk(OS_VERSION);
-        printnl();
-    
-        printk("OS version (generic): ");
-        printk(OS_GENERIC);
-        printnl();
-
-        printk("KSH version: ");
-        printk(KSH_VERSION);
-        printnl();
+        printf("OS version: %s\n", OS_VERSION);
+        printf("OS version (generic): %s\n", OS_GENERIC);
+        printf("KSH version: %s\n", KSH_VERSION);
     }
     else if (strcmp(command, "memstat")) {
         ksh_memstat();
@@ -115,6 +108,9 @@ byte ksh_interpret(char* command) {
     else if (strcmp(command, "rm")) {
         ksh_remove_file();
     }
+    else if (strcmp(command, "sz")) {
+        ksh_filesz();
+    }
     else if (strcmp(command, "cat")) {
         ksh_read_file();
     }
@@ -122,8 +118,7 @@ byte ksh_interpret(char* command) {
         ksh_write_to_file();
     }
     else if (strcmp(command, "random")) {
-        printu(rand() % 100);
-        printnl();
+        printf("%d\n", rand() % 100);
     }
     else if (strcmp(command, "panic")) {
         usrpanic();
@@ -148,7 +143,7 @@ void ksh_start() {
     printk(KERNEL_INFO_MANUAL_HELP);
 
     while (true) {
-        printk(KSH_PROMPT " ");
+        printf("%s ", KSH_PROMPT);
         scan(c);
         response = ksh_interpret(c);
 

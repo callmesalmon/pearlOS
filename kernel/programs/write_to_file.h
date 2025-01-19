@@ -28,21 +28,21 @@ under the License.
 #include <fs/core.h>
 
 void ksh_write_to_file() {
-  printk("> ");
+  printf("> ");
   char* filename = (char*) kmalloc(256);
   strcls(filename);
   scan(filename);
 
   char* data = (char*) kmalloc(256);
   strcls(data);
-  printk("> ");
+  printf("> ");
   scan(data);
   stradd(data, "\n");
 
   file_clean(filename);
   int response = file_writes(filename, data);
   if (response == FILE_NOT_FOUND) {
-    printk("File not found!\n");
+    printf("File not found!\n");
   }
 
   kfree(filename);

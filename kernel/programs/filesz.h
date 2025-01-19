@@ -19,56 +19,23 @@ specific language governing permissions and limitations
 under the License.
 */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <stddef.h>
-#include <rand.h>
+#include <exit.h>
+#include <io.h>
 #include <mem.h>
-
-#include <kernel/config.h>
-#include <kernel/kmsg.h>
-#include <kernel/ksh.h>
-
-#include <cpu/smbios.h>
-#include <cpu/isr.h>
+#include <conv.h>
 #include <fs/core.h>
-#include <drivers/keyboard.h>
+#include <drivers/display.h>
 
-static bool kernel_running;
+excode ksh_filesz() {
+    /* Collect */
+    printk("> ");
+    char *file = (char *) kmalloc(255);
+    scan(file);
 
-int kmain() {
-	/* Init */
-	kinfo(KERNEL_INFO_ENTERED);
-	kinfo(KERNEL_INFO_INIT_START);
-	
-    display_theme(DEFAULT_THEME);
-	memory_init();
-    isr_install();
-	keyboard_init();
-	smbios_init();
-	display_init();
-	mkfs();
-	rand_init();
+    /* Handle */
+    char *file_sz;
+    int_to_str(file_sz, file_size(file));
+    printf("%s\n", file_sz);
 
-	kinfo(KERNEL_INFO_INIT_DONE);
-	kinfo(KERNEL_INFO_WELCOME);
-
-	/* Main */
-    #include "debug.h" /* this file is created by "./configure" */
-    #ifdef DBG_MAIN
-        DBG_MAIN;
-    #endif
-	
-    KERNEL_STARTUP;
-	
-    while (true) {
-        KERNEL_UPDATE;
-	}
-    return 0;
+    return __EXIT_SUCCESS;
 }
-
-#ifdef __cplusplus
-}
-#endif

@@ -43,30 +43,14 @@ under the License.
 
 
 void ksh_pearlfetch() {
-  printnl();
-  printk(PEARLFETCH_ART);
+  printf(PEARLFETCH_ART);
+  printf("OS: pearlOS %s\n", OS_VERSION);
 
-  printk("OS: pearlOS ");
-  printk(OS_VERSION);
-  printnl();
+  printf("BIOS name: %s\n", smbios_get_bios_name());
+  printf("BIOS version: %s\n", smbios_get_bios_version());
 
-  printk("BIOS name: ");
-  printk(smbios_get_bios_name());
-  printnl();
-
-  printk("BIOS version:");
-  printk(smbios_get_bios_version());
-  printnl();
-
-  printk("Memory: ");
-  printu32(memory_usage());
-  printk("/");
-  printu32(memory_total());
-  printnl();
-
-  printk("Theme: ");
-  printk(theme);
-  printnl();
+  printf("Memory: %d/%d\n", memory_usage(), memory_total());
+  printf("Theme: %s\n", theme);
 }
 
 /*14 x 28

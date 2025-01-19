@@ -17,7 +17,7 @@ Many more extra commands for the userland, such as:
 * [calc](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/calc.h)
 
 Additions for already existing commands, such as:
-* [pearlfetch.elf](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/pearlfetch.h)\*  
+* [pearlfetch](https://github.com/ElisStaaf/pearlOS/blob/main/kernel/programs/pearlfetch.h)\*  
 \*: Has been renamed.
 
 Other things have been added to the userland, such as:
@@ -47,7 +47,7 @@ improved, changes include:
   * Add `size_t` type (`__SIZE_TYPE__`)
   * Add checks for if a alue has been defined (`#ifdef` and others).
 * [conv](https://github.com/ElisStaaf/pearlOS/blob/main/lib/conv.h)
-  * Add a `str_to_int` function (for userland programs like `calc.elf`)
+  * Add a `str_to_int` function (for userland programs like `calc`)
   * Add more (and better) macros
 * [io](https://github.com/ElisStaaf/pearlOS/blob/main/lib/io.h)
   * Move to stdlib directory
@@ -96,7 +96,7 @@ Sector* fs = init_sector();
 ```
 What. The. Fuck. Basically what gcc was saying was that I couldn't assign
 object of type `Sector*` A.K.A `SectorStruct*` to object of type `Sector*`.
-Basically, gcc:s thought process was:
+Basically, gcc's thought process was:
 ```c
 
 Sector* fs = init_sector();

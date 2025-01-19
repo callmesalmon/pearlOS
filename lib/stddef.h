@@ -38,6 +38,10 @@ typedef unsigned short ushort;
 #endif
 
 /* Boolean definitions */
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ > 202311L
+    typedef unsigned char bool;
+#endif
+
 #if !defined(true) && !defined(false)
 #    define true (bool) 1
 #    define false (bool) 0

@@ -11,15 +11,16 @@
 # SWP/TMP files
 *.swp
 *~
-*#
+*\#
 
 # Debug files
 debug.h
+debug.asm
 
 # Compilation results
 dist/
 mk/
 
 # Profiles
-config/profiles/*
+config/profiles/*/
 !config/profiles/default

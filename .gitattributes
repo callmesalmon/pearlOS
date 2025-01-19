@@ -1,5 +1,7 @@
-*.[ch]  linguist-language=C
-*.sh    linguist-language=bash
-*.asm   linguist-language=assembly
-*.py    linguist-language=Python
-*.mk    linguist-language=Makefile
+*.[ch]    linguist-language=C        diff=C
+*.sh      linguist-language=bash     diff=bash
+configure linguist-language=bash     diff=bash
+*.asm     linguist-language=assembly diff=assembly
+*.py      linguist-language=Python   diff=Python
+*.mk      linguist-language=Makefile diff=Makefile
+*.pl      linguist-language=Perl     diff=Perl

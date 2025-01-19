@@ -30,8 +30,7 @@ void ksh_list_files() {
   for (int i = 0; i < file_count(); ++i) {
     name = file_get_name(i);
     if (name != (char *)FILE_NOT_FOUND) {
-      printk(name);
-      printnl();
+      printf("%s\n", name);
     }
   }
 }

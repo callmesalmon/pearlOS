@@ -22,16 +22,14 @@ under the License.
 #pragma once
 
 #include <io.h>
+#include <exit.h>
+#include <mem.h>
 #include <drivers/display.h>
 
-int ksh_memstat() {
+excode ksh_memstat() {
     println("Memory usage:");
-    printk("total: ");
-    printu32(memory_usage());
-    printnl();
-    printk("effective: ");
-    printu32(memory_usage_effective());
-    printnl();
+    printf("total: %d\n", memory_usage());
+    printf("effective: %d\n", memory_usage_effective());
     
-    return 0;
+    return __EXIT_SUCCESS;
 }

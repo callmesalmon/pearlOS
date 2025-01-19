@@ -24,6 +24,30 @@ under the License.
 #include <drivers/display.h>
 #include <drivers/display_cursor.h>
 
+/* * * * * * * * * * * * * * * * * * *
+ *     The fourth commandment.       *
+ * * * * * * * * * * * * * * * * * * *
+ * When in need of a video based     *
+ * function, thou shall not send     *
+ * a prayer to above (gotten         *
+ * that *way* too many times),       *
+ * thou shall instead initialize     *
+ * the memory with a macro the       *
+ * gods graciously provided to you.  *
+ * It's very easy, like this:        *
+ *                                   *
+ *     int video_based_function() {  *
+ *         INIT_VIDEO;               *
+ *         ...                       *
+ *     }                             *
+ *                                   *
+ * Finally those nerds will stop     *
+ * asking me to give them video.     *
+ * Also, I have already done that!   *
+ * "First, there was nothing."       *
+ * "Then, there was video."          *
+ * * * * * * * * * * * * * * * * * * */
+
 static byte display_theme_current;
 
 uint get_offset(uint column, uint row) { 
@@ -58,7 +82,7 @@ void printnl() {
   uint cursor_offset_row = get_offset_row(cursor_offset);
 
   set_cursor_position(0, cursor_offset_row + 1);
-  
+
   if (cursor_offset_row > DISPLAY_HEIGHT + DISPLAY_SCROLL_DETECTION_DEBUG) {
     do_scroll();
   }
