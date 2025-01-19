@@ -61,7 +61,7 @@ So, a good configuration might be:
 #define KERNEL_UPDATE
 
 #define KSH_PROMPT  "pearl>"
-#define KSH_COMMENT ';'
+#define KSH_COMMENT '#'
 
 #define KERNEL_MEMORY_OFFSET_START 0xffffff
 #define KERNEL_MEMORY_OFFSET_END   0xffffffff
