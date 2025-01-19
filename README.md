@@ -76,6 +76,11 @@ in mind that I'm not that consistent on updating the documentation,
 though it becomes pretty clear on what you have to do if you just...
 rtfc (read the fucking code).
 
+## Clang
+
+There is an ongoing effort to switch the compiler of this project
+to Clang, as it is now preferred. It is not done yet.
+
 ## License
 
 Unless explicitly stated, every single *modified* file in this project is licensed
