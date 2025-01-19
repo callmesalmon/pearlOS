@@ -28,7 +28,7 @@ under the License.
 
 /* ksh.h */
 #define KSH_PROMPT  "*"
-#define KSH_COMMENT '#'
+#define KSH_COMMENT ';'
 
 /* mem.h */
 #define KERNEL_MEMORY_OFFSET_START 0xffffff
