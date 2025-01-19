@@ -23,8 +23,9 @@
 EMULATOR = qemu-system-i386
 EMUFLAGS = -display gtk
 LINKER   = ld -m elf_i386 -s
-CC       = gcc
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. -std=c2x
+CC       = clang
+CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. --target=i686-pc-none-elf \
+		   -march=i686 -I. -fno-builtin -nostdlib -nostdinc -std=c17
 ASMC     = nasm 
 ASMF     = elf32
 

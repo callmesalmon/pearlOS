@@ -2,7 +2,7 @@
 
 [![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/ci.yml?logo=Github&labelColor=17181B&label=Build)](/)
 [![Version](https://img.shields.io/badge/Version-Dragonfly-FF0062?labelColor=17181B)](/)
-[![C2x](https://img.shields.io/badge/Standard-C2x-A8B9CC?logo=C&labelColor=17181B)](/)
+[![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
 
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
@@ -17,13 +17,13 @@ for me to learn operating system things and also to become better at C and Assem
 
 * [Make](https://www.gnu.org/software/make)
 * [NASM](https://nasm.us)
-* [GCC](https://gcc.gnu.org)
+* [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
 
 ## Installation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with *GCC ISO C23*,
+> Compilation is only guaranteed on linux with *Clang ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
@@ -75,11 +75,6 @@ The official pearlOS documentation can be viewed [here](/doc), but keep
 in mind that I'm not that consistent on updating the documentation,
 though it becomes pretty clear on what you have to do if you just...
 rtfc (read the fucking code).
-
-## Clang
-
-There is an ongoing effort to switch the compiler of this project
-to Clang, as it is now preferred. It is not done yet.
 
 ## License
 

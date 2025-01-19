@@ -36,11 +36,11 @@ int ksh_alloc() {
     scan(str);
 
     /* Convert */
-    if (str_to_int(str, len(str)) == INVALID_INT) {
+    if (str_to_int(str, alen(str)) == INVALID_INT) {
         println("Invalid number.");
         return 1;
     }
-    int num = str_to_int(str, len(str));
+    int num = str_to_int(str, alen(str));
 
     /* Handle */
     kmalloc(num);
