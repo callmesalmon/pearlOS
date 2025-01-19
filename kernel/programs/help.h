@@ -47,4 +47,6 @@ int ksh_help() {
     println("cat            read file content");
     println("sz             get size of file");
     println("to             write to file");
+
+    return 0;
 }

@@ -45,12 +45,12 @@ excode ksh_calc() {
     scan(op);
 
     /* Convert */
-    if (str_to_int(s1, len(s1)) == INVALID_INT || str_to_int(s2, len(s2)) == INVALID_INT) {
+    if (str_to_int(s1, alen(s1)) == INVALID_INT || str_to_int(s2, alen(s2)) == INVALID_INT) {
         println("Invalid number.");
         return __STD_ERROR;
     }
-    int n1 = str_to_int(s1, len(s1));
-    int n2 = str_to_int(s2, len(s2));
+    int n1 = str_to_int(s1, alen(s1));
+    int n2 = str_to_int(s2, alen(s2));
 
     /* Handle */
     if (strcmp(op, "+")) printu(n1 + n2);

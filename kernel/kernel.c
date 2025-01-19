@@ -26,6 +26,7 @@ extern "C" {
 #include <stddef.h>
 #include <rand.h>
 #include <mem.h>
+#include <io.h>
 
 #include <kernel/config.h>
 #include <kernel/kmsg.h>
@@ -42,7 +43,7 @@ int kmain() {
 	/* Init */
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
-	
+
     display_theme(DEFAULT_THEME);
 	memory_init();
     isr_install();
@@ -60,9 +61,10 @@ int kmain() {
     #ifdef DBG_MAIN
         DBG_MAIN;
     #endif
-	
+
     KERNEL_STARTUP;
 	
+    printf("done-\n");
     while (true) {
         KERNEL_UPDATE;
 	}
