@@ -26,7 +26,6 @@ extern "C" {
 #include <stddef.h>
 #include <rand.h>
 #include <mem.h>
-#include <io.h>
 
 #include <kernel/config.h>
 #include <kernel/kmsg.h>
@@ -64,7 +63,6 @@ int kmain() {
 
     KERNEL_STARTUP;
 	
-    printf("done-\n");
     while (true) {
         KERNEL_UPDATE;
 	}
