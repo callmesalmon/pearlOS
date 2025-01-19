@@ -35,16 +35,13 @@ git clone https://github.com/ElisStaaf/pearlOS
 After going into the repo directory, configure and then make:
 ```console
 ./configure
-make
-```
-You can add your own config, just read [this](/doc/CONFIG.md)!  
-Lastly, run the generated image at dist/pearl.bin  
-by making the rule `qemu`:
-```console
 make qemu
 ```
 This will start up a QEMU session with the image, and you
 can run the OS.
+
+NOTE: To add your own config (and then run it using ``./configure``),
+you can [read the docs](/doc/CONFIG.md).
 
 ## Uninstalling
 
