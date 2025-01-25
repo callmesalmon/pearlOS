@@ -2,8 +2,8 @@
 
 MAKE_CMD="make"
 
-if [[ $1 == "qemu" ]]; then
-    MAKE_CMD="make qemu"
+if [[ $# -gt 0 ]]; then
+    MAKE_CMD="make $@"
 fi
 
 ${MAKE_CMD}                              \
