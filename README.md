@@ -29,13 +29,17 @@ for me to learn operating system things and also to become better at C and Assem
 
 PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
 It's very easy to install, firstly clone the repo:
-```console
+```sh
 git clone https://github.com/ElisStaaf/pearlOS
 ```
 After going into the repo directory, configure and then make:
-```console
+```sh
 ./configure
 make qemu
+
+## NOTE: To build with GCC, instead of running
+##       "make qemu", run:
+scripts/gcc.sh qemu
 ```
 This will start up a QEMU session with the image, and you
 can run the OS.
@@ -46,7 +50,7 @@ you can [read the docs](/doc/CONFIG.md).
 ## Uninstalling
 
 To uninstall, simply run:
-```console
+```sh
 make clean
 ```
 
