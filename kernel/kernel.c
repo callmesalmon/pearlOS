@@ -36,8 +36,6 @@ extern "C" {
 #include <fs/core.h>
 #include <drivers/keyboard.h>
 
-static bool kernel_running;
-
 int kmain() {
 	/* Init */
 	kinfo(KERNEL_INFO_ENTERED);
