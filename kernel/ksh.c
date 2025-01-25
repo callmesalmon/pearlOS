@@ -74,7 +74,11 @@ byte ksh_interpret(char* command) {
         display_theme(WHITE_ON_BLACK);
         theme = "Generic dark";
     }
-    else if (strcmp(command, "hacker")) {
+    else if (strcmp(command, "theme-pascal")) {
+        display_theme(WHITE_ON_BLUE);
+        theme = "Generic pascal";
+    }
+    else if (strcmp(command, "theme-hacker")) {
         display_theme(GREEN_ON_BLACK);
         theme = "Hacker >:D";
         cprintln("You are a hacker now! >:D", RED_ON_BLACK);
@@ -91,10 +95,6 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "memalloc")) {
         ksh_alloc();
-    }
-    else if (strcmp(command, "theme-pascal")) {
-        display_theme(WHITE_ON_BLUE);
-        theme = "Generic pascal";
     }
     else if (strcmp(command, "pearlfetch")) {
         ksh_pearlfetch();

@@ -36,7 +36,7 @@ int ksh_help() {
     println("theme-light    changes the theme to a light theme");
     println("theme-dark     changes the theme to a dark theme");
     println("theme-pascal   changes the theme to pascal");
-    println("hacker         changes the theme back to hacker >:D");
+    println("theme-hacker   changes the theme back to hacker >:D");
     println("memstat        get allocated memory usage");
     println("memalloc       allocate memory for test");
     println("random         get random number between 0-100");
