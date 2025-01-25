@@ -23,21 +23,21 @@ under the License.
 
 char *theme;
 
-#include <kernel/programs/pearlfetch.h>
-#include <kernel/programs/list_files.h>
-#include <kernel/programs/read_file.h>
-#include <kernel/programs/write_to_file.h>
-#include <kernel/programs/make_file.h>
-#include <kernel/programs/fortune.h>
-#include <kernel/programs/remove_file.h>
-#include <kernel/programs/echo.h>
-#include <kernel/programs/help.h>
-#include <kernel/programs/calc.h>
-#include <kernel/programs/panic.h>
-#include <kernel/programs/alloc.h>
-#include <kernel/programs/loop.h>
-#include <kernel/programs/memstat.h>
-#include <kernel/programs/filesz.h>
+#include <kernel/cmd/pearlfetch.h>
+#include <kernel/cmd/list_files.h>
+#include <kernel/cmd/read_file.h>
+#include <kernel/cmd/write_to_file.h>
+#include <kernel/cmd/make_file.h>
+#include <kernel/cmd/fortune.h>
+#include <kernel/cmd/remove_file.h>
+#include <kernel/cmd/echo.h>
+#include <kernel/cmd/help.h>
+#include <kernel/cmd/calc.h>
+#include <kernel/cmd/panic.h>
+#include <kernel/cmd/alloc.h>
+#include <kernel/cmd/loop.h>
+#include <kernel/cmd/memstat.h>
+#include <kernel/cmd/filesz.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
