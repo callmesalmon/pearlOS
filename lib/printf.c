@@ -132,7 +132,7 @@ static int printv(char **out, const char *format, va_list args ) {
 			}
 			if( *format == 's' ) {
 				register char *s = (char *)va_arg(args, int);
-				pc += prints (out, s?s:"(null)", width, pad);
+				pc += prints (out, s ? s : "(null)", width, pad);
 				continue;
 			}
 			if( *format == 'd' ) {
