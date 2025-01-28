@@ -50,5 +50,11 @@ under the License.
 #endif
 
 /* Functions */
+
+/* Main ``printf`` function (true macro
+ * defined in ``io.h`` though -_-). */
 int printf_(const char *format, ...);
+
+/* SPrintf (Stream Printf). Has *not*
+ * been tested, thus should *not* be used. */
 int sprintf_(char *out, const char *format, ...);
