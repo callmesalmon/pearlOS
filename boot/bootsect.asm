@@ -37,7 +37,7 @@ boot_start:
     call print_string_pm
 
     call enter_kernel
-    jmp $ ; safety lol
+    jmp $ ; for safety lol
 
 %include "boot/boot_sect_disk.asm"
 %include "boot/print/boot_sect_print.asm"
