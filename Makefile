@@ -26,7 +26,7 @@ LINKER   = ld -m elf_i386 -s
 CC       = clang
 CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. --target=i686-pc-none-elf \
 		   -march=i686 -I. -fno-builtin -nostdlib -nostdinc -std=c17
-ASMC     = nasm 
+ASMC     = nasm
 ASMF     = elf32
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
@@ -48,7 +48,7 @@ CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
-all: dist/pearl.bin
+all: $(.DEFAULT_GOAL)
 
 dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
 	rm -f dist/pearl.bin
