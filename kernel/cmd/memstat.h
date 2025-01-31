@@ -22,7 +22,7 @@ under the License.
 #pragma once
 
 #include <io.h>
-#include <exit.h>
+#include <err.h>
 #include <mem.h>
 #include <drivers/display.h>
 
@@ -31,5 +31,5 @@ excode ksh_memstat() {
     printf("total: %d\n", memory_usage());
     printf("effective: %d\n", memory_usage_effective());
     
-    return __EXIT_SUCCESS;
+    return exitval;
 }

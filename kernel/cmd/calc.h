@@ -23,7 +23,7 @@ under the License.
 
 #include <io.h>
 #include <math.h>
-#include <exit.h>
+#include <err.h>
 #include <string.h>
 #include <conv.h>
 #include <magic.h>
@@ -47,7 +47,7 @@ excode ksh_calc() {
     /* Convert */
     if (str_to_int(s1, alen(s1)) == INVALID_INT || str_to_int(s2, alen(s2)) == INVALID_INT) {
         println("Invalid number.");
-        return __STD_ERROR;
+        return errval;
     }
     int n1 = str_to_int(s1, alen(s1));
     int n2 = str_to_int(s2, alen(s2));
@@ -60,8 +60,8 @@ excode ksh_calc() {
     else if (strcmp(op, "^")) printu(pow(n1, n2));
     else {
         println("Invalid operator.");
-        return __STD_ERROR_256;
+        return errval256;
     }
 
-    return __EXIT_SUCCESS;
+    return exitval;
 }

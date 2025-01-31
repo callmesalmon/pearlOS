@@ -42,27 +42,27 @@ under the License.
 
 /* Regular 'ol exit success */
 #ifdef EXIT_OLD
-#   define __EXIT_SUCCESS 0
+#   define exitval 0
 #else
-    excode __EXIT_SUCCESS = {
+    excode exitval = {
         .code = 0
     };
 #endif
 
 /* Old and new standard error */
 #ifdef EXIT_OLD
-#   define __STD_ERROR 1
+#   define errval 1
 #else
-    excode __STD_ERROR = {
+    excode errval = {
         .code = 1
     };
 #endif
 
 /* Another one for good measure */
 #ifdef EXIT_OLD
-#   define __STD_ERROR_256 256
+#   define errval256 256
 #else
-    excode __STD_ERROR_256 = {
+    excode errval256 = {
         .code = 256
     };
 #endif

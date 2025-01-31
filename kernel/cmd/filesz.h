@@ -19,7 +19,7 @@ specific language governing permissions and limitations
 under the License.
 */
 
-#include <exit.h>
+#include <err.h>
 #include <io.h>
 #include <mem.h>
 #include <conv.h>
@@ -37,5 +37,5 @@ excode ksh_filesz() {
     int_to_str(file_sz, file_size(file));
     printf("%s\n", file_sz);
 
-    return __EXIT_SUCCESS;
+    return exitval;
 }
