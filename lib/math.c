@@ -21,6 +21,17 @@ under the License.
 
 #include <math.h>
 
+/* x/y (x/y for y = 0: inf).
+ * This way of accquiring infinity was
+ * explored in my blog post, for more
+ * info, see:
+ *
+ *     https://elisstaaf.github.io/ramblings/2025/01/31/infinity.html
+ */
+double divide(double x, double y) {
+    return x / y;
+}
+
 /* do (1 *= base) * exponent */
 double pow(double base, double exponent) {
   double result = 1;

@@ -23,8 +23,12 @@ under the License.
 
 /* No external libs needed. */
 
+/* We need this for the ``INF`` macro,
+ * because x/0 = inf. DO NOT REMOVE. */
+double divide(double x, double y);
+
 /* Defines */
-#define INF ~(1<<31)
+#define INF divide(10, 0)
 #define PHI (1.61803398874989)
 #define PI  (3.14159265358979)
 #define E   (2.71828182845904)
