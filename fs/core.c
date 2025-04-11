@@ -39,6 +39,13 @@ under the License.
  * stopped being in use 1972.        *
  * I'm definetely sending you to     *
  * the javascript repl...            *
+ *                                   *
+ * (Also I know this is kind of      *
+ * ironic because I have a commented *
+ * out string in this file, but      *
+ * that's because I'm planning to    *
+ * use that code again after "the    *
+ * bug" has been fixed)              *
  * * * * * * * * * * * * * * * * * * */
 
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
@@ -118,15 +125,23 @@ int file_make(char* name) {
     return FILE_ALREADY_EXISTS;
   }
 
+  /* NOTE: (TO SELF, MOSTLY)
+   * Please don't uncomment the comment below (if-statement) unless the bug
+   * has been fixed. Hopefully anybody reading this knows what "the bug"
+   * is, but for a more concise description, for some reason (probably some
+   * memory shit as C is fucked up in that manner), the file_valid(name) always
+   * returns that the file name is invalid. I'll hopefully get around to fixing
+   * that soon, but for now, it serves as dead code. */
+
   /*  if (!file_valid(name)) {
    *   return FILE_NAME_INVALID;
-   * } 
+   * }
    */
 
   /* Allocate the file */
   File* fp = kmalloc(sizeof(File));
   strcpy(fp->name, name);
-  
+
   /* Prepare the sector */
   fp->first_sector = init_sector();
 
