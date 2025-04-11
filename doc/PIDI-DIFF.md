@@ -40,7 +40,7 @@ The [stdlib](https://github.com/ElisStaaf/pearlOS/blob/main/lib) of the project 
 improved, changes include:
 * [math](https://github.com/ElisStaaf/pearlOS/blob/main/lib/math.h)
   * Add more mathematical constants, like `e` and `π`
-  * Add infinity, being `~(1<<31)`
+  * Add infinity, being `x/0`
   * Add a factorial function
 * [stddef](https://github.com/ElisStaaf/pearlOS/blob/main/lib/stddef.h)
   * Add a `NULL` value (`(void*)0`)
