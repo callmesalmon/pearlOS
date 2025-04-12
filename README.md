@@ -30,7 +30,7 @@ for me to learn operating system things and also to become better at C and Assem
 PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
 It's very easy to install, firstly clone the repo:
 ```sh
-git clone https://github.com/ElisStaaf/pearlOS
+git clone https://github.com/callmesalmon/pearlOS
 ```
 After going into the repo directory, configure and then make:
 ```sh
