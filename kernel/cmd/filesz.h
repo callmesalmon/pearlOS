@@ -25,7 +25,7 @@ under the License.
 #include <conv.h>
 #include <fs/core.h>
 #include <drivers/display.h>
-#include <string>
+#include <string.h>
 
 /* DISCLAIMER
  * Fuck this, dude. It keeps kmallocing a value called "S",
