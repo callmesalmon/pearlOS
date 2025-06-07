@@ -22,6 +22,6 @@ under the License.
 #pragma once
 
 /* Defines */
-#define OS_VERSION  "Dragonfly"
-#define OS_GENERIC  "1.3.0"
+#define OS_VERSION  "Octopus"
+#define OS_GENERIC  "1.4.0"
 #define KSH_VERSION "1.2.1"
