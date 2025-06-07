@@ -25,12 +25,18 @@ under the License.
 #include <conv.h>
 #include <fs/core.h>
 #include <drivers/display.h>
+#include <string>
+
+/* DISCLAIMER
+ * Fuck this, dude. It keeps kmallocing a value called "S",
+ * which presumably happened during the cpu update. Fix later
+ * maybe. */
 
 excode ksh_filesz() {
     /* Collect */
     printk("> ");
     char *file = (char *) kmalloc(255);
-    scan(file);
+    scan(file); /* This is where file = "S" */
 
     /* Handle */
     char *file_sz;

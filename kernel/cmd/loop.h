@@ -27,6 +27,11 @@ under the License.
 #include <stddef.h>
 #include <mem.h>
 
+/* Another hella buggy one. You can actually almost make
+ * loops with this one tho tehee :3 (No but actually fuck
+ * this, I should probably fix this)
+ */
+
 char* commands[] = {};
 
 /* Necessary prototype function,

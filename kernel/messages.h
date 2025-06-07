@@ -66,5 +66,5 @@ under the License.
 #define KERNEL_INFO_SHELL_UNKNOWN_COMMAND   "Unknown command\n"
 #define KERNEL_PANIC_MEMORY_INDEX_FULL      "Kernel index is full!\nCAUSE: Too many kmalloc() calls...\n"
 #define KERNEL_PANIC_MEMORY_FULL            "Kernel memory is full!\nCAUSE: The system ran out of RAM..."
-#define FIRMWARE_ERROR_ISR_EXCEPTION        "ISR Exception: "
-#define FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING "Couldn't find an SMBIOS entry...\n"
+#define FIRMWARE_ERROR_ISR_EXCEPTION        "(ERROR) Recieved ISR exception: "
+#define FIRMWARE_ERROR_SMBIOS_ENTRY_MISSING "(ERROR) Recieved exception: Couldn't find an SMBIOS entry...\n"

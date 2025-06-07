@@ -28,6 +28,7 @@ under the License.
 #include <drivers/display.h>
 #include <cpu/smbios.h>
 
+/* I did NOT make this art btw */
 #define PEARLFETCH_ART \
   "           _.-''|''-._         \n" \
   "        .-'     |     `-.      \n" \
@@ -52,19 +53,3 @@ void ksh_pearlfetch() {
   printf("Memory: %d/%d\n", memory_usage(), memory_total());
   printf("Theme: %s\n", theme);
 }
-
-/*14 x 28
-██████████████████  ████████   eliss@pc
-██████████████████  ████████   ------------
-██████████████████  ████████   OS: Manjaro Linux x86_64
-██████████████████  ████████   Host: MS-7788 1.0
-████████            ████████   Kernel: 5.10.34-1-MANJARO
-████████  ████████  ████████   Uptime: 2 hours, 43 mins
-████████  ████████  ████████   Packages: 1388 (pacman), 7 (snap)
-████████  ████████  ████████   Shell: bash 5.1.4
-████████  ████████  ████████   Resolution: 1920x1080, 1280x1024
-████████  ████████  ████████   DE: Plasma 5.21.4
-████████  ████████  ████████   WM: KWin
-████████  ████████  ████████   WM Theme: Sweet-Mars-transparent
-████████  ████████  ████████   Theme: Aritim-Dark_DEV [Plasma], Breeze [GTK2/3]
-████████  ████████  ████████ */
