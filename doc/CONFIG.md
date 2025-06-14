@@ -114,7 +114,7 @@ MSG_PROT_MODE<db>    : Message that prints when
 MSG_LOAD_KERNEL<db>  : Message that prints when
                        kernel is loading.
 
-MSG_CRASH_KERNEL<db> : Message that prints if 
+MSG_CRASH_KERNEL<db> : Message that prints if
                        kernel crashes.
 ```
 

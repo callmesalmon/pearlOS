@@ -1,5 +1,5 @@
 - [ ] Kernel
-  - [x] Config 
+  - [x] Config
   - [ ] More programs
   - [ ] Better shell
   - [ ] Syscall interface
