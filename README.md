@@ -20,29 +20,20 @@ for me to learn operating system things and also to become better at C and Assem
 * [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
 
-## Installation
+## Compilation
 
 > [!NOTE]
 > Compilation is only guaranteed on linux with *Clang ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
-PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
-It's very easy to install, firstly clone the repo:
+Assuming you have the prerequisites installed and have a locally hosted version of the project (using tools like
+git or others), you can compile and run the project using:
 ```sh
-git clone https://github.com/callmesalmon/pearlOS
+./configure && make qemu
 ```
-After going into the repo directory, configure and then make:
-```sh
-./configure
-make qemu
-
-## NOTE: To build with GCC, instead of running
-##       "make qemu", run:
-scripts/gcc.sh qemu
-```
-This will start up a QEMU session with the image, and you
-can run the OS.
+This will start up a QEMU session with the image, and you can run the OS. If you don't have clang, you can
+technically build the OS using GCC with ``sh scripts/gcc.sh``, but it is not recommended.
 
 NOTE: To add your own config (and then run it using ``./configure``),
 you can [read the docs](/doc/CONFIG.md).
