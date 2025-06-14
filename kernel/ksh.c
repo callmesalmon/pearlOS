@@ -38,6 +38,7 @@ char *theme;
 #include <kernel/cmd/loop.h>
 #include <kernel/cmd/memstat.h>
 #include <kernel/cmd/filesz.h>
+#include <kernel/cmd/cowsay.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -89,6 +90,9 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "fortune")) {
         ksh_fortune();
+    }
+    else if (strcmp(command, "kowsay")) {
+        kowsay();
     }
     else if (strcmp(command, "calc")) {
         ksh_calc();

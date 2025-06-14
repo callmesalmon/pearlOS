@@ -30,6 +30,7 @@ int ksh_help() {
     println("loop           loop command \"X\" times");
     println("exit           exit kernel shell");
     println("fortune        digital fortune cookie");
+    println("kowsay         a minimal version of cowsay");
     println("version        get kernel version");
     println("pearlfetch     show info about your system");
     println("calc           simple calculator");
