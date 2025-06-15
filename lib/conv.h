@@ -27,3 +27,4 @@ char uint32_to_char(uint32_t number);
 char uint_to_char(uint number);
 int str_to_int(char *array, size_t n);
 byte char_to_hex(char character);
+int hex_to_int(char* hex_str, size_t len);
