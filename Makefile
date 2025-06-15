@@ -42,6 +42,7 @@ FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
 C_PROGRAMS = $(wildcard kernel/cmd/*.h)
 C_HEADERS  = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
+C_OBJ_REQS = $(C_PROGRAMS) $(C_HEADERS)
 
 KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
@@ -63,19 +64,19 @@ mk/bin/bootsect.bin: boot/*
 	$(ASMC) -f bin -o $@ boot/bootsect.asm
 	chmod +x $@
 
-mk/kernel/%.o: kernel/%.c $(C_HEADERS) $(C_PROGRAMS)
+mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/drivers/%.o: drivers/%.c $(C_HEADERS) $(C_PROGRAMS)
+mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/cpu/%.o: cpu/%.c $(C_HEADERS) $(C_PROGRAMS)
+mk/cpu/%.o: cpu/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/lib/%.o: lib/%.c $(C_HEADERS) $(C_PROGRAMS)
+mk/lib/%.o: lib/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/fs/%.o: fs/%.c $(C_HEADERS) $(C_PROGRAMS)
+mk/fs/%.o: fs/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/kernel/kentry.o: kernel/kentry.asm
