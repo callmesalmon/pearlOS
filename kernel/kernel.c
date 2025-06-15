@@ -48,9 +48,6 @@ int kmain() {
 
     KERNEL_STARTUP;
 	
-    while (true) {
-        KERNEL_UPDATE;
-	}
     return 0;
 }
 
