@@ -28,8 +28,8 @@ typedef struct {
   byte MajorVersion;           /* Major Version of SMBIOS */
   byte MinorVersion;           /* Minor Version of SMBIOS */
   word MaxStructureSize;       /* Maximum size of a SMBIOS Structure (we'll see later) */
-  byte EntryPointRevision;     /* ... */
-  char FormattedArea[5];       /* ... */
+  byte EntryPointRevision;     
+  char FormattedArea[5];      
   char EntryPointString2[5];   /* This is _DMI_ */
   byte Checksum2;              /* Checksum for values from EntryPointString2 to the end of table */
   word TableLength;            /* Length of the table containing all the structures */
@@ -76,6 +76,8 @@ void smbios_init() {
   int length, i;
   uchar checksum;
   while ((uint) mem < 0x100000) {
+      
+      /* _SM_ */
       if (mem[0] == '_' && mem[1] == 'S' && mem[2] == 'M' && mem[3] == '_') {
           length = mem[5];
           checksum = 0;
