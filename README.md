@@ -70,7 +70,6 @@ rtfc (read the fucking code).
 
 ## License
 
-Unless explicitly stated, every single *modified* file in this project is licensed
-under the *Apache 2.0 License*, while the *unmodified* files are licensed under *MIT*.
-The "SPDX-License-Identifier" rule obviously overrides this option, and is how you
-explicitly state a different license. See [LICENSE](/LICENSE) for the 2 main licenses.
+This project is licensed under the ANTIFA-MIT license, which basically states that
+the project is only available to non-fascists, and to the people which it is available
+to, it is licensed under the MIT license.
