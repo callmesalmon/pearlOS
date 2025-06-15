@@ -9,6 +9,7 @@
 #include <conv.h>
 #include <stdint.h>
 #include <stddef.h>
+#define INT_MAX 2147483647
 
 void uint32_to_str(char* output, uint32_t number) {
     const char digits[] = "0123456789";

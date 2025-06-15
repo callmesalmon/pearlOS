@@ -16,6 +16,8 @@
 /* Defines */
 #define INVALID_BYTE (byte)0x1099
 #define INVALID_INT (int)INF
+#define INT_MAX 2147483647
+
 
 /* Functions */
 void uint32_to_str(char* output, uint32_t number);
