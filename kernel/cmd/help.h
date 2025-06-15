@@ -35,7 +35,7 @@ int ksh_help() {
     println("cat            read file content");
     println("sz             get size of file");
     println("to             write to file");
-    println("femto          lightweight text editor");
+    println("zeptex         minimalist text editor");
 
     return 0;
 }

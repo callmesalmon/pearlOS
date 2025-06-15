@@ -58,7 +58,7 @@ static void editor_edit_line(struct editor_state* state, int line_num) {
 }
 
 static void editor_print_help() {
-    printk("Femto editor commands:\n");
+    printk("Zeptex editor commands:\n");
     printk("q - quit editor\n");
     printk("w - write to file\n");
     printk("a - add new line\n");
