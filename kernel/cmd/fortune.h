@@ -8,6 +8,10 @@
 
 #pragma once
 
+/* I completely yanked this idea from calebrwalk5's
+ * pull request (https://github.com/GandelXIV/pidi-os/pull/24/files),
+ * but this one actually works. And has more fortunes. */ 
+
 #include <io.h>
 #include <magic.h>
 #include <rand.h>
