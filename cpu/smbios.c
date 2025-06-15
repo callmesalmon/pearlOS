@@ -72,7 +72,7 @@ char* smbios_get_bios_name() {
 }
 
 void smbios_init() {
-    char* mem = (uchar*)(0xF0000);
+    char* mem = (char*)(0xF0000);
     int length, i;
     uchar checksum;
     while ((uint) mem < 0x100000) {
