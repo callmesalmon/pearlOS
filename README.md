@@ -60,7 +60,7 @@ project, I'll probably accept your contribution.
 ## Activity
 
 I'm a bit inconsistent on when I actually, y'know, maintain and update this,
-but I can assure you, even if you see a 1-month pause, THE PROJECT IS NOT DEAD.
+but I can assure you, even if you see a 5-month pause, THE PROJECT IS NOT DEAD.
 If the project dies, you can expect archival or at least a message.
 
 ## Documentation
