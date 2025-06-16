@@ -6,8 +6,8 @@
 *     https://github.com/jamiebuilds/anti-fascist-mit-license
 */
 
-// #include <kernel/cmd/editor.h>
-#include "editor.h" 
+#include <kernel/cmd/editor.h>
+// #include "editor.h" 
 #include <fs/core.h>
 
 struct editor_state {
