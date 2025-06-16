@@ -114,3 +114,9 @@ void memcpy(byte* dest, byte* src, uint32_t size) {
     dest[i] = src[i];
   }
 }
+
+void *memset(void *s, int c, unsigned long n) {
+  unsigned char *p = s;
+  while (n--) *p++ = (unsigned char)c;
+  return s;
+}
