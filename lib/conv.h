@@ -14,9 +14,9 @@
 #include <string.h>
 
 /* Defines */
-#define INVALID_BYTE (byte)0x1099
-#define INVALID_INT (int)INF
-#define INT_MAX 2147483647
+#define INVALID_BYTE (byte) 0x1099
+#define INVALID_INT  (int)  INF
+#define INT_MAX             2147483647
 
 
 /* Functions */

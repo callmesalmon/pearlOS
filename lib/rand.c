@@ -35,6 +35,6 @@ int rand_lcg(int x) {
  * rand() % (int)
  */
 int rand() {
-  rand_seed = rand_lcg(rand_seed);  /* I have no idea how this is valid C. */
+  rand_seed = rand_lcg(rand_seed);
   return rand_seed;
 }
