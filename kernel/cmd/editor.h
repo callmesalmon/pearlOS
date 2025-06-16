@@ -13,7 +13,7 @@
 #include <mem.h>
 #include <fs/core.h>
 #include <magic.h>    
-#include <display.h> 
+#include <drivers/display.h>
 #include <stdint.h>
 #include <stdbool.h>
 
