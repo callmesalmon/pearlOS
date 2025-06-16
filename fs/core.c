@@ -268,7 +268,7 @@ void mkfs() {
     "\"github.com/ElisStaaf/pearlOS\", feel free to contribute!\n"
     "And with that, enjoy the OS!\n\n"
     "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
-    "PIDI-OS: Filip Chovanec <\?\?\?>, Mar 2021.\n"
+    "PIDI-OS: Filip Chovanec <???>, Mar 2021.\n"
   );
   file_make("roadmap");
   file_writes(
