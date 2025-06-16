@@ -79,15 +79,4 @@ void strupp(char* string) {
   }
 }
 
-void *memset(void *s, int c, unsigned long n) {
-  unsigned char *p = s;
-  while (n--) *p++ = (unsigned char)c;
-  return s;
-}
 
-void *memcpy(void *dest, const void *src, unsigned long n) {
-  unsigned char *pdest = dest;
-  const unsigned char *psrc = src;
-  while (n--) *pdest++ = *psrc++;
-  return dest;
-}
