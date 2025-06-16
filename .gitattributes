@@ -4,4 +4,3 @@ configure linguist-language=bash     diff=bash
 *.asm     linguist-language=assembly diff=assembly
 *.py      linguist-language=Python   diff=Python
 *.mk      linguist-language=Makefile diff=Makefile
-*.pl      linguist-language=Perl     diff=Perl
