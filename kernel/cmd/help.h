@@ -34,7 +34,6 @@ int ksh_help() {
     println("rm             delete file");
     println("cat            read file content");
     println("to             write to file");
-    println("zeptex         minimalist text editor");
 
     return 0;
 }
