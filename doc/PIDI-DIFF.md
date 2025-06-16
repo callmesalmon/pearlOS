@@ -22,7 +22,7 @@ Additions for already existing commands, such as:
 \*: Has been renamed.
 
 Other things have been added to the userland, such as:
-* comments (start with "#")
+* comments (start with ";")
 * *better* theming
 * more themes
 
