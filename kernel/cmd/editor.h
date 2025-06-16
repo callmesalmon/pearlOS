@@ -12,13 +12,11 @@
 #include <string.h>
 #include <mem.h>
 #include <fs/core.h>
-
+#include <magic.h>    
+#include <display.h> 
 #include <stdint.h>
 #include <stdbool.h>
 
-#include <kernel/types.h>  
-#include <kernel/display.h> // for display functions
-#include <kernel/memory.h>  // for kmalloc/kfree
 
 // Editor version
 #define EDITOR_VERSION "1.0"
