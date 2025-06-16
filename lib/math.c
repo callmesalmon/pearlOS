@@ -28,12 +28,3 @@ double pow(double base, double exponent) {
   }
   return result;
 }
-
-/* do while(--number != 1) 
- *     (number * (number - 1)) */
-double factorial(double number) {
-    if (number == 1) {
-        return 1;
-    }
-    return number * factorial(number - 1);
-}

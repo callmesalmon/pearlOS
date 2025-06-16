@@ -6,57 +6,22 @@
  *     https://github.com/jamiebuilds/anti-fascist-mit-license
  */
 
-/* [OLD/NEW]
- * Old exit codes are just like
- * every other thing, but the
- * *new* exit codes have a 
- * special type, and you
- * can access the function exit
- * code by using "func.code",
- * e.g: myfunc().code. Define
- * EXIT_OLD if you want the old
- * experience, though it is gone.
- */
-
 #pragma once
 
-/* Base exit code */
-#ifndef EXIT_OLD
-    typedef struct {
-        int code;
-    } excode;
-#endif
+typedef struct {
+    int code;
+} excode;
 
-/* Regular 'ol exit success */
-#ifdef EXIT_OLD
-#   define exitval 0
-#else
-    excode exitval = {
+excode exitval = {
         .code = 0
-    };
-#endif
+};
 
-/* Old and new standard error */
-#ifdef EXIT_OLD
-#   define errval 1
-#else
-    excode errval = {
-        .code = 1
-    };
-#endif
+excode errval = {
+    .code = 1
+};
 
-/* Another one for good measure */
-#ifdef EXIT_OLD
-#   define errval256 256
-#else
-    excode errval256 = {
-        .code = 256
-    };
-#endif
+excode errval256 = {
+    .code = 256
+};
 
-/* Exit macro */
-#ifdef EXIT_OLD
-#   define fetch return
-#else
-#   define fetch(c) return c;
-#endif
+#define fetch return

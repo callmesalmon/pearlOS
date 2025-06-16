@@ -8,7 +8,6 @@
  
 #pragma once
 
-#include <stdbool.h>
 #include <stddef.h>
 
 /* Node structure */
@@ -73,4 +72,3 @@ bool list_empty(const LinkedList* list);
  * @return number of elements
  */
 unsigned int list_size(const LinkedList* list);
-

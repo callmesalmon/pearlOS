@@ -16,8 +16,6 @@ double divide(double x, double y);
 
 /* Defines */
 #define INF divide(10, 0)
-#define PI  (3.14159265358979)
 
 /* Functions */
 double pow(double base, double exponent);
-double factorial(double number);

@@ -10,10 +10,6 @@
 
 #include <stdint.h>
 
-/* PLen (Pointer Length) calculates length
- * of array by using ``sizeof(x) / sizeof(*x)``.*/
-#define plen(arr)  (sizeof(arr) / sizeof(*arr))
-
 /* ALen (Array [Due to referencing the array
  * directly] Length) calculates length of array
  * by using ``sizeof(x) / sizeof(x[0])``. Clang

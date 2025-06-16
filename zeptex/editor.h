@@ -15,8 +15,6 @@
 #include <magic.h>    
 #include <drivers/display.h>
 #include <stdint.h>
-#include <stdbool.h>
-
 
 // Editor version
 #define EDITOR_VERSION "1.0"
@@ -62,7 +60,6 @@ void set_cursor_position(uint column, uint row);
 #define EDITOR_ERR_FILE_SAVE      3
 #define EDITOR_ERR_LINE_FULL      4
 #define EDITOR_ERR_MEMORY         5
-
 
 /**
 * Launches the built-in line editor in kernel shell.

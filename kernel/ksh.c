@@ -24,7 +24,6 @@ char *theme;
 #include <kernel/cmd/alloc.h>
 #include <kernel/cmd/loop.h>
 #include <kernel/cmd/memstat.h>
-#include <kernel/cmd/filesz.h>
 #include <kernel/cmd/cowsay.h>
 #include <kernel/cmd/editor.h>
 
@@ -99,9 +98,6 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "rm")) {
         ksh_remove_file();
-    }
-    else if (strcmp(command, "sz")) {
-        ksh_filesz();
     }
     else if (strcmp(command, "cat")) {
         ksh_read_file();

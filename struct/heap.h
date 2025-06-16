@@ -10,7 +10,6 @@
 
 /* Includes */
 #include <stddef.h>
-#include <stdbool.h>
 
 /* Comparison function type */
 typedef int (*HeapCompareFunc)(const void*, const void*);

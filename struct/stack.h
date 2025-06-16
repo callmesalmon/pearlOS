@@ -23,7 +23,6 @@
 
 /* Includes */
 #include <stddef.h>
-#include <stdbool.h>  // For the bool type (C99 and later)
 
 /* Stack structure */
 typedef struct {

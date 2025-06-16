@@ -33,7 +33,6 @@ int ksh_help() {
     println("mk             create new file");
     println("rm             delete file");
     println("cat            read file content");
-    println("sz             get size of file");
     println("to             write to file");
     println("zeptex         minimalist text editor");
 

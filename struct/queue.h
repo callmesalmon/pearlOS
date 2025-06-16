@@ -9,7 +9,6 @@
 
 /* Includes */
 #include <stddef.h>
-#include <stdbool.h>
 
 /* Queue structure */
 typedef struct {
