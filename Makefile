@@ -18,6 +18,8 @@ ASMF     = elf32
 
 KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
 KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
+CMD_C_SOURCES        := $(wildcard kernel/cmd/*.c)
+CMD_C_OBJECTS        := $(patsubst kernel/cmd/%.c, mk/kernel/cmd/%.o, $(CMD_C_SOURCES))
 DRIVER_C_SOURCES     := $(wildcard drivers/*.c)
 DRIVER_C_OBJECTS     := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
 CPU_C_SOURCES        := $(wildcard cpu/*.c)
@@ -31,7 +33,7 @@ C_PROGRAMS = $(wildcard kernel/cmd/*.h)
 C_HEADERS  = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
 C_OBJ_REQS = $(C_PROGRAMS) $(C_HEADERS)
 
-KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
+KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) $(CMD_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
 CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
@@ -52,6 +54,9 @@ mk/bin/bootsect.bin: boot/*
 	chmod +x $@
 
 mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+mk/kernel/cmd/%.o: kernel/cmd/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS)
@@ -79,6 +84,7 @@ clean:
 	rm -f dist/*
 	rm -f mk/bin/*
 	rm -f mk/kernel/*
+	rm -f mk/kernel/cmd/*
 	rm -f mk/drivers/*
 	rm -f mk/cpu/*
 	rm -f mk/lib/*
