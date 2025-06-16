@@ -27,11 +27,14 @@ LIB_C_OBJECTS        := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
 FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
 FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
 
+CMD_C_SOURCES := $(wildcard kernel/cmd/*.c)
+CMD_C_OBJECTS := $(patsubst kernel/cmd/%.c, mk/cmd/%.o, $(CMD_C_SOURCES))
+
 C_PROGRAMS = $(wildcard kernel/cmd/*.h)
 C_HEADERS  = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
 C_OBJ_REQS = $(C_PROGRAMS) $(C_HEADERS)
 
-KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
+KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) $(CMD_C_OBJECTS) mk/kernel/kentry.o
 DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
 CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
@@ -52,6 +55,9 @@ mk/bin/bootsect.bin: boot/*
 	chmod +x $@
 
 mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+mk/cmd/%.o: kernel/cmd/%.c $(C_OBJ_REQS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS)
