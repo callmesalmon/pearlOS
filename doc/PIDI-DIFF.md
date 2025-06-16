@@ -81,6 +81,10 @@ configuration files. These are:
   * Configs the entry.
   * Maybe don't... Touch this one..?
 
+A prototype of a working text editor (e.g glorifed ``to`` command), is being actively
+worked on, mainly by "androvonx95". It is called zeptex and is found in the "Zeptex"
+folder.
+
 ## Bug Fixes
 
 I *needed* to be able to run the project, I couldn't have a non-functional
