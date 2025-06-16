@@ -39,42 +39,47 @@ CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
 LIB_OBJECTS        = $(LIB_C_OBJECTS)
 FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
 
+# Directories needed for build output
+BUILD_DIRS = mk mk/bin mk/kernel mk/kernel/cmd mk/drivers mk/cpu mk/lib mk/fs dist
+$(BUILD_DIRS):
+	mkdir -p $@
+
 all: $(.DEFAULT_GOAL)
 
-dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
+dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin | dist
 	rm -f dist/pearl.bin
 	cat mk/bin/* > $@
 	chmod +x dist/pearl.bin
 
-mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
+mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS) | mk/bin
 	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
 
-mk/bin/bootsect.bin: boot/*
+mk/bin/bootsect.bin: boot/* | mk/bin
 	$(ASMC) -f bin -o $@ boot/bootsect.asm
 	chmod +x $@
 
-mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS)
+mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS) | mk/kernel
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/kernel/cmd/%.o: kernel/cmd/%.c $(C_OBJ_REQS)
+mk/kernel/cmd/%.o: kernel/cmd/%.c $(C_OBJ_REQS) | mk/kernel/cmd
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS)
+mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS) | mk/drivers
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/cpu/%.o: cpu/%.c $(C_OBJ_REQS)
+mk/cpu/%.o: cpu/%.c $(C_OBJ_REQS) | mk/cpu
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/lib/%.o: lib/%.c $(C_OBJ_REQS)
+mk/lib/%.o: lib/%.c $(C_OBJ_REQS) | mk/lib
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/fs/%.o: fs/%.c $(C_OBJ_REQS)
+mk/fs/%.o: fs/%.c $(C_OBJ_REQS) | mk/fs
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mk/kernel/kentry.o: kernel/kentry.asm
+mk/kernel/kentry.o: kernel/kentry.asm | mk/kernel
 	$(ASMC) -f $(ASMF) -o $@ $<
 
-mk/cpu/interrupt.o: cpu/interrupt.asm
+mk/cpu/interrupt.o: cpu/interrupt.asm | mk/cpu
 	$(ASMC) -f $(ASMF) -o $@ $<
 
 qemu: $(.DEFAULT_GOAL)
@@ -89,7 +94,3 @@ clean:
 	rm -f mk/cpu/*
 	rm -f mk/lib/*
 	rm -f mk/fs/*
-
-
-
-	
