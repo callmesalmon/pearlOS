@@ -40,9 +40,7 @@ modifications include:
 The [stdlib](https://github.com/callmesalmon/pearlOS/blob/main/lib) of the project has been greatly
 improved, changes include:
 * [math](https://github.com/callmesalmon/pearlOS/blob/main/lib/math.h)
-  * Add more mathematical constants, like `e` and `π`
   * Add infinity, being `x/0`
-  * Add a factorial function
 * [stddef](https://github.com/callmesalmon/pearlOS/blob/main/lib/stddef.h)
   * Add a `NULL` value (`(void*)0`)
   * Add `size_t` type (`__SIZE_TYPE__`)
