@@ -3,6 +3,7 @@
 *.obj
 *.elf
 *.bin
+*.iso
 
 # Archives 
 *.tar
@@ -11,7 +12,7 @@
 # SWP/TMP files
 *.swp
 *~
-*\#
+*#
 
 # Debug files
 debug.h
@@ -22,5 +23,5 @@ dist/
 mk/
 
 # Profiles
-config/profiles/*/
+config/profiles/*
 !config/profiles/default
