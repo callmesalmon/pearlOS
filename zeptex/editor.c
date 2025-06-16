@@ -1,6 +1,5 @@
-#include <kernel/cmd/editor.h>
+#include <zeptex/editor.h>
 
-// Define uint8_t if not defined
 #ifndef uint8_t
 #define uint8_t unsigned char
 #endif
@@ -17,7 +16,8 @@ int safe_scan(char* buffer, int max_len) {
     scan(buffer);
 
     int len = max_len; // Use max_len directly
-    if (alen(buffer) > max_len) {
+    int current_len = strlen(buffer);
+    if (current_len > max_len) {
         cprintk("Warning: input truncated to %d characters\n", max_len);
         buffer[len] = '\0';
     }
