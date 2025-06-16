@@ -29,11 +29,6 @@ double pow(double base, double exponent) {
   return result;
 }
 
-double abs(double number) {
-  if (number < 0) return -number;
-  return number;
-}
-
 /* do while(--number != 1) 
  *     (number * (number - 1)) */
 double factorial(double number) {
