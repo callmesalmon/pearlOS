@@ -32,7 +32,7 @@ char** ksh_loop_read(char* stimes) {
     for (int i = 0; i < 10; i++) {
         char* cmd = (char*) kmalloc(255);
         
-        printk("c> ");
+        printk("command# ");
         scan(cmd);
         
         commands[i] = cmd;
@@ -44,7 +44,7 @@ char** ksh_loop_read(char* stimes) {
 /* Init */
 int ksh_loop() {
     char* stimes = (char*) kmalloc(255);
-    printk("t> ");
+    printk("times# ");
     scan(stimes);
     int itimes = str_to_int(stimes, alen(stimes));
 
