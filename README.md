@@ -13,7 +13,7 @@ for me to learn operating system things and also to become better at C and Assem
 inconsistent in the way I update things and I kind of just implement things as I go so keep that
 in mind :P
 
-[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
+[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)  
 *Warning: Image may be outdated.*
 
 ## Requirements
