@@ -8,7 +8,7 @@
 */
 
 #include "bst.h"
-#include <mem.h>  // kmalloc, kfree
+#include <mem.h> 
 
 static void bst_node_destroy(BSTNode* node) {
     if (!node) return;
