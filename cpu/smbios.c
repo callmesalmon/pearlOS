@@ -10,8 +10,8 @@
 
 typedef struct {
     char EntryPointString[4];    /* This is _SM_ */
-    byte Checksum;               /* This value summed with all the values of the table, should be 0 (overflow) */
-    byte Length;                 /* Length of the Entry Point Table. Since version 2.1 of SMBIOS, this is 0x1F */
+    byte Checksum;               /* This value summed with all the values of the table, should be 0 */
+    byte Length;                 /* Length of the Entry Point Table. This is 0x1F (since v2.1) */
     byte MajorVersion;           /* Major Version of SMBIOS */
     byte MinorVersion;           /* Minor Version of SMBIOS */
     word MaxStructureSize;       /* Maximum size of a SMBIOS Structure (we'll see later) */
@@ -20,7 +20,7 @@ typedef struct {
     char EntryPointString2[5];   /* This is _DMI_ */
     byte Checksum2;              /* Checksum for values from EntryPointString2 to the end of table */
     word TableLength;            /* Length of the table containing all the structures */
-    uint TableAddress;	       /* Address of the table */
+    uint TableAddress;	         /* Address of the table */
     word NumberOfStructures;     /* Number of structures in the table */
     byte BCDRevision;            /* Unused */
 } SMBIOSEntryPoint;
