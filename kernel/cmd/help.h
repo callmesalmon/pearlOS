@@ -26,9 +26,9 @@ int ksh_help() {
     println("theme-pascal   changes the theme to pascal");
     println("theme-hacker   changes the theme back to hacker >:D");
     println("memstat        get allocated memory usage");
-    println("memalloc       allocate memory for test");
+    println("memalloc       allocate memory");
     println("random         get random number between 0-100");
-    println("panic          invoke debug kernel panic");  
+    println("panic          invoke kernel panic");  
     println("ls             list all files");
     println("mk             create new file");
     println("rm             delete file");
