@@ -19,9 +19,6 @@ char lowerbubble='\\';
 
 unsigned int counter;
 unsigned int argscharcount=0;
-unsigned int nextarg;
-unsigned short skiparg;
-unsigned short thought=0;
 
 int kowsay() {
     char* str = (char*) kmalloc(255);
