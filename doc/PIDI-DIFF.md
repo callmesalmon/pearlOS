@@ -27,7 +27,7 @@ Other things have been added to the userland, such as:
 * more themes
 
 The userland has also been *slightly* modified, including:
-* prompt (\*)
+* prompt (which is now "%")
 * renamed commands
 
 The [scripts](https://github.com/callmesalmon/pearlOS/blob/main/scripts) folder has also been modified,
