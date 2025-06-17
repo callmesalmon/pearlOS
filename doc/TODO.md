@@ -1,8 +1,8 @@
 - [ ] Kernel
   - [x] Config
   - [ ] CMD
-    - [ ] Maybe a text editor???
-    - [ ] Exit command
+    - [x] Exit command
+    - [ ] Other things???
   - [ ] Better shell
   - [ ] Syscall interface
 - [x] Boot
