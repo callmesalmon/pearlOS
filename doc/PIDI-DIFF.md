@@ -34,7 +34,6 @@ The [scripts](https://github.com/callmesalmon/pearlOS/blob/main/scripts) folder 
 modifications include:
 * remove useless timing script
 * minimalize [gencolours.py](https://github.com/callmesalmon/pearlOS/blob/main/scripts/gencolours.py)\*
-* update [archive.sh](https://github.com/callmesalmon/pearlOS/blob/main/scripts/archive.sh)
 \*: Has been renamed (color -> colour)
 
 The [stdlib](https://github.com/callmesalmon/pearlOS/blob/main/lib) of the project has been greatly
@@ -53,7 +52,7 @@ improved, changes include:
   * Rename functions (`kprints` -> `puts`)
 * [magic](https://github.com/callmesalmon/pearlOS/blob/main/lib/magic.h)
   * Add magic.h
-  * Add `len` macro (`sizeof(x) / sizeof(*x)`)
+  * Add `len` macro (`sizeof(x) / sizeof(x[0])`)
 * [stdint](https://github.com/callmesalmon/pearlOS/blob/main/lib/stdint.h)
   * Add stdint.h
   * Add `chint` function (is `char` also valid `int`?)
@@ -79,8 +78,8 @@ configuration files. These are:
   * Configs the entry.
   * Maybe don't... Touch this one..?
 
-A prototype of a working text editor (e.g glorifed ``to`` command), is being actively
-worked on, mainly by "androvonx95". It is called zeptex and is found in the "Zeptex"
+A prototype of a working text editor (e.g superior ``to`` command), is being actively
+worked on, mainly by "androvonx95". It is called zeptex and is found in the "zeptex"
 folder.
 
 ## Bug Fixes
