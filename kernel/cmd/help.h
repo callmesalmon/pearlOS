@@ -29,7 +29,7 @@ int ksh_help() {
     println("memalloc       allocate memory");
     println("random         get random number between 0-100");
     println("panic          invoke kernel panic");  
-    println("exit           exit OS")
+    println("exit           exit OS");
     println("ls             list all files");
     println("mk             create new file");
     println("rm             delete file");
