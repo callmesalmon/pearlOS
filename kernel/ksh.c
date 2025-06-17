@@ -70,10 +70,6 @@ byte ksh_interpret(char* command) {
         theme = "Hacker >:D";
         cprintln("You are a hacker now! >:D", RED_ON_BLACK);
     }
-    else if (strcmp(command, "exit")) {
-        display_clear();
-        return KSH_EXIT;
-    }
     else if (strcmp(command, "fortune")) {
         ksh_fortune();
     }
