@@ -47,5 +47,5 @@ sectors_error:
 disk_loop:
     jmp $
 
-DISK_ERROR: db "[PANIC] Disk read error!!!", 0
-SECTORS_ERROR: db "[PANIC] Incorrect number of sectors read!!!", 0
+DISK_ERROR: db "[KERNEL PANIC] Disk read error!!!", 0
+SECTORS_ERROR: db "[KERNEL PANIC] Incorrect number of sectors read!!!", 0
