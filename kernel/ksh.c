@@ -117,7 +117,7 @@ byte ksh_interpret(char* command) {
 }
 
 void ksh_start() {
-    theme = "Hacker >:D";
+    theme = "Pascal";
 
     char c[KSH_INPUT_BUFFER];
     for (uint i = 0; i < KSH_INPUT_BUFFER; ++i) {
