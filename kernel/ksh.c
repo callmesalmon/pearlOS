@@ -25,6 +25,7 @@ char *theme;
 #include <kernel/cmd/loop.h>
 #include <kernel/cmd/memstat.h>
 #include <kernel/cmd/cowsay.h>
+#include <kernel/cmd/exit.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -101,8 +102,7 @@ byte ksh_interpret(char* command) {
         ksh_write_to_file();
     }
     else  if (strcmp(command, "exit")) {
-        printf("Exiting...\n");
-        return KSH_EXIT;
+        return ksh_exit();
     }
     else if (strcmp(command, "random")) {
         printf("%d\n", rand() % 100);
