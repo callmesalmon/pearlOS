@@ -30,4 +30,4 @@ License: MIT
 
 > [!NOTE]
 > This README along with the rest of the Zeptex folder is taken
-> from the upstream repository which can be found [here](https://github.com/androvonx95/Zeptex)
+> from the upstream repository which can be found [here](https://github.com/androvonx95/Zeptex).
