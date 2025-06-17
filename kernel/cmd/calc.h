@@ -40,11 +40,11 @@ excode ksh_calc() {
     int n2 = str_to_int(s2, alen(s2));
 
     /* Handle */
-    if (strcmp(op, "+")) printu(n1 + n2);
-    else if (strcmp(op, "-")) printu(n1 - n2);
-    else if (strcmp(op, "*")) printu(n1 * n2);
-    else if (strcmp(op, "/")) printu(n1 / n2);
-    else if (strcmp(op, "^")) printu(pow(n1, n2));
+    if (strcmp(op, "+"))      printf("%d\n", n1 + n2);
+    else if (strcmp(op, "-")) printf("%d\n", n1 - n2);
+    else if (strcmp(op, "*")) printf("%d\n", n1 * n2);
+    else if (strcmp(op, "/")) printf("%d\n", n1 / n2);
+    else if (strcmp(op, "^")) printf("%d\n", pow(n1, n2));
     else {
         println("Invalid operator.");
         return errval256;
