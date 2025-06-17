@@ -8,3 +8,7 @@ Zeptex is a WIP text editor written by @androvonx95. It is planned to be added s
 after a little development so that it works.
 
 > **Contributions are most welcome!**
+
+(The most up-to-date version of Zeptex is found at 
+[androvonx95's github repository](https://github.com/androvonx95/Zeptex)
+by the same name, as this is just a downstream version.)
