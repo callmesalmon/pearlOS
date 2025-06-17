@@ -7,11 +7,11 @@
 
 pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
 project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
-operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS).
-But ofcourse only do that *after* you check out this project! pearlOS was made
-for me to learn operating system things and also to become better at C and Assembly. I am extremely
-inconsistent in the way I update things and I kind of just implement things as I go so keep that
-in mind :P
+operating system made by the [same author](https://github.com/GandelXIV);
+[RezOS](https://github.com/GandelXIV/RezOS). But ofcourse only do that *after*
+you check out this project! pearlOS was made for me to learn operating system 
+things and also to become better at C and Assembly. I am extremely inconsistent
+in the way I update things and I kind of just implement things as I go so keep that in mind :P
 
 [![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)  
 *Warning: Image may be outdated.*
