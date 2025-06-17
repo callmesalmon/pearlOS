@@ -85,7 +85,7 @@ void cprintc(char character, char color) {
 	} else {
       if (cursor <= (DISPLAY_WIDTH * DISPLAY_HEIGHT - 2) * 2) {
         video_memory[cursor] = character;
-        /* If the color is transparent no will be drawn */
+        /* If the color is transparent nothing will be drawn */
         if (color != TRANSPARENT) video_memory[cursor + 1] = color;
         set_cursor_offset(cursor + 2);
       } else {
