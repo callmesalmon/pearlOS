@@ -74,5 +74,8 @@ rtfc (read the fucking code).
 ## License
 
 This project is licensed under the ANTIFA-MIT license, which basically states that
-the project is only available to non-fascists, and to the people which it is available
-to, it is licensed under the MIT license.
+the project is only available to non-fascists and non-fascist supporters, and to the
+people which it is available to, it is licensed under the MIT license. Keep in mind
+that this is *not* legal advice, and that you should ideally read the [license](/LICENSE).
+If a copy of the license was for some reason NOT distributed with your copy of this
+program, it is available to read [here](https://github.com/jamiebuilds/anti-fascist-mit-license).
