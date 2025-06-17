@@ -104,6 +104,10 @@ byte ksh_interpret(char* command) {
     else if (strcmp(command, "to")) {
         ksh_write_to_file();
     }
+    else  if (strcmp(command, "exit")) {
+        printf("Exiting...\n");
+        return KSH_EXIT;
+    }
     else if (strcmp(command, "random")) {
         printf("%d\n", rand() % 100);
     }

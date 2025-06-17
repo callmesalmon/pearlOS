@@ -18,7 +18,7 @@ int ksh_help() {
     println("exit           exit kernel shell");
     println("fortune        digital fortune cookie");
     println("kowsay         a minimal version of cowsay");
-    println("version        get kernel version");
+    println("version        get OS version");
     println("pearlfetch     show info about your system");
     println("calc           simple calculator");
     println("theme-light    changes the theme to a light theme");
@@ -29,6 +29,7 @@ int ksh_help() {
     println("memalloc       allocate memory");
     println("random         get random number between 0-100");
     println("panic          invoke kernel panic");  
+    println("exit           exit OS")
     println("ls             list all files");
     println("mk             create new file");
     println("rm             delete file");
