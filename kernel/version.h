@@ -11,4 +11,4 @@
 /* Defines */
 #define OS_VERSION  "Octopus"
 #define OS_GENERIC  "1.4.0"
-#define KSH_VERSION "1.2.1"
+#define KSH_VERSION "1.2.2"
