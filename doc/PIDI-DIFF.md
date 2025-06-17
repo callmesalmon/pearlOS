@@ -80,7 +80,9 @@ configuration files. These are:
 
 A prototype of a working text editor (e.g superior ``to`` command), is being actively
 worked on, mainly by "androvonx95". It is called zeptex and is found in the "zeptex"
-folder.
+folder. Keep in mind that this is a downstream version of
+[https://github.com/androvonx95/Zeptex](https://github.com/androvonx95/Zeptex), so
+for the most recent updates, you should probably look over there.
 
 ## Bug Fixes
 
