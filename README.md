@@ -14,6 +14,7 @@ inconsistent in the way I update things and I kind of just implement things as I
 in mind :P
 
 [![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
+*Warning: Image may be outdated.*
 
 ## Requirements
 
