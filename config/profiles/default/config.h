@@ -14,7 +14,7 @@
 #define KERNEL_UPDATE
 
 /* ksh.h */
-#define KSH_PROMPT  "*"
+#define KSH_PROMPT  "%"
 #define KSH_COMMENT ';'
 
 /* mem.h */
