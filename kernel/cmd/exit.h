@@ -20,7 +20,7 @@ byte ksh_exit() {
     char* str = (char*) kmalloc(255);
 
     kwarning("This will permanently exit you out of the OS. Are you sure?");
-    printk("[y/n, default n]% ");
+    printk("[y/n, default n] ");
     scan(str);
 
     if (strcmp(str, "y")) {
