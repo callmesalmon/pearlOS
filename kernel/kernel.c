@@ -20,6 +20,7 @@ extern "C" {
 
 #include <cpu/smbios.h>
 #include <cpu/isr.h>
+#include <cpu/timer.h>
 #include <fs/core.h>
 #include <drivers/keyboard.h>
 
@@ -32,10 +33,13 @@ int kmain() {
     /* ISR and SMBIOS */
     isr_install();
     smbios_init();
+    
+    /* Initialize timer */
+    timer_init();
 
     /* Display configured default theme */
     display_theme(DEFAULT_THEME);
-
+    
     /* Initalize memory, input and display */
 	memory_init();
 	keyboard_init();

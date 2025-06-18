@@ -26,6 +26,7 @@ char *theme;
 #include <kernel/cmd/memstat.h>
 #include <kernel/cmd/cowsay.h>
 #include <kernel/cmd/exit.h>
+#include <kernel/cmd/time.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -50,6 +51,9 @@ byte ksh_interpret(char* command) {
         printf("OS version: %s\n", OS_VERSION);
         printf("OS version (generic): %s\n", OS_GENERIC);
         printf("KSH version: %s\n", KSH_VERSION);
+    }
+    else if (strcmp(command, "time") == 0) {
+        time_cmd(NULL);
     }
     else if (strcmp(command, "memstat")) {
         ksh_memstat();
