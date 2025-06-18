@@ -8,7 +8,7 @@
 
 #include <cpu/timer.h>
 #include <kernel/cmd/time.h>
-#include <lib/str.h>
+#include <lib/string.h>
 #include <lib/num.h>
 
 void set_time(uint32_t hours, uint32_t minutes) {
