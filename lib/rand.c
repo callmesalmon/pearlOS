@@ -12,7 +12,7 @@ int rand_seed;
 
 void rand_init() {
   int random_data;
-  rand_seed = random_data + 2;
+  rand_seed = random_data + 1;
 }
 
 /* Linear congruential generator function
