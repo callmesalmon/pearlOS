@@ -32,7 +32,7 @@ void bst_destroy(BST* tree) {
     tree->size = 0;
 }
 
-static BSTNode* bst_node_create(uint64_t key, void* value) {
+static BSTNode* bst_node_create(uint32_t key, void* value) {
     BSTNode* node = (BSTNode*)kmalloc(sizeof(BSTNode));
     if (!node) return NULL;
     node->key = key;
@@ -42,7 +42,7 @@ static BSTNode* bst_node_create(uint64_t key, void* value) {
     return node;
 }
 
-static BSTNode* bst_node_insert(BSTNode* root, uint64_t key, void* value, bool* inserted) {
+static BSTNode* bst_node_insert(BSTNode* root, uint32_t key, void* value, bool* inserted) {
     if (!root) {
         *inserted = true;
         return bst_node_create(key, value);
@@ -58,7 +58,7 @@ static BSTNode* bst_node_insert(BSTNode* root, uint64_t key, void* value, bool* 
     return root;
 }
 
-bool bst_insert(BST* tree, uint64_t key, void* value) {
+bool bst_insert(BST* tree, uint32_t key, void* value) {
     if (!tree || !value) return false;
     bool inserted = false;
     tree->root = bst_node_insert(tree->root, key, value, &inserted);
@@ -66,14 +66,14 @@ bool bst_insert(BST* tree, uint64_t key, void* value) {
     return inserted;
 }
 
-static void* bst_node_get(BSTNode* root, uint64_t key) {
+static void* bst_node_get(BSTNode* root, uint32_t key) {
     if (!root) return NULL;
     if (key == root->key) return root->value;
     else if (key < root->key) return bst_node_get(root->left, key);
     else return bst_node_get(root->right, key);
 }
 
-void* bst_get(const BST* tree, uint64_t key) {
+void* bst_get(const BST* tree, uint32_t key) {
     if (!tree) return NULL;
     return bst_node_get(tree->root, key);
 }
@@ -85,7 +85,7 @@ static BSTNode* bst_node_find_min(BSTNode* node) {
     return node;
 }
 
-static BSTNode* bst_node_remove(BSTNode* root, uint64_t key, bool* removed) {
+static BSTNode* bst_node_remove(BSTNode* root, uint32_t key, bool* removed) {
     if (!root) return NULL;
 
     if (key < root->key) {
@@ -122,7 +122,7 @@ static BSTNode* bst_node_remove(BSTNode* root, uint64_t key, bool* removed) {
     return root;
 }
 
-bool bst_remove(BST* tree, uint64_t key) {
+bool bst_remove(BST* tree, uint32_t key) {
     if (!tree) return false;
     bool removed = false;
     tree->root = bst_node_remove(tree->root, key, &removed);
@@ -134,7 +134,7 @@ size_t bst_size(const BST* tree) {
     return tree ? tree->size : 0;
 }
 
-bool bst_contains(const BST* tree, uint64_t key) {
+bool bst_contains(const BST* tree, uint32_t key) {
     if (!tree) return false;
     return bst_get(tree, key) != NULL;
 }

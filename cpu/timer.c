@@ -46,7 +46,7 @@ void timer_handler() {
     port_byte_out(0x20, 0x20);  
 }
 
-uint64_t get_ticks() {
+uint32_t get_ticks() {
     return current_time.ticks;
 }
 

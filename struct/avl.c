@@ -22,7 +22,7 @@ static int height(AVLNode* node) {
     return node ? node->height : 0;
 }
 
-static AVLNode* create_node(uint64_t key, void* value) {
+static AVLNode* create_node(uint32_t key, void* value) {
     AVLNode* node = (AVLNode*)kmalloc(sizeof(AVLNode));
     if (!node) return NULL;
 
@@ -90,7 +90,7 @@ void avl_destroy(AVLTree* tree) {
     tree->size = 0;
 }
 
-static AVLNode* avl_insert_node(AVLNode* node, uint64_t key, void* value, bool* inserted) {
+static AVLNode* avl_insert_node(AVLNode* node, uint32_t key, void* value, bool* inserted) {
     if (!node) {
         *inserted = true;
         return create_node(key, value);
@@ -133,7 +133,7 @@ static AVLNode* avl_insert_node(AVLNode* node, uint64_t key, void* value, bool* 
     return node;
 }
 
-bool avl_insert(AVLTree* tree, uint64_t key, void* value) {
+bool avl_insert(AVLTree* tree, uint32_t key, void* value) {
     if (!tree || !value) return false;
     bool inserted = false;
     tree->root = avl_insert_node(tree->root, key, value, &inserted);
@@ -148,7 +148,7 @@ static AVLNode* min_value_node(AVLNode* node) {
     return current;
 }
 
-static AVLNode* avl_remove_node(AVLNode* root, uint64_t key, bool* removed) {
+static AVLNode* avl_remove_node(AVLNode* root, uint32_t key, bool* removed) {
     if (!root) return NULL;
 
     if (key < root->key) {
@@ -215,7 +215,7 @@ static AVLNode* avl_remove_node(AVLNode* root, uint64_t key, bool* removed) {
     return root;
 }
 
-bool avl_remove(AVLTree* tree, uint64_t key) {
+bool avl_remove(AVLTree* tree, uint32_t key) {
     if (!tree) return false;
     bool removed = false;
     tree->root = avl_remove_node(tree->root, key, &removed);
@@ -223,7 +223,7 @@ bool avl_remove(AVLTree* tree, uint64_t key) {
     return removed;
 }
 
-void* avl_get(const AVLTree* tree, uint64_t key) {
+void* avl_get(const AVLTree* tree, uint32_t key) {
     if (!tree) return NULL;
     AVLNode* current = tree->root;
     while (current) {
@@ -240,6 +240,6 @@ size_t avl_size(const AVLTree* tree) {
     return tree ? tree->size : 0;
 }
 
-bool avl_contains(const AVLTree* tree, uint64_t key) {
+bool avl_contains(const AVLTree* tree, uint32_t key) {
     return avl_get(tree, key) != NULL;
 }

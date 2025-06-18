@@ -13,7 +13,7 @@
 
 /* AVL Tree node structure */
 typedef struct AVLNode {
-    uint64_t key;          
+    uint32_t key;          
     void* value;            
     struct AVLNode* left;   
     struct AVLNode* right;  
@@ -50,7 +50,7 @@ void avl_destroy(AVLTree* tree);
  * @param value Pointer to the value associated with the key.
  * @return true if insertion succeeded, false if key exists or allocation fails.
  */
-bool avl_insert(AVLTree* tree, uint64_t key, void* value);
+bool avl_insert(AVLTree* tree, uint32_t key, void* value);
 
 /**
  * Retrieves the value associated with a key.
@@ -59,7 +59,7 @@ bool avl_insert(AVLTree* tree, uint64_t key, void* value);
  * @param key The key to search.
  * @return Pointer to value or NULL if not found.
  */
-void* avl_get(const AVLTree* tree, uint64_t key);
+void* avl_get(const AVLTree* tree, uint32_t key);
 
 /**
  * Removes a node with the given key from the AVL tree.
@@ -68,7 +68,7 @@ void* avl_get(const AVLTree* tree, uint64_t key);
  * @param key The key to remove.
  * @return true if the node was found and removed, false otherwise.
  */
-bool avl_remove(AVLTree* tree, uint64_t key);
+bool avl_remove(AVLTree* tree, uint32_t key);
 
 /**
  * Returns the number of nodes in the AVL tree.
@@ -85,4 +85,4 @@ size_t avl_size(const AVLTree* tree);
  * @param key The key to check.
  * @return true if the key exists, false otherwise.
  */
-bool avl_contains(const AVLTree* tree, uint64_t key);
+bool avl_contains(const AVLTree* tree, uint32_t key);

@@ -29,5 +29,5 @@ extern time_t current_time;
 
 void timer_init();
 void timer_handler();
-uint64_t get_ticks();
+uint32_t get_ticks();
 time_t get_time();

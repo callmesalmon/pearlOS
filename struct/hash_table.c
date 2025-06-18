@@ -12,11 +12,11 @@
 #include <printk.h>   // for error logging if available
 
 // Simple hash function using FNV-1a
-static inline uint64_t hash(uint64_t key, size_t bucket_count) {
-    const uint64_t FNV_PRIME = 0x100000001b3;
-    const uint64_t FNV_OFFSET = 0xcbf29ce484222325;
+static inline uint32_t hash(uint32_t key, size_t bucket_count) {
+    const uint32_t FNV_PRIME = 0x100000001b3;
+    const uint32_t FNV_OFFSET = 0xcbf29ce484222325;
 
-    uint64_t hash = FNV_OFFSET;
+    uint32_t hash = FNV_OFFSET;
     for (int i = 0; i < 8; i++) {
         hash ^= (key >> (i * 8)) & 0xFF;
         hash *= FNV_PRIME;
@@ -60,7 +60,7 @@ void hash_table_destroy(HashTable* table) {
     table->size = 0;
 }
 
-bool hash_table_insert(HashTable* table, uint64_t key, void* value) {
+bool hash_table_insert(HashTable* table, uint32_t key, void* value) {
     if (!table || !value) return false;
 
     size_t index = hash(key, table->bucket_count);
@@ -79,7 +79,7 @@ bool hash_table_insert(HashTable* table, uint64_t key, void* value) {
     return true;
 }
 
-void* hash_table_get(HashTable* table, uint64_t key) {
+void* hash_table_get(HashTable* table, uint32_t key) {
     if (!table) return NULL;
 
     size_t index = hash(key, table->bucket_count);
@@ -95,7 +95,7 @@ void* hash_table_get(HashTable* table, uint64_t key) {
     return NULL;
 }
 
-bool hash_table_remove(HashTable* table, uint64_t key) {
+bool hash_table_remove(HashTable* table, uint32_t key) {
     if (!table) return false;
 
     size_t index = hash(key, table->bucket_count);
@@ -128,7 +128,7 @@ size_t hash_table_size(const HashTable* table) {
     return table ? table->size : 0;
 }
 
-bool hash_table_contains(const HashTable* table, uint64_t key) {
+bool hash_table_contains(const HashTable* table, uint32_t key) {
     if (!table) return false;
 
     size_t index = hash(key, table->bucket_count);
