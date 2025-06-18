@@ -12,7 +12,7 @@ editors. And with that, let's begin!
 * [Python Style](#python)
 * [Make Style](#make)
 * [Bash Style](#bash)
-* [Perl Style](#perl)
+* [Naming Style](#naming)
 
 # C
 ## General:
@@ -32,6 +32,7 @@ int main()
 ```
 * In general, GNU style
 should be avoided at all costs.
+* Angled brackets imports *ONLY*.
 
 # ASM
 ## General:
@@ -85,10 +86,6 @@ fi
 Which shall be used if nothing
 else is necessary.
 
-# Perl
-## General:
-* Indent size: `4`
-* Indent style: `space`
-* Final newline: `false`
-## Specifics:
-* Nothing here...
+## Naming
+Please use ``snake_case`` while naming
+files. And don't make a name too long.
