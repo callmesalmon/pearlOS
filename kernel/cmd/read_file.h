@@ -11,11 +11,13 @@
 #include <io.h>
 #include <mem.h>
 
+#include <kernel/config.h>
+
 #include <fs/core.h>
 
 void ksh_read_file() {
   char* filename = (char*) kmalloc(256);
-  printk("> ");
+  printf("%s ", KSH_PROMPT2);
   scan(filename);
 
   char* content = (char*) kmalloc(file_size(filename));

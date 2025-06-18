@@ -12,9 +12,10 @@
 #include <mem.h>
 #include <drivers/display.h>
 #include <fs/core.h>
+#include <kernel/config.h>
 
 void ksh_make_file() {
-  printk("> ");
+  printf("%s ", KSH_PROMPT2);
   char* file_to_make = (char*) kmalloc(512);
   scan(file_to_make);
 

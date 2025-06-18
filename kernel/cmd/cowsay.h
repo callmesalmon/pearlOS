@@ -11,6 +11,7 @@
 
 #include <io.h>
 #include <magic.h>
+#include <kernel/config.h>
 
 void printcow(void);
 
@@ -22,7 +23,7 @@ unsigned int argscharcount=0;
 
 int kowsay() {
     char* str = (char*) kmalloc(255);
-    printk("> ");
+    printf("%s ", KSH_PROMPT2);
     scan(str);
 
     for (int i; i < alen(str); i++) {

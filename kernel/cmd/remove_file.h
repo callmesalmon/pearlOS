@@ -13,8 +13,11 @@
 #include <fs/core.h>
 #include <drivers/display.h>
 
+
+#include <kernel/config.h>
+
 void ksh_remove_file() {
-  printf("> ");
+  printf("%s ", KSH_PROMPT2);
   char file_to_remove[255];
   scan(file_to_remove);
 

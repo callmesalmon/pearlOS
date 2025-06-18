@@ -15,6 +15,7 @@
 
 /* ksh.h */
 #define KSH_PROMPT  "%"
+#define KSH_PROMPT2 ">"
 #define KSH_COMMENT ';'
 
 /* mem.h */

@@ -13,13 +13,14 @@
 #include <magic.h>
 #include <mem.h> 
 #include <drivers/display.h>
+#include <kernel/config.h>
 
 int ksh_alloc() {
     /* Define */
     char* str = (char*) kmalloc(255);
 
     /* Collect */
-    printk("> ");
+    printf("%s ", KSH_PROMPT2);
     scan(str);
 
     /* Convert */

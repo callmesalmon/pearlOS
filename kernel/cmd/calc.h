@@ -16,6 +16,7 @@
 #include <magic.h>
 #include <mem.h>
 #include <drivers/display.h>
+#include <kernel/config.h>
 
 excode ksh_calc() {
     /* Define */
@@ -24,11 +25,11 @@ excode ksh_calc() {
     char* op = (char*) kmalloc(255);
 
     /* Collect */
-    printk("num> ");
+    printf("num%s ", KSH_PROMPT2);
     scan(s1);
-    printk("num> ");
+    printf("num%s ", KSH_PROMPT2);
     scan(s2);
-    printk("op> ");
+    printf("op%s ", KSH_PROMPT2);
     scan(op);
 
     /* Convert */

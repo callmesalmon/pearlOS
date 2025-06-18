@@ -12,11 +12,12 @@
 #include <mem.h>
 
 #include <kernel/kmsg.h>
+#include <kernel/config.h>
 
 int usrpanic() {
     char *msg = (char *) kmalloc(255);
 
-    printk("> ");
+    printf("%s ", KSH_PROMPT2);
     scan(msg);
     kpanic(msg);
 

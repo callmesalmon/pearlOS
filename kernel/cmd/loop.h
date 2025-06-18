@@ -13,6 +13,7 @@
 #include <magic.h>
 #include <stddef.h>
 #include <mem.h>
+#include <kernel/config.h>
 
 /* Another hella buggy one. You can actually almost make
  * loops with this one tho tehee :3 (No but actually fuck
@@ -32,7 +33,7 @@ char** ksh_loop_read(char* stimes) {
     for (int i = 0; i < 10; i++) {
         char* cmd = (char*) kmalloc(255);
         
-        printk("command# ");
+        printf("command%s ", KSH_PROMPT2);
         scan(cmd);
         
         commands[i] = cmd;
@@ -44,7 +45,7 @@ char** ksh_loop_read(char* stimes) {
 /* Init */
 int ksh_loop() {
     char* stimes = (char*) kmalloc(255);
-    printk("times# ");
+    printf("times%s ", KSH_PROMPT2);
     scan(stimes);
     int itimes = str_to_int(stimes, alen(stimes));
 

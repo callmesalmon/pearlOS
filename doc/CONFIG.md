@@ -40,6 +40,9 @@ KERNEL_UPDATE<null>              : Infinity macro, the main kernel part
 KSH_PROMPT<char*>                : The prompt that shows up when writing
                                    commands in the Kernel SHell.
 
+KSH_PROMPT2<char*>               : The prompt that shows up when extra input
+                                   is required.
+
 KSH_COMMENT<char>                : The character that is required to
                                    start a comment line.
 

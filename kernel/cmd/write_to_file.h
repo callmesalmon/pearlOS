@@ -14,15 +14,17 @@
 
 #include <fs/core.h>
 
+#include <kernel/config.h>
+
 void ksh_write_to_file() {
-  printf("> ");
+  printf("%s ", KSH_PROMPT2);
   char* filename = (char*) kmalloc(256);
   strcls(filename);
   scan(filename);
 
   char* data = (char*) kmalloc(256);
   strcls(data);
-  printf("> ");
+  printf("%s ", KSH_PROMPT2);
   scan(data);
   stradd(data, "\n");
 
