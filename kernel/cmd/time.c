@@ -9,7 +9,7 @@
 #include <cpu/timer.h>
 #include <kernel/cmd/time.h>
 #include <lib/string.h>
-#include <lib/num.h>
+#include <lib/conv.h>
 
 void set_time(uint32_t hours, uint32_t minutes) {
     if (hours >= 24 || minutes >= 60) {
@@ -25,8 +25,8 @@ void set_time(uint32_t hours, uint32_t minutes) {
 
 void time_cmd(char** args) {
     if (args[1] && args[2]) {
-        uint32_t hours = str_to_uint8(args[1]);
-        uint32_t minutes = str_to_uint8(args[2]);
+        uint32_t hours = str_to_int(args[1], strlen(args[1]));
+        uint32_t minutes = str_to_int(args[2], strlen(args[2]));
         
         if (hours >= 24 || minutes >= 60) {
             printf("Invalid time format! Hours must be 0-23, minutes must be 0-59\n");
