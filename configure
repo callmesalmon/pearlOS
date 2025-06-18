@@ -9,8 +9,15 @@
 PROFILE_DIR=./config/profiles
 PROFILE=$PROFILE_DIR/default
 
-if [ $# -gt 0 ]; then
+if [ $# -gt 0 ] && [ -e "$PROFILE_DIR/$1" ]; then
+    echo "Using $1 profile."
     PROFILE=$PROFILE_DIR/$1
+else 
+    if [ -e "$PROFILE_DIR/$1" ]; then
+        echo "Using default profile."
+    else
+        echo "Profile $1 wasn't found! Falling back on default profile..."
+    fi
 fi
 
 for rc in $PROFILE/*; do
