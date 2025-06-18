@@ -6,7 +6,7 @@
  *     <https://firstdonoharm.dev/version/3/0/core.txt>
  */
 
-#include "hashTable.h"
+#include "hash_table.h"
 #include <mem.h>      // for kmalloc, kfree
 #include <string.h>   // for memcpy
 #include <printk.h>   // for error logging if available
