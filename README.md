@@ -73,9 +73,6 @@ rtfc (read the fucking code).
 
 ## License
 
-This project is licensed under the ANTIFA-MIT license, which basically states that
-the project is only available to non-fascists and non-fascist supporters, and to the
-people which it is available to, it is licensed under the MIT license. Keep in mind
-that this is *not* legal advice, and that you should ideally read the [license](/LICENSE).
-If a copy of the license was for some reason NOT distributed with your copy of this
-program, it is available to read [here](https://github.com/jamiebuilds/anti-fascist-mit-license).
+This project is licensed under the [HL3-Core](https://firstdonoharm.dev/version/3/0/core.txt)
+(Hippocratic License 3 Core) license. As long as you abide by the terms of the license, you can
+use this software however you like.
