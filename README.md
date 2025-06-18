@@ -5,11 +5,10 @@
 [![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
 
-pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
-project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
+pearlOS is an awesome operating system based of (and a continuation of) the discontinued
+[pidi-os](https://github.com/GandelXIV/pidi-os). I *highly* recommend you to check out the new rust-based
 operating system made by the [same author](https://github.com/GandelXIV);
-[RezOS](https://github.com/GandelXIV/RezOS). But ofcourse only do that *after*
-you check out this project! pearlOS was made for me to learn operating system 
+[RezOS](https://github.com/GandelXIV/RezOS). pearlOS was made for me to learn operating system 
 things and also to become better at C and Assembly. I am extremely inconsistent
 in the way I update things and I kind of just implement things as I go so keep that in mind :P
 
