@@ -15,8 +15,8 @@ void timer_init() {
     uint16_t divisor = PIT_FREQUENCY / DESIRED_HZ;
     
     port_byte_out(PIT_COMMAND, 0x36);  
-    port_byte_out(PIT_CHANNEL0, (uint8_t)(divisor & 0xFF));
-    port_byte_out(PIT_CHANNEL0, (uint8_t)((divisor >> 8) & 0xFF));
+    port_byte_out(PIT_CHANNEL0, (uint32_t)(divisor & 0xFF));
+    port_byte_out(PIT_CHANNEL0, (uint32_t)((divisor >> 8) & 0xFF));
     
     set_idt_gate(32, (uint32_t)timer_handler);
 }

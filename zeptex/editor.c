@@ -1,7 +1,7 @@
 #include "editor.h"
 
-#ifndef uint8_t
-#define uint8_t unsigned char
+#ifndef uint32_t
+#define uint32_t unsigned char
 #endif
 
 // Improved safe_scan: scans directly into buffer up to max_len
@@ -26,10 +26,10 @@ int safe_scan(char* buffer, int max_len) {
 }
 
 // Define display theme color
-uint8_t display_theme_current = 0x07;  // White text on black background
+uint32_t display_theme_current = 0x07;  // White text on black background
 
 // Removed redefinition of VIDEO_MEMORY_OFFSET
-//#define VIDEO_MEMORY_OFFSET ((volatile uint8_t*) 0xb8000)
+//#define VIDEO_MEMORY_OFFSET ((volatile uint32_t*) 0xb8000)
 
 // Editor write to file
 static void editor_write_to_file(const char* filename, struct editor_state* state) {

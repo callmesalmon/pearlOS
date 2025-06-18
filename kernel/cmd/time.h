@@ -11,4 +11,4 @@
 #include <cpu/timer.h>
 
 void time_cmd(char** args);
-void set_time(uint8_t hours, uint8_t minutes);
+void set_time(uint32_t hours, uint32_t minutes);
