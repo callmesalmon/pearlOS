@@ -24,28 +24,39 @@ extern "C" {
 #include <drivers/keyboard.h>
 
 int kmain() {
-	/* Init */
+
+	/* Init messages */
 	kinfo(KERNEL_INFO_ENTERED);
 	kinfo(KERNEL_INFO_INIT_START);
 
-    display_theme(DEFAULT_THEME);
-	memory_init();
+    /* ISR and SMBIOS */
     isr_install();
+    smbios_init();
+
+    /* Display configured default theme */
+    display_theme(DEFAULT_THEME);
+
+    /* Initalize memory, input and display */
+	memory_init();
 	keyboard_init();
-	smbios_init();
 	display_init();
-	mkfs();
+	
+    /* Make filesystem and finish the initialization
+     * by initializing the "rand" function. */
+    mkfs();
 	rand_init();
 
+    /* End of init messages */
 	kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
 
-	/* Main */
+	/* Debug */
     #include "debug.h" /* this file is created by "./configure" */
     #ifdef DBG_MAIN
         DBG_MAIN;
     #endif
 
+    /* Start the OS */
     KERNEL_STARTUP;
 	
     return 0;
