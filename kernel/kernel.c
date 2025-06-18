@@ -34,9 +34,6 @@ int kmain() {
     isr_install();
     smbios_init();
     
-    /* Initialize timer */
-    timer_init();
-
     /* Display configured default theme */
     display_theme(DEFAULT_THEME);
     
@@ -54,6 +51,9 @@ int kmain() {
 	kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
 
+    /* Initialize timer */
+    timer_init();
+    
 	/* Debug */
     #include "debug.h" /* this file is created by "./configure" */
     #ifdef DBG_MAIN
