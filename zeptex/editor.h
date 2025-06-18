@@ -1,8 +1,3 @@
-/*
- *     Author: androvonx95 (https://github.com/androvonx95/)
- */
-
-
 #pragma once
 
 #include <io.h>

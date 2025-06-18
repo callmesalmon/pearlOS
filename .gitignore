@@ -25,3 +25,6 @@ mk/
 # Profiles
 config/profiles/*
 !config/profiles/default
+
+# Zeptex
+zeptex_upstream/

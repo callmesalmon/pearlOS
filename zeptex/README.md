@@ -9,6 +9,8 @@
 ## About
 A minimal, lightweight text editor designed for kernel shell environments.
 
+> **Important Note:** The `lib`, `drivers`, `fs`, `kernel`, and `lib` folders are from https://github.com/callmesalmon/pearlOS. Check out that project for more details!
+
 ## Features
 - Line-based editing
 - Add/edit/insert/delete lines

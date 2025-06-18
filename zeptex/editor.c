@@ -1,9 +1,4 @@
-
-/*
- *     Author: androvonx95 (https://github.com/androvonx95/)
- */
-
-#include <zeptex/editor.h>
+#include "editor.h"
 
 #ifndef uint8_t
 #define uint8_t unsigned char
