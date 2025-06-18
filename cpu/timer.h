@@ -9,6 +9,7 @@
 #pragma once
 
 #include <stddef.h>
+#include <stdint.h>
 #include <cpu/port.h>
 
 #define PIT_BASE 0x40
