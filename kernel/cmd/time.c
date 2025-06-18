@@ -10,6 +10,7 @@
 #include <kernel/cmd/time.h>
 #include <lib/string.h>
 #include <lib/conv.h>
+#include <lib/printf.h>
 #include <lib/io.h>
 
 void set_time(uint32_t hours, uint32_t minutes) {
@@ -35,10 +36,10 @@ void time_cmd(char** args) {
         }
         
         set_time(hours, minutes);
-        cprintln("Time set to %02d:%02d:00\n", hours, minutes);
+        printf("Time set to %02d:%02d:00\n", hours, minutes);
     } else {
         time_t time = get_time();
-        cprintln("Time: %02d:%02d:%02d\n", 
+        printf("Time: %02d:%02d:%02d\n", 
                time.hours, time.minutes, time.seconds);
     }
 }
