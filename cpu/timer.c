@@ -12,7 +12,7 @@
 time_t current_time = {0, 0, 0, 0};
 
 void timer_init() { 
-    uint16_t divisor = PIT_FREQUENCY / DESIRED_HZ;
+    uint32_t divisor = PIT_FREQUENCY / DESIRED_HZ;
     
     port_byte_out(PIT_COMMAND, 0x36);  
     port_byte_out(PIT_CHANNEL0, (uint32_t)(divisor & 0xFF));
