@@ -276,7 +276,7 @@ void mkfs() {
     "---- ROADMAP ----\n\n"
     "[x]. Get pearlOS to run.\n"
     "[x]. Add some extra programs.\n"
-    "[x]. Create a warningless C build.\n"
+    "[ ]. Create a warningless C build.\n"
     "[ ]. Create a proper syscall interface.\n"
     "[ ]. Create a desktop enviroment.\n"
   );
