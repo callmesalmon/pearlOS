@@ -9,7 +9,6 @@
 #pragma once
 
 #include <stddef.h>
-#include <stdint.h>
 #include <cpu/port.h>
 
 #define PIT_BASE 0x40
@@ -20,10 +19,10 @@
 
 // Time structure
 typedef struct {
-    uint64_t ticks;
-    uint64_t seconds;
-    uint64_t minutes;
-    uint64_t hours;
+    uint32_t ticks;
+    uint32_t seconds;
+    uint32_t minutes;
+    uint32_t hours;
 } time_t;
 
 extern time_t current_time;
