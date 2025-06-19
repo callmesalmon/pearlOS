@@ -4,8 +4,8 @@
 ;
 ;     <https://firstdonoharm.dev/version/3/0/core.txt>
 
-KERNEL_SIZE   db  33
-STACK_OFFSET  db  9000
+KERNEL_SIZE   db  41
+STACK_OFFSET  equ  16384
 KERNEL_OFFSET equ 0x1000
 
 MSG_REAL_MODE    db "Started in 16-bit Real Mode",     0
