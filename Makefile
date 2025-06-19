@@ -8,7 +8,7 @@
 .PHONY: clean run run-iso all full
 
 EMULATOR = qemu-system-i386
-EMUFLAGS = -display gtk
+EMUFLAGS = 
 LINKER   = ld -m elf_i386 -s
 CC       = clang
 CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. --target=i386-pc-none-elf \
