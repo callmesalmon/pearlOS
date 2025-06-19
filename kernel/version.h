@@ -9,6 +9,6 @@
 #pragma once
 
 /* Defines */
-#define OS_VERSION  "Octopus"
-#define OS_GENERIC  "1.4.0"
+#define OS_VERSION  "i686pearl"
+#define OS_GENERIC  "1.4.5"
 #define KSH_VERSION "1.2.2"
