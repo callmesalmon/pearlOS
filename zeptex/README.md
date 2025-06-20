@@ -17,11 +17,17 @@ A minimal, lightweight text editor designed for kernel shell environments.
 - Buffer management
 - File saving
 
+## How to run
+
+```bash 
+gcc -Wall -Wextra -o editor editor.c
+./editor
+```
 ## Contributing
 Help needed with:
 - Command history
 - Line numbering
-- Syntax highlighting
+- Syntax highlighting   
 - Search functionality
 
 > **Contributions are most welcome!**

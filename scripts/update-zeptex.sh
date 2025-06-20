@@ -13,6 +13,6 @@ mv zeptex_upstream/zeptex-editor/* zeptex/
 mv zeptex_upstream/LICENSE         zeptex/
 mv zeptex_upstream/README.md       zeptex
 
-echo -e "\n\n$ZEP_NOTICE" >> zeptex/README.md
+echo -e "$(cat zeptex/README.md)\n\n$ZEP_NOTICE" > zeptex/README.md
 
 rm zeptex_upstream -rf

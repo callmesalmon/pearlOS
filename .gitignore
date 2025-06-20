@@ -28,3 +28,5 @@ config/profiles/*
 
 # Zeptex
 zeptex_upstream/
+zeptex/editor
+zeptex/test.txt

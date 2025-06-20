@@ -1,60 +1,54 @@
-#pragma once
-
-#include <io.h>
-#include <string.h>
-#include <mem.h>
-#include <fs/core.h>
-#include <magic.h>    
-#include <drivers/display.h>
-#include <stdint.h>
-
-// Editor version
-#define EDITOR_VERSION "1.0"
-
-// Editor configuration
-#define EDITOR_BUFFER_SIZE 256
-#define EDITOR_MAX_LINES 100
-#define SAFE_INPUT_MAX 255  // Maximum input length minus null terminator
-
-// Editor state structure
-struct editor_state {
-    char lines[EDITOR_MAX_LINES][EDITOR_BUFFER_SIZE];
-    int line_count;
-    int display_start;  // Which line to start displaying
-    int display_end;    // Which line to end displaying
-};
-
-// Safe input functions
-int safe_scan(char* buffer, int max_len);
-
-// Display constants from kernel
-#define DISPLAY_WIDTH  80
-#define DISPLAY_HEIGHT 25
-#define COMMAND_LINE_HEIGHT (DISPLAY_HEIGHT - 1)
-
-// Screen buffer management
-#define VIDEO_MEMORY_OFFSET (uint*) 0xb8000
-
-// Screen buffer functions
-uint get_offset(uint column, uint row);
-uint get_offset_row(uint offset);
-uint get_offset_column(uint offset);
-void set_cursor_position(uint column, uint row);
-
-// File modes
-#define EDITOR_FILE_MODE_CREATE 1
-#define EDITOR_FILE_MODE_OPEN   2
-
-// Error codes
-#define EDITOR_ERR_NONE           0
-#define EDITOR_ERR_FILE_NOT_FOUND 1
-#define EDITOR_ERR_FILE_CREATE    2
-#define EDITOR_ERR_FILE_SAVE      3
-#define EDITOR_ERR_LINE_FULL      4
-#define EDITOR_ERR_MEMORY         5
-
-/**
-* Launches the built-in line editor in kernel shell.
-* Allows editing a file interactively using a simple line-based interface.
+/* editor.h - public interface for the ultra-minimal line editor
+   Extracted from editor.c so other translation units can interact
+   with the editor or re-use its primitives.
 */
-int ksh_editor();
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <termios.h>
+#include <sys/ioctl.h>
+
+#ifndef EDITOR_H
+#define EDITOR_H
+
+#include <stddef.h>   /* for size_t */
+
+/*--------------------------------------------------------------------
+  Compile-time limits
+  (guarded so we do not complain if already defined elsewhere)
+ --------------------------------------------------------------------*/
+#ifndef MAX_LINES
+#define MAX_LINES 1000
+#endif
+
+#ifndef MAX_LINE_LEN
+#define MAX_LINE_LEN 1024
+#endif
+
+
+/*--------------------------------------------------------------------
+  Global text buffer (very small editor = very small global state)
+ --------------------------------------------------------------------*/
+extern char *lines[MAX_LINES];   /* dynamically allocated lines       */
+extern size_t line_count;        /* number of active lines in buffer  */
+
+/*--------------------------------------------------------------------
+  File I/O helpers
+ --------------------------------------------------------------------*/
+void load_file(const char *filename);
+void save_file(const char *filename);
+
+/*--------------------------------------------------------------------
+  Buffer manipulation
+ --------------------------------------------------------------------*/
+void insert_line(size_t index, const char *text);   /* 1-based index */
+void delete_line(size_t index);                     /* 1-based index */
+
+/*--------------------------------------------------------------------
+  UI helpers
+ --------------------------------------------------------------------*/
+void draw_buffer(void);
+void run_editor(const char *filename);
+
+#endif /* editor_H */
