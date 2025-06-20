@@ -253,11 +253,13 @@ void mkfs() {
   file_make("license");
   file_writes(
     "license",
-    "pearlOS is released under the Apache-2.0 License\n\n"
-    "A permissive license whose main conditions require preservation of\n"
-    "copyright and license notices.Contributors provide an express grant\n"
-    "of patent rights. Licensed works, modifications, and larger works \n"
-    "may be distributed under different terms and without source code.\n"
+    "pearlOS is released under the Hippocratic 3.0 License (HL3).\n\n"
+    "The Hippocratic License 3.0 (HL3) aims to confront the potential\n"
+    "harms and abuses technology can have on fundamental human rights.\n"
+    "It empowers open source communities to establish a clear set of\n"
+    "ethical standards that licensees must abide by in order to adopt\n"
+    "their code. These standards are based on international agreements and\n"
+    "authorities on fundamental human rights norms.\n"
   );
   file_make("readme");
   file_writes(
