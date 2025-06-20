@@ -5,7 +5,7 @@
 #     <https://firstdonoharm.dev/version/3/0/core.txt>
 
 .DEFAULT_GOAL=dist/pearl.bin
-.PHONY: clean run run-iso all full
+.PHONY: clean qemu all full
 
 EMULATOR = qemu-system-i386
 EMUFLAGS = 
