@@ -47,8 +47,8 @@ int kowsay() {
 }
 
 void printcow(void) {
-printf("        %c    ^__^\n\
-         %c   (Oo)\\_______\n\
+printf("        %c   ^__^\n\
+         %c  (Oo)\\_______\n\
             (__)\\       )\\/\\\n\
                 ||----w |\n\
                 ||     ||\n", upperbubble, lowerbubble);
