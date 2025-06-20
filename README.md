@@ -38,6 +38,9 @@ git or others), you can compile and run the project using:
 This will start up a QEMU session with the image, and you can run the OS. If you don't have clang, you can
 technically build the OS using GCC with ``sh scripts/gcc.sh``, but it is not recommended.
 
+If the ``make`` command fails, there is probably an error in the OS. See [this](/doc/TROUBLESHOOTING.md)
+for help on troubleshooting.
+
 NOTE: To add your own config (and then run it using ``./configure``),
 you can [read the docs](/doc/CONFIG.md).
 
