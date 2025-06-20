@@ -60,11 +60,11 @@ mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJEC
 	@# Check kernel size against limits
 	@KERNEL_SIZE=$$(wc -c < "$@"); \
 	if [ $$KERNEL_SIZE -gt $(KERNEL_MAX_SIZE) ]; then \
-		echo "\033[1;31mERROR: Kernel size ($$KERNEL_SIZE bytes) exceeds bootloader limit ($(KERNEL_MAX_SIZE) bytes)\033[0m"; \
+		echo "ERROR: Kernel size ($$KERNEL_SIZE bytes) exceeds bootloader limit ($(KERNEL_MAX_SIZE) bytes)"; \
 		echo "       Increase KERNEL_SIZE in boot/config.asm to at least $$(( ($$KERNEL_SIZE + 511) / 512 )) sectors"; \
 		exit 1; \
 	elif [ $$KERNEL_SIZE -gt $(KERNEL_WARN_SIZE) ]; then \
-		echo "\033[1;33mWARNING: Kernel size ($$KERNEL_SIZE bytes) is approaching bootloader limit\033[0m"; \
+		echo "WARNING: Kernel size ($$KERNEL_SIZE bytes) is approaching bootloader limit"; \
 		echo "         Consider increasing KERNEL_SIZE in boot/config.asm"; \
 	fi
 
