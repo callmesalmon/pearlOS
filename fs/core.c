@@ -245,8 +245,8 @@ void mkfs() {
   file_make("os-release");
   file_writes(
     "os-release", 
-    "NAME=\"pearlOS " OS_GENERIC " \"\n"
-    "PRETTY_NAME=\"pearlOS " OS_VERSION " \"\n"
+    "NAME=\"pearlOS " OS_GENERIC "\"\n"
+    "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
     "VERSION=\" " OS_VERSION " (" OS_GENERIC ")\"\n"
     "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
   );
