@@ -10,13 +10,14 @@ PROFILE_DIR=./config/profiles
 PROFILE=$PROFILE_DIR/default
 
 if [ $# -gt 0 ] && [ -e "$PROFILE_DIR/$1" ]; then
-    echo "Using $1 profile."
+    echo "[INFO] Using $1 profile."
     PROFILE=$PROFILE_DIR/$1
 else 
     if [ -e "$PROFILE_DIR/$1" ]; then
-        echo "Using default profile."
+        echo "[INFO] Using default profile."
     else
-        echo "Profile $1 wasn't found! Falling back on default profile..."
+        echo "[WARNING] Profile $1 wasn't found!"
+        echo "[INFO] Falling back on default profile..."
     fi
 fi
 
