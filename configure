@@ -36,7 +36,10 @@ for rc in $PROFILE/*; do
     fi
 done
 
-set -x
+
+echo "[INFO] Creating necessary files and directories:"
+
+set -xe
 
 touch kernel/debug.h
 touch boot/debug.asm
