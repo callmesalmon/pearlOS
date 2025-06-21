@@ -76,7 +76,9 @@ void printnl() {
 }
 
 /* Print char to cursor with colour, the
- * lowest level of printing, basically. */
+ * lowest level of printing, basically.
+ * It utilizes the video_memory array
+ * to set characters to desired position. */
 void cprintc(char character, char color) {
     INIT_VIDEO;
 	uint cursor = get_cursor_offset();
