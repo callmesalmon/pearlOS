@@ -23,6 +23,15 @@ in the way I update things and I kind of just implement things as I go so keep t
 * [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
 
+If your system package manager supports all of the aforementioned
+packages by the name they're listed as, you should be able to install all
+of the requirements with your local package manager using the
+``requirements.txt`` file. Using ``dnf`` as an example:
+
+```sh
+sudo dnf install $(cat requirements.txt)
+```
+
 ## Compilation
 
 > [!NOTE]
