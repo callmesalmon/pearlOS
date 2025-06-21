@@ -17,7 +17,6 @@
 
 /* Defines */
 #define printf  printf_
-#define sprintf sprintf_
 
 /* Functions */
 void printi(int number);

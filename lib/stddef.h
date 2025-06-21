@@ -16,31 +16,32 @@ typedef unsigned int uint;
 typedef unsigned short word;
 typedef unsigned char uchar;
 typedef unsigned short ushort;
+typedef uint uint8_t;
 
 /* size_t */
 #ifdef __SIZE_TYPE__
-     typedef __SIZE_TYPE__ size_t;
+    typedef __SIZE_TYPE__ size_t;
 #else
-#    error "[ERROR] \"__SIZE_TYPE__\" is not defined. Can't compile."
+#   error "[ERROR] \"__SIZE_TYPE__\" is not defined. Can't compile."
 #endif
 
 /* Boolean definitions */
 #ifndef __cplusplus
-typedef unsigned char bool;
+    typedef unsigned char bool;
 #endif
 
 #if !defined(true) && !defined(false)
-#    define true (bool) 1
-#    define false (bool) 0
+#   define true (bool) 1
+#   define false (bool) 0
 #endif
 
 /* NULL definition */
 #ifndef NULL
-#    define NULL (void*) 0
+#   define NULL (void*) 0
 #endif
 
 /* High/Low 16 definitions */
 #if !defined(low_16) && !defined(high_16)
-#    define low_16(address) (word)((address) & 0xFFFF)
-#    define high_16(address) (word)(((address) >> 16) & 0xFFFF)
+#   define low_16(address) (word)((address) & 0xFFFF)
+#   define high_16(address) (word)(((address) >> 16) & 0xFFFF)
 #endif

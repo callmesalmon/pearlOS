@@ -7,7 +7,6 @@
  */
 
 #include <conv.h>
-#include <stdint.h>
 #include <stddef.h>
 
 void uint32_to_str(char* output, uint32_t number) {
@@ -99,7 +98,8 @@ int str_to_int(char *array, size_t n) {
     /* for each character in array */
     while (n--) {
         /* array[n] = char -> exit */
-        if (!chint(array[n])) {
+        if ((array[n] >= 'a' && array[n] <= 'z') || \
+        (array[n] >= 'A' && array[n] <= 'Z')) {
             return INVALID_INT;
         }
 

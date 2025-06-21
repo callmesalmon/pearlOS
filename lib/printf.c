@@ -163,10 +163,3 @@ int printf_(const char *format, ...) {
         va_start( args, format );
         return printv( 0, format, args );
 }
-
-int sprintf_(char *out, const char *format, ...) {
-        va_list args;
-        
-        va_start( args, format );
-        return printv( &out, format, args );
-}
