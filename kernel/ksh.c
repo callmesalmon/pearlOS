@@ -22,7 +22,6 @@ char *theme;
 #include <kernel/cmd/calc.h>
 #include <kernel/cmd/panic.h>
 #include <kernel/cmd/alloc.h>
-#include <kernel/cmd/loop.h>
 #include <kernel/cmd/memstat.h>
 #include <kernel/cmd/cowsay.h>
 #include <kernel/cmd/exit.h>
@@ -39,9 +38,6 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "echo")) {
         ksh_echo();
-    }
-    else if (strcmp(command, "loop")) {
-        ksh_loop();
     }
     else if (strcmp(command, "wipe")) {
         display_clear();
