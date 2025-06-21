@@ -52,8 +52,10 @@ dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin | dist
 	chmod +x dist/pearl.bin
 
 # Kernel size limits (in bytes)
-KERNEL_MAX_SIZE = 20992  # 41 sectors * 512 bytes
-KERNEL_WARN_SIZE = 19968  # Warn at 39 sectors
+# Warning size: 39 sectors
+# MAXIMUM size: 41 sectors
+KERNEL_MAX_SIZE = 20992
+KERNEL_WARN_SIZE = 19968
 
 mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS) | mk/bin
 	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
