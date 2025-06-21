@@ -14,7 +14,6 @@ int ksh_help() {
     println("help           prints this message");
     println("echo           prints \"X\" to the display");
     println("wipe           clears screen");
-    println("loop           loop command \"X\" times");
     println("exit           exit kernel shell");
     println("fortune        digital fortune cookie");
     println("kowsay         a minimal version of cowsay");
