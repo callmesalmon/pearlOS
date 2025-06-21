@@ -8,7 +8,6 @@
 
 #include <string.h>
 #include <stddef.h>
-#include <kernel/kmsg.h>
 
 /* Get string length */
 uint strlen(char* string) {
