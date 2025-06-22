@@ -9,7 +9,7 @@
 set -e  # Exit on error
 
 echo "=== pearlOS Configuration Script ==="
-echo "Using GRUB as the bootloader"
+echo "Using GRUB as the bootloader."
 
 # Create necessary directories
 echo "[INFO] Creating build directories..."
@@ -36,5 +36,5 @@ menuentry "pearlOS" {
 EOF
 
 echo "[INFO] Configuration complete!"
-echo "Run 'make' to build the kernel and create a bootable ISO."
-echo "Run 'make run' to open it in qemu."
+echo "Run \"make\" to build the kernel and create a bootable ISO."
+echo "Run \"make run\" or \"make qemu\" to open it in qemu."
