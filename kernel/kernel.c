@@ -25,7 +25,7 @@ extern "C" {
 
 #include <multiboot.h>
 
-// Forward declarations
+/* Forward declarations */
 void memory_init(void);
 void keyboard_init(void);
 void display_init(void);
@@ -35,17 +35,17 @@ void rand_init(void);
 void isr_install(void);
 void smbios_init(void);
 
-// Multiboot information pointer
+/* Multiboot information pointer */
 struct multiboot_info *mb_info;
 
 int kmain(unsigned long magic, unsigned long addr) {
-    // Check if we were loaded by a Multiboot-compliant boot loader
+    /* Check if we were loaded by a Multiboot-compliant boot loader */
     if (magic != MULTIBOOT_BOOTLOADER_MAGIC) {
-        // Not loaded by a compliant bootloader
+        /* Not loaded by a compliant bootloader */
         return -1;
     }
 
-    // Save the multiboot info structure
+    /* Save the multiboot info structure */
     mb_info = (struct multiboot_info *)addr;
 
     /* Init messages */
