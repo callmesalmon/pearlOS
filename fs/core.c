@@ -275,10 +275,10 @@ void mkfs() {
   file_make("roadmap");
   file_writes(
     "roadmap",
-    "---- ROADMAP ----\n\n"
+    "=== ROADMAP ===\n\n"
     "[x]. Get pearlOS to run.\n"
     "[x]. Add some extra programs.\n"
-    "[ ]. Add a text editor (in progress!)\n"
+    "[ ]. Add a text editor.\n"
     "[ ]. Create a warningless C build.\n"
     "[ ]. Create a proper syscall interface.\n"
     "[ ]. Create a desktop enviroment.\n"
