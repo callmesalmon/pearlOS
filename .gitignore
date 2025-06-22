@@ -19,7 +19,7 @@ debug.h
 debug.asm
 
 # Compilation results
-dist/
+build/
 mk/
 
 # Profiles
