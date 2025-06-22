@@ -5,8 +5,6 @@
     - [ ] Other things???
   - [ ] Better shell
   - [ ] Syscall interface
-- [x] Boot
-  - [x] Config
 - [ ] CPU
   - [x] Stabilize
   - [ ] Format the code
