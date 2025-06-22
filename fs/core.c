@@ -112,18 +112,9 @@ int file_make(char* name) {
     return FILE_ALREADY_EXISTS;
   }
 
-  /* NOTE: (TO SELF, MOSTLY)
-   * Please don't uncomment the comment below (if-statement) unless the bug
-   * has been fixed. Hopefully anybody reading this knows what "the bug"
-   * is, but for a more concise description, for some reason (probably some
-   * memory shit as C is fucked up in that manner), the file_valid(name) always
-   * returns that the file name is invalid. I'll hopefully get around to fixing
-   * that soon, but for now, it serves as dead code. */
-
-  /*  if (!file_valid(name)) {
-   *   return FILE_NAME_INVALID;
-   * }
-   */
+  if (!file_valid(name)) {
+      return FILE_NAME_INVALID;
+  }
 
   /* Allocate the file */
   File* fp = kmalloc(sizeof(File));
