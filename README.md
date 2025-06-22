@@ -22,8 +22,8 @@ in the way I update things and I kind of just implement things as I go so keep t
 * [NASM](https://nasm.us)
 * [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
-* [GRUB](https://www.gnu.org/software/grub/) (GRUB 2.0 or later)
-* xorriso (for creating bootable ISO)
+* [GRUB](https://www.gnu.org/software/grub/) 2.0 or later
+* [xorriso](https://www.gnu.org/software/xorriso/)
 
 ## Compilation
 
