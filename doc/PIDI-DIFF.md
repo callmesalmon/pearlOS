@@ -86,6 +86,7 @@ for the most recent updates, you should probably look over there.
 
 ## Bug Fixes
 
+### File sector patch
 I *needed* to be able to run the project, I couldn't have a non-functional
 OS as my most prideful project, right? But when I tried compiling with `gcc`
 (`gnu17` if you're wondering), it didn't work. Instead, gcc screamed at me
@@ -115,3 +116,18 @@ solved by typecasting, but it took me a while to fix.
 ```c
 Sector* fs = (Sector*)init_sector();
 ```
+
+### Patch bootloader limits (issue [18](https://github.com/callmesalmon/pearlOS/issues/18))
+The custom bootloader is fine and all (I guess), but it has its limits. The truth is that
+the pearlOS kernel had been just barely working for a while, and it's because all 33 sectors
+were completely filled with stuff:
+
+```asm
+KERNEL_SIZE db  33 ; This was all filled eventually
+```
+
+Androvonx's [pull 19](https://github.com/callmesalmon/pearlOS/pull/19)
+fixed this for a while by increasing kernel size limits, but it was clear that it was not
+enough. Eventually we found a workaround, and it was just by eliminating the custom bootloader
+entirely and using a tool like grub for loading instead. We did just that and the issue was
+solved. The bootloader of the past can be found in [callmesalmon/pearlboot](https://github.com/callmesalmon/pearlboot).
