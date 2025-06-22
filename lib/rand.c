@@ -11,7 +11,7 @@
 int rand_seed;
 
 void rand_init() {
-  int random_data;
+  int random_data = 0;
   rand_seed = random_data + 1;
 }
 

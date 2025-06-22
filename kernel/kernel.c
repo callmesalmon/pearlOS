@@ -23,35 +23,57 @@ extern "C" {
 #include <fs/core.h>
 #include <drivers/keyboard.h>
 
-int kmain() {
+#include <multiboot.h>
 
-	/* Init messages */
-	kinfo(KERNEL_INFO_ENTERED);
-	kinfo(KERNEL_INFO_INIT_START);
+// Forward declarations
+void memory_init(void);
+void keyboard_init(void);
+void display_init(void);
+void display_theme(char color);
+void mkfs(void);
+void rand_init(void);
+void isr_install(void);
+void smbios_init(void);
+
+// Multiboot information pointer
+struct multiboot_info *mb_info;
+
+int kmain(unsigned long magic, unsigned long addr) {
+    // Check if we were loaded by a Multiboot-compliant boot loader
+    if (magic != MULTIBOOT_BOOTLOADER_MAGIC) {
+        // Not loaded by a compliant bootloader
+        return -1;
+    }
+
+    // Save the multiboot info structure
+    mb_info = (struct multiboot_info *)addr;
+
+    /* Init messages */
+    kinfo(KERNEL_INFO_ENTERED);
+    kinfo(KERNEL_INFO_INIT_START);
 
     /* ISR and SMBIOS */
     isr_install();
     smbios_init();
 
     /* Display configured default theme */
-    display_theme(DEFAULT_THEME);
+    display_theme((char)DEFAULT_THEME);
 
-    /* Initalize memory, input and display */
-	memory_init();
-	keyboard_init();
-	display_init();
-	
+    /* Initialize memory, input and display */
+    memory_init();
+    keyboard_init();
+    display_init();
+    
     /* Make filesystem and finish the initialization
      * by initializing the "rand" function. */
     mkfs();
-	rand_init();
+    rand_init();
 
     /* End of init messages */
-	kinfo(KERNEL_INFO_INIT_DONE);
+    kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
 
 	/* Debug */
-    #include "debug.h" /* this file is created by "./configure" */
     #ifdef DBG_MAIN
         DBG_MAIN;
     #endif

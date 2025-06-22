@@ -17,8 +17,3 @@
 #define KSH_PROMPT  "%"
 #define KSH_PROMPT2 ">"
 #define KSH_COMMENT ';'
-
-/* mem.h */
-#define KERNEL_MEMORY_OFFSET_START 0xffffff
-#define KERNEL_MEMORY_OFFSET_END   0xffffffff
-#define MEMORY_INDEX_BASE_SIZE     10000

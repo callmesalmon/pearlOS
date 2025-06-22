@@ -6,49 +6,35 @@
 #
 #     <https://firstdonoharm.dev/version/3/0/core.txt>
 
-PROFILE_DIR=./config/profiles
-PROFILE=$PROFILE_DIR/default
+set -e  # Exit on error
 
-if [ $# -gt 0 ] && [ -e "$PROFILE_DIR/$1" ]; then
-    echo "[INFO] Using $1 profile."
-    PROFILE=$PROFILE_DIR/$1
-else 
-    if [ -e "$PROFILE_DIR/$1" ]; then
-        echo "[INFO] Using default profile."
-    else
-        echo "[WARNING] Profile $1 wasn't found!"
-        echo "[INFO] Falling back on default profile..."
-    fi
-fi
+echo "=== pearlOS Configuration Script ==="
+echo "Using GRUB as the bootloader"
 
-for rc in $PROFILE/*; do
-    if [ -f $rc ]; then
-        case $rc in 
-            "$PROFILE/config.h" | "$PROFILE/kentry.asm")
-                DESTDIR=kernel
-                ;;
-            "$PROFILE/config.asm")
-                DESTDIR=boot
-                ;;
-        esac
-        rm $DESTDIR/$(basename $rc)
-        cp $rc $DESTDIR/$(basename $rc)
-    fi
-done
+# Create necessary directories
+echo "[INFO] Creating build directories..."
+mkdir -p build/iso/boot/grub
+mkdir -p build/kernel
+mkdir -p build/obj
 
+# Check for required tools
+echo "[INFO] Checking for required tools..."
+command -v grub-mkrescue >/dev/null 2>&1 || { echo >&2 "GRUB tools not found. Please install GRUB."; exit 1; }
+command -v nasm >/dev/null 2>&1 || { echo >&2 "NASM not found. Please install NASM."; exit 1; }
+command -v clang >/dev/null 2>&1 || { echo >&2 "Clang not found. Please install Clang."; exit 1; }
 
-echo "[INFO] Creating necessary files and directories:"
+# Create GRUB configuration
+echo "[INFO] Configuring GRUB..."
+cat > build/iso/boot/grub/grub.cfg << 'EOF'
+set timeout=0
+set default=0
 
-set -xe
+menuentry "pearlOS" {
+    multiboot /boot/pearlos.kernel
+    boot
+}
+EOF
 
-touch kernel/debug.h
-touch boot/debug.asm
-
-mkdir -p dist/
-mkdir -p mk/
-mkdir -p mk/bin/
-mkdir -p mk/kernel/
-mkdir -p mk/drivers/
-mkdir -p mk/cpu/
-mkdir -p mk/lib/
-mkdir -p mk/fs/
+echo "[INFO] Configuration complete!"
+echo "Run 'make' to build the kernel and create a bootable ISO."
+echo "Run 'make run' to open it in qemu."
