@@ -42,6 +42,9 @@ DRIVERS_C_SOURCES = $(shell find drivers/ -name '*.c')
 FS_C_SOURCES = $(shell find fs/ -name '*.c')
 LIB_C_SOURCES = $(shell find lib/ -name '*.c')
 
+# Header files
+C_HEADERS = $(shell find ./** -name '*.h')
+
 # Object files
 KERNEL_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(KERNEL_C_SOURCES)) \
               $(patsubst %.S, $(BUILD_DIR)/%.o, $(KERNEL_ASM_SOURCES)) \
@@ -62,12 +65,12 @@ $(ISO): $(KERNEL) | $(GRUB_DIR)
 	@$(GRUB_MKRESCUE) -o $@ $(ISO_DIR)
 
 # Link kernel
-$(KERNEL): $(KERNEL_OBJS)
+$(KERNEL): $(KERNEL_OBJS) | $(C_HEADERS)
 	@echo "  LD    $@"
 	@$(LD) $(LDFLAGS) -o $@ $^
 
 # Compile C files
-$(BUILD_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: %.c | $(C_HEADERS)
 	@echo "  CC    $<"
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
