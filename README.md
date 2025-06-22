@@ -34,7 +34,7 @@ in the way I update things and I kind of just implement things as I go so keep t
 
 ### Prerequisites
 
-On Debian/Ubuntu:
+On a Debian based OS (Debian, Ubuntu, Kali etc.):
 ```sh
 sudo apt-get install build-essential clang nasm qemu grub2-common grub-pc-bin xorriso
 ```
@@ -46,14 +46,14 @@ To build the OS and create a bootable ISO:
 make
 ```
 
-### Running in QEMU
+#### Running in QEMU
 
 To build and run the OS in QEMU:
 ```sh
-make run
+make run # or "make qemu"
 ```
 
-### Creating a Bootable USB
+#### Creating a Bootable USB
 
 1. Build the ISO:
    ```sh
