@@ -25,15 +25,6 @@ in the way I update things and I kind of just implement things as I go so keep t
 * [GRUB](https://www.gnu.org/software/grub/) (GRUB 2.0 or later)
 * xorriso (for creating bootable ISO)
 
-If your system package manager supports all of the aforementioned
-packages by the name they're listed as, you should be able to install all
-of the requirements with your local package manager using the
-``requirements.txt`` file. Using ``dnf`` as an example:
-
-```sh
-sudo dnf install $(cat requirements.txt)
-```
-
 ## Compilation
 
 > [!NOTE]
