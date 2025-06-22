@@ -4,109 +4,97 @@
 #
 #     <https://firstdonoharm.dev/version/3/0/core.txt>
 
-.DEFAULT_GOAL=dist/pearl.bin
-.PHONY: clean qemu all
+# Default target
+.PHONY: all clean run iso
 
-EMULATOR = qemu-system-i386
-EMUFLAGS = 
-LINKER   = ld -m elf_i386 -s
-CC       = clang
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. --target=i386-pc-none-elf \
-		   -march=i386 -I. -fno-builtin -nostdlib -nostdinc -std=c17
-ASMC     = nasm
-ASMF     = elf32
+# Directories
+BUILD_DIR = build
+ISO_DIR = $(BUILD_DIR)/iso
+BOOT_DIR = $(ISO_DIR)/boot
+GRUB_DIR = $(BOOT_DIR)/grub
 
-KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
-KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
-CMD_C_SOURCES        := $(wildcard kernel/cmd/*.c)
-CMD_C_OBJECTS        := $(patsubst kernel/cmd/%.c, mk/kernel/cmd/%.o, $(CMD_C_SOURCES))
-DRIVER_C_SOURCES     := $(wildcard drivers/*.c)
-DRIVER_C_OBJECTS     := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
-CPU_C_SOURCES        := $(wildcard cpu/*.c)
-CPU_C_OBJECTS        := $(patsubst cpu/%.c, mk/cpu/%.o, $(CPU_C_SOURCES))
-LIB_C_SOURCES        := $(wildcard lib/*.c)
-LIB_C_OBJECTS        := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
-FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
-FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
+# Output files
+KERNEL = $(BUILD_DIR)/pearlos.kernel
+ISO = $(BUILD_DIR)/pearlos.iso
 
-C_PROGRAMS = $(wildcard kernel/cmd/*.h)
-C_HEADERS  = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
-C_OBJ_REQS = $(C_PROGRAMS) $(C_HEADERS)
+# Toolchain
+CC = clang
+LD = ld
+AS = nasm
+GRUB_MKRESCUE = grub-mkrescue
+QEMU = qemu-system-i386
 
-KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) $(CMD_C_OBJECTS) mk/kernel/kentry.o
-DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
-CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
-LIB_OBJECTS        = $(LIB_C_OBJECTS)
-FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
+# Flags
+CFLAGS = -m32 -std=c17 -ffreestanding -fno-pie -fno-builtin -fno-stack-protector \
+         -Wall -Wextra -I. -I./kernel -I./kernel/arch/x86 -I./lib -I./cpu -I./drivers -I./fs \
+         -nostdlib -nostdinc -g
 
-# Directories needed for build output
-BUILD_DIRS = mk mk/bin mk/kernel mk/kernel/cmd mk/drivers mk/cpu mk/lib mk/fs dist
-$(BUILD_DIRS):
-	mkdir -p $@
+ASFLAGS := -f elf32 -g
+NASMFLAGS := -f elf32 -g
+LDFLAGS = -m elf_i386 -T kernel/arch/x86/linker.ld -nostdlib
 
-all: $(.DEFAULT_GOAL)
+# Source files
+KERNEL_C_SOURCES = $(shell find kernel/ -name '*.c')
+KERNEL_ASM_SOURCES = $(shell find kernel/arch/x86/ -name '*.S')
+CPU_C_SOURCES = $(shell find cpu/ -name '*.c')
+CPU_ASM_SOURCES = $(shell find cpu/ -name '*.asm')
+DRIVERS_C_SOURCES = $(shell find drivers/ -name '*.c')
+FS_C_SOURCES = $(shell find fs/ -name '*.c')
+LIB_C_SOURCES = $(shell find lib/ -name '*.c')
 
-dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin | dist
-	rm -f dist/pearl.bin
-	cat mk/bin/* > $@
-	chmod +x dist/pearl.bin
+# Object files
+KERNEL_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(KERNEL_C_SOURCES)) \
+              $(patsubst %.S, $(BUILD_DIR)/%.o, $(KERNEL_ASM_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(CPU_C_SOURCES)) \
+              $(patsubst %.asm, $(BUILD_DIR)/%.o, $(CPU_ASM_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(DRIVERS_C_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(FS_C_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(LIB_C_SOURCES))
 
-# Kernel size limits (in bytes)
-# Warning size: 39 sectors
-# MAXIMUM size: 41 sectors
-KERNEL_MAX_SIZE = 20992
-KERNEL_WARN_SIZE = 19968
+# Default target
+all: $(ISO)
 
-mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS) | mk/bin
-	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
-	@# Check kernel size against limits
-	@KERNEL_SIZE=$$(wc -c < "$@"); \
-	if [ $$KERNEL_SIZE -gt $(KERNEL_MAX_SIZE) ]; then \
-		echo "ERROR: Kernel size ($$KERNEL_SIZE bytes) exceeds bootloader limit ($(KERNEL_MAX_SIZE) bytes)"; \
-		echo "       Increase KERNEL_SIZE in config/profiles/{profile}/config.asm to at least $$(( ($$KERNEL_SIZE + 511) / 512 )) sectors"; \
-		exit 1; \
-	elif [ $$KERNEL_SIZE -gt $(KERNEL_WARN_SIZE) ]; then \
-		echo "WARNING: Kernel size ($$KERNEL_SIZE bytes) is approaching bootloader limit"; \
-		echo "         Consider increasing KERNEL_SIZE in config/profiles/{profile}/config.asm"; \
-	fi
+# Create ISO
+$(ISO): $(KERNEL) | $(GRUB_DIR)
+	@mkdir -p $(BOOT_DIR)/grub
+	@cp $(KERNEL) $(BOOT_DIR)/
+	@cp grub.cfg $(GRUB_DIR)/
+	@$(GRUB_MKRESCUE) -o $@ $(ISO_DIR)
 
-mk/bin/bootsect.bin: boot/* | mk/bin
-	$(ASMC) -f bin -o $@ boot/bootsect.asm
-	chmod +x $@
+# Link kernel
+$(KERNEL): $(KERNEL_OBJS)
+	@echo "  LD    $@"
+	@$(LD) $(LDFLAGS) -o $@ $^
 
-mk/kernel/%.o: kernel/%.c $(C_OBJ_REQS) | mk/kernel
-	$(CC) $(CFLAGS) -c $< -o $@
+# Compile C files
+$(BUILD_DIR)/%.o: %.c
+	@echo "  CC    $<"
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-mk/kernel/cmd/%.o: kernel/cmd/%.c $(C_OBJ_REQS) | mk/kernel/cmd
-	$(CC) $(CFLAGS) -c $< -o $@
+# Assemble ASM files with NASM
+$(BUILD_DIR)/%.o: %.S
+	@echo "  AS    $<"
+	@mkdir -p $(@D)
+	@nasm $(NASMFLAGS) $< -o $@
 
-mk/drivers/%.o: drivers/%.c $(C_OBJ_REQS) | mk/drivers
-	$(CC) $(CFLAGS) -c $< -o $@
+# Assemble .asm files with NASM
+$(BUILD_DIR)/%.o: %.asm
+	@echo "  ASM   $<"
+	@mkdir -p $(@D)
+	@nasm -f elf32 $< -o $@
 
-mk/cpu/%.o: cpu/%.c $(C_OBJ_REQS) | mk/cpu
-	$(CC) $(CFLAGS) -c $< -o $@
+# Create GRUB directory
+$(GRUB_DIR):
+	@mkdir -p $@
 
-mk/lib/%.o: lib/%.c $(C_OBJ_REQS) | mk/lib
-	$(CC) $(CFLAGS) -c $< -o $@
+# Run in QEMU
+run qemu: $(ISO)
+	$(QEMU) -cdrom $(ISO) -m 128M -serial stdio
 
-mk/fs/%.o: fs/%.c $(C_OBJ_REQS) | mk/fs
-	$(CC) $(CFLAGS) -c $< -o $@
-
-mk/kernel/kentry.o: kernel/kentry.asm | mk/kernel
-	$(ASMC) -f $(ASMF) -o $@ $<
-
-mk/cpu/interrupt.o: cpu/interrupt.asm | mk/cpu
-	$(ASMC) -f $(ASMF) -o $@ $<
-
-qemu: $(.DEFAULT_GOAL)
-	$(EMULATOR) $(EMUFLAGS) $^
-
+# Clean build files
 clean:
-	rm -f dist/*
-	rm -f mk/bin/*
-	rm -f mk/kernel/*
-	rm -f mk/kernel/cmd/*
-	rm -f mk/drivers/*
-	rm -f mk/cpu/*
-	rm -f mk/lib/*
-	rm -f mk/fs/*
+	rm -rf $(BUILD_DIR)
+
+# Create ISO directory structure
+$(shell mkdir -p $(GRUB_DIR))

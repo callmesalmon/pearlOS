@@ -22,6 +22,8 @@ in the way I update things and I kind of just implement things as I go so keep t
 * [NASM](https://nasm.us)
 * [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
+* [GRUB](https://www.gnu.org/software/grub/) (GRUB 2.0 or later)
+* xorriso (for creating bootable ISO)
 
 If your system package manager supports all of the aforementioned
 packages by the name they're listed as, you should be able to install all
@@ -35,23 +37,52 @@ sudo dnf install $(cat requirements.txt)
 ## Compilation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with *Clang ISO C17*,
+> Compilation is only guaranteed on Linux with *Clang ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
-Assuming you have the prerequisites installed and have a locally hosted version of the project (using tools like
-git or others), you can compile and run the project using:
+### Prerequisites
+
+On Debian/Ubuntu:
 ```sh
-./configure && make qemu
+sudo apt-get install build-essential clang nasm qemu grub2-common grub-pc-bin xorriso
 ```
-This will start up a QEMU session with the image, and you can run the OS. If you don't have clang, you can
-technically build the OS using GCC with ``sh scripts/gcc.sh``, but it is not recommended.
 
-If the ``make`` command fails, there is probably an error in the OS. See [this](/doc/TROUBLESHOOTING.md)
-for help on troubleshooting.
+### Building
 
-NOTE: To add your own config (and then run it using ``./configure``),
-you can [read the docs](/doc/CONFIG.md).
+To build the OS and create a bootable ISO:
+```sh
+make
+```
+
+### Running in QEMU
+
+To build and run the OS in QEMU:
+```sh
+make run
+```
+
+### Creating a Bootable USB
+
+1. Build the ISO:
+   ```sh
+   make
+   ```
+
+2. Use `dd` to write the ISO to a USB drive (replace `/dev/sdX` with your USB device):
+   ```sh
+   sudo dd if=build/pearlos.iso of=/dev/sdX bs=4M status=progress && sync
+   ```
+
+   **WARNING:** Be very careful with the device name as this will erase all data on the target device.
+
+### Troubleshooting
+
+If you encounter any issues during the build process, please check the following:
+1. Ensure all dependencies are installed
+2. Check that you have sufficient disk space
+3. Verify that your system meets the minimum requirements
+4. Consult the [troubleshooting guide](/doc/TROUBLESHOOTING.md) for common issues
 
 ## Uninstalling
 
