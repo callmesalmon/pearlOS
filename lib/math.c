@@ -13,7 +13,7 @@
  * explored in my blog post, for more
  * info, see:
  *
- *     https://elisstaaf.github.io/ramblings/2025/01/31/infinity.html
+ *     https://callmesalmon.github.io/ramblings/2025/01/31/infinity.html
  */
 double divide(double x, double y) {
     return x / y;
