@@ -9,7 +9,6 @@ these are listed below in the form of:
 ## Additions
 
 Many more extra commands for the userland, such as:
-* [loop](https://github.com/callmesalmon/pearlOS/blob/main/kernel/cmd/loop.h)
 * [fortune](https://github.com/callmesalmon/pearlOS/blob/main/kernel/cmd/fortune.h)
 * [panic](https://github.com/callmesalmon/pearlOS/blob/main/kernel/cmd/panic.h)
 * [alloc](https://github.com/callmesalmon/pearlOS/blob/main/kernel/cmd/alloc.h)
