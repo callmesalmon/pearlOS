@@ -1,7 +1,7 @@
 #ifndef MULTIBOOT_HEADER
 #define MULTIBOOT_HEADER
 
-#include <stdint.h> 
+#include <stddef.h> 
 
 /* The magic number for the Multiboot header. */
 #define MULTIBOOT_HEADER_MAGIC      0x1BADB002
