@@ -63,7 +63,8 @@ void ksh_manpage2() {
     println("theme-light    changes the theme to a light theme");
     println("theme-dark     changes the theme to a dark theme");
     println("theme-pascal   changes the theme to pascal");
-    println("theme-hacker   changes the theme to hacker >:D");
+    println("theme-demon    changes the theme to demon");
+    println("theme-hacker   changes the theme to hacker >:3");
     println("memstat        get allocated memory usage");
     println("memalloc       allocate memory");
     println("random         get random number between 0-100");
