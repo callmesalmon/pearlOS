@@ -42,7 +42,7 @@ int ksh_help() {
 }
 
 void ksh_manpage1() {
-    println("=== KSH Manual page 3: A brief description ===");
+    println("=== KSH Manual page 1: A brief description ===");
     println("KSH (Kernel SHell), is the main (and so far only) shell in pearlOS.");
     println("It's very simple and quite frankly pretty bad, with for example");
     println("parameters needing to be on another line as the command. Nonetheless");
