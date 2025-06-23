@@ -26,16 +26,16 @@ QEMU = qemu-system-i386
 
 # Flags
 CFLAGS = -m32 -std=c17 -ffreestanding -fno-pie -fno-builtin -fno-stack-protector \
-         -Wall -Wextra -I. -I./kernel -I./kernel/arch/x86_64 -I./lib -I./cpu -I./drivers -I./fs \
+         -Wall -Wextra -I. -I./kernel -I./kernel/arch/x86_32 -I./lib -I./cpu -I./drivers -I./fs \
          -nostdlib -nostdinc -g
 
 ASFLAGS := -f elf32 -g
 NASMFLAGS := -f elf32 -g
-LDFLAGS = -m elf_i386 -T kernel/arch/x86_64/linker.ld -nostdlib
+LDFLAGS = -m elf_i386 -T kernel/arch/x86_32/linker.ld -nostdlib
 
 # Source files
 KERNEL_C_SOURCES = $(shell find kernel/ -name '*.c')
-KERNEL_ASM_SOURCES = $(shell find kernel/arch/x86_64/ -name '*.S')
+KERNEL_ASM_SOURCES = $(shell find kernel/arch/x86_32/ -name '*.S')
 CPU_C_SOURCES = $(shell find cpu/ -name '*.c')
 CPU_ASM_SOURCES = $(shell find cpu/ -name '*.asm')
 DRIVERS_C_SOURCES = $(shell find drivers/ -name '*.c')
