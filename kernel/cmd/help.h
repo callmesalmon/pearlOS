@@ -67,7 +67,7 @@ void ksh_manpage2() {
     println("theme-hacker   changes the theme to hacker >:3");
     println("memstat        get allocated memory usage");
     println("memalloc       allocate memory");
-    println("random         get random number between 0-100");
+    println("coin           flip a fucking coin");
     println("panic          invoke kernel panic");  
     println("exit           exit OS");
 

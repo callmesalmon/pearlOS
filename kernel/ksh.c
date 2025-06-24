@@ -104,8 +104,8 @@ byte ksh_interpret(char* command) {
     else  if (strcmp(command, "exit")) {
         return ksh_exit();
     }
-    else if (strcmp(command, "random")) {
-        printf("%d\n", rand() % 100);
+    else if (strcmp(command, "coin")) {
+        printf("%s\n", ((rand() % 2) == 1) ? "heads" : "tails");
     }
     else if (strcmp(command, "panic")) {
         usrpanic();
