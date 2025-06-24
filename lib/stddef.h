@@ -16,7 +16,7 @@ typedef unsigned int uint;
 typedef unsigned short word;
 typedef unsigned char uchar;
 typedef unsigned short ushort;
-typedef uint uint8_t;
+typedef unsigned int uint8_t;
 
 /* size_t */
 #ifdef __SIZE_TYPE__
