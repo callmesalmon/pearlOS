@@ -110,3 +110,6 @@ rtfc (read the fucking code).
 This project is licensed under the [HL3-Core](https://firstdonoharm.dev/version/3/0/core.txt)
 (Hippocratic License 3 Core) license. As long as you abide by the terms of the license, you can
 use this software however you like.
+
+## Developers
+Since late June of 2025, pearlOS has been codeveloped by @callmesalmon and @androvonx95.
