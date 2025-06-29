@@ -1,43 +1,30 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #include <kernel/ksh.h>
 
 char *theme;
 
-#include <kernel/programs/pearlfetch.h>
-#include <kernel/programs/list_files.h>
-#include <kernel/programs/read_file.h>
-#include <kernel/programs/write_to_file.h>
-#include <kernel/programs/make_file.h>
-#include <kernel/programs/fortune.h>
-#include <kernel/programs/remove_file.h>
-#include <kernel/programs/echo.h>
-#include <kernel/programs/help.h>
-#include <kernel/programs/calc.h>
-#include <kernel/programs/panic.h>
-#include <kernel/programs/alloc.h>
-#include <kernel/programs/loop.h>
-#include <kernel/programs/memstat.h>
-#include <kernel/programs/filesz.h>
+#include <kernel/cmd/pearlfetch.h>
+#include <kernel/cmd/list_files.h>
+#include <kernel/cmd/read_file.h>
+#include <kernel/cmd/write_to_file.h>
+#include <kernel/cmd/make_file.h>
+#include <kernel/cmd/fortune.h>
+#include <kernel/cmd/remove_file.h>
+#include <kernel/cmd/echo.h>
+#include <kernel/cmd/help.h>
+#include <kernel/cmd/calc.h>
+#include <kernel/cmd/panic.h>
+#include <kernel/cmd/alloc.h>
+#include <kernel/cmd/memstat.h>
+#include <kernel/cmd/cowsay.h>
+#include <kernel/cmd/exit.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -51,9 +38,6 @@ byte ksh_interpret(char* command) {
     }
     else if (strcmp(command, "echo")) {
         ksh_echo();
-    }
-    else if (strcmp(command, "loop")) {
-        ksh_loop();
     }
     else if (strcmp(command, "wipe")) {
         display_clear();
@@ -74,27 +58,30 @@ byte ksh_interpret(char* command) {
         display_theme(WHITE_ON_BLACK);
         theme = "Generic dark";
     }
-    else if (strcmp(command, "hacker")) {
-        display_theme(GREEN_ON_BLACK);
-        theme = "Hacker >:D";
-        cprintln("You are a hacker now! >:D", RED_ON_BLACK);
+    else if (strcmp(command, "theme-pascal")) {
+        display_theme(WHITE_ON_BLUE);
+        theme = "Generic pascal";
     }
-    else if (strcmp(command, "exit")) {
-        display_clear();
-        return KSH_EXIT;
+    else if (strcmp(command, "theme-demon")) {
+        display_theme(RED_ON_BLACK);
+        theme = "666";
+    }
+    else if (strcmp(command, "theme-hacker")) {
+        display_theme(GREEN_ON_BLACK);
+        theme = "Hacker >:3";
+        cprintln("You are a hacker now! >:3", RED_ON_BLACK);
     }
     else if (strcmp(command, "fortune")) {
         ksh_fortune();
+    }
+    else if (strcmp(command, "kowsay")) {
+        kowsay();
     }
     else if (strcmp(command, "calc")) {
         ksh_calc();
     }
     else if (strcmp(command, "memalloc")) {
         ksh_alloc();
-    }
-    else if (strcmp(command, "theme-pascal")) {
-        display_theme(WHITE_ON_BLUE);
-        theme = "Generic pascal";
     }
     else if (strcmp(command, "pearlfetch")) {
         ksh_pearlfetch();
@@ -108,17 +95,17 @@ byte ksh_interpret(char* command) {
     else if (strcmp(command, "rm")) {
         ksh_remove_file();
     }
-    else if (strcmp(command, "sz")) {
-        ksh_filesz();
-    }
     else if (strcmp(command, "cat")) {
         ksh_read_file();
     }
     else if (strcmp(command, "to")) {
         ksh_write_to_file();
     }
-    else if (strcmp(command, "random")) {
-        printf("%d\n", rand() % 100);
+    else  if (strcmp(command, "exit")) {
+        return ksh_exit();
+    }
+    else if (strcmp(command, "coin")) {
+        printf("%s\n", ((rand() % 2) == 1) ? "heads" : "tails");
     }
     else if (strcmp(command, "panic")) {
         usrpanic();
@@ -130,7 +117,7 @@ byte ksh_interpret(char* command) {
 }
 
 void ksh_start() {
-    theme = "Hacker >:D";
+    theme = "Generic pascal";
 
     char c[KSH_INPUT_BUFFER];
     for (uint i = 0; i < KSH_INPUT_BUFFER; ++i) {

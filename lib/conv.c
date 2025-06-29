@@ -1,26 +1,12 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #include <conv.h>
-#include <stdint.h>
 #include <stddef.h>
 
 void uint32_to_str(char* output, uint32_t number) {
@@ -112,7 +98,8 @@ int str_to_int(char *array, size_t n) {
     /* for each character in array */
     while (n--) {
         /* array[n] = char -> exit */
-        if (!chint(array[n])) {
+        if ((array[n] >= 'a' && array[n] <= 'z') || \
+        (array[n] >= 'A' && array[n] <= 'Z')) {
             return INVALID_INT;
         }
 
@@ -161,11 +148,35 @@ byte char_to_hex(char character) {
     case 'c': return 0xC;
     case 'C': return 0xC;
     case 'd': return 0xD;
-    case 'D': return 0xD;
     case 'e': return 0xE;
     case 'E': return 0xE;
     case 'f': return 0xF;
     case 'F': return 0xF;
   }
   return INVALID_BYTE;
+}
+
+int hex_to_int(char* hex_str, size_t len) {
+    if (!hex_str || len <= 0) return INVALID_INT;
+    
+    int number = 0;
+    bool negative = false;
+
+    for (size_t i = 0; i < len; i++) {
+        if (hex_str[i] == '-') {
+            if (i > 0 || negative) return INVALID_INT;
+            negative = true;
+            continue;
+        }
+
+        byte hex_val = char_to_hex(hex_str[i]);
+        if (hex_val == INVALID_BYTE) return INVALID_INT;
+
+        // Check for overflow
+        if (number > (INT_MAX - hex_val) / 16) return INVALID_INT;
+
+        number = number * 16 + hex_val;
+    }
+
+    return negative ? -number : number;
 }

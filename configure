@@ -1,56 +1,40 @@
 #!/usr/bin/bash
 
-# Copyright 2025 Elis Staaf
+# Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+# If your copy of this program doesn't include the license, it is
+# available to read at:
 #
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the LICENSE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
+#     <https://firstdonoharm.dev/version/3/0/core.txt>
 
-PROFILE_DIR=./config/profiles
-PROFILE=$PROFILE_DIR/default
+set -e  # Exit on error
 
-if [ $# -gt 0 ]; then
-    PROFILE=$PROFILE_DIR/$1
-fi
+echo "=== pearlOS Configuration Script ==="
+echo "Using GRUB as the bootloader."
 
-for rc in $PROFILE/*; do
-    if [ -f $rc ]; then
-        case $rc in 
-            "$PROFILE/config.h" | "$PROFILE/kentry.asm")
-                DESTDIR=kernel
-                ;;
-            "$PROFILE/config.asm")
-                DESTDIR=boot
-                ;;
-        esac
-        rm $DESTDIR/$(basename $rc)
-        cp $rc $DESTDIR/$(basename $rc)
-    fi
-done
+# Create necessary directories
+echo "[INFO] Creating build directories..."
+mkdir -p build/iso/boot/grub
+mkdir -p build/kernel
+mkdir -p build/obj
 
-set -x
+# Check for required tools
+echo "[INFO] Checking for required tools..."
+command -v grub-mkrescue >/dev/null 2>&1 || { echo >&2 "GRUB tools not found. Please install GRUB."; exit 1; }
+command -v nasm >/dev/null 2>&1 || { echo >&2 "NASM not found. Please install NASM."; exit 1; }
+command -v clang >/dev/null 2>&1 || { echo >&2 "Clang not found. Please install Clang."; exit 1; }
 
-touch kernel/debug.h
-touch boot/debug.asm
+# Create GRUB configuration
+echo "[INFO] Configuring GRUB..."
+cat > build/iso/boot/grub/grub.cfg << 'EOF'
+set timeout=0
+set default=0
 
-mkdir -p dist/
-mkdir -p mk/
-mkdir -p mk/bin/
-mkdir -p mk/kernel/
-mkdir -p mk/drivers/
-mkdir -p mk/cpu/
-mkdir -p mk/lib/
-mkdir -p mk/fs/
+menuentry "pearlOS" {
+    multiboot /boot/pearlos.kernel
+    boot
+}
+EOF
+
+echo "[INFO] Configuration complete!"
+echo "Run \"make\" to build the kernel and create a bootable ISO."
+echo "Run \"make run\" or \"make qemu\" to open it in qemu."

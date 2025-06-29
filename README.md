@@ -1,17 +1,20 @@
 # pearlOS: Operating system
 
-[![Build](https://img.shields.io/github/actions/workflow/status/ElisStaaf/pearlOS/ci.yml?logo=Github&labelColor=17181B&label=Build)](/)
-[![Version](https://img.shields.io/badge/Version-Dragonfly-FF0062?labelColor=17181B)](/)
+[![Build](https://img.shields.io/github/actions/workflow/status/callmesalmon/pearlOS/ci.yml?logo=Github&labelColor=17181B&label=Build)](/)
 [![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
-[![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)  
+[![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)
+[![Version](https://img.shields.io/badge/Version-Demon-FF0062?labelColor=17181B)](/)
+[![Hippocratic License HL3-CORE](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-CORE&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/core.html)  
 
-pearlOS is an awesome operating system based of the [pidi-os](https://github.com/GandelXIV/pidi-os)
-project that was sadly discontinued, but I *highly* recommend you to check out the new rust-based
-operating system made by the same author; [RezOS](https://github.com/GandelXIV/RezOS).
-But ofcourse only do that *after* you check out this project! pearlOS was made
-for me to learn operating system things and also to become better at C and Assembly.
+pearlOS is an awesome operating system based of (and a continuation of) the discontinued
+[pidi-os](https://github.com/GandelXIV/pidi-os). I *highly* recommend you to check out the new rust-based
+operating system made by the [same author](https://github.com/GandelXIV);
+[RezOS](https://github.com/GandelXIV/RezOS). pearlOS was made for me to learn operating system 
+things and also to become better at C and Assembly. I am extremely inconsistent
+in the way I update things and I kind of just implement things as I go so keep that in mind :P
 
-[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)
+[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)  
+*Warning: Image may be outdated.*
 
 ## Requirements
 
@@ -19,37 +22,63 @@ for me to learn operating system things and also to become better at C and Assem
 * [NASM](https://nasm.us)
 * [Clang](https://clang.llvm.org/)
 * [QEMU](https://www.qemu.org)
+* [GRUB](https://www.gnu.org/software/grub/) 2.0 or later
+* [xorriso](https://www.gnu.org/software/xorriso/)
 
-## Installation
+## Compilation
 
 > [!NOTE]
-> Compilation is only guaranteed on linux with *Clang ISO C17*,
+> Compilation is only guaranteed on Linux with *Clang ISO C17*,
 > but it is also possible in Windows with virtualization
 > solutions like WSL (on Windows 11) or hyperV.
 
-PearlOS prides itself in it's incredibly easy installation, as it only requires 3 commands!
-It's very easy to install, firstly clone the repo:
-```console
-git clone https://github.com/ElisStaaf/pearlOS
+### Prerequisites
+
+On a Debian based OS (Debian, Ubuntu, Kali etc.):
+```sh
+sudo apt-get install build-essential clang nasm qemu grub2-common grub-pc-bin xorriso
 ```
-After going into the repo directory, configure and then make:
-```console
-./configure
+
+### Building
+
+To build the OS and create a bootable ISO:
+```sh
 make
 ```
-You can add your own config, just read [this](/doc/CONFIG.md)!  
-Lastly, run the generated image at dist/pearl.bin  
-by making the rule `qemu`:
-```console
-make qemu
+
+#### Running in QEMU
+
+To build and run the OS in QEMU:
+```sh
+make run # or "make qemu"
 ```
-This will start up a QEMU session with the image, and you
-can run the OS.
+
+#### Creating a Bootable USB
+
+1. Build the ISO:
+   ```sh
+   make
+   ```
+
+2. Use `dd` to write the ISO to a USB drive (replace `/dev/sdX` with your USB device):
+   ```sh
+   sudo dd if=build/pearlos.iso of=/dev/sdX bs=4M status=progress && sync
+   ```
+
+   **WARNING:** Be very careful with the device name as this will erase all data on the target device.
+
+### Troubleshooting
+
+If you encounter any issues during the build process, please check the following:
+1. Ensure all dependencies are installed
+2. Check that you have sufficient disk space
+3. Verify that your system meets the minimum requirements
+4. Consult the [troubleshooting guide](/doc/TROUBLESHOOTING.md) for common issues
 
 ## Uninstalling
 
 To uninstall, simply run:
-```console
+```sh
 make clean
 ```
 
@@ -66,7 +95,7 @@ project, I'll probably accept your contribution.
 ## Activity
 
 I'm a bit inconsistent on when I actually, y'know, maintain and update this,
-but I can assure you, even if you see a 1-month pause, THE PROJECT IS NOT DEAD.
+but I can assure you, even if you see a 5-month pause, THE PROJECT IS NOT DEAD.
 If the project dies, you can expect archival or at least a message.
 
 ## Documentation
@@ -78,7 +107,9 @@ rtfc (read the fucking code).
 
 ## License
 
-Unless explicitly stated, every single *modified* file in this project is licensed
-under the *Apache 2.0 License*, while the *unmodified* files are licensed under *MIT*.
-The "SPDX-License-Identifier" rule obviously overrides this option, and is how you
-explicitly state a different license. See [LICENSE](/LICENSE) for the 2 main licenses.
+This project is licensed under the [HL3-Core](https://firstdonoharm.dev/version/3/0/core.txt)
+(Hippocratic License 3 Core) license. As long as you abide by the terms of the license, you can
+use this software however you like.
+
+## Developers
+Since late June of 2025, pearlOS has been codeveloped by @callmesalmon and @androvonx95.

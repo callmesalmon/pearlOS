@@ -1,26 +1,17 @@
 # Object/Binary files
 *.o
 *.obj
-*.elf
-*.bin
-
-# Archives 
-*.tar
-*.zip
+*.kernel
+*.iso
 
 # SWP/TMP files
 *.swp
 *~
-*\#
-
-# Debug files
-debug.h
-debug.asm
+*#
 
 # Compilation results
-dist/
-mk/
+build/
 
 # Profiles
-config/profiles/*/
+config/profiles/*
 !config/profiles/default

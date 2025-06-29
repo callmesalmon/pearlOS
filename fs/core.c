@@ -1,23 +1,10 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #include <fs/core.h>
 
@@ -39,6 +26,13 @@ under the License.
  * stopped being in use 1972.        *
  * I'm definetely sending you to     *
  * the javascript repl...            *
+ *                                   *
+ * (Also I know this is kind of      *
+ * ironic because I have a commented *
+ * out string in this file, but      *
+ * that's because I'm planning to    *
+ * use that code again after "the    *
+ * bug" has been fixed)              *
  * * * * * * * * * * * * * * * * * * */
 
 File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
@@ -118,15 +112,14 @@ int file_make(char* name) {
     return FILE_ALREADY_EXISTS;
   }
 
-  /*  if (!file_valid(name)) {
-   *   return FILE_NAME_INVALID;
-   * } 
-   */
+  if (!file_valid(name)) {
+      return FILE_NAME_INVALID;
+  }
 
   /* Allocate the file */
   File* fp = kmalloc(sizeof(File));
   strcpy(fp->name, name);
-  
+
   /* Prepare the sector */
   fp->first_sector = init_sector();
 
@@ -243,19 +236,21 @@ void mkfs() {
   file_make("os-release");
   file_writes(
     "os-release", 
-    "NAME=\"pearlOS " OS_GENERIC " \"\n"
-    "PRETTY_NAME=\"pearlOS " OS_VERSION " \"\n"
+    "NAME=\"pearlOS " OS_GENERIC "\"\n"
+    "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
     "VERSION=\" " OS_VERSION " (" OS_GENERIC ")\"\n"
-    "REPO=\"github.com/ElisStaaf/pearlOS\"\n"
+    "REPO=\"github.com/callmesalmon/pearlOS\"\n"
   );
   file_make("license");
   file_writes(
     "license",
-    "pearlOS is released under the Apache-2.0 License\n\n"
-    "A permissive license whose main conditions require preservation of\n"
-    "copyright and license notices.Contributors provide an express grant\n"
-    "of patent rights. Licensed works, modifications, and larger works \n"
-    "may be distributed under different terms and without source code.\n"
+    "pearlOS is released under the Hippocratic 3.0 License (HL3).\n\n"
+    "The Hippocratic License 3.0 (HL3) aims to confront the potential\n"
+    "harms and abuses technology can have on fundamental human rights.\n"
+    "It empowers open source communities to establish a clear set of\n"
+    "ethical standards that licensees must abide by in order to adopt\n"
+    "their code. These standards are based on international agreements and\n"
+    "authorities on fundamental human rights norms.\n"
   );
   file_make("readme");
   file_writes(
@@ -263,18 +258,19 @@ void mkfs() {
     "Thank you for using pearlOS! Many, many thanks!\n"
     "If you've got any questions, type \"help\" to open\n"
     "the KSH manual. You can check out the source code at\n"
-    "\"github.com/ElisStaaf/pearlOS\", feel free to contribute!\n"
+    "\"github.com/callmesalmon/pearlOS\", feel free to contribute!\n"
     "And with that, enjoy the OS!\n\n"
-    "PEARLOS: Elis Staaf <elis.staaf@proton.me>, Nov 2024.\n"
-    "PIDI-OS: Filip Chovanec <\?\?\?>, Mar 2021.\n"
+    "PEARLOS: Salmon <elis.staaf@proton.me>, Nov 2024.\n"
+    "PIDI-OS: Filip Chovanec <unknown>, Mar 2021.\n"
   );
   file_make("roadmap");
   file_writes(
     "roadmap",
-    "---- ROADMAP ----\n\n"
+    "=== ROADMAP ===\n\n"
     "[x]. Get pearlOS to run.\n"
     "[x]. Add some extra programs.\n"
-    "[x]. Create a warningless C build.\n"
+    "[ ]. Add a text editor.\n"
+    "[ ]. Create a warningless C build.\n"
     "[ ]. Create a proper syscall interface.\n"
     "[ ]. Create a desktop enviroment.\n"
   );

@@ -1,23 +1,10 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,36 +23,64 @@ extern "C" {
 #include <fs/core.h>
 #include <drivers/keyboard.h>
 
-static bool kernel_running;
+#include <multiboot.h>
 
-int kmain() {
-	/* Init */
-	kinfo(KERNEL_INFO_ENTERED);
-	kinfo(KERNEL_INFO_INIT_START);
+/* Forward declarations */
+void memory_init(void);
+void keyboard_init(void);
+void display_init(void);
+void display_theme(char color);
+void mkfs(void);
+void rand_init(void);
+void isr_install(void);
+void smbios_init(void);
 
-    display_theme(DEFAULT_THEME);
-	memory_init();
+/* Multiboot information pointer */
+struct multiboot_info *mb_info;
+
+int kmain(unsigned long magic, unsigned long addr) {
+    /* Check if we were loaded by a Multiboot-compliant boot loader */
+    if (magic != MULTIBOOT_BOOTLOADER_MAGIC) {
+        /* Not loaded by a compliant bootloader */
+        return -1;
+    }
+
+    /* Save the multiboot info structure */
+    mb_info = (struct multiboot_info *)addr;
+
+    /* Init messages */
+    kinfo(KERNEL_INFO_ENTERED);
+    kinfo(KERNEL_INFO_INIT_START);
+
+    /* ISR and SMBIOS */
     isr_install();
-	keyboard_init();
-	smbios_init();
-	display_init();
-	mkfs();
-	rand_init();
+    smbios_init();
 
-	kinfo(KERNEL_INFO_INIT_DONE);
+    /* Display configured default theme */
+    display_theme((char)DEFAULT_THEME);
+
+    /* Initialize memory, input and display */
+    memory_init();
+    keyboard_init();
+    display_init();
+    
+    /* Make filesystem and finish the initialization
+     * by initializing the "rand" function. */
+    mkfs();
+    rand_init();
+
+    /* End of init messages */
+    kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
 
-	/* Main */
-    #include "debug.h" /* this file is created by "./configure" */
+	/* Debug */
     #ifdef DBG_MAIN
         DBG_MAIN;
     #endif
 
+    /* Start the OS */
     KERNEL_STARTUP;
 	
-    while (true) {
-        KERNEL_UPDATE;
-	}
     return 0;
 }
 

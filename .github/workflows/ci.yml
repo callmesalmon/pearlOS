@@ -11,9 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
     - name: Install build dependencies
-      run: sudo apt install -y nasm
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          nasm \
+          clang \
+          make \
+          xorriso \
+          grub2-common \
+          grub-pc-bin \
+          mtools
+    
     - name: Configure
       run: ./configure
-    - name: Make
+      
+    - name: Build
       run: make
+      
+    - name: Verify build artifacts
+      run: |
+        ls -la build/
+        [ -f build/pearlos.kernel ] || exit 1
+        [ -f build/pearlos.iso ] || exit 1

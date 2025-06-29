@@ -1,3 +1,9 @@
+# This is the .editorconfig.
+# If your text editor supports .editorconfigs, then
+# you're good.
+# If your text editor DOESN'T support .editorconfigs,
+# read doc/STYLE.md for the style guides.
+
 root = true
 
 [*]

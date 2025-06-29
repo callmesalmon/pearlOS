@@ -1,96 +1,103 @@
-# Copyright 2025 Elis Staaf
+# Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+# If your copy of this program doesn't include the license, it is
+# available to read at:
 #
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the LICENSE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
+#     <https://firstdonoharm.dev/version/3/0/core.txt>
 
-.DEFAULT_GOAL=dist/pearl.bin
-.PHONY: clean run run-iso all full
+# Default target
+.PHONY: all clean run iso
 
-EMULATOR = qemu-system-i386
-EMUFLAGS = -display gtk
-LINKER   = ld -m elf_i386 -s
-CC       = clang
-CFLAGS   = -m32 -ffreestanding -fno-pie -Os -c -ggdb -I./lib -I. --target=i686-pc-none-elf \
-		   -march=i686 -I. -fno-builtin -nostdlib -nostdinc -std=c17
-ASMC     = nasm 
-ASMF     = elf32
+# Directories
+BUILD_DIR = build
+ISO_DIR = $(BUILD_DIR)/iso
+BOOT_DIR = $(ISO_DIR)/boot
+GRUB_DIR = $(BOOT_DIR)/grub
 
-KERNEL_C_SOURCES     := $(wildcard kernel/*.c)
-KERNEL_C_OBJECTS     := $(patsubst kernel/%.c, mk/kernel/%.o, $(KERNEL_C_SOURCES))
-DRIVER_C_SOURCES     := $(wildcard drivers/*.c)
-DRIVER_C_OBJECTS     := $(patsubst drivers/%.c, mk/drivers/%.o, $(DRIVER_C_SOURCES))
-CPU_C_SOURCES        := $(wildcard cpu/*.c)
-CPU_C_OBJECTS        := $(patsubst cpu/%.c, mk/cpu/%.o, $(CPU_C_SOURCES))
-LIB_C_SOURCES        := $(wildcard lib/*.c)
-LIB_C_OBJECTS        := $(patsubst lib/%.c, mk/lib/%.o, $(LIB_C_SOURCES))
-FILESYSTEM_C_SOURCES := $(wildcard fs/*.c)
-FILESYSTEM_C_OBJECTS := $(patsubst fs/%.c, mk/fs/%.o, $(FILESYSTEM_C_SOURCES))
+# Output files
+KERNEL = $(BUILD_DIR)/pearlos.kernel
+ISO = $(BUILD_DIR)/pearlos.iso
 
-C_HEADERS = $(wildcard */*.h) $(wildcard kernel/programs/*.h)
+# Toolchain
+CC = clang
+LD = ld
+AS = nasm
+GRUB_MKRESCUE = grub-mkrescue
+QEMU = qemu-system-i386
 
-KERNEL_OBJECTS     = $(KERNEL_C_OBJECTS) mk/kernel/kentry.o
-DRIVER_OBJECT      = $(DRIVER_C_OBJECTS)
-CPU_OBJECTS        = $(CPU_C_OBJECTS) mk/cpu/interrupt.o
-LIB_OBJECTS        = $(LIB_C_OBJECTS)
-FILESYSTEM_OBJECTS = $(FILESYSTEM_C_OBJECTS)
+# Flags
+CFLAGS = -m32 -std=c17 -ffreestanding -fno-pie -fno-builtin -fno-stack-protector \
+         -Wall -Wextra -I. -I./kernel -I./kernel/arch/x86_32 -I./lib -I./cpu -I./drivers -I./fs \
+         -nostdlib -nostdinc -g
 
-all: dist/pearl.bin
+ASFLAGS := -f elf32 -g
+NASMFLAGS := -f elf32 -g
+LDFLAGS = -m elf_i386 -T kernel/arch/x86_32/linker.ld -nostdlib
 
-dist/pearl.bin: mk/bin/kernel.bin mk/bin/bootsect.bin
-	rm -f dist/pearl.bin
-	cat mk/bin/* > $@
-	chmod +x dist/pearl.bin
+# Source files
+KERNEL_C_SOURCES = $(shell find kernel/ -name '*.c')
+KERNEL_ASM_SOURCES = $(shell find kernel/arch/x86_32/ -name '*.S')
+CPU_C_SOURCES = $(shell find cpu/ -name '*.c')
+CPU_ASM_SOURCES = $(shell find cpu/ -name '*.asm')
+DRIVERS_C_SOURCES = $(shell find drivers/ -name '*.c')
+FS_C_SOURCES = $(shell find fs/ -name '*.c')
+LIB_C_SOURCES = $(shell find lib/ -name '*.c')
 
-mk/bin/kernel.bin: $(KERNEL_OBJECTS) $(DRIVER_OBJECT) $(CPU_OBJECTS) $(LIB_OBJECTS) $(FILESYSTEM_OBJECTS)
-	$(LINKER) -o $@ -Ttext 0x1000 $^ --oformat binary
+# Header files
+C_HEADERS = $(shell find ./** -name '*.h')
 
-mk/bin/bootsect.bin: boot/*
-	$(ASMC) -f bin -o $@ boot/bootsect.asm
-	chmod +x $@
+# Object files
+KERNEL_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(KERNEL_C_SOURCES)) \
+              $(patsubst %.S, $(BUILD_DIR)/%.o, $(KERNEL_ASM_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(CPU_C_SOURCES)) \
+              $(patsubst %.asm, $(BUILD_DIR)/%.o, $(CPU_ASM_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(DRIVERS_C_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(FS_C_SOURCES)) \
+              $(patsubst %.c, $(BUILD_DIR)/%.o, $(LIB_C_SOURCES))
 
-mk/kernel/%.o: kernel/%.c $(C_HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Default target
+all: $(ISO)
 
-mk/drivers/%.o: drivers/%.c $(C_HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Create ISO
+$(ISO): $(KERNEL) | $(GRUB_DIR)
+	@mkdir -p $(BOOT_DIR)/grub
+	@cp $(KERNEL) $(BOOT_DIR)/
+	@cp grub.cfg $(GRUB_DIR)/
+	@$(GRUB_MKRESCUE) -o $@ $(ISO_DIR)
 
-mk/cpu/%.o: cpu/%.c $(C_HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Link kernel
+$(KERNEL): $(KERNEL_OBJS) | $(C_HEADERS)
+	@echo "  LD    $@"
+	@$(LD) $(LDFLAGS) -o $@ $^
 
-mk/lib/%.o: lib/%.c $(C_HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Compile C files
+$(BUILD_DIR)/%.o: %.c | $(C_HEADERS)
+	@echo "  CC    $<"
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-mk/fs/%.o: fs/%.c $(C_HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Assemble ASM files with NASM
+$(BUILD_DIR)/%.o: %.S
+	@echo "  AS    $<"
+	@mkdir -p $(@D)
+	@nasm $(NASMFLAGS) $< -o $@
 
-mk/kernel/kentry.o: kernel/kentry.asm
-	$(ASMC) -f $(ASMF) -o $@ $<
+# Assemble .asm files with NASM
+$(BUILD_DIR)/%.o: %.asm
+	@echo "  ASM   $<"
+	@mkdir -p $(@D)
+	@nasm -f elf32 $< -o $@
 
-mk/cpu/interrupt.o: cpu/interrupt.asm
-	$(ASMC) -f $(ASMF) -o $@ $<
+# Create GRUB directory
+$(GRUB_DIR):
+	@mkdir -p $@
 
-qemu: $(.DEFAULT_GOAL)
-	$(EMULATOR) $(EMUFLAGS) $^
+# Run in QEMU
+run qemu: $(ISO)
+	$(QEMU) -cdrom $(ISO) -m 128M -serial stdio
 
+# Clean build files
 clean:
-	rm -f dist/*
-	rm -f mk/bin/*
-	rm -f mk/kernel/*
-	rm -f mk/drivers/*
-	rm -f mk/cpu/*
-	rm -f mk/lib/*
-	rm -f mk/fs/*
+	rm -rf $(BUILD_DIR)
+
+# Create ISO directory structure
+$(shell mkdir -p $(GRUB_DIR))

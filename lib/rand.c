@@ -1,31 +1,18 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #include <rand.h>
 
 int rand_seed;
 
 void rand_init() {
-  int random_data;
-  rand_seed = random_data + 2;
+  int random_data = 0;
+  rand_seed = random_data + 1;
 }
 
 /* Linear congruential generator function
@@ -48,6 +35,6 @@ int rand_lcg(int x) {
  * rand() % (int)
  */
 int rand() {
-  rand_seed = rand_lcg(rand_seed);  /* I have no idea how this is valid C. */
+  rand_seed = rand_lcg(rand_seed);
   return rand_seed;
 }

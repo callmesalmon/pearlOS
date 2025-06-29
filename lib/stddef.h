@@ -1,23 +1,10 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #pragma once
 
@@ -29,31 +16,35 @@ typedef unsigned int uint;
 typedef unsigned short word;
 typedef unsigned char uchar;
 typedef unsigned short ushort;
+typedef unsigned int uint8_t;
 
 /* size_t */
 #ifdef __SIZE_TYPE__
-     typedef __SIZE_TYPE__ size_t;
+    typedef __SIZE_TYPE__ size_t;
 #else
-#    error "[ERROR] \"__SIZE_TYPE__\" is not defined. Can't compile."
+#   error "[ERROR] \"__SIZE_TYPE__\" is not defined. Can't compile."
 #endif
 
 /* Boolean definitions */
 #ifndef __cplusplus
-typedef unsigned char bool;
+    typedef unsigned char bool;
 #endif
 
-#if !defined(true) && !defined(false)
-#    define true (bool) 1
-#    define false (bool) 0
+/* True/False */
+#if !defined(true)
+#   define true (bool) 1
+#endif
+#if !defined(false)
+#   define false (bool) 0
 #endif
 
 /* NULL definition */
 #ifndef NULL
-#    define NULL (void*) 0
+#   define NULL (void*) 0
 #endif
 
 /* High/Low 16 definitions */
 #if !defined(low_16) && !defined(high_16)
-#    define low_16(address) (word)((address) & 0xFFFF)
-#    define high_16(address) (word)(((address) >> 16) & 0xFFFF)
+#   define low_16(address) (word)((address) & 0xFFFF)
+#   define high_16(address) (word)(((address) >> 16) & 0xFFFF)
 #endif

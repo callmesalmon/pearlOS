@@ -1,0 +1,6 @@
+clang
+nasm
+qemu
+make
+grub2
+xorriso

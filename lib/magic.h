@@ -1,27 +1,19 @@
 /*
-Copyright 2025 Elis Staaf
-
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the LICENSE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-*/
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
 
 #pragma once
 
-#include <stdint.h>
+/* ps: I wish I could change the name of this file but uhh
+ * to many files depend on this so this'll be the magic file
+ * I fucking guess lol :3 */
 
-#define plen(arr)  (sizeof(arr) / sizeof(*arr))
+/* ALen (Array [Due to referencing the array
+ * directly] Length) calculates length of array
+ * by using ``sizeof(x) / sizeof(x[0])``. Clang
+ * likes this implementation, and is thus preferred. */
 #define alen(arr) (sizeof(arr) / sizeof(arr[0]))
