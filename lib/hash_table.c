@@ -1,7 +1,15 @@
-#include "hash_table.h"
+/*
+ * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
+ * If your copy of this program doesn't include the license, it is
+ * available to read at:
+ * 
+ *     <https://firstdonoharm.dev/version/3/0/core.txt>
+ */
+
+#include <hash_table.h>
 #include <mem.h>      // for kmalloc, kfree
 #include <string.h>   // for memcpy
-#include <printk.h>   // for error logging if available
+#include <io.h>       // for printk() (error logging)
 
 // Simple hash function using FNV-1a
 static inline uint32_t hash(uint32_t key, size_t bucket_count) {
