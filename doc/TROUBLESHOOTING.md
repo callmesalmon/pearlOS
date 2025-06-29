@@ -1,9 +1,9 @@
 # Troubleshooting pearlOS
 This is the troubleshooting guide for pearlOS. In this guide you will learn about common errors
-in pearlOS and how to fix them.
+in pearlOS and how to fix them. You might want to take a look at ``scripts/dbgbuild.sh`` first,
+it's sometimes pretty useful.
 
 ## Common errors and their solutions
-
-### ``kernel/kernel.c:54:14: fatal error: 'debug.h' file not found``
-There's a simple fix to this. You haven't ran ``./configure``. Running
-``./configure`` will solve this error.
+### QEMU error code 0004
+This is pretty simple. Install your systems equivalent to debians ``grub-pc-bin`` package
+and you're good to go. A real annoying one though, no matter how easy it is to fix.
