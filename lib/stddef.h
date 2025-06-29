@@ -30,8 +30,11 @@ typedef unsigned int uint8_t;
     typedef unsigned char bool;
 #endif
 
-#if !defined(true) && !defined(false)
+/* True/False */
+#if !defined(true)
 #   define true (bool) 1
+#endif
+#if !defined(false)
 #   define false (bool) 0
 #endif
 
