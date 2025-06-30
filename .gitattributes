@@ -2,5 +2,6 @@
 *.sh      linguist-language=bash     diff=bash
 configure linguist-language=bash     diff=bash
 *.asm     linguist-language=assembly diff=assembly
+*.S       linguist-language=assembly diff=assembly
 *.py      linguist-language=Python   diff=Python
 *.mk      linguist-language=Makefile diff=Makefile
