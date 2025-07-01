@@ -16,7 +16,7 @@
 #include <drivers/display_color.h>
 
 /* Defines */
-#ifdef PRINTF_ONLY
+#ifndef PRINTF_ONLY
 #define printf  printf_
 #endif
 
