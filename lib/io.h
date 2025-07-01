@@ -16,7 +16,9 @@
 #include <drivers/display_color.h>
 
 /* Defines */
+#ifdef PRINTF_ONLY
 #define printf  printf_
+#endif
 
 /* Functions */
 void printi(int number);
