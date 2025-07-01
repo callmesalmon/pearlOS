@@ -8,38 +8,6 @@
 
 #include <cpu/port.h>
 
-/* * * * * * * * * * * * * * * * * * *
- *     The fifth commandment.        *
- * * * * * * * * * * * * * * * * * * *
- * When in peril, and in need of     *
- * assistance, *never* turn to       *
- * the __asm__ keyword. It will      *
- * tempt you, but you must resist    *
- * __asm__'s temptation.             *
- * You shall only use __asm__        *
- * when there's no other way out,    *
- * e.g this a sin:                   *
- *                                   *
- *     byte sin() {                  *
- *         __asm__("call hello");    *
- *     }                             *
- *                                   *
- * But this is completely pure:      *
- *      byte pure(word port) {       *
- *         byte result;              *
- *         __asm__("in %%dx, %%al" \ *
- *          : "=a" (result) \        *
- *          : "d" (port));           *
- *      }                            *
- *                                   *
- * Also some other, less important   *
- * commandments also exist like      *
- * "Don't be racist" and "Don't      *
- * be... Like, a nazi or             *
- * something.", but those are less   *
- * important than these.             *
- * * * * * * * * * * * * * * * * * * */
-
 /* Get from port */
 byte port_byte_in(word port) {
     byte result;

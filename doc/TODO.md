@@ -33,3 +33,7 @@
   - [x] Add ``Makefile``
   - [x] Add configuration system
   - [x] Stabilize
+- [ ] Desktop
+  - [ ] Add basic structure
+  - [ ] Upgrade
+  - [ ] Stabilize

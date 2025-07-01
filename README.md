@@ -13,7 +13,7 @@ operating system made by the [same author](https://github.com/GandelXIV);
 things and also to become better at C and Assembly. I am extremely inconsistent
 in the way I update things and I kind of just implement things as I go so keep that in mind :P
 
-[![pearlOS](https://github.com/ElisStaaf/pearlOS/raw/main/prod/boot.png)](https://github.com/ElisStaaf/pearlOS)  
+[![pearlOS](https://github.com/callmesalmon/pearlOS/raw/main/prod/boot.png)](https://github.com/callmesalmon/pearlOS)  
 *Warning: Image may be outdated.*
 
 ## Requirements
@@ -56,16 +56,16 @@ make run # or "make qemu"
 #### Creating a Bootable USB
 
 1. Build the ISO:
-   ```sh
-   make
-   ```
+```sh
+make
+```
 
 2. Use `dd` to write the ISO to a USB drive (replace `/dev/sdX` with your USB device):
-   ```sh
-   sudo dd if=build/pearlos.iso of=/dev/sdX bs=4M status=progress && sync
-   ```
+```sh
+sudo dd if=build/pearlos.iso of=/dev/sdX bs=4M status=progress && sync
+```
 
-   **WARNING:** Be very careful with the device name as this will erase all data on the target device.
+**WARNING:** Be very careful with the device name as this will erase all data on the target device.
 
 ### Troubleshooting
 

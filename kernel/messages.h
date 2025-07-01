@@ -8,6 +8,18 @@
 
 #pragma once
 
+/* == Message naming conventions ==
+ * 1. Structure
+ *  LABEL_TYPE_MESSAGE
+ * 2. Labels
+ *  KERNEL, FIRMWARE,...
+ * 3. Types
+ *  INFO     regular information
+ *  WARNING  possible problem
+ *  ERROR    non-fatal problem
+ *  PANIC    fatal problem
+ */
+
 #define KERNEL_INFO_ENTERED       "Booting..."
 #define KERNEL_INFO_INIT_START    "Initializing..."
 #define KERNEL_INFO_INIT_DONE     "Done!"

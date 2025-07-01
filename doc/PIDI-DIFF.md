@@ -29,9 +29,9 @@ The userland has also been *slightly* modified, including:
 * prompt (which is now "%")
 * renamed commands
 
-The [scripts](https://github.com/callmesalmon/pearlOS/blob/main/scripts) folder has also been modified,
-modifications include:
-* remove useless timing script
+The [scripts](https://github.com/callmesalmon/pearlOS/blob/main/scripts) (on pidi: tools) folder has
+also been modified, modifications include:
+* remove useless timing and archiving script
 * minimalize [gencolours.py](https://github.com/callmesalmon/pearlOS/blob/main/scripts/gencolours.py)\*
 \*: Has been renamed (color -> colour)
 
@@ -52,17 +52,13 @@ improved, changes include:
 * [magic](https://github.com/callmesalmon/pearlOS/blob/main/lib/magic.h)
   * Add magic.h
   * Add `len` macro (`sizeof(x) / sizeof(x[0])`)
-* [stdint](https://github.com/callmesalmon/pearlOS/blob/main/lib/stdint.h)
-  * Add stdint.h
-  * Add `chint` function (is `char` also valid `int`?)
 * [mem](https://github.com/callmesalmon/pearlOS/blob/main/lib/mem.h)
   * Move to stdlib directory
   * Fix some comments
   * Format
   * Debug
 
-Also added other, more insignificant things to for example
-[boot](https://github.com/callmesalmon/pearlOS/blob/main/boot).
+Also added other, more insignificant things.
 
 A better [configuration](https://github.com/callmesalmon/pearlOS/blob/main/config)
 was added. It operates using "profiles" and these "profiles" include different
@@ -70,12 +66,6 @@ configuration files. These are:
 * [config.h](https://github.com/callmesalmon/pearlOS/blob/main/config/config.h)
   * Includes the kernel config.
   * The only C file of the group.
-* [config.asm](https://github.com/callmesalmon/pearlOS/blob/main/config/config.asm)
-  * Configs the boot sector.
-  * Error messages.
-* [kentry.asm](https://github.com/callmesalmon/pearlOS/blob/main/config/kentry.asm)
-  * Configs the entry.
-  * Maybe don't... Touch this one..?
 
 A prototype of a working text editor (e.g superior ``to`` command), is being actively
 worked on, mainly by "androvonx95". It is called zeptex and is found in the "zeptex"
@@ -129,4 +119,5 @@ Androvonx's [pull 19](https://github.com/callmesalmon/pearlOS/pull/19)
 fixed this for a while by increasing kernel size limits, but it was clear that it was not
 enough. Eventually we found a workaround, and it was just by eliminating the custom bootloader
 entirely and using a tool like grub for loading instead. We did just that and the issue was
-solved. The bootloader of the past can be found in [callmesalmon/pearlboot](https://github.com/callmesalmon/pearlboot).
+solved. The bootloader of the past can be found in 
+[callmesalmon/pearlboot](https://github.com/callmesalmon/pearlboot).
