@@ -33,6 +33,9 @@ int main()
 * In general, GNU style
 should be avoided at all costs.
 * Angled brackets imports *ONLY*.
+* In general, C89 style comments
+are the norm, but I don't really
+care tbh :P
 
 # ASM
 ## General:
