@@ -1,5 +1,4 @@
-#ifndef MULTIBOOT_HEADER
-#define MULTIBOOT_HEADER
+#pragma once
 
 #include <stddef.h> 
 
@@ -17,8 +16,6 @@
 #define MULTIBOOT_BOOTLOADER_MAGIC  0x2BADB002
 
 #ifndef ASM
-
-
 
 /* The Multiboot header. */
 typedef struct multiboot_header {
@@ -83,6 +80,4 @@ typedef struct memory_map {
     uint32_t type;
 } memory_map_t;
 
-#endif /* ! ASM */
-
-#endif /* MULTIBOOT_HEADER */
+#endif
