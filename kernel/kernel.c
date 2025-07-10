@@ -73,11 +73,6 @@ int kmain(unsigned long magic, unsigned long addr) {
     kinfo(KERNEL_INFO_INIT_DONE);
 	kinfo(KERNEL_INFO_WELCOME);
 
-	/* Debug */
-    #ifdef DBG_MAIN
-        DBG_MAIN;
-    #endif
-
     /* Start the OS */
     KERNEL_STARTUP;
 	
