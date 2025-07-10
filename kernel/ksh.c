@@ -62,10 +62,6 @@ byte ksh_interpret(char* command) {
         display_theme(WHITE_ON_BLUE);
         theme = "Generic pascal";
     }
-    else if (strcmp(command, "theme-demon")) {
-        display_theme(RED_ON_BLACK);
-        theme = "666";
-    }
     else if (strcmp(command, "theme-hacker")) {
         display_theme(GREEN_ON_BLACK);
         theme = "Hacker >:3";
