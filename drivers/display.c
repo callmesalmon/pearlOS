@@ -34,9 +34,16 @@ void display_char(char character, uint offset, byte color) {
     if (color != TRANSPARENT) video_memory[offset * 2 + 1] = color;
 }
 
-/* Called when display should scroll */
+/* Called when display should scroll.
+ * It just scrolls by one row up. */
 void do_scroll() {
-  display_scroll();
+  for (uint row = 1; row <= DISPLAY_HEIGHT; ++row) {
+    /* Copy the current row to the last */
+    rowcpy(row - 1, row); 
+  }
+  uint cursor_offset = get_cursor_offset();
+  uint cursor_offset_row = get_offset_row(cursor_offset);
+  set_cursor_position( 0, cursor_offset_row - 1);
 }
 
 /* Prints a newline, equivalent to printc('\n') */
@@ -110,16 +117,6 @@ void rowcpy(uint dest, uint src) {
   }
 }
 
-/* Scroll display by 1 row up */
-void display_scroll() {
-  for (uint row = 1; row <= DISPLAY_HEIGHT; ++row) {
-    /* Copy the current row to the last */
-    rowcpy(row - 1, row); 
-  }
-  uint cursor_offset = get_cursor_offset();
-  uint cursor_offset_row = get_offset_row(cursor_offset);
-  set_cursor_position( 0, cursor_offset_row - 1);
-}
 
 /* Clear display */
 void display_clear() {

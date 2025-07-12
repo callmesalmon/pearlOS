@@ -37,7 +37,6 @@ void print(char* text, uint32_t depth);
 void cprint(char* text, uint32_t depth, byte color);
 void printnl();
 void display_clear();
-void display_scroll();
 void display_theme(char color);
 void display_deletec();
 void display_init();
