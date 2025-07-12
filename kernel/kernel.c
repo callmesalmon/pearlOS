@@ -6,6 +6,8 @@
  *     <https://firstdonoharm.dev/version/3/0/core.txt>
  */
 
+// I really hope this is never used.
+// - Sincerely, me (Salmon)
 #ifdef __cplusplus
 extern "C" {
 #endif
