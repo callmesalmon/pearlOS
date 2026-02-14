@@ -1,8 +1,3 @@
-> [!NOTE]
-> pearlOS is no longer developed on github and is instead developed on
-> [codeberg](https://codeberg.org/callmesalmon/pearlOS). The github version
-> will still be up and all but it won't be updated.
-
 # pearlOS: Operating system
 
 [![Build](https://img.shields.io/github/actions/workflow/status/callmesalmon/pearlOS/ci.yml?logo=Github&labelColor=17181B&label=Build)](/)
