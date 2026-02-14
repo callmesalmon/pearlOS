@@ -1,9 +1,3 @@
-# Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
-# If your copy of this program doesn't include the license, it is
-# available to read at:
-#
-#     <https://firstdonoharm.dev/version/3/0/core.txt>
-
 # Default target
 .PHONY: all clean run iso
 
@@ -12,6 +6,7 @@ BUILD_DIR = build
 ISO_DIR = $(BUILD_DIR)/iso
 BOOT_DIR = $(ISO_DIR)/boot
 GRUB_DIR = $(BOOT_DIR)/grub
+CMD_DIR = kernel/cmd
 
 # Output files
 KERNEL = $(BUILD_DIR)/pearlos.kernel
@@ -43,7 +38,7 @@ FS_C_SOURCES = $(shell find fs/ -name '*.c')
 LIB_C_SOURCES = $(shell find lib/ -name '*.c')
 
 # Header files
-C_HEADERS = $(shell find ./** -name '*.h')
+C_HEADERS = $(find ./** -type f -name "*.h")
 
 # Object files
 KERNEL_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(KERNEL_C_SOURCES)) \

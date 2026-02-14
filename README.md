@@ -4,7 +4,6 @@
 [![C17](https://img.shields.io/badge/Standard-C17-A8B9CC?logo=C&labelColor=17181B)](/)
 [![BuildSys](https://img.shields.io/badge/Build%20System-GNU%20Make-0F6713?logo=GNU&labelColor=17181B&logoColor=898484)](/)
 [![Version](https://img.shields.io/badge/Version-Demon-FF0062?labelColor=17181B)](/)
-[![Hippocratic License HL3-CORE](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-CORE&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/core.html)  
 
 pearlOS is an awesome operating system based of (and a continuation of) the discontinued
 [pidi-os](https://github.com/GandelXIV/pidi-os). I *highly* recommend you to check out the new rust-based
@@ -14,7 +13,7 @@ things and also to become better at C and Assembly. I am extremely inconsistent
 in the way I update things and I kind of just implement things as I go so keep that in mind :P
 
 [![pearlOS](https://github.com/callmesalmon/pearlOS/raw/main/prod/boot.png)](https://github.com/callmesalmon/pearlOS)  
-*Warning: Image may be outdated.*
+*Image may be outdated.*
 
 ## Requirements
 
@@ -73,7 +72,7 @@ If you encounter any issues during the build process, please check the following
 1. Ensure all dependencies are installed
 2. Check that you have sufficient disk space
 3. Verify that your system meets the minimum requirements
-4. Consult the [troubleshooting guide](/doc/TROUBLESHOOTING.md) for common issues
+4. Consult the [troubleshooting guide](doc/TROUBLESHOOTING.md) for common issues
 
 ## Uninstalling
 
@@ -85,7 +84,7 @@ make clean
 ## Differences
 
 If you want to see the differences between pearlOS and [pidi-os](https://github.com/GandelXIV/pidi-os),
-see [PIDI-DIFF.md](/doc/PIDI-DIFF.md).
+see [PIDI-DIFF.md](doc/PIDI-DIFF.md).
 
 ## Contributing
 
@@ -102,14 +101,4 @@ If the project dies, you can expect archival or at least a message.
 
 The official pearlOS documentation can be viewed [here](/doc), but keep
 in mind that I'm not that consistent on updating the documentation,
-though it becomes pretty clear on what you have to do if you just...
-rtfc (read the fucking code).
-
-## License
-
-This project is licensed under the [HL3-Core](https://firstdonoharm.dev/version/3/0/core.txt)
-(Hippocratic License 3 Core) license. As long as you abide by the terms of the license, you can
-use this software however you like.
-
-## Developers
-Since late June of 2025, pearlOS has been codeveloped by @callmesalmon and @androvonx95.
+though it becomes pretty clear on what you have to do if you just... Read the code.

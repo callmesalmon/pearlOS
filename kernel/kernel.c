@@ -1,13 +1,3 @@
-/*
- * Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
- * If your copy of this program doesn't include the license, it is
- * available to read at:
- * 
- *     <https://firstdonoharm.dev/version/3/0/core.txt>
- */
-
-// I really hope this is never used.
-// - Sincerely, me (Salmon)
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -1,9 +1,3 @@
-; Copyright (c) Salmon 2025 under the Hippocratic 3.0 license.
-; If your copy of this program doesn't include the license, it is
-; available to read at:
-; 
-;     <https://firstdonoharm.dev/version/3/0/core.txt>
-
 [extern isr_handler] ; ISR handler
 [extern irq_handler] ; IRQ handler
 
