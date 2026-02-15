@@ -1,7 +1,7 @@
 #pragma once
 
 #include <io.h>
-#include <magic.h>
+#include <arrays.h>
 #include <kernel/config.h>
 
 void printcow(void);
