@@ -1,7 +1,7 @@
 #pragma once
 
 /* Includes */
-#include <stddef.h>
+#include <types.h>
 #include <kernel/kmsg.h>
 #include <kernel/config.h>
 

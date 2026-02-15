@@ -5,7 +5,7 @@
  * but this one actually works. And has more fortunes. */ 
 
 #include <io.h>
-#include <magic.h>
+#include <arrays.h>
 #include <rand.h>
 #include <drivers/display.h>
 

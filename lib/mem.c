@@ -1,6 +1,6 @@
-#include <magic.h>
+#include <arrays.h>
 #include <mem.h>
-#include <stddef.h>
+#include <types.h>
 #include <kernel/kmsg.h>
 #include <kernel/config.h>
 

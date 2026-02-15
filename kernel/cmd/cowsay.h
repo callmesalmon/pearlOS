@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <io.h>
 #include <magic.h>
 #include <kernel/config.h>

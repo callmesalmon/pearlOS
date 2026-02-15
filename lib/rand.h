@@ -1,7 +1,7 @@
 #pragma once
 
 /* Includes */
-#include <stddef.h>
+#include <types.h>
 
 /* Defines */
 #define LCG_A 1103515245

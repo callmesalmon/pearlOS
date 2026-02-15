@@ -2,7 +2,7 @@
 extern "C" {
 #endif
 
-#include <stddef.h>
+#include <types.h>
 #include <rand.h>
 #include <mem.h>
 

@@ -4,7 +4,7 @@
 #include <cpu/idt.h>
 #include <drivers/display.h>
 #include <kernel/kmsg.h>
-#include <stddef.h>
+#include <types.h>
 #include <cpu/port.h>
 
 /* Extern functions

@@ -2,7 +2,7 @@
 
 /* Includes */
 #include <cpu/port.h>
-#include <stddef.h>
+#include <types.h>
 
 /* Defines */
 #define REG_DISPLAY_CTRL 0x3d4

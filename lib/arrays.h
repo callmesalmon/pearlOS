@@ -1,9 +1,5 @@
 #pragma once
 
-/* ps: I wish I could change the name of this file but uhh
- * to many files depend on this so this'll be the magic file
- * I fucking guess lol :3 */
-
 /* ALen (Array [Due to referencing the array
  * directly] Length) calculates length of array
  * by using ``sizeof(x) / sizeof(x[0])``. Clang

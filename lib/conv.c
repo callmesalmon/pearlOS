@@ -1,5 +1,5 @@
 #include <conv.h>
-#include <stddef.h>
+#include <types.h>
 
 void uint32_to_str(char* output, uint32_t number) {
     const char digits[] = "0123456789";

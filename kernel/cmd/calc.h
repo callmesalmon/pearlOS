@@ -4,7 +4,7 @@
 #include <math.h>
 #include <string.h>
 #include <conv.h>
-#include <magic.h>
+#include <arrays.h>
 #include <mem.h>
 #include <drivers/display.h>
 #include <kernel/config.h>

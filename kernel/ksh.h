@@ -1,10 +1,10 @@
 #pragma once
 
 /* Includes */
-#include <stddef.h>
+#include <types.h>
 #include <io.h>
 #include <string.h>
-#include <magic.h>
+#include <arrays.h>
 #include <mem.h>
 
 #include <kernel/kmsg.h>

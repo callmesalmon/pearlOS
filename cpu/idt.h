@@ -1,7 +1,7 @@
 #pragma once
 
 /* Includes */
-#include <stddef.h>
+#include <types.h>
 
 /* Segment selectors */
 #define KERNEL_CS 0x08
