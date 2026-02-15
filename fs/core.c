@@ -209,13 +209,7 @@ void mkfs() {
   file_make("license");
   file_writes(
     "license",
-    "pearlOS is released under the Hippocratic 3.0 License (HL3).\n\n"
-    "The Hippocratic License 3.0 (HL3) aims to confront the potential\n"
-    "harms and abuses technology can have on fundamental human rights.\n"
-    "It empowers open source communities to establish a clear set of\n"
-    "ethical standards that licensees must abide by in order to adopt\n"
-    "their code. These standards are based on international agreements and\n"
-    "authorities on fundamental human rights norms.\n"
+    "pearlOS is released under the GNU GPLv2.\n\n"
   );
   file_make("readme");
   file_writes(
@@ -225,8 +219,8 @@ void mkfs() {
     "the KSH manual. You can check out the source code at\n"
     "\"github.com/callmesalmon/pearlOS\", feel free to contribute!\n"
     "And with that, enjoy the OS!\n\n"
-    "PEARLOS: Salmon <elis.staaf@proton.me>, Nov 2024.\n"
-    "PIDI-OS: Filip Chovanec <unknown>, Mar 2021.\n"
+    "PEARLOS: Salmon, Nov 2024.\n"
+    "PIDI-OS: Filip Chovanec, Mar 2021.\n"
   );
   file_make("roadmap");
   file_writes(
