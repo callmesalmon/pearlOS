@@ -1,15 +1,15 @@
 #include <fs/core.h>
 
-File* findex[sizeof(File*) * FS_MAX_FILE_COUNT];
+FILE* findex[sizeof(FILE*) * FS_MAX_FILE_COUNT];
 int findex_end = 0;
 
-File* find_file(char* name) {
+FILE* find_file(char* name) {
   for (int i = 0; i <= findex_end; ++i) {
     if (strcmp(findex[i]->name, name)) {
       return findex[i];
     }
   }
-  return (File*)FILE_NOT_FOUND;
+  return (FILE*)FILE_NOT_FOUND;
 }
 
 bool file_exists(char* name) {
@@ -82,7 +82,7 @@ int file_make(char* name) {
   }
 
   /* Allocate the file */
-  File* fp = kmalloc(sizeof(File));
+  FILE* fp = kmalloc(sizeof(FILE));
   strcpy(fp->name, name);
 
   /* Prepare the sector */
@@ -97,7 +97,7 @@ int file_make(char* name) {
 int file_remove(char* name) {
   for (int i = 0; i < findex_end; ++i) {
     if (strcmp(findex[i]->name, name)) {
-      File* fp = findex[i];
+      FILE* fp = findex[i];
       Sector* fs = fp->first_sector;
       Sector* last_fs;
 
@@ -116,7 +116,7 @@ int file_remove(char* name) {
 }
 
 int file_size(char* name) {
-  File* fp = find_file(name);
+  FILE* fp = find_file(name);
   Sector* fs = fp->first_sector;
 
   /* Find the size */
@@ -133,7 +133,7 @@ int file_size(char* name) {
 /* Write content of file to $output */
 int file_read(char* filename, char* output) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
-  File* fp = find_file(filename);
+  FILE* fp = find_file(filename);
   Sector* fs = fp->first_sector;
 
   do {
@@ -151,7 +151,7 @@ int file_read(char* filename, char* output) {
 
 int file_write(char* filename, char* data, uint32_t depth) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
-  File* fp = find_file(filename);
+  FILE* fp = find_file(filename);
   Sector* fs = fp->first_sector;
 
   char* end = depth + data;
@@ -178,7 +178,7 @@ int file_write(char* filename, char* data, uint32_t depth) {
 
 int file_clean(char* filename) {
   if (!file_exists(filename)) return FILE_NOT_FOUND;
-  File* fp = find_file(filename);
+  FILE* fp = find_file(filename);
   Sector* fs = fp->first_sector;
 
   do {

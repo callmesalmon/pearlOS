@@ -21,17 +21,16 @@
 #define END_SECTOR 0
 
 /* Structs and Types */
-struct SectorStruct {
+typedef struct {
   struct Sector* next;
   byte data[FS_SECTOR_DATA_SIZE];
-};
-typedef struct SectorStruct Sector;
+} Sector;
 
 typedef struct {
   char name[FS_FILE_NAME_BUFFER];
   char tags[FS_FILE_TAGS_BUFFER];
   Sector* first_sector;
-} File;
+} FILE;
 
 /* Functions */
 void mkfs();
