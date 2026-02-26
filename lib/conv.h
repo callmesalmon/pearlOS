@@ -7,7 +7,7 @@
 
 /* Defines */
 #define INVALID_BYTE (byte) 0x1099
-#define INVALID_INT  (int)  INF
+#define INVALID_INT  (int)  -1 // DO NOT HANDLE WITH NEGATIVES, HANK!!!
 #define INT_MAX             2147483647
 
 

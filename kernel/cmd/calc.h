@@ -24,12 +24,13 @@ int ksh_calc() {
     scan(op);
 
     /* Convert */
-    if (str_to_int(s1, alen(s1)) == INVALID_INT || str_to_int(s2, alen(s2)) == INVALID_INT) {
-        println("Invalid number.");
-        return 1;
+    int n1 = str_to_int(s1, sizeof(int));
+    int n2 = str_to_int(s2, sizeof(int));
+
+    if (n1 == INVALID_INT || n2 == INVALID_INT) {
+        printf("Invalid number!\n");
+        return 0;
     }
-    int n1 = str_to_int(s1, alen(s1));
-    int n2 = str_to_int(s2, alen(s2));
 
     /* Handle */
     if (strcmp(op, "+"))      printf("%d\n", n1 + n2);
