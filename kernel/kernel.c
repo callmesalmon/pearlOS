@@ -11,7 +11,6 @@ extern "C" {
 #include <kernel/ksh.h>
 
 #include <cpu/smbios.h>
-#include <cpu/isr.h>
 #include <fs/core.h>
 #include <drivers/keyboard.h>
 
@@ -44,8 +43,7 @@ int kmain(unsigned long magic, unsigned long addr) {
     kinfo(KERNEL_INFO_ENTERED);
     kinfo(KERNEL_INFO_INIT_START);
 
-    /* ISR and SMBIOS */
-    isr_install();
+    /* SMBIOS */
     smbios_init();
 
     /* Display configured default theme */
