@@ -21,10 +21,9 @@
   "       {_____`\\\\|//'_____}   \n" \
   "               `-'             \n"
 
-
 void ksh_pearlfetch() {
   printf(PEARLFETCH_ART);
-  printf("OS: pearlOS %s\n", OS_VERSION);
+  printf("OS: pearlOS %s (%s)\n", OS_VERSION, OS_GENERIC);
 
   printf("BIOS name: %s\n", smbios_get_bios_name());
   printf("BIOS version: %s\n", smbios_get_bios_version());
