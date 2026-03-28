@@ -38,7 +38,7 @@ FS_C_SOURCES = $(shell find fs/ -name '*.c')
 LIB_C_SOURCES = $(shell find lib/ -name '*.c')
 
 # Header files
-C_HEADERS = $(find ./** -type f -name "*.h")
+C_HEADERS = $(shell find ./** -type f -name "*.h")
 
 # Object files
 KERNEL_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(KERNEL_C_SOURCES)) \
