@@ -102,3 +102,8 @@ If the project dies, you can expect archival or at least a message.
 The official pearlOS documentation can be viewed [here](/doc), but keep
 in mind that I'm not that consistent on updating the documentation,
 though it becomes pretty clear on what you have to do if you just... Read the code.
+
+## Acknowledgements
+Thank you to...
+- [GandelXIV](https://github.com/GandelXIV) for creating pidi-os
+- [androvonx95](https://github.com/androvonx95) for important contributions regarding the bootloader
