@@ -19,7 +19,7 @@ in the way I update things and I kind of just implement things as I go so keep t
 
 * [Make](https://www.gnu.org/software/make)
 * [NASM](https://nasm.us)
-* [Clang](https://clang.llvm.org/)
+* [gcc](https://gcc.gnu.org/)
 * [QEMU](https://www.qemu.org)
 * [GRUB](https://www.gnu.org/software/grub/) 2.0 or later
 * [xorriso](https://www.gnu.org/software/xorriso/)

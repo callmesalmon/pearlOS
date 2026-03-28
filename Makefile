@@ -13,7 +13,7 @@ KERNEL = $(BUILD_DIR)/pearlos.kernel
 ISO = $(BUILD_DIR)/pearlos.iso
 
 # Toolchain
-CC = clang
+CC = gcc
 LD = ld
 AS = nasm
 GRUB_MKRESCUE = grub-mkrescue

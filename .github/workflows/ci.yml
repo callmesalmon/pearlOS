@@ -17,7 +17,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y \
           nasm \
-          clang \
+          gcc \
           make \
           xorriso \
           grub2-common \
