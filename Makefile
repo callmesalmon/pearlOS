@@ -65,7 +65,7 @@ $(KERNEL): $(KERNEL_OBJS) | $(C_HEADERS)
 	@$(LD) $(LDFLAGS) -o $@ $^
 
 # Compile C files
-$(BUILD_DIR)/%.o: %.c | $(C_HEADERS)
+$(BUILD_DIR)/%.o: %.c $(C_HEADERS)
 	@echo "  CC    $<"
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
