@@ -72,7 +72,7 @@ uint32_t memory_usage() {
 }
 
 uint32_t memory_total() {
-  return KERNEL_MEMORY_OFFSET_END - KERNEL_MEMORY_OFFSET_START;
+  return KERNEL_MEMORY_OFFSET_END + KERNEL_MEMORY_OFFSET_START;
 }
 
 /* Gets the total size of allocated
