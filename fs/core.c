@@ -203,7 +203,7 @@ void mkfs() {
     "os-release", 
     "NAME=\"pearlOS " OS_GENERIC "\"\n"
     "PRETTY_NAME=\"pearlOS " OS_VERSION "\"\n"
-    "VERSION=\" " OS_VERSION " (" OS_GENERIC ")\"\n"
+    "VERSION=\"" OS_VERSION " (" OS_GENERIC ")\"\n"
     "REPO=\"github.com/callmesalmon/pearlOS\"\n"
   );
   file_make("license");
