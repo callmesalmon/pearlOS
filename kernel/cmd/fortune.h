@@ -43,9 +43,9 @@ int ksh_fortune() {
         "   Theorem. To wit:\n\n"
         "   (1) Capitalism is based on the assumption that you can win.\n"
         "   (2) Socialism is based on the assumption that you can break even.\n"
-        "   (3) Mysticism is based on the assumption that you can quit the game.\n"  
+        "   (3) Mysticism is based on the assumption that you can quit the game.\n",
 
-        "Some code you wrote is probably in someone else's project right now."
+        "Some code you wrote is probably in someone else's project right now.\n"
     };
 
     int fortune_len = alen(fortunes);
