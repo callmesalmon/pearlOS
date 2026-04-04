@@ -15,7 +15,7 @@ mkdir -p build/obj
 echo "[INFO] Checking for required tools..."
 command -v grub-mkrescue >/dev/null 2>&1 || { echo >&2 "GRUB tools not found. Please install GRUB."; exit 1; }
 command -v nasm >/dev/null 2>&1 || { echo >&2 "NASM not found. Please install NASM."; exit 1; }
-command -v clang >/dev/null 2>&1 || { echo >&2 "Clang not found. Please install Clang."; exit 1; }
+command -v gcc >/dev/null 2>&1 || { echo >&2 "GCC not found. Please install GCC."; exit 1; }
 
 # Create GRUB configuration
 echo "[INFO] Configuring GRUB..."
