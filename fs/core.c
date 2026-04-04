@@ -209,7 +209,7 @@ void mkfs() {
   file_make("license");
   file_writes(
     "license",
-    "pearlOS is released under the GNU GPLv2.\n\n"
+    "pearlOS is released under the GNU GPLv2.\n"
   );
   file_make("readme");
   file_writes(
