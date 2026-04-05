@@ -2,6 +2,7 @@
 
 /* Includes */
 #include <types.h>
+#include <ctype.h>
 #include <printf.h>
 #include <drivers/display.h>
 #include <drivers/keyboard.h>

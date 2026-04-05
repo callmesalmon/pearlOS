@@ -63,7 +63,7 @@ void scan(char* output) {
     }
     else if (input == '\n') output[i] = 0;
     else if (input != '\b') {
-      printc(input);
+      if (!iscntrl(input)) printc(input);
       output[i] = input;
       ++i;
     }
