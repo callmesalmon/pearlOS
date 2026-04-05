@@ -55,10 +55,10 @@ void ksh_manpage2() {
     println("theme-light    changes the theme to a light theme");
     println("theme-dark     changes the theme to a dark theme");
     println("theme-pascal   changes the theme to pascal");
-    println("theme-hacker   changes the theme to hacker >:3");
+    println("theme-hacker   changes the theme to hacker");
     println("memstat        get allocated memory usage");
     println("memalloc       allocate memory");
-    println("coin           flip a fucking coin");
+    println("coin           flip a coin");
     println("panic          invoke kernel panic");  
     println("exit           exit OS");
 

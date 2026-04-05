@@ -17,6 +17,7 @@ char *theme;
 #include <kernel/cmd/memstat.h>
 #include <kernel/cmd/cowsay.h>
 #include <kernel/cmd/exit.h>
+#include <kernel/cmd/coin.h>
 
 byte ksh_interpret(char* command) {
     if (!*command) {
@@ -93,7 +94,7 @@ byte ksh_interpret(char* command) {
         return ksh_exit();
     }
     else if (strcmp(command, "coin")) {
-        printf("%s\n", ((rand() % 2) == 1) ? "heads" : "tails");
+        ksh_flip_coin();
     }
     else if (strcmp(command, "panic")) {
         usrpanic();
