@@ -217,10 +217,7 @@ void mkfs() {
     "Thank you for using pearlOS! Many, many thanks!\n"
     "If you've got any questions, type \"help\" to open\n"
     "the KSH manual. You can check out the source code at\n"
-    "\"github.com/callmesalmon/pearlOS\", feel free to contribute!\n"
-    "And with that, enjoy the OS!\n\n"
-    "PEARLOS: Salmon, Nov 2024.\n"
-    "PIDI-OS: Filip Chovanec, Mar 2021.\n"
+    "\"github.com/callmesalmon/pearlOS\", feel free to contribute.\n"
   );
   file_make("roadmap");
   file_writes(
